@@ -120,7 +120,7 @@ dashdash::dashdash(
 remotes::install_github("wzb-ipi/dashdash")
 
 dashdash::dashdash(
-  output_file = "docsexample.html",
+  output_file = "example.html",
   title = "A sample dashboard for my study",
   subtitle = "What's special about this study",
   author   = "D Ash",

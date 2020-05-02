@@ -4,12 +4,7 @@ output:
   rmdformats::html_clean
 ---
 
-```{r, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(knitr)
-library(DT)
-```
+
 
 # 1. Motivation
 
@@ -33,38 +28,22 @@ We also have two ulterior motives:
 
 A spreadsheet that says what your variables are and to which families they belong. For example:
 
-```{r, echo = FALSE}
- my_vars <- data.frame(
-   variable = c("market_open", "price_rice", "aware", "water"),
-   family = c("markets", "markets", "actions", "actions"),
-   short_label = c("Is market open?", "Price of a rice", "Aware of Covid19", "Access to water"),
-   description = c("details on market open", "Price of a cup of rice", "Details on aware of Covid19", "Details on access to water"),
-   stringsAsFactors = FALSE
- )
 
-kable(my_vars, caption = "sample `my_vars` dataframe")
+Table: sample `my_vars` dataframe
 
-```
+variable      family    short_label        description                 
+------------  --------  -----------------  ----------------------------
+market_open   markets   Is market open?    details on market open      
+price_rice    markets   Price of a rice    Price of a cup of rice      
+aware         actions   Aware of Covid19   Details on aware of Covid19 
+water         actions   Access to water    Details on access to water  
 
 ## `my_data`  dataframe
 
 Your data, cleaned and transformed to the point where it is ready for display:
 
-```{r, echo = FALSE}
-my_data <-
-   expand_grid(id = c("Bo", "Bombali", "Bonthe"), date = as.Date(c("2020-04-18", "2020-04-19", "2020-04-20"))) %>%
-   data.frame(stringsAsFactors = FALSE) %>%
-     mutate(n = 3) %>%
-     uncount(n) %>%
-     dplyr::mutate(
-     market_open	 = rbinom(n(), 1, .5),
-     price_rice	 = rbinom(n(), 1, .5),
-     aware	 = rbinom(n(), 1, .5),
-     water	 = rbinom(n(), 1, .5))
-
-datatable(my_data, caption = "sample `my_data` dataframe")
-
-```
+<!--html_preserve--><div id="htmlwidget-cc9e60dcfc9b9ee2df1c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cc9e60dcfc9b9ee2df1c">{"x":{"filter":"none","caption":"<caption>sample `my_data` dataframe<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27"],["Bo","Bo","Bo","Bo","Bo","Bo","Bo","Bo","Bo","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe"],["2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-20","2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-20","2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-20"],[1,1,1,0,1,0,0,0,1,0,0,1,1,0,0,0,1,1,1,0,1,1,0,1,1,1,1],[0,1,1,0,1,1,0,1,0,0,0,1,1,0,1,0,0,1,1,0,1,1,0,0,1,0,1],[0,1,0,0,1,1,1,1,0,1,1,1,0,0,1,0,1,0,1,0,1,1,1,0,1,1,1],[1,1,1,1,1,1,1,1,0,1,0,0,1,0,0,0,0,0,1,1,0,0,0,1,1,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>date<\/th>\n      <th>market_open<\/th>\n      <th>price_rice<\/th>\n      <th>aware<\/th>\n      <th>water<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 The key requirements are that the dataset contains:
 
@@ -75,23 +54,19 @@ The key requirements are that the dataset contains:
 
 Third, a spreadsheet with the text you want to appear. You can provide title and author information in here, or you can provide these directly to the dashboard function.
 
-```{r, echo = FALSE}
 
- my_text <- data.frame(
-   intro_text = "Intro text",
-   intro_note = "Lots of great people worked on this. More information here: ...",
-   data_note = "Study specific note about data source"
-   )
+Table: sample `my_text` dataframe
 
-my_text %>% kable(caption = "sample `my_text` dataframe")
-
-```
+intro_text   intro_note                                                        data_note                             
+-----------  ----------------------------------------------------------------  --------------------------------------
+Intro text   Lots of great people worked on this. More information here: ...   Study specific note about data source 
 
 ## `my_maps` shape files
 
 Last if you want to display maps you should give a path to your shape files:
 
-```{r}
+
+```r
  my_maps <- "c:/temp/shapefiles"
 ```
 
@@ -100,23 +75,11 @@ Last if you want to display maps you should give a path to your shape files:
 
 The dashboard is then produced by `dashdash::dashdash` like this:
 
-```{r, message = FALSE, warning = FALSE, include = FALSE}
-
-dashdash::dashdash(
-  output_file = "C:/Dropbox/github/dashdash/docs/example.html",
-  title = "A sample dashboard for my study",
-  subtitle = "What's special about this study",
-  author   = "D Ash",
-  my_data = my_data,
-  my_vars = my_vars,
-  my_text = my_text,
-  my_maps = my_maps)
-
-```
 
 
-```{r, eval  = FALSE}
 
+
+```r
 remotes::install_github("wzb-ipi/dashdash")
 
 dashdash::dashdash(
@@ -128,7 +91,6 @@ dashdash::dashdash(
   my_vars = my_vars,
   my_text = my_text,
   my_maps = my_maps)
-
 ```
 
 You can then view it: [example.html](example.html)
