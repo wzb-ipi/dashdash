@@ -68,7 +68,7 @@ dashdash <- function(output_file,
   if(is.null(author)) author <- my_text$author
   if(is.null(author)) author <- " "
 
-    dashRmd  <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
+  dashRmd  <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
   childRmd <- system.file("rmd", "child.Rmd", package = "dashdash")
   rmarkdown::render(dashRmd,
                     output_file = output_file,

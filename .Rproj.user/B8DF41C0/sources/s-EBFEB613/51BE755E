@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588416443909.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "51BE755E",
+    "lastKnownWriteTime" : 1588318485,
+    "last_content_update" : 1588318485,
+    "path" : "C:/Dropbox/github/sl-dashboard/docs/index.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "49,7",
+        "scrollLine" : "43"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

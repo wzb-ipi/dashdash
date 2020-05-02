@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588418555831.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "2CFEBE45",
+    "lastKnownWriteTime" : 1588368216,
+    "last_content_update" : 1588368216,
+    "path" : "C:/Dropbox/github/corona/9_paper.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "99,17",
+        "scrollLine" : "94"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

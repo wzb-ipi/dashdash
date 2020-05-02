@@ -1,0 +1,9 @@
+"0","current_means <- my_data[, c(""id"", ""date"", vars)] %>%
+ filter(date == max(date)) %>%
+ group_by(id, date)  %>%
+ summarise_all( function(x)  mean(x, na.rm = T)) 
+
+current_means %>% 
+ kable(caption = ""Mean responses in each district (most recent date)"", col.names = c(""District"", ""Date"", var_labs), digits = 2)
+"
+"0",""

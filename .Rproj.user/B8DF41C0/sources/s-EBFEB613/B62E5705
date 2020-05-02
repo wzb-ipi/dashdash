@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588416814531.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "B62E5705",
+    "lastKnownWriteTime" : 1588420487,
+    "last_content_update" : 1588420487826,
+    "path" : "C:/Dropbox/github/sl-dashboard/docs/SL/make_sl_dash.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "61,0",
+        "scrollLine" : "49"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

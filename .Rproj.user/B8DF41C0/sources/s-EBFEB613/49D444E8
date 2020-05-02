@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "3605538611",
     "id" : "49D444E8",
-    "lastKnownWriteTime" : 1588407257,
-    "last_content_update" : 1588407257759,
+    "lastKnownWriteTime" : 1588421378,
+    "last_content_update" : 1588421378515,
     "path" : "C:/Dropbox/github/dashdash/inst/rmd/child.Rmd",
     "project_path" : "inst/rmd/child.Rmd",
     "properties" : {
-        "cursorPosition" : "83,50",
-        "scrollLine" : "77"
+        "cursorPosition" : "70,0",
+        "scrollLine" : "60"
     },
     "read_only" : false,
     "read_only_alternatives" : [

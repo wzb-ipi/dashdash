@@ -51,7 +51,7 @@ pd <- position_dodge(0.1) # move them .05 to the left and right
     geom_errorbar(aes(ymin=mean-1.96*se, ymax=mean+1.96*se), width=.1, position=pd) +
     geom_line(position=pd) +
     geom_point(position=pd) +
-    facet_grid(variable ~ id, labeller = labeller(variable = var_labs)) 
+    facet_grid(variable ~ id, scales = "free_y", labeller = labeller(variable = var_labs)) 
 
  
 
@@ -59,7 +59,8 @@ pd <- position_dodge(0.1) # move them .05 to the left and right
 
 ### Maps
 
-Showing most recent data available for each district.
+Showing most recent data available for each district. 
+Each map shows the *ranking* of each district relative to the others.
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
 

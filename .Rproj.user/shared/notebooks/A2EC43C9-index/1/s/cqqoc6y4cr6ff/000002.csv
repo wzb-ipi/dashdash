@@ -1,9 +1,0 @@
-"0","remotes::install_github(""wzb-ipi/dashdash"")
-"
-"2","Error: Failed to install 'dashdash' from GitHub:
-  HTTP error 404.
-  Not Found
-
-  Did you spell the repo owner (`wzb-ipi`) and repo name (`dashdash`) correctly?
-  - If spelling is correct, check that you have the required permissions to access the repo.
-"
