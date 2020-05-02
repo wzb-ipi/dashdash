@@ -1,0 +1,2 @@
+"0",""
+"0","my_vars %>% filter(family == fam) %>% select(short_label, description) %>% kable(caption = ""Data definitions"", col.names = c(""Measure"", ""Definition""))"

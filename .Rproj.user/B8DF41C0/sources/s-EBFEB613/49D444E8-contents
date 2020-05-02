@@ -1,0 +1,95 @@
+---
+title: "child"
+author: "sl team"
+date: "4/26/2020"
+output: html_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+fam <- families[k]
+
+```
+
+
+## `r gsub("_", " ", fam)`  {.tabset  .tabset-pills}
+
+### Current averages
+
+```{r, echo = FALSE}
+vars <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(variable)
+var_labs <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(short_label)
+names(var_labs) <- vars
+
+current_means <- my_data[, c("id", "date", vars)] %>%
+ filter(date == max(date)) %>%
+ group_by(id, date)  %>%
+ summarise_all( function(x)  mean(x, na.rm = T)) 
+
+current_means %>% 
+ kable(caption = "Mean responses in each district (most recent date)", col.names = c("District", "Date", var_labs), digits = 2)
+
+```
+
+### Time trends
+
+```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*2}
+
+# New facet label names for supp variable
+pd <- position_dodge(0.1) # move them .05 to the left and right
+
+  my_data %>% 
+    
+    select(all_of(c("id", "date", vars))) %>%
+    reshape2::melt(id.vars= c("id", "date"))  %>% 
+    group_by(id, date, variable) %>%
+    summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), ~length(.))) %>%
+    mutate(se = sd / sqrt(length)) %>%
+    
+    ggplot(aes(x=date, y=mean)) + 
+    geom_errorbar(aes(ymin=mean-1.96*se, ymax=mean+1.96*se), width=.1, position=pd) +
+    geom_line(position=pd) +
+    geom_point(position=pd) +
+    facet_grid(variable ~ id, labeller = labeller(variable = var_labs)) 
+
+ 
+
+```
+
+### Maps
+
+Showing most recent data available for each district.
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+
+par(mar=c(0,0,0,0))
+
+df_map <- left_join(shp_df, current_means)  %>% select(-date) %>%
+  reshape2::melt(id.vars= c("id", "long", "lat", "order", "hole", "piece", "group"))
+
+ggplot() +
+  geom_polygon(data = df_map, 
+               aes( x = long, y = lat,  group = group, fill=value), color="white") +
+  theme_void() + coord_map() + facet_wrap(~variable, labeller = labeller(variable = var_labs))
+
+
+```
+
+
+### Definitions of measures
+
+```{r, echo = FALSE, warning = FALSE}
+
+my_vars %>% filter(family == fam) %>% select(short_label, description) %>% kable(caption = "Data definitions", col.names = c("Measure", "Definition"))
+
+
+```
+
+```{r, include = FALSE}
+k <- k+1
+```
+
+```{r, child = childRmd, echo = FALSE, eval = k <= n_families}
+
+```

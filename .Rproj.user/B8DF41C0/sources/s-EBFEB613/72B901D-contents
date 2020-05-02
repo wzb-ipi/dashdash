@@ -1,0 +1,5 @@
+read.csv("c:/temp/dummy.csv", stringsAsFactors = FALSE) %>% mutate(date = as.Date(date))
+#' 
+#' dummy_df <-
+#' 
+#' #'     #' my_vars <- openxlsx::read.xlsx("c:/temp/20200426_measures.xlsx")

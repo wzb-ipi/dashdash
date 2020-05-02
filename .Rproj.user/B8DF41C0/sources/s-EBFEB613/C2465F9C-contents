@@ -1,0 +1,234 @@
+---
+title: "Sierra Leone Covid-19 Dashboard"
+author: "Tracking Economic Consequences and Responses to COVID-19 in Sierra Leone^[Niccolo Meriggi (IGC Sierra Leone), Macartan Humphreys (WZB Berlin and Columbia Univerisity), Abou Bakarr Kamara (IGC Sierra Leone), Madison Levine (Wageningen U),  Mushfiq Mobarak (Yale University), Wilson Prichard (U Toronto), Ashwini Shridhar (Wageningen U), Peter van der Windt (NYU AD), Maarten Voors (Wageningen University). Feedback welcome! Please get in touch via email at tracking.corona.sl@gmail.com.]"
+output: 
+  html_document
+---
+
+
+```{r setupmaster, include=FALSE, echo = FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+library(dplyr)
+library(openxlsx)
+library(knitr)
+library("xlsx")
+library(foreign)
+library(geosphere)
+library(stargazer)
+library(readstata13)
+library(rgdal)
+library(tidyverse)
+library(skimr)
+library(ggplot2)
+library(broom)
+library(mapproj)
+library(magrittr)
+library(maptools)
+```
+
+Continuous access to information on key economic indicators is essential to help Sierra Leone  respond to the Covid-19 pandemic. 
+
+This dashboard provides real time data on current economic conditions and trends from a phone based survey being rolled out in 195 towns and villages across Sierra Leone.^[Data is representative for 195 semi-rural towns across all Districts of Sierra Leone, with an average of 492 households per town. Rural villages and District headquarter towns are excluded.]  
+
+**Important:** Data below is **fabricated**---it is only used for setting up this dashboard!
+
+---
+
+```{r, warning = FALSE, message = FALSE, echo = FALSE}
+# df <- read.dta13("C:/Dropbox/Sierra Leone Covid/5_data/practice/odk/practice.dta")
+# df2 <- read.dta13("C:/Dropbox/Sierra Leone Covid/5_data/pilot/clean/pilot_day1_mainind.dta")
+
+dummy_df <- expand_grid(id = c("Bo", "Bombali", "Bonthe"), date = as.Date(c("2020-04-18", "2020-04-19", "2020-04-20"))) %>% 
+  data.frame() %>%
+  mutate(n = 3) %>%
+  uncount(n) %>%
+  data.frame() %>%
+  dplyr::mutate(
+    market_open	 = rbinom(n(), 1, .5),
+    market_day	 = rbinom(n(), 1, .5),
+    rice_avail	 = rbinom(n(), 1, .5),
+    cass_avail	 = rbinom(n(), 1, .5),
+    fish_avail	 = rbinom(n(), 1, .5),
+    oil_avail	 = rbinom(n(), 1, .5),
+    mag_avail	 = rbinom(n(), 1, .5),
+    rice_now	 = rbinom(n(), 1, .5),
+    cass_price_now	 = rbinom(n(), 1, .5),
+    fish_now	 = rbinom(n(), 1, .5),
+    oil_now	 = rbinom(n(), 1, .5),
+    mag_now	 = rbinom(n(), 1, .5),
+    less_prefer	 = rbinom(n(), 1, .5),
+    ask_help	 = rbinom(n(), 1, .5),
+    reduce_male	 = rbinom(n(), 1, .5),
+    reduce_female	 = rbinom(n(), 1, .5),
+    reduce_boy	 = rbinom(n(), 1, .5),
+    reduce_girl	 = rbinom(n(), 1, .5),
+    eat_less	 = rbinom(n(), 1, .5),
+    no_eat	 = rbinom(n(), 1, .5),
+    farm_hire	 = rbinom(n(), 1, .5),
+    farm_time	 = rbinom(n(), 1, .5),
+    inputs	 = rbinom(n(), 1, .5),
+    harv	 = rbinom(n(), 1, .5),
+    price	 = rbinom(n(), 1, .5),
+    sell	 = rbinom(n(), 1, .5),
+    status	 = rbinom(n(), 1, .5),
+    bus_price	 = rbinom(n(), 1, .5),
+    bus_sell	 = rbinom(n(), 1, .5),
+    employee	 = rbinom(n(), 1, .5),
+    empl_status	 = rbinom(n(), 1, .5),
+    n_people	 = rbinom(n(), 1, .5),
+    leave	 = rbinom(n(), 1, .5),
+    visit	 = rbinom(n(), 1, .5),
+    dist_market	 = rbinom(n(), 1, .5),
+    aware	 = rbinom(n(), 1, .5),
+    veronica	 = rbinom(n(), 1, .5),
+    water	 = rbinom(n(), 1, .5),
+    wash	 = rbinom(n(), 1, .5),
+    worry	 = rbinom(n(), 1, .5),
+    n_visits	 = rbinom(n(), 1, .5),
+    chc_confident	 = rbinom(n(), 1, .5)
+  )
+
+df <- dummy_df 
+
+
+measures  <- openxlsx::read.xlsx("20200426_measures.xlsx")
+
+families <- pull(measures, family) %>% unique
+n_families <- length(families)
+vars_used <- measures %>% filter(!is.na(variable)) %>% pull(variable)
+vars_used <-c("start", "district",vars_used)
+
+# df1 <- read.dta13("C:/Dropbox/Sierra Leone Covid/5_data/data_in/pilot day 2/20200425.dta")
+# df2 <- read.dta13("C:/Dropbox/Sierra Leone Covid/5_data/data_in/pilot day 2/20200426.dta")
+
+# vars_used[!(vars_used %in% names(df1))]
+# vars_used[!(vars_used %in% names(df2))]
+# df <- select(df2, all_of(vars_used[(vars_used %in% names(df2))]))
+
+
+# Prep maps
+
+shp <- readOGR( 
+  dsn= "../data/shapefiles", 
+  layer="SLE_adm3",
+  verbose=FALSE,
+   stringsAsFactors = F
+) 
+
+shp_df <- broom::tidy(shp, region = "NAME_2")
+
+```
+
+
+#   {.tabset .tabset-pills}
+
+
+## Markets  {.tabset}
+
+```{r, echo = FALSE}
+fam = "markets"
+```
+
+```{r, child = "report_child.Rmd", echo = FALSE}
+
+```
+
+## Food security  {.tabset  .tabset-pills}
+
+```{r, echo = FALSE}
+fam = "food_security"
+```
+
+```{r, child = "report_child.Rmd", echo = FALSE}
+```
+
+
+## Farming  {.tabset  .tabset-pills}
+
+```{r, echo = FALSE}
+fam = "farming"
+```
+
+```{r, child = "report_child.Rmd", echo = FALSE}
+```
+
+## Business  {.tabset  .tabset-pills}
+
+```{r, echo = FALSE}
+fam = "business"
+```
+
+```{r, child = "report_child.Rmd", echo = FALSE}
+```
+
+## Illness  {.tabset  .tabset-pills}
+
+
+```{r, echo = FALSE}
+fam = "illness"
+```
+
+```{r, child = "report_child.Rmd", echo = FALSE}
+```
+
+## Social Distancing  {.tabset  .tabset-pills}
+
+```{r, echo = FALSE}
+fam = "social_distancing"
+```
+
+```{r, child = "report_child.Rmd", echo = FALSE}
+```
+
+## Covid preparedness  {.tabset  .tabset-pills}
+
+```{r, echo = FALSE}
+fam = "covid"
+```
+
+```{r, child = "report_child.Rmd", echo = FALSE}
+```
+
+## Data  {.tabset  .tabset-pills}
+
+### Browse data  {.tabset}
+
+```{r, echo = FALSE}
+library(DT)
+
+df %>%
+ group_by(id, date) %>% mutate(obs = n()) %>% ungroup %>%
+ group_by(id)  %>%
+ summarise_all( function(x)  mean(x, na.rm = T)) %>% 
+ mutate_if(is.numeric, ~round(., 3)) %>%
+  datatable(caption = paste('Data to date, village level'), 
+          rownames = TRUE, 
+          extensions = c('Buttons', 'Scroller', 'ColReorder', 'FixedColumns'), 
+          options = list(colreorder = TRUE, 
+                         dom = 'Bfrtip',
+                         buttons = c('copy', 'csv', 'excel'),
+                         deferRender = TRUE,
+                         scrollY = 200,
+                         scroller = TRUE,
+                         scrollX = TRUE
+#,
+#          fixedColumns = list(leftColumns = 1)
+  )) 
+```
+
+### Data summaries  {.tabset}
+
+
+**Technical**: Summary measures on all data.
+
+```{r, warning = FALSE, echo = FALSE}
+skim(df)
+```
+
+#
+
+---
+
+Notes

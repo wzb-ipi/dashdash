@@ -1,0 +1,8 @@
+"0","# CHECKS"
+"0","if(!exists(""my_data"")) stop(""my_data missing"")"
+"0","if(!exists(""my_vars"")) stop(""my_vars missing"")"
+"0","if(!exists(""my_text"")) stop(""my_text missing"")"
+"0",""
+"0","if(!all(c(""date"", ""id"") %in% names(my_data))) stop(""my_data should include date and id variables"")"
+"0",""
+"0","my_data <- mutate(my_data, date = as.Date(date))"

@@ -1,0 +1,68 @@
+---
+output: pdf_document
+params:
+    set_title: "Title"
+title: "`r params$set_title`"
+author: "Migration Decisions Project"
+---
+
+```{r setup2, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
+library(tidyverse)
+```
+
+Table 1: Number of surveys/forms at different stages in the last reporting day.
+
+Started: a form was opened./ Located: at least one HH exists in this building./ HH Consent: senior HH member consented to interview. / Ind consent: selected individual consented to interview./ Completed: individual survey completed.
+
+
+```{r attempts, echo = FALSE}
+tab1 <- rbind(as.matrix(team_report_count), c("target:","4", "4" , "4", "4", "4") )
+
+kable(tab1,
+      col.names = c("Enumerator", "Started", "Located", "HH Consent", "Ind Consent", "Complete"))
+      #caption = "Survey Counts: Number of surveys/forms at different stages in #last reporting days: Started household attempt / consented head of household / #consented individual / completed survey.")
+```
+
+Table 2: Durations in Minutes: Duration of treatment section; Duration of final segment of individual survey; Duration of surveys overall
+
+```{r durations, echo = FALSE}
+
+tab2 <- rbind(as.matrix(team_report[, 2:5]), c("target:","15", "4" , "70") )
+
+kable(tab2, 
+      col.names = c("Enumerator", "Treatment Admin", "Last Section", "Full Survey")) 
+#caption = "Durations in Minutes: Duration of treatment section; Duration of surveys overall; Duration of final segment of individual survey")
+```
+
+
+
+Table 3: Other patterns: Duplicated IDs, distance in meters between target and start locations, distance in meters between start point and mid point
+
+```{r patterns, echo = FALSE}
+
+tab3 <- rbind(as.matrix(team_report[, c(2, 6:8)]), c("target:","0", "0" , "0") )
+
+kable(tab3, col.names = c("Enumerator", "Duplic ID", "Distance 1", "Distance 2"))
+ #caption = "Other patterns: Duplicated IDs, distance in meters between target and start locations, distance in meters between start point and mid point")
+
+```
+
+\newpage
+
+# Longer term enumerator patterns
+
+Supervisors should keep an eye on these longer term patterns to see if enumerators vary systematically in the gender balance of respondents, the size of the HH rosters, the degree to which their respondents do not self-administer questions when they should or refuse key questions, as well as the distance measures from households. 
+
+```{r patternslong, echo = FALSE}
+
+tab4 <- team_report_long[, -1]
+tab4 <- rbind(as.matrix(tab4), c("target:",".5", "" , "0", "0", "70", "0", "0", "") )
+kable(data.frame(tab4), col.names = c("Enum",  "Gen balance", "Roster size", "Self admins", "Q Refuse", "Surv length", "Dist. 1", "Dist. 2", "Done"),
+ caption = "Longer run trends (since start of survey)")
+
+```
+
+
+* `NaN` means "Not  a number" and normally means that there are no cases of the measure in question.

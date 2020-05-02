@@ -1,0 +1,4 @@
+"0","knitr::opts_chunk$set(echo = FALSE)"
+"0",""
+"0","fam <- families[k]"
+"0",""
