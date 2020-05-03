@@ -84,6 +84,8 @@ Third, a spreadsheet with dashboard specific arguments, inluding any text you wa
    map_path = "c:/temp/shapefiles",
    map_layer = "SLE_adm3",
    map_region =  "NAME_2",
+   group = "District",
+   scale_vars = FALSE,
    stringsAsFactors = FALSE
    )
 

@@ -1,0 +1,6 @@
+"2","r error 4 (R code execution error)"
+"0","current_means_map <- current_means"
+"0","if(scale_vars)"
+"0","    current_means_map <- current_means_map %>% "
+"0","      mutate_at(vars, scale2)"
+"0",""

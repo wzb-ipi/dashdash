@@ -28,7 +28,7 @@ current_means <- my_data[, c("id", "date", vars)] %>%
  summarise_all( function(x)  mean(x, na.rm = T)) 
 
 current_means %>% 
- kable(caption = "Mean responses in each district (most recent date)", col.names = c("District", "Date", var_labs), digits = 2)
+ kable(caption = paste("Mean responses in each ", group, " (most recent date)"), col.names = c(group, "Date", var_labs), digits = 2)
 
 ```
 
@@ -62,11 +62,20 @@ pd <- position_dodge(0.1) # move them .05 to the left and right
 Showing most recent data available for each district. 
 Each map shows the *ranking* of each district relative to the others.
 
-```{r, message = FALSE, warning = FALSE, echo = FALSE}
+```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.cap = paste("Distribution of", ifelse(scale_vars, "standardized", "untransformed"), "variables")}
+
+scale2 <- function(x, na.rm = FALSE) {
+  x <- as.numeric(x)
+ (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)}
 
 par(mar=c(0,0,0,0))
 
-df_map <- left_join(shp_df, current_means)  %>% select(-date) %>%
+current_means_map <- current_means
+if(scale_vars)
+    current_means_map <- current_means_map %>% 
+      mutate_at(vars, scale2)
+
+df_map <- left_join(shp_df, current_means_map)  %>% select(-date) %>%
   reshape2::melt(id.vars= c("id", "long", "lat", "order", "hole", "piece", "group"))
 
 ggplot() +

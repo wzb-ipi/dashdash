@@ -7,13 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "A26281E7",
-    "lastKnownWriteTime" : 1588490452,
-    "last_content_update" : 1588490452367,
+    "lastKnownWriteTime" : 1588495467,
+    "last_content_update" : 1588495467919,
     "path" : "C:/Dropbox/github/dashdash/inst/rmd/dashdash.Rmd",
     "project_path" : "inst/rmd/dashdash.Rmd",
     "properties" : {
-        "cursorPosition" : "84,3",
-        "scrollLine" : "0",
+        "cursorPosition" : "63,11",
+        "scrollLine" : "57",
         "tempName" : "Untitled1"
     },
     "read_only" : false,

@@ -15,7 +15,7 @@
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
 #' @param map_layer String, map layer.
-#' @param normalize Logical. Whether to normalize variabels before map plotting.
+#' @param scale_vars Logical. Whether to scale_vars variabels before map plotting.
 #' @importFrom dplyr mutate filter
 #' @importFrom skimr skim
 #' @export
@@ -65,16 +65,20 @@ dashdash <- function(output_file,
                      my_data,
                      my_args,
                      title = NULL,
+                     group = NULL,
                      subtitle = NULL,
                      author = NULL,
                      map_path = NULL,
                      map_region = NULL,
                      map_layer = NULL,
-                     normalize = NULL,
+                     scale_vars = NULL,
                      ...){
 
   if(is.null(title)) title <- my_args$title
   if(is.null(title)) title <- "No title provided"
+
+  if(is.null(group)) group <- my_args$group
+  if(is.null(group)) group <- "Group"
 
   if(is.null(subtitle))   subtitle <- my_args$subtitle
 
@@ -86,8 +90,10 @@ dashdash <- function(output_file,
   if(is.null(map_region)) map_region <- my_args$map_region
   if(is.null(map_layer)) map_layer  <- my_args$map_layer
 
-  if(is.null(normalize)) normalize <- my_args$normalize
-  if(is.null(normalize)) normalize <- FALSE
+  if(is.null(scale_vars)) scale_vars <- my_args$scale_vars
+  if(scale_vars == "TRUE") scale_vars <- TRUE
+  if(scale_vars == "FALSE") scale_vars <- FALSE
+  if(is.null(scale_vars)) scale_vars <- FALSE
 
   # To do: -- check if layer is contained in my maps and turn off maps if not
   if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")

@@ -10,12 +10,13 @@ dashdash(
   my_data,
   my_args,
   title = NULL,
+  group = NULL,
   subtitle = NULL,
   author = NULL,
   map_path = NULL,
   map_region = NULL,
   map_layer = NULL,
-  normalize = NULL,
+  scale_vars = NULL,
   ...
 )
 }
@@ -40,7 +41,7 @@ dashdash(
 
 \item{map_layer}{String, map layer.}
 
-\item{normalize}{Logical. Whether to normalize variabels before map plotting.}
+\item{scale_vars}{Logical. Whether to scale_vars variabels before map plotting.}
 }
 \description{
 Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.

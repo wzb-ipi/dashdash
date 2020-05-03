@@ -93,7 +93,7 @@ my_data %>%
  group_by(id, date)  %>%
  summarise_all( function(x)  mean(x, na.rm = T)) %>% 
  mutate_if(is.numeric, ~round(., 3)) %>%
-  datatable(caption = paste('Data to date, village level'), 
+  datatable(caption = paste('Data to date, ", group, " level'), 
           rownames = TRUE, 
           extensions = c('Buttons', 'Scroller', 'ColReorder', 'FixedColumns'), 
           options = list(colreorder = TRUE, 
@@ -103,7 +103,6 @@ my_data %>%
                          scrollY = 200,
                          scroller = TRUE,
                          scrollX = TRUE
-#,
 #          fixedColumns = list(leftColumns = 1)
   )) 
 ```
