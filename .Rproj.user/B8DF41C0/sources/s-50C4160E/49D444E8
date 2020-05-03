@@ -5,7 +5,7 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3605538611",
+    "hash" : "0",
     "id" : "49D444E8",
     "lastKnownWriteTime" : 1588421378,
     "last_content_update" : 1588421378515,
@@ -13,7 +13,7 @@
     "project_path" : "inst/rmd/child.Rmd",
     "properties" : {
         "cursorPosition" : "41,2",
-        "scrollLine" : "33"
+        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [

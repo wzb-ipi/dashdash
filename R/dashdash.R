@@ -84,16 +84,13 @@ dashdash <- function(output_file,
   if(is.null(map_path)) map_path <- "shapefiles"
 
   if(is.null(map_region)) map_region <- my_args$map_region
-  if(is.null(map_region)) map_layer  <- my_args$map_layer
+  if(is.null(map_layer)) map_layer  <- my_args$map_layer
 
   if(is.null(normalize)) normalize <- my_args$normalize
   if(is.null(normalize)) normalize <- FALSE
 
-  # Here -- check if layer is contained in my maps and turn off maps if not
-  map_layer <- my_args$map_layer
+  # To do: -- check if layer is contained in my maps and turn off maps if not
   if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
-
-  map_region <- my_args$region
 
   dashRmd  <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
   childRmd <- system.file("rmd", "child.Rmd", package = "dashdash")
