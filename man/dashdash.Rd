@@ -65,7 +65,7 @@ my_data <-
 
 my_vars <- data.frame(
   variable = c("market_open", "price_rice", "aware", "water"),
-  family = c("markets", "markets", "actions", "actions"),
+  family = c("Markets", "Markets", "Actions", "Actions"),
   short_label = c("Is market open?", "Price of a rice", "Aware of Covid19", "Access to water"),
   description = c("details on market open", "Price of a cup of rice", "Details on aware of Covid19", "Details on access to water"),
   stringsAsFactors = FALSE
@@ -76,12 +76,13 @@ my_args <- data.frame(
   datanote = "Study specific note about data source",
   map_path = "c:/temp/shapefiles",
   map_layer = "SLE_adm3",
-  map_region =  "NAME_2"
+  map_region =  "NAME_2",
+  stringsAsFactors = FALSE
   )
 
 
 
-dashdash(output_file = "c:/temp/dashtest.html",
+dashdash(output_file = "dashtest.html",
          title = "title2",
          subtitle = "subtitle here",
          my_data = my_data,
