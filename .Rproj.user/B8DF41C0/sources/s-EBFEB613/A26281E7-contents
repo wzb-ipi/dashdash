@@ -16,12 +16,8 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 
 library(DT)
-library(dplyr)
-library(openxlsx)
 library(knitr)
-library("xlsx")
 library(geosphere)
-library(readstata13)
 library(rgdal)
 library(tidyverse)
 library(skimr)
@@ -37,14 +33,23 @@ library(maptools)
 # CHECKS
 if(!exists("my_data")) stop("my_data missing")
 if(!exists("my_vars")) stop("my_vars missing")
-if(!exists("my_text")) stop("my_text missing")
+if(!exists("my_args")) stop("my_args missing")
+
+  if(is.null(title)) title <- my_args$title
+  if(is.null(title)) title <- "No title provided"
+
+  if(is.null(subtitle)) subtitle <- my_args$subtitle
+  if(is.null(subtitle)) subtitle <- " "
+
+  if(is.null(author)) author <- my_args$author
+  if(is.null(author)) author <- " "
 
 if(!all(c("date", "id") %in% names(my_data))) stop("my_data should include date and id variables")
 
 my_data <- mutate(my_data, date = as.Date(date))
 ```
 
-`r my_text$intro_text`^[`r my_text$intro_note`]
+`r my_args$intro_text`^[`r my_args$intro_note`]
 
 ---
 
@@ -58,14 +63,12 @@ vars_used  <-c("start", "district", vars_used)
 
 # Prep maps
 
-shp <- readOGR( 
-  dsn= my_maps, 
-  layer="SLE_adm3",
-  verbose=FALSE,
-   stringsAsFactors = F
-) 
+shp <- readOGR(dsn = map_path, 
+               layer=map_layer, 
+               verbose=FALSE, 
+               stringsAsFactors = FALSE) 
 
-shp_df <- broom::tidy(shp, region = "NAME_2")
+shp_df <- broom::tidy(shp, region = map_region)
 
 ```
 
@@ -79,7 +82,7 @@ shp_df <- broom::tidy(shp, region = "NAME_2")
 
 ## All Data  {.tabset  .tabset-pills}
 
-`r my_text$data_note`
+`r my_args$data_note`
 
 ### Browse data  {.tabset}
 

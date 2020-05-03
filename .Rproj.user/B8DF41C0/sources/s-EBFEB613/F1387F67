@@ -5,15 +5,15 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2773734129",
+    "hash" : "0",
     "id" : "F1387F67",
-    "lastKnownWriteTime" : 1588420861,
-    "last_content_update" : 1588420861080,
+    "lastKnownWriteTime" : 1588491292,
+    "last_content_update" : 1588491292350,
     "path" : "C:/Dropbox/github/dashdash/R/dashdash.R",
     "project_path" : "R/dashdash.R",
     "properties" : {
-        "cursorPosition" : "70,2",
-        "scrollLine" : "65"
+        "cursorPosition" : "62,20",
+        "scrollLine" : "50"
     },
     "read_only" : false,
     "read_only_alternatives" : [

@@ -5,21 +5,42 @@
 \title{dashdash}
 \usage{
 dashdash(
-  title,
-  subtitle = "",
-  author = "",
-  output_file = "c:/temp/dashtest.html",
-  my_data,
+  output_file,
   my_vars,
-  my_text,
-  my_maps,
+  my_data,
+  my_args,
+  title = NULL,
+  subtitle = NULL,
+  author = NULL,
+  map_path = NULL,
+  map_region = NULL,
+  map_layer = NULL,
+  normalize = NULL,
   ...
 )
 }
 \arguments{
+\item{output_file}{Path to where ouutput should be written, e.g. "docs/index.html"}
+
+\item{my_vars}{dataframe with mapping from variable names to variable families and labels. One ro per variable.}
+
+\item{my_data}{dataframe with data on variables listed in `my_vars`. Should contain a `id` variable that connects with units in map files and a `date` variable.}
+
+\item{my_args}{dataframe with arguments to customize a dashboard.}
+
 \item{title}{Dashboard title}
 
 \item{subtitle}{Dashboard subtitle}
+
+\item{author}{String, names of authors.}
+
+\item{map_path}{String, path to map shapefiles.}
+
+\item{map_region}{String, map region.}
+
+\item{map_layer}{String, map layer.}
+
+\item{normalize}{Logical. Whether to normalize variabels before map plotting.}
 }
 \description{
 Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.
@@ -50,19 +71,21 @@ my_vars <- data.frame(
   stringsAsFactors = FALSE
 )
 
-my_text <- data.frame(
+my_args <- data.frame(
   para = "Intro text",
-  datanote = "Study specific note about data source"
+  datanote = "Study specific note about data source",
+  map_path = "c:/temp/shapefiles",
+  map_layer = "SLE_adm3",
+  map_region =  "NAME_2"
   )
 
-my_maps <- "c:/temp/shapefiles"
 
-dashdash(title = "title2",
-         subtitle = "subitle here",
-         author   = "D Ash",
+
+dashdash(output_file = "c:/temp/dashtest.html",
+         title = "title2",
+         subtitle = "subtitle here",
          my_data = my_data,
          my_vars = my_vars,
-         my_text = my_text,
-         my_maps = my_maps)
+         my_args = my_args)
 
 }
