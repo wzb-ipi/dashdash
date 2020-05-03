@@ -61,7 +61,7 @@ pd <- position_dodge(0.1) # move them .05 to the left and right
 
 Showing most recent data available for each `r group`.
 
-`r if(scale_vars) paste("Each map shows the *relative position* of each", group, "--- a score of 0 means average and 2 or -2 are far above or below average.")`.
+`r if(scale_vars) paste("Each map shows the *relative position* of each", group, "--- a score of 0 means average, and a score of 2 or -2 means far above or below average.")`.
 
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.cap = paste("Distribution of", ifelse(scale_vars, "standardized", "untransformed"), "variables")}
