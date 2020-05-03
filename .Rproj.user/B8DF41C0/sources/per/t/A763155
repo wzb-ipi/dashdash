@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588408199288.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1902149132",
+    "id" : "A763155",
+    "lastKnownWriteTime" : 1588490932,
+    "last_content_update" : 1588490932686,
+    "path" : "C:/Dropbox/github/dashdash/docs/index.Rmd",
+    "project_path" : "docs/index.Rmd",
+    "properties" : {
+        "cursorPosition" : "90,0",
+        "scrollLine" : "90",
+        "tempName" : "Untitled2"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

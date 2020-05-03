@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588313193855.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3109148432",
+    "id" : "F1387F67",
+    "lastKnownWriteTime" : 1588491769,
+    "last_content_update" : 1588491769909,
+    "path" : "C:/Dropbox/github/dashdash/R/dashdash.R",
+    "project_path" : "R/dashdash.R",
+    "properties" : {
+        "cursorPosition" : "54,0",
+        "scrollLine" : "45"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

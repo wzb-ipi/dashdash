@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1588400623525.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "649331192",
+    "id" : "A26281E7",
+    "lastKnownWriteTime" : 1588490452,
+    "last_content_update" : 1588490452367,
+    "path" : "C:/Dropbox/github/dashdash/inst/rmd/dashdash.Rmd",
+    "project_path" : "inst/rmd/dashdash.Rmd",
+    "properties" : {
+        "cursorPosition" : "84,3",
+        "scrollLine" : "78",
+        "tempName" : "Untitled1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
