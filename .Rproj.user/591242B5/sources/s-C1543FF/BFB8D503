@@ -2,18 +2,18 @@
     "collab_server" : "",
     "contents" : "",
     "created" : 1588511340313.000,
-    "dirty" : true,
+    "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "0",
+    "hash" : "2236017126",
     "id" : "BFB8D503",
-    "lastKnownWriteTime" : 1588514027,
-    "last_content_update" : 1588514133766,
+    "lastKnownWriteTime" : 1588578118,
+    "last_content_update" : 1588578118419,
     "path" : "C:/Dropbox/github/dashdash/inst/rmd/child.Rmd",
     "project_path" : "inst/rmd/child.Rmd",
     "properties" : {
-        "cursorPosition" : "63,142",
-        "scrollLine" : "50"
+        "cursorPosition" : "36,187",
+        "scrollLine" : "31"
     },
     "read_only" : false,
     "read_only_alternatives" : [

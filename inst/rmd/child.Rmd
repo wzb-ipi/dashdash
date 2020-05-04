@@ -34,7 +34,7 @@ current_means %>%
 
 ### Time trends
 
-```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*2, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*1.5, fig.height = (unique(my_data$id) %>% length)*1, message = FALSE, warning = FALSE}
 
 # New facet label names for supp variable
 pd <- position_dodge(0.1) # move them .05 to the left and right
@@ -51,9 +51,8 @@ pd <- position_dodge(0.1) # move them .05 to the left and right
     geom_errorbar(aes(ymin=mean-1.96*se, ymax=mean+1.96*se), width=.1, position=pd) +
     geom_line(position=pd) +
     geom_point(position=pd) +
-    facet_grid(variable ~ id, scales = "free_y", labeller = labeller(variable = var_labs)) 
-
- 
+    facet_grid(variable ~ id, scales = "free_y", labeller = labeller(variable = var_labs)) +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
 ```
 
@@ -61,7 +60,7 @@ pd <- position_dodge(0.1) # move them .05 to the left and right
 
 Showing most recent data available for each `r group`.
 
-`r if(scale_vars) paste("Each map shows the *relative position* of each", group, "--- a score of 0 means average and 2 or -2 are far above or below average.")`.
+`r if(scale_vars) paste("Each map shows the *relative position* of each", group, "--- a score of 0 means average, and a score of 2 or -2 means far above or below average.")`
 
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.cap = paste("Distribution of", ifelse(scale_vars, "standardized", "untransformed"), "variables")}
