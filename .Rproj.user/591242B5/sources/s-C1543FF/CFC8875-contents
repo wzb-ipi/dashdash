@@ -91,9 +91,9 @@ dashdash <- function(output_file,
   if(is.null(map_layer)) map_layer  <- my_args$map_layer
 
   if(is.null(scale_vars)) scale_vars <- my_args$scale_vars
+  if(is.null(scale_vars)) scale_vars <- FALSE
   if(scale_vars == "TRUE") scale_vars <- TRUE
   if(scale_vars == "FALSE") scale_vars <- FALSE
-  if(is.null(scale_vars)) scale_vars <- FALSE
 
   # To do: -- check if layer is contained in my maps and turn off maps if not
   if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
