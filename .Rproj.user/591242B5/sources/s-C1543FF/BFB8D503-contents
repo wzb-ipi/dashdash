@@ -34,7 +34,7 @@ current_means %>%
 
 ### Time trends
 
-```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*1.5, fig.height = (unique(my_data$id) %>% length)*1, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*1.5, fig.height = (unique(my_data$id) %>% length)*1.2, message = FALSE, warning = FALSE}
 
 # New facet label names for supp variable
 pd <- position_dodge(0.1) # move them .05 to the left and right

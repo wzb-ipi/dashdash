@@ -5,14 +5,14 @@
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "2236017126",
+    "hash" : "2979687765",
     "id" : "BFB8D503",
-    "lastKnownWriteTime" : 1588578118,
-    "last_content_update" : 1588578118419,
+    "lastKnownWriteTime" : 1588578364,
+    "last_content_update" : 1588578364772,
     "path" : "C:/Dropbox/github/dashdash/inst/rmd/child.Rmd",
     "project_path" : "inst/rmd/child.Rmd",
     "properties" : {
-        "cursorPosition" : "36,187",
+        "cursorPosition" : "36,192",
         "scrollLine" : "31"
     },
     "read_only" : false,
