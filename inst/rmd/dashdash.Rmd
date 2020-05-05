@@ -14,18 +14,6 @@ output:
 ```{r, include=FALSE, echo = FALSE}
 
 knitr::opts_chunk$set(echo = FALSE)
-
-library(DT)
-library(knitr)
-library(geosphere)
-library(rgdal)
-library(tidyverse)
-library(skimr)
-library(ggplot2)
-library(broom)
-library(mapproj)
-library(magrittr)
-library(maptools)
 ```
 
 
@@ -62,6 +50,10 @@ vars_used  <-c("start", "district", vars_used)
 
 
 # Prep maps
+
+if (!isTRUE(gpclibPermitStatus())){
+  gpclibPermit()
+}
 
 shp <- readOGR(dsn = map_path, 
                layer=map_layer, 
