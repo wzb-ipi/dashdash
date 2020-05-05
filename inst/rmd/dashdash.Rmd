@@ -29,7 +29,7 @@ library(maptools)
 ```
 
 
-```{r, warning = FALSE, message = FALSE, echo = FALSE}
+```{r checks, warning = FALSE, message = FALSE, echo = FALSE}
 # CHECKS
 if(!exists("my_data")) stop("my_data missing")
 if(!exists("my_vars")) stop("my_vars missing")
@@ -53,7 +53,7 @@ my_data <- mutate(my_data, date = as.Date(date))
 
 ---
 
-```{r, warning = FALSE, message = FALSE, echo = FALSE}
+```{r prep_maps, warning = FALSE, message = FALSE, echo = FALSE}
 families   <- my_vars %>% pull(family) %>% unique
 n_families <- length(families)
 k          <- 1
@@ -86,7 +86,7 @@ shp_df <- broom::tidy(shp, region = map_region)
 
 ### Browse data  {.tabset}
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r datatable, echo = FALSE, message = FALSE, warning = FALSE}
 
 my_data %>%
  group_by(id, date) %>% mutate(obs = n()) %>% ungroup %>%
@@ -111,7 +111,7 @@ my_data %>%
 
 **Technical**: Summary measures on all data.
 
-```{r, warning = FALSE, echo = FALSE}
+```{r summaries, warning = FALSE, echo = FALSE}
 skimr::skim(my_data)
 ```
 
