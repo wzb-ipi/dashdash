@@ -85,7 +85,7 @@ dashdash <- function(output_file,
   if(is.null(author))  author <- my_args$author
 
   if(is.null(map_path)) map_path <- my_args$map_path
-  if(is.null(map_path)) map_path <- "shapefiles"
+  if(is.null(map_path)) map_path <-  system.file("shapefiles", package = "dashdash")
 
   if(is.null(map_region)) map_region <- my_args$map_region
   if(is.null(map_layer)) map_layer  <- my_args$map_layer
