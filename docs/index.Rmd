@@ -15,19 +15,26 @@ library(DT)
 
 Lots of Covid-19 studies are going on. This tool can be used to present basic results in a simple manner in real time (or, as quickly as you can make your data available). 
 
-We also have two ulterior motives:
+Here's an example from Sierra Leone:  https://sl-dashboard.github.io/corona/
+
+Besides helping you display data we have two ulterior motives:
 
 * If teams use this it would be easy to use it to create a meta-dashboard across teams and countries making it easy to locate and view the good work being done
 * If teams use this then it would not be hard to pool studies together to calculate cross study aggregates. In addition to the basic information, good aggregation woudl require sampling weights information.
 
-* **Note on software**: the dashboard is produced using `Rmarkdown` but the inputs are just datafile. If you work in stata or anything else and can produce `.dta` files (best to save as version 13 or below), `.csv` or `xls` it should be easy to inputhose to this set up. 
+Notes:
 
-* **Note on hosting**: If you can get the input files to us and can regularly upload your data to github we think we can produce and host the dashboard on this site and catalogue it with other ones. Contact us at:...
+* **Software**: the dashboard is produced using `Rmarkdown` but the inputs are just datas. If you work in stata or anything else and can produce `.dta` files (best to save as version 13 or below), `.csv` or `xls` it should be easy to input those to this set up. 
+
+* **Hosting**: If you can get the input files to us and can regularly upload your data to github we think we can produce and host the dashboard on this site and catalogue it with other ones. Alternatively the package produces a htm file that you can host anywhere. Contact us at:...
 
 * **Note on open source material**: All material here is open source. Data posted here will be made public and should not contain any personally identifiable information.
 
+* **Workflow**: we are still figuring it out but we think we can set this up so that once the basic parameteres are set, periodic data can be provided via a pull request or a link to a repository and then the dashboard will automatically update.
 
 # 2. Inputs
+
+The dashboard function requires three key inputs:
 
 ## `my_vars` dataframe
 
@@ -45,6 +52,8 @@ A spreadsheet that says what your variables are and to which families they belon
 kable(my_vars, caption = "sample `my_vars` dataframe")
 
 ```
+
+The short labels here appear on the figures and graphs and really should be short.
 
 ## `my_data`  dataframe
 
