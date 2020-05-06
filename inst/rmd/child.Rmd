@@ -47,7 +47,7 @@ pd <- position_dodge(0.1) # move them .05 to the left and right
     geom_errorbar(aes(ymin=mean-1.96*se, ymax=mean+1.96*se), width=.1, position=pd) +
     geom_line(position=pd) +
     geom_point(position=pd) +
-    facet_grid(variable ~ id, scales = "free_y", labeller = labeller(variable = var_labs)) +
+    facet_grid(variable ~ id, scales = "free_y", labeller = labeller(variable = var_labs), switch = switch) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ```

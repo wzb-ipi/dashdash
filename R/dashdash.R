@@ -15,6 +15,7 @@
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
 #' @param map_layer String, map layer.
+#' @param switch ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".
 #' @param scale_vars Logical. Whether to scale_vars variabels before map plotting.
 #' @importFrom dplyr mutate filter
 #' @importFrom skimr skim
@@ -94,6 +95,8 @@ dashdash <- function(output_file,
   if(is.null(scale_vars)) scale_vars <- FALSE
   if(scale_vars == "TRUE") scale_vars <- TRUE
   if(scale_vars == "FALSE") scale_vars <- FALSE
+
+  switch  <- my_args$switch
 
   # To do: -- check if layer is contained in my maps and turn off maps if not
   if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
