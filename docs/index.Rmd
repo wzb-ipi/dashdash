@@ -67,7 +67,8 @@ my_data <-
      market_open	 = rbinom(n(), 1, .5),
      price_rice	 = rbinom(n(), 1, .5),
      aware	 = rbinom(n(), 1, .5),
-     water	 = rbinom(n(), 1, .5))
+     water	 = rbinom(n(), 1, .5)) %>/
+     distinct()
 
 datatable(my_data, caption = "sample `my_data` dataframe")
 

@@ -4,26 +4,14 @@
 \alias{dashdash}
 \title{dashdash}
 \usage{
-dashdash(
-  output_file,
-  my_vars,
-  my_data,
-  my_args,
-  title = NULL,
-  group = NULL,
-  subtitle = NULL,
-  author = NULL,
-  map_path = NULL,
-  map_region = NULL,
-  map_layer = NULL,
-  scale_vars = NULL,
-  ...
-)
+dashdash(output_file, my_vars, my_data, my_args, title = NULL,
+  group = NULL, subtitle = NULL, author = NULL, map_path = NULL,
+  map_region = NULL, map_layer = NULL, scale_vars = NULL, ...)
 }
 \arguments{
 \item{output_file}{Path to where ouutput should be written, e.g. "docs/index.html"}
 
-\item{my_vars}{dataframe with mapping from variable names to variable families and labels. One ro per variable.}
+\item{my_vars}{dataframe with mapping from variable names to variable families and labels. One row per variable.}
 
 \item{my_data}{dataframe with data on variables listed in `my_vars`. Should contain a `id` variable that connects with units in map files and a `date` variable.}
 
@@ -42,6 +30,8 @@ dashdash(
 \item{map_layer}{String, map layer.}
 
 \item{scale_vars}{Logical. Whether to scale_vars variabels before map plotting.}
+
+\item{switch}{ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".}
 }
 \description{
 Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.

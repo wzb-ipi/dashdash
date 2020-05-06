@@ -1,9 +1,0 @@
-"0","
-#my_vars <- openxlsx::read.xlsx(""20200426_measures.xlsx"") %>%
-my_vars <- openxlsx::read.xlsx(""measures.xlsx"") %>%
-  filter(!is.na(variable)) %>%
-  filter(!duplicated(variable))
-"
-"2","Error in openxlsx::read.xlsx(""measures.xlsx"") %>% filter(!is.na(variable)) %>%  : 
-  could not find function ""%>%""
-"

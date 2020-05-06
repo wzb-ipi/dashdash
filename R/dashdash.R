@@ -6,7 +6,7 @@
 #' with `install.packages('rgeos', type='source')` and `install.packages('rgdal', type='source')`
 #'
 #' @param output_file Path to where ouutput should be written, e.g. "docs/index.html"
-#' @param my_vars dataframe with mapping from variable names to variable families and labels. One ro per variable.
+#' @param my_vars dataframe with mapping from variable names to variable families and labels. One row per variable.
 #' @param my_data dataframe with data on variables listed in `my_vars`. Should contain a `id` variable that connects with units in map files and a `date` variable.
 #' @param my_args dataframe with arguments to customize a dashboard.
 #' @param title Dashboard title
@@ -74,6 +74,10 @@ dashdash <- function(output_file,
                      map_layer = NULL,
                      scale_vars = NULL,
                      ...){
+
+  #this are helper functions that show errors if inputs are problematic
+  check_my_vars(my_vars)
+  check_my_data(my_data)
 
   if(is.null(title)) title <- my_args$title
   if(is.null(title)) title <- "No title provided"
