@@ -17,26 +17,6 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-```{r checks, warning = FALSE, message = FALSE, echo = FALSE}
-# CHECKS
-if(!exists("my_data")) stop("my_data missing")
-if(!exists("my_vars")) stop("my_vars missing")
-if(!exists("my_args")) stop("my_args missing")
-
-  if(is.null(title)) title <- my_args$title
-  if(is.null(title)) title <- "No title provided"
-
-  if(is.null(subtitle)) subtitle <- my_args$subtitle
-  if(is.null(subtitle)) subtitle <- " "
-
-  if(is.null(author)) author <- my_args$author
-  if(is.null(author)) author <- " "
-
-if(!all(c("date", "id") %in% names(my_data))) stop("my_data should include date and id variables")
-
-my_data <- mutate(my_data, date = as.Date(date))
-```
-
 `r my_args$intro_text`^[`r my_args$intro_note`]
 
 ---

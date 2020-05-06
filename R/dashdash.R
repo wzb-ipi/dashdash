@@ -100,10 +100,17 @@ dashdash <- function(output_file,
   if(scale_vars == "TRUE") scale_vars <- TRUE
   if(scale_vars == "FALSE") scale_vars <- FALSE
 
+  if(is.null(ftplot)) ft_plot <- my_args$ft_plot
+  if(is.null(ftplot)) ft_plot <- FALSE
+
   switch  <- my_args$switch
 
   # To do: -- check if layer is contained in my maps and turn off maps if not
   if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
+
+  # Data checks
+  if(!all(c("date", "id") %in% names(my_data))) stop("my_data should include date and id variables")
+  my_data <- mutate(my_data, date = as.Date(date))
 
   dashRmd  <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
   childRmd <- system.file("rmd", "child.Rmd", package = "dashdash")
