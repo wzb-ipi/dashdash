@@ -4,9 +4,23 @@
 \alias{dashdash}
 \title{dashdash}
 \usage{
-dashdash(output_file, my_vars, my_data, my_args, title = NULL,
-  group = NULL, subtitle = NULL, author = NULL, map_path = NULL,
-  map_region = NULL, map_layer = NULL, scale_vars = NULL, ...)
+dashdash(
+  output_file,
+  my_vars,
+  my_data,
+  my_args,
+  title = NULL,
+  group = NULL,
+  subtitle = NULL,
+  author = NULL,
+  map_path = NULL,
+  map_region = NULL,
+  map_layer = NULL,
+  scale_vars = NULL,
+  pd_width = 0.1,
+  ft_plot = NULL,
+  ...
+)
 }
 \arguments{
 \item{output_file}{Path to where ouutput should be written, e.g. "docs/index.html"}
@@ -31,7 +45,11 @@ dashdash(output_file, my_vars, my_data, my_args, title = NULL,
 
 \item{scale_vars}{Logical. Whether to scale_vars variabels before map plotting.}
 
+\item{ft_plot}{Add a Financial Times type plot}
+
 \item{switch}{ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".}
+
+\item{country_code}{three letter country code}
 }
 \description{
 Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.

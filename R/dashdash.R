@@ -17,6 +17,8 @@
 #' @param map_layer String, map layer.
 #' @param switch ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".
 #' @param scale_vars Logical. Whether to scale_vars variabels before map plotting.
+#' @param ft_plot Add a Financial Times type plot
+#' @param country_code three letter country code
 #' @importFrom dplyr mutate filter
 #' @importFrom skimr skim
 #' @export
@@ -73,7 +75,11 @@ dashdash <- function(output_file,
                      map_region = NULL,
                      map_layer = NULL,
                      scale_vars = NULL,
+                     pd_width = .1,
+                     ft_plot = NULL,
                      ...){
+
+  pd <- ggplot2::position_dodge(pd_width)
 
   #this are helper functions that show errors if inputs are problematic
   check_my_vars(my_vars)
@@ -100,8 +106,8 @@ dashdash <- function(output_file,
   if(scale_vars == "TRUE") scale_vars <- TRUE
   if(scale_vars == "FALSE") scale_vars <- FALSE
 
-  if(is.null(ftplot)) ft_plot <- my_args$ft_plot
-  if(is.null(ftplot)) ft_plot <- FALSE
+  if(is.null(ft_plot)) ft_plot <- my_args$ft_plot
+  if(is.null(ft_plot)) ft_plot <- FALSE
 
   switch  <- my_args$switch
 
