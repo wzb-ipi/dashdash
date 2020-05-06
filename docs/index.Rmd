@@ -6,9 +6,7 @@ output:
 
 ```{r, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(knitr)
-library(DT)
+library(dashdash)
 ```
 
 # 1. Motivation
@@ -86,17 +84,17 @@ Third, a spreadsheet with dashboard specific arguments, inluding any text you wa
 
 ```{r, echo = FALSE}
 
- my_args <- data.frame(
-   intro_text = "Intro text",
-   intro_note = "Lots of great people worked on this. More information here: ...",
-   data_note = "Study specific note about data source",
-   map_path = paste0(getwd(), '/shapefiles'),
-   map_layer = "SLE_adm3",
-   map_region =  "NAME_2",
-   group = "District",
-   scale_vars = TRUE,
-   stringsAsFactors = FALSE
-   )
+my_args <- data.frame(
+  intro_text = "Intro text",
+  intro_note = "Lots of great people worked on this. More information here: ...",
+  data_note = "Study specific note about data source",
+  map_path = paste0(getwd(), '/shapefiles'),
+  map_layer = "SLE_adm3",
+  map_region =  "NAME_2",
+  group = "District",
+  scale_vars = TRUE,
+  stringsAsFactors = FALSE
+)
 
 my_args %>% kable(caption = "sample `my_args` dataframe")
 
