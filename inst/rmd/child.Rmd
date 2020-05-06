@@ -30,13 +30,15 @@ current_means <- my_data[, c("id", "date", vars)] %>%
 
 ### Time trends
 
-```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.width = length(vars)*1.42 + 1, message = FALSE, warning = FALSE}
+#### National aggregates
+
+```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
 
 # New facet label names for supp variable
   my_data %>% 
     
-    select(all_of(c("id", "date", vars))) %>%
-    reshape2::melt(id.vars= c("id", "date"))  %>% 
+    select(all_of(c("date", vars))) %>%
+    reshape2::melt(id.vars= c("date"))  %>% 
     group_by(date, variable) %>%
     summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), ~length(.))) %>%
     mutate(se = sd / sqrt(length)) %>%
@@ -45,13 +47,15 @@ current_means <- my_data[, c("id", "date", vars)] %>%
     geom_errorbar(aes(ymin=mean-1.96*se, ymax=mean+1.96*se), width=.1, position=pd) +
     geom_line(position=pd) +
     geom_point(position=pd) +
-    facet_grid( ~ variable, labeller = labeller(variable = var_labs), switch = switch) +
+    facet_wrap(~variable, scales = "free_y", labeller = labeller(variable = var_labs), strip.position = "top") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 ```
 
+#### Broken down by `r group`
 
-```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
+
+```{r, echo = FALSE, fig.cap="Disaggregated average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
 
 # New facet label names for supp variable
   my_data %>% 
