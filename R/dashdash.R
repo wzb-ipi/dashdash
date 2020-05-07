@@ -12,6 +12,7 @@
 #' @param title Dashboard title
 #' @param subtitle Dashboard subtitle
 #' @param author String, names of authors.
+#' @param add_maps Option to add a map tab
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
 #' @param map_layer String, map layer.
@@ -19,6 +20,7 @@
 #' @param scale_vars Logical. Whether to scale_vars variabels before map plotting.
 #' @param ft_plot Add a Financial Times type plot
 #' @param country_code three letter country code used for Financial Times plot
+#' @param pd_width position dodge argument for graphing aesthetics
 #' @importFrom dplyr mutate filter
 #' @importFrom skimr skim
 #' @export
