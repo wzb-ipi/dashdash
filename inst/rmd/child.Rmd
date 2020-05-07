@@ -7,7 +7,6 @@ output: html_document
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-
 fam <- families[k]
 
 ```
@@ -22,10 +21,7 @@ vars <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(variable)
 var_labs <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(short_label)
 names(var_labs) <- vars
 
-current_means <- my_data[, c("id", "date", vars)] %>%
- filter(date == max(date)) %>%
- group_by(id, date)  %>%
- summarise_all( function(x)  mean(x, na.rm = T)) 
+
 ```
 
 ### Time trends
@@ -74,6 +70,11 @@ plot_aggregates(my_data, vars, var_labs, pd = pd)
 ### Current averages
 
 ```{r, echo = FALSE}
+
+current_means <- my_data[, c("id", "date", vars)] %>%
+ filter(date == max(date)) %>%
+ group_by(id, date)  %>%
+ summarise_all( function(x)  mean(x, na.rm = T)) 
 
 current_means %>% 
   
