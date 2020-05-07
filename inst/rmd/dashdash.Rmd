@@ -47,6 +47,12 @@ shp_df <- broom::tidy(shp, region = map_region)
 
 #   {.tabset .tabset-pills}
 
+<!-- Optionally add FT style plots -->
+
+```{r, child = ftplotRmd, echo = FALSE, eval = ft_plot}
+
+```
+
 ```{r, child = childRmd, echo = FALSE, eval = k>0}
 
 ```

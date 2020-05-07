@@ -1,0 +1,22 @@
+---
+title: "ft plot"
+author: "sl team"
+date: "4/26/2020"
+output: html_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+fam <- families[k]
+
+```
+
+
+## Cases
+
+
+```{r, message = FALSE, warning = FALSE}
+
+ft_country_graphs(my_country_code = country_code, df = ft_data)
+
+```

@@ -18,7 +18,7 @@
 #' @param switch ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".
 #' @param scale_vars Logical. Whether to scale_vars variabels before map plotting.
 #' @param ft_plot Add a Financial Times type plot
-#' @param country_code three letter country code
+#' @param country_code three letter country code used for Financial Times plot
 #' @importFrom dplyr mutate filter
 #' @importFrom skimr skim
 #' @export
@@ -77,6 +77,7 @@ dashdash <- function(output_file,
                      scale_vars = NULL,
                      pd_width = .1,
                      ft_plot = NULL,
+                     country_code = NULL,
                      ...){
 
   pd <- ggplot2::position_dodge(pd_width)
@@ -108,6 +109,12 @@ dashdash <- function(output_file,
 
   if(is.null(ft_plot)) ft_plot <- my_args$ft_plot
   if(is.null(ft_plot)) ft_plot <- FALSE
+  if(ft_plot){
+    if(is.null(country_code)) country_code <- my_args$country_code
+    if(is.null(country_code)) stop("ft graphic requires country_code argument")
+    ft_data <- read.csv("https://wzb-ipi.github.io/corona/df_full.csv")
+  }
+
 
   switch  <- my_args$switch
 
@@ -120,6 +127,8 @@ dashdash <- function(output_file,
 
   dashRmd  <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
   childRmd <- system.file("rmd", "child.Rmd", package = "dashdash")
+  ftplotRmd  <- system.file("rmd", "ft_plot.Rmd", package = "dashdash")
+
   rmarkdown::render(dashRmd,
                     output_file = output_file,
                     params = list(
