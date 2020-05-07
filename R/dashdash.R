@@ -53,8 +53,6 @@
 #'   stringsAsFactors = FALSE
 #'   )
 #'
-#'
-#'
 #' dashdash(output_file = "dashtest.html",
 #'          title = "title2",
 #'          subtitle = "subtitle here",
@@ -71,6 +69,7 @@ dashdash <- function(output_file,
                      group = NULL,
                      subtitle = NULL,
                      author = NULL,
+                     add_maps = NULL,
                      map_path = NULL,
                      map_region = NULL,
                      map_layer = NULL,
@@ -80,9 +79,7 @@ dashdash <- function(output_file,
                      country_code = NULL,
                      ...){
 
-  pd <- ggplot2::position_dodge(pd_width)
-
-  #this are helper functions that show errors if inputs are problematic
+  # Check integirty of inputs
   check_my_vars(my_vars)
   check_my_data(my_data)
 
@@ -99,14 +96,33 @@ dashdash <- function(output_file,
   if(is.null(map_path)) map_path <- my_args$map_path
   if(is.null(map_path)) map_path <-  system.file("shapefiles", package = "dashdash")
 
-  if(is.null(map_region)) map_region <- my_args$map_region
-  if(is.null(map_layer)) map_layer  <- my_args$map_layer
+  if(is.null(add_maps)) add_maps <- my_args$add_maps
+  if(is.null(add_maps)) add_maps <- ifelse(is.null(my_args$map_path), FALSE, TRUE)
+
+  if(add_maps){
+    if(is.null(map_region)) map_region <- my_args$map_region
+    if(is.null(map_layer)) map_layer   <- my_args$map_layer
+    if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
+
+    # Prep maps
+
+    if (!isTRUE(gpclibPermitStatus())){
+      gpclibPermit()
+    }
+
+    shp <- readOGR(dsn = map_path,
+                   layer=map_layer,
+                   verbose=FALSE,
+                   stringsAsFactors = FALSE)
+
+    shp_df <- broom::tidy(shp, region = map_region)
+
+    }
 
   if(is.null(scale_vars)) scale_vars <- my_args$scale_vars
   if(is.null(scale_vars)) scale_vars <- FALSE
-  if(scale_vars == "TRUE") scale_vars <- TRUE
-  if(scale_vars == "FALSE") scale_vars <- FALSE
 
+  # Prep FT plot arguments
   if(is.null(ft_plot)) ft_plot <- my_args$ft_plot
   if(is.null(ft_plot)) ft_plot <- FALSE
   if(ft_plot){
@@ -115,19 +131,20 @@ dashdash <- function(output_file,
     ft_data <- read.csv("https://wzb-ipi.github.io/corona/df_full.csv")
   }
 
-
+  # Prep graph options
   switch  <- my_args$switch
+  pd <- ggplot2::position_dodge(pd_width)
 
-  # To do: -- check if layer is contained in my maps and turn off maps if not
-  if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
 
   # Data checks
   if(!all(c("date", "id") %in% names(my_data))) stop("my_data should include date and id variables")
   my_data <- mutate(my_data, date = as.Date(date))
 
-  dashRmd  <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
-  childRmd <- system.file("rmd", "child.Rmd", package = "dashdash")
-  ftplotRmd  <- system.file("rmd", "ft_plot.Rmd", package = "dashdash")
+  # Get Rmd paths
+  dashRmd     <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
+  childRmd    <- system.file("rmd", "child.Rmd", package = "dashdash")
+  ftplotRmd   <- system.file("rmd", "ft_plot.Rmd", package = "dashdash")
+  add_mapsRmd <- system.file("rmd", "add_maps.Rmd", package = "dashdash")
 
   rmarkdown::render(dashRmd,
                     output_file = output_file,

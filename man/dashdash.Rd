@@ -13,6 +13,7 @@ dashdash(
   group = NULL,
   subtitle = NULL,
   author = NULL,
+  add_maps = NULL,
   map_path = NULL,
   map_region = NULL,
   map_layer = NULL,

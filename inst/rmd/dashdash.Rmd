@@ -28,20 +28,6 @@ k          <- 1
 vars_used  <- my_vars %>% filter(!is.na(variable)) %>% pull(variable)
 vars_used  <-c("start", "district", vars_used)
 
-
-# Prep maps
-
-if (!isTRUE(gpclibPermitStatus())){
-  gpclibPermit()
-}
-
-shp <- readOGR(dsn = map_path, 
-               layer=map_layer, 
-               verbose=FALSE, 
-               stringsAsFactors = FALSE) 
-
-shp_df <- broom::tidy(shp, region = map_region)
-
 ```
 
 
