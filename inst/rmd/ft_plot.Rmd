@@ -12,7 +12,7 @@ fam <- families[k]
 ```
 
 
-## Cases
+## Current cases
 
 
 ```{r, message = FALSE, warning = FALSE}
@@ -20,3 +20,5 @@ fam <- families[k]
 ft_country_graphs(my_country_code = country_code, df = ft_data)
 
 ```
+
+**Source**: Figures draw from the European Centre for Disease Prevention and Control  

@@ -16,12 +16,13 @@ ft_country_graphs <- function(my_country_code, df,
   df <- filter(df, !is.na(region))
   data_date <- max(as.Date(df$DateRep), na.rm = TRUE)
   df_today  <- df %>% filter(as.Date(df$DateRep) == data_date)
-  my_region <- df %>% filter(GeoId2 == my_country_code) %>% pull(region) %>% unique
-  my_country <- df %>% filter(GeoId2 == my_country_code) %>% pull(country) %>% unique
+  my_region <- df %>% filter(GeoId2 == my_country_code) %>% pull(region) %>% as.character() %>%   unique
+  my_country <- df %>% filter(GeoId2 == my_country_code) %>% pull(country) %>% as.character() %>% unique
   parts <- df_today %>%
     mutate(my_group  = ifelse(region != my_region, "Rest of World", ""),
            my_group  = ifelse(region == my_region, my_region, my_group),
-           my_group  = ifelse(GeoId2 == my_country_code, my_country, my_group)) %>%
+           my_group  = ifelse(GeoId2 == my_country_code, my_country, my_group),
+           my_group  = factor(my_group, levels=c(my_country,my_region,"Rest of World"), labels=c(my_country,my_region,"Rest of World")) ) %>%
     dplyr::select(GeoId2, my_group)
 
   ## Plot data
