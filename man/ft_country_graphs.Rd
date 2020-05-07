@@ -2,7 +2,7 @@
 % Please edit documentation in R/ft_country_graph.R
 \name{ft_country_graphs}
 \alias{ft_country_graphs}
-\title{dashdash}
+\title{ft country graphs}
 \usage{
 ft_country_graphs(
   my_country_code,
@@ -24,5 +24,5 @@ ft_country_graphs(
 \item{plot_title}{optional plot title}
 }
 \description{
-Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.
+Make Financial Times style country graphs
 }

@@ -1,7 +1,7 @@
 
-#' dashdash
+#' ft country graphs
 #'
-#' Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.
+#' Make Financial Times style country graphs
 #'
 #' @param my_country_code Three letter country code
 #' @param df dataframe with corona cases containing outcome

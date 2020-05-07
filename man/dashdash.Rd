@@ -39,6 +39,8 @@ dashdash(
 
 \item{author}{String, names of authors.}
 
+\item{add_maps}{Option to add a map tab}
+
 \item{map_path}{String, path to map shapefiles.}
 
 \item{map_region}{String, map region.}
@@ -46,6 +48,8 @@ dashdash(
 \item{map_layer}{String, map layer.}
 
 \item{scale_vars}{Logical. Whether to scale_vars variabels before map plotting.}
+
+\item{pd_width}{position dodge argument for graphing aesthetics}
 
 \item{ft_plot}{Add a Financial Times type plot}
 
@@ -90,8 +94,6 @@ my_args <- data.frame(
   map_region =  "NAME_2",
   stringsAsFactors = FALSE
   )
-
-
 
 dashdash(output_file = "dashtest.html",
          title = "title2",
