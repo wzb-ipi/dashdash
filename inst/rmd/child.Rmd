@@ -60,12 +60,6 @@ plot_aggregates(my_data, vars, var_labs, pd = pd)
 ```
 
 
-<!-- Optionally add maps -->
-
-```{r, child = add_mapsRmd, echo = FALSE, eval = add_maps}
-
-```
-
 
 ### Current averages
 
@@ -83,6 +77,14 @@ current_means %>%
        digits = 2)
 
 ```
+
+
+<!-- Optionally add maps -->
+
+```{r, child = add_mapsRmd, echo = FALSE, eval = add_maps}
+
+```
+
 
 ### Definitions of measures
 
