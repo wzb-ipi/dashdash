@@ -30,7 +30,7 @@ names(var_labs) <- vars
 
 ```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
 
-plot_aggregates(my_data, vars, var_labs, pd = pd)
+plot_aggregates(my_data, my_vars, vars, var_labs, pd = pd)
 
 ```
 

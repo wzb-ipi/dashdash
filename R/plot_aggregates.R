@@ -4,15 +4,16 @@
 #'
 #'
 #' @param df dataframe
+#' @param my_vars df with info about variables
 #' @param vars vector of variable names
 #' @param var_labs vector of variable labels
 #' @param pd ggplot dodge parameter
 #' @export
 
 
-plot_aggregates <- function(df, vars, var_labs, pd = ggplot2::position_dodge(.1))
+plot_aggregates <- function(df, my_vars, vars, var_labs, pd = ggplot2::position_dodge(.1))
 
-df %>%
+national_plot <- df %>%
 
   select(all_of(c("date", vars))) %>%
   reshape2::melt(id.vars= c("date"))  %>%
@@ -28,3 +29,25 @@ df %>%
              labeller = labeller(variable = var_labs),
              strip.position = "top") +
   theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+if (!is.null(my_vars$min) & !is.null(my_vars$max)){
+
+  datalist <-  list()
+
+  for (index in vars) {
+    selection <- filter(my_vars, variable == index) %>%
+      select(variable, min, max)
+    grid <- expand.grid(vars = selection$variable,
+                        x = c(min(my_data$date), max(my_data$date)),
+                        y = c(selection$min, selection$max))
+    datalist[[index]] <- grid
+
+  }
+
+  ranges <- do.call(rbind, datalist)
+
+  national_plot <- national_plot +  geom_blank(data = ranges, aes(x = x, y = y))
+
+}
+
+national_plot
