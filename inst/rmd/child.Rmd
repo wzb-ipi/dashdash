@@ -20,6 +20,7 @@ fam <- families[k]
 vars <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(variable)
 var_labs <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(short_label)
 names(var_labs) <- vars
+my_vars <- my_vars
 
 
 ```
