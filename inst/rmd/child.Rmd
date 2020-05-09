@@ -47,7 +47,7 @@ low_level <- my_data %>%
   summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), ~length(.))) %>%
   mutate(se = sd / sqrt(length),
          ymin=mean-1.96*se, 
-         ymax=mean+1.96*se)
+         ymax=mean+1.96*se) 
 
 if (!is.null(my_vars$min) & !is.null(my_vars$max)){
     
@@ -76,17 +76,23 @@ if (!is.null(my_vars$min) & !is.null(my_vars$max)){
     
 }
 
-    
-ggplot(low_level, aes(x=date, y=mean)) + 
+plot <- ggplot(low_level, aes(x=date, y=mean)) + 
     geom_point(position=pd) +
-    geom_blank(aes(x=date, y=ceiling)) + 
-    geom_blank(aes(x=date, y=floor)) +
     geom_errorbar(aes(ymin=ymin, ymax=ymax), width=.1, position=pd) +
     geom_line(position=pd) +
     facet_grid(variable ~ id, scales = "free_y", 
                labeller = labeller(variable = var_labs), 
                switch = switch) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+if (!is.null(my_vars$min) & !is.null(my_vars$max)){
+plot + geom_blank(aes(x=date, y=ceiling)) + 
+    geom_blank(aes(x=date, y=floor))
+}
+
+plot
+    
+
 
 ```
 
