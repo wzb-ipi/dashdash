@@ -79,9 +79,10 @@ dashdash <- function(output_file,
                      pd_width = .1,
                      ft_plot = NULL,
                      country_code = NULL,
+                     switch = "y",
                      ...){
 
-  # Check integirty of inputs
+  # Check integrity of inputs
   check_my_vars(my_vars)
   check_my_data(my_data)
 

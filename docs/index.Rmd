@@ -43,7 +43,7 @@ A spreadsheet that says what your variables are and to which families they belon
    variable = c("market_open", "price_rice", "aware", "water"),
    family = c("Markets", "Markets", "Actions", "Actions"),
    short_label = c("Is market open?", "Price of a rice", "Aware of Covid19", "Access to water"),
-   min = c(0,0,NA, NA),
+   min = c(0,0,NA, -1),
    description = c("details on market open", "Price of a cup of rice", "Details on aware of Covid19", "Details on access to water"),
    stringsAsFactors = FALSE
  )

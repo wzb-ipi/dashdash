@@ -1,12 +1,9 @@
-
-
 #' plot aggregates over time
 #'
 #'
 #' @param df dataframe
 #' @param my_vars df with info about variables
 #' @param vars vector of variable names
-#' @param var_labs vector of variable labels
 #' @param pd ggplot dodge parameter
 #' @export
 
@@ -15,6 +12,8 @@ plot_aggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1)){
   vars <- my_vars  %>% pull(variable)
   var_labs <- my_vars  %>% pull(short_label)
   names(var_labs) <- vars
+
+  date_range = c(min(df$date), max(df$date))
 
   national_plot <- df %>%
     select(all_of(c("date", vars))) %>%
@@ -40,7 +39,7 @@ plot_aggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1)){
       selection <- filter(my_vars, variable == index) %>%
         select(variable, min, max)
       grid <- expand.grid(variable = selection$variable,
-                          date = c(min(my_data$date), max(my_data$date)),
+                          date = date_range,
                           min = selection$min,
                           max = selection$max)
       datalist[[index]] <- grid

@@ -3,6 +3,7 @@
 export(dashdash)
 export(ft_country_graphs)
 export(plot_aggregates)
+export(plot_disaggregates)
 importFrom(dplyr,filter)
 importFrom(dplyr,mutate)
 importFrom(skimr,skim)

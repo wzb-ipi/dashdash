@@ -22,9 +22,9 @@ knitr::opts_chunk$set(echo = FALSE)
 ---
 
 ```{r prep_maps, warning = FALSE, message = FALSE, echo = FALSE, include = FALSE}
+k          <- 1
 families   <- my_vars %>% pull(family) %>% unique
 n_families <- length(families)
-k          <- 1
 vars_used  <- my_vars %>% filter(!is.na(variable)) %>% pull(variable)
 vars_used  <-c("start", "district", vars_used)
 

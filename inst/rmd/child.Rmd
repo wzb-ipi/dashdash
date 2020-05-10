@@ -20,8 +20,7 @@ fam <- families[k]
 
 ```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
 
-plot_aggregates(my_data, 
-                filter(my_vars, family == fam & !is.na(variable)))
+plot_aggregates(my_data, filter(my_vars, family == fam & !is.na(variable)))
 
 ```
 
@@ -30,62 +29,7 @@ plot_aggregates(my_data,
 
 ```{r, echo = FALSE, fig.cap="Disaggregated average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
 
-vars <- filter(my_vars, family == fam & !is.na(variable)) %>% pull(variable)
-  
-# New facet label names for supp variable
-low_level <- my_data %>% 
-  select(all_of(c("id", "date", vars))) %>%
-  reshape2::melt(id.vars= c("id", "date"))  %>% 
-  group_by(id, date, variable) %>%
-  summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), ~length(.))) %>%
-  mutate(se = sd / sqrt(length),
-         ymin=mean-1.96*se, 
-         ymax=mean+1.96*se) 
-
-if (!is.null(my_vars$min) & !is.null(my_vars$max)){
-    
-    datalist <-  list()
-    
-    for (index in vars) {
-        selection <- filter(my_vars, variable == index) %>%
-            select(variable, min, max)
-        ids <- droplevels(my_data$id) %>%
-            levels()
-        grid <- expand.grid(variable = selection$variable,
-                            id = ids,
-                            date = c(min(my_data$date), max(my_data$date)), 
-                            min = selection$min,
-                            max = selection$max)
-        datalist[[index]] <- grid
-        
-    }
-    
-    ranges <- do.call(rbind, datalist)
-    
-    low_level <- left_join(low_level, ranges)  %>%
-    mutate( 
-           floor = min-1.96*se,
-           ceiling = max+1.96*se)
-    
-}
-
-plot <- ggplot(low_level, aes(x=date, y=mean)) + 
-    geom_point(position=pd) +
-    geom_errorbar(aes(ymin=ymin, ymax=ymax), width=.1, position=pd) +
-    geom_line(position=pd) +
-    facet_grid(variable ~ id, scales = "free_y", 
-               labeller = labeller(variable = var_labs), 
-               switch = switch) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
-
-if (!is.null(my_vars$min) & !is.null(my_vars$max)){
-plot <- plot + geom_blank(aes(x=date, y=ceiling)) + 
-    geom_blank(aes(x=date, y=floor))
-}
-
-plot
-    
-
+plot_disaggregates(my_data, filter(my_vars, family == fam & !is.na(variable)))
 
 ```
 

@@ -14,8 +14,6 @@ plot_aggregates(df, my_vars, pd = ggplot2::position_dodge(0.1))
 \item{pd}{ggplot dodge parameter}
 
 \item{vars}{vector of variable names}
-
-\item{var_labs}{vector of variable labels}
 }
 \description{
 plot aggregates over time

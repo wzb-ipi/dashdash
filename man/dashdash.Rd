@@ -21,6 +21,7 @@ dashdash(
   pd_width = 0.1,
   ft_plot = NULL,
   country_code = NULL,
+  switch = "y",
   ...
 )
 }
