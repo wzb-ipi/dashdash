@@ -19,6 +19,7 @@ dashdash(
   map_layer = NULL,
   scale_vars = NULL,
   pd_width = 0.1,
+  switch = NULL,
   ft_plot = NULL,
   country_code = NULL,
   ...
@@ -51,11 +52,11 @@ dashdash(
 
 \item{pd_width}{position dodge argument for graphing aesthetics}
 
+\item{switch}{ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".}
+
 \item{ft_plot}{Add a Financial Times type plot}
 
 \item{country_code}{three letter country code used for Financial Times plot}
-
-\item{switch}{ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".}
 }
 \description{
 Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.
@@ -92,6 +93,7 @@ my_args <- data.frame(
   map_path = "c:/temp/shapefiles",
   map_layer = "SLE_adm3",
   map_region =  "NAME_2",
+  switch = "y",
   stringsAsFactors = FALSE
   )
 

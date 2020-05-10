@@ -52,6 +52,7 @@
 #'   map_path = "c:/temp/shapefiles",
 #'   map_layer = "SLE_adm3",
 #'   map_region =  "NAME_2",
+#'   switch = "y",
 #'   stringsAsFactors = FALSE
 #'   )
 #'
@@ -77,6 +78,7 @@ dashdash <- function(output_file,
                      map_layer = NULL,
                      scale_vars = NULL,
                      pd_width = .1,
+                     switch = NULL,
                      ft_plot = NULL,
                      country_code = NULL,
                      ...){
@@ -134,7 +136,8 @@ dashdash <- function(output_file,
   }
 
   # Prep graph options
-  switch  <- my_args$switch
+  if(is.null(switch)) switch <- my_args$switch
+  if(is.null(switch)) switch <- "y"
   pd <- ggplot2::position_dodge(pd_width)
 
 
@@ -147,6 +150,10 @@ dashdash <- function(output_file,
   childRmd    <- system.file("rmd", "child.Rmd", package = "dashdash")
   ftplotRmd   <- system.file("rmd", "ft_plot.Rmd", package = "dashdash")
   add_mapsRmd <- system.file("rmd", "add_maps.Rmd", package = "dashdash")
+
+  # Setup
+  families   <- my_vars %>% pull(family) %>% unique
+  n_families <- length(families)
 
   rmarkdown::render(dashRmd,
                     output_file = output_file,

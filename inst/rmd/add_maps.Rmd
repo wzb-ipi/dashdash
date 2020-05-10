@@ -19,6 +19,11 @@ Showing most recent data available for each `r group`.
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.cap = paste("Distribution of", ifelse(scale_vars, "standardized", "untransformed"), "variables")}
 
+  vars <- pull(my_subset, variable)
+  var_labs <- my_subset  %>% pull(short_label)
+  names(var_labs) <- vars
+
+  
 scale2 <- function(x, na.rm = FALSE) {
   x <- as.numeric(x)
  (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)}
@@ -28,7 +33,7 @@ par(mar=c(0,0,0,0))
 current_means_map <- current_means %>% data.frame()
 if(scale_vars)
     current_means_map <- current_means_map %>% 
-      mutate_at(vars, scale2)
+      mutate_at(my_subset$variable, scale2)
 
 df_map <- left_join(shp_df, current_means_map)  %>% select(-date) %>%
   reshape2::melt(id.vars= c("id", "long", "lat", "order", "hole", "piece", "group"))
