@@ -12,8 +12,8 @@
 
 plot_aggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1)){
 
-  vars <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(variable)
-  var_labs <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(short_label)
+  vars <- my_vars  %>% pull(variable)
+  var_labs <- my_vars  %>% pull(short_label)
   names(var_labs) <- vars
 
   national_plot <- df %>%

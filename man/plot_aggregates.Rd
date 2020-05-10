@@ -4,18 +4,18 @@
 \alias{plot_aggregates}
 \title{plot aggregates over time}
 \usage{
-plot_aggregates(df, my_vars, vars, var_labs, pd = ggplot2::position_dodge(0.1))
+plot_aggregates(df, my_vars, pd = ggplot2::position_dodge(0.1))
 }
 \arguments{
 \item{df}{dataframe}
 
 \item{my_vars}{df with info about variables}
 
+\item{pd}{ggplot dodge parameter}
+
 \item{vars}{vector of variable names}
 
 \item{var_labs}{vector of variable labels}
-
-\item{pd}{ggplot dodge parameter}
 }
 \description{
 plot aggregates over time

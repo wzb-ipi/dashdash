@@ -3359,6 +3359,7 @@ img {
 <th align="left">variable</th>
 <th align="left">family</th>
 <th align="left">short_label</th>
+<th align="right">min</th>
 <th align="left">description</th>
 </tr>
 </thead>
@@ -3367,24 +3368,28 @@ img {
 <td align="left">market_open</td>
 <td align="left">Markets</td>
 <td align="left">Is market open?</td>
+<td align="right">0</td>
 <td align="left">details on market open</td>
 </tr>
 <tr class="even">
 <td align="left">price_rice</td>
 <td align="left">Markets</td>
 <td align="left">Price of a rice</td>
+<td align="right">0</td>
 <td align="left">Price of a cup of rice</td>
 </tr>
 <tr class="odd">
 <td align="left">aware</td>
 <td align="left">Actions</td>
 <td align="left">Aware of Covid19</td>
+<td align="right">NA</td>
 <td align="left">Details on aware of Covid19</td>
 </tr>
 <tr class="even">
 <td align="left">water</td>
 <td align="left">Actions</td>
 <td align="left">Access to water</td>
+<td align="right">NA</td>
 <td align="left">Details on access to water</td>
 </tr>
 </tbody>
@@ -3394,8 +3399,8 @@ img {
 <div id="my_data-dataframe" class="section level2">
 <h2><code>my_data</code> dataframe</h2>
 <p>Your data, cleaned and transformed to the point where it is ready for display:</p>
-<div id="htmlwidget-efe53c1b84328c9d2fcb" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-efe53c1b84328c9d2fcb">{"x":{"filter":"none","caption":"<caption>sample `my_data` dataframe<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"],["Bo","Bo","Bo","Bo","Bo","Bo","Bo","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe"],["2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-20","2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-20"],[1,1,1,1,0,1,1,0,1,0,0,0,1,0,0,0,1,1,0,0,0,1,0,1,0],[1,0,1,0,1,0,1,0,1,1,0,0,0,0,0,0,1,0,1,1,1,0,1,0,1],[1,0,0,0,0,0,1,1,1,0,0,1,1,1,0,0,0,1,1,0,1,0,1,1,0],[0,1,0,1,0,1,1,1,1,0,1,0,1,0,1,0,1,1,0,0,1,1,1,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>date<\/th>\n      <th>market_open<\/th>\n      <th>price_rice<\/th>\n      <th>aware<\/th>\n      <th>water<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-cca45a6123ef599a3847" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-cca45a6123ef599a3847">{"x":{"filter":"none","caption":"<caption>sample `my_data` dataframe<\/caption>","data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25"],["Bo","Bo","Bo","Bo","Bo","Bo","Bo","Bo","Bo","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bombali","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe","Bonthe"],["2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-20","2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-20","2020-04-20","2020-04-20","2020-04-18","2020-04-18","2020-04-18","2020-04-19","2020-04-19","2020-04-19","2020-04-20","2020-04-20"],[0,0,1,1,0,0,0,1,1,0,1,1,1,0,0,1,1,1,0,1,1,0,1,1,0],[1,0,0,1,1,0,0,1,0,0,1,0,0,1,1,0,0,1,0,1,1,1,0,1,0],[0,0,0,1,1,1,1,0,1,1,1,1,0,1,1,0,0,0,1,0,0,0,0,0,0],[0,0,1,0,0,1,1,0,1,0,0,1,1,0,1,1,0,1,0,0,1,1,1,1,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>id<\/th>\n      <th>date<\/th>\n      <th>market_open<\/th>\n      <th>price_rice<\/th>\n      <th>aware<\/th>\n      <th>water<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,4,5,6]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 <p>The key requirements are that the dataset contains:</p>
 <ul>
 <li>an <code>id</code> variable which gives the level at which you want the data to be aggregated for averages – this variable should correspond to your id variable in your shape files<br />
