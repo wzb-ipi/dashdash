@@ -14,24 +14,13 @@ fam <- families[k]
 
 ## `r gsub("_", " ", fam)`  {.tabset  .tabset-pills}
 
-
-```{r}
-
-vars <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(variable)
-var_labs <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(short_label)
-names(var_labs) <- vars
-my_vars <- my_vars
-
-
-```
-
 ### Time trends
 
 #### National aggregates
 
 ```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
 
-plot_aggregates(my_data, my_vars, vars, var_labs, pd = pd)
+plot_aggregates(my_data, my_vars)
 
 ```
 
