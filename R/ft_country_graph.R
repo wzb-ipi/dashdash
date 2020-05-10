@@ -27,14 +27,14 @@ ft_country_graphs <- function(my_country_code, df,
   ## Plot data
 
   plot_data <- left_join(df, parts) %>%
-    filter(elapsed_rel > -5 & !is.na(my_group))
+    filter(elapsed_rel > -5 & !is.na(my_group)) %>%
+    select(elapsed_rel, deaths_cumul, GeoId2, my_group)
 
 
 
   ## Label data
 
   label_data <- plot_data %>%
-    select(elapsed_rel, deaths_cumul, GeoId2, my_group) %>%
     arrange(elapsed_rel) %>%
     group_by(GeoId2) %>%
     filter(row_number() == n()) %>%
@@ -71,22 +71,40 @@ ft_country_graphs <- function(my_country_code, df,
               mapping = aes(x=elapsed_rel,
                             y=deaths_cumul,
                             color = GeoId2)) +
+    #my_country in my_region
     geom_line(data = dplyr::filter(plot_data_col, GeoId2 == my_country_code),
               mapping = aes(x=elapsed_rel,
-                            y=deaths_cumul,
-                            color = GeoId2), size=2) +
+                            y=deaths_cumul), color="black", size=1)  +
+    #my_country in rest of the world
+    geom_line(data = plot_data_col %>%
+                filter(GeoId2 == my_country_code) %>%
+                mutate(my_group=replace(my_group, my_group==my_region, "Rest of World")),
+              mapping = aes(x=elapsed_rel,
+                            y=deaths_cumul), color="black", size=1) +
 
-    xlab("Days since 10th reported case") +
-    ylab("Deaths (log scale)") +
     ggrepel ::geom_text_repel(data = dplyr::filter(label_data, GeoId2 != my_country_code),
                               mapping  =aes(label = GeoId2, x = elapsed_rel,
                                             y = deaths_cumul, color = GeoId2),
-                              nudge_x = 5)  +
-    ggrepel ::geom_label_repel(data = dplyr::filter(label_data, GeoId2 == my_country_code),
-                               mapping  =aes(label = GeoId2, x = elapsed_rel,
-                                             y = deaths_cumul, color = GeoId2),
-                               nudge_x = 5,
-                               label.size = 2) +
+                              nudge_x = 5) +
+
+    ggrepel ::geom_text_repel(data = label_data %>%
+                                filter(GeoId2 == my_country_code) %>%
+                                mutate(my_group=replace(my_group, my_group==my_region, "Rest of World")),
+                            mapping  =aes(label = GeoId2, x = elapsed_rel,
+                                          y = deaths_cumul),
+                            nudge_x = 5,
+                            segment.colour = "black", segment.size = 1) +
+
+    ggrepel ::geom_text_repel(data = dplyr::filter(label_data, GeoId2 == my_country_code),
+                              mapping  =aes(label = GeoId2, x = elapsed_rel,
+                                            y = deaths_cumul),
+                              nudge_x = 5,
+                              segment.colour = "black",
+                              segment.size = 1) +
+
+
+    xlab("Days since 10th reported case") +
+    ylab("Deaths (log scale)") +
     facet_grid( ~ my_group) +
     theme_bw()+
     theme(panel.grid.minor = element_blank()) +
