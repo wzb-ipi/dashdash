@@ -76,7 +76,7 @@ plot <- ggplot(low_level, aes(x=date, y=mean)) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 if (!is.null(my_vars$min) & !is.null(my_vars$max)){
-plot + geom_blank(aes(x=date, y=ceiling)) + 
+plot <- plot + geom_blank(aes(x=date, y=ceiling)) + 
     geom_blank(aes(x=date, y=floor))
 }
 
