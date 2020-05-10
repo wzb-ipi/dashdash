@@ -57,10 +57,6 @@ ft_country_graphs <- function(my_country_code, df,
   plot_data_col <- plot_data %>%
     filter(GeoId2 %in% label_data$GeoId2)
 
-  ## My country
-  plot_my_country <- plot_data %>%
-    filter(GeoId2 == my_country_code)
-
   ## Plot
   ggplot(plot_data_bw, aes(x=elapsed_rel,
                            y=deaths_cumul,
