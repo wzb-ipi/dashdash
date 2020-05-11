@@ -69,7 +69,7 @@ my_data %>%
 ### Data summaries  {.tabset}
 
 **Technical**: Summary measures on all data.
-test txt here !!!
+
 
 ```{r summaries, echo = FALSE, message = FALSE, warning = FALSE}
 summary_table(my_data, my_vars)

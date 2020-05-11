@@ -7,8 +7,11 @@
 
 summary_table <- function(df, my_vars){
   # select numeric variables
+  my_vars <- filter(my_vars, !is.na(short_label))
   num_var <- names(select_if(df, is.numeric))
-  # relabel every numeric variables by my_vars
+  num_var <- num_var[num_var %in% my_vars$variable]
+
+    # relabel every numeric variables by my_vars
   for (x in num_var){
     table1::label(df[[x]]) <- my_vars[my_vars$variable == x,]$short_label
   }
