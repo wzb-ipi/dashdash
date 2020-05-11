@@ -1,0 +1,19 @@
+---
+title: "summary_table.Rmd"
+author: "sl team"
+date: "5/11/2020"
+output: html_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+fam <- families[k]
+```
+
+### Summary Table {.tabset}
+
+Summary table for all data 
+
+```{r summarytable, warning = FALSE, echo = FALSE}
+summary_table(my_data, my_vars)
+```

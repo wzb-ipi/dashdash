@@ -107,23 +107,6 @@ test txt here !!!
 ```{r summaries, warning = FALSE, echo = FALSE}
 skimr::skim(my_data)
 ```
-### Summary Table {.tabset}
-
-Summary table for all data 
-
-```{r summarytable, warning = FALSE, echo = FALSE}
-# select numeric variables
-num_var <- names(select_if(my_data, is.numeric))
-# relabel every numeric variables by my_vars
-for (x in num_var){
-  table1::label(my_data[[x]]) <- my_vars[my_vars$variable == x,]$short_label
-}
-# formula for setting col and row 
-formula <- as.formula(paste( "~", paste(paste(num_var, collapse=" + "), names(select_if(my_data, is.character)), sep=" | ")))
-# get the summary table 
-table1::table1(formula, data = my_data)
-
-```
 
 # 
 
