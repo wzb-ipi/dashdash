@@ -17,55 +17,22 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-```{r checks, warning = FALSE, message = FALSE, echo = FALSE}
-# CHECKS
-if(!exists("my_data")) stop("my_data missing")
-if(!exists("my_vars")) stop("my_vars missing")
-if(!exists("my_args")) stop("my_args missing")
-
-  if(is.null(title)) title <- my_args$title
-  if(is.null(title)) title <- "No title provided"
-
-  if(is.null(subtitle)) subtitle <- my_args$subtitle
-  if(is.null(subtitle)) subtitle <- " "
-
-  if(is.null(author)) author <- my_args$author
-  if(is.null(author)) author <- " "
-
-if(!all(c("date", "id") %in% names(my_data))) stop("my_data should include date and id variables")
-
-my_data <- mutate(my_data, date = as.Date(date))
-```
-
 `r my_args$intro_text`^[`r my_args$intro_note`]
 
 ---
 
-```{r prep_maps, warning = FALSE, message = FALSE, echo = FALSE}
-families   <- my_vars %>% pull(family) %>% unique
-n_families <- length(families)
-k          <- 1
-vars_used  <- my_vars %>% filter(!is.na(variable)) %>% pull(variable)
-vars_used  <-c("start", "district", vars_used)
-
-
-# Prep maps
-
-if (!isTRUE(gpclibPermitStatus())){
-  gpclibPermit()
-}
-
-shp <- readOGR(dsn = map_path, 
-               layer=map_layer, 
-               verbose=FALSE, 
-               stringsAsFactors = FALSE) 
-
-shp_df <- broom::tidy(shp, region = map_region)
-
+```{r, warning = FALSE, message = FALSE, echo = FALSE, include = FALSE}
+k  <- 1
 ```
 
 
 #   {.tabset .tabset-pills}
+
+<!-- Optionally add FT style plots -->
+
+```{r, child = ftplotRmd, echo = FALSE, eval = ft_plot}
+
+```
 
 ```{r, child = childRmd, echo = FALSE, eval = k>0}
 

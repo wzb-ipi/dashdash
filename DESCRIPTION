@@ -24,6 +24,11 @@ Depends:
   gpclib,
   magrittr,
   maptools,
+<<<<<<< HEAD
   tidyselect,
   table1
+=======
+  tidyselect, 
+  checkmate
+>>>>>>> master
 

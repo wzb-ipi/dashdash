@@ -13,17 +13,22 @@ dashdash(
   group = NULL,
   subtitle = NULL,
   author = NULL,
+  add_maps = NULL,
   map_path = NULL,
   map_region = NULL,
   map_layer = NULL,
   scale_vars = NULL,
+  pd_width = 0.1,
+  switch = NULL,
+  ft_plot = NULL,
+  country_code = NULL,
   ...
 )
 }
 \arguments{
 \item{output_file}{Path to where ouutput should be written, e.g. "docs/index.html"}
 
-\item{my_vars}{dataframe with mapping from variable names to variable families and labels. One ro per variable.}
+\item{my_vars}{dataframe with mapping from variable names to variable families and labels. One row per variable.}
 
 \item{my_data}{dataframe with data on variables listed in `my_vars`. Should contain a `id` variable that connects with units in map files and a `date` variable.}
 
@@ -35,6 +40,8 @@ dashdash(
 
 \item{author}{String, names of authors.}
 
+\item{add_maps}{Option to add a map tab}
+
 \item{map_path}{String, path to map shapefiles.}
 
 \item{map_region}{String, map region.}
@@ -42,6 +49,14 @@ dashdash(
 \item{map_layer}{String, map layer.}
 
 \item{scale_vars}{Logical. Whether to scale_vars variabels before map plotting.}
+
+\item{pd_width}{position dodge argument for graphing aesthetics}
+
+\item{switch}{ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".}
+
+\item{ft_plot}{Add a Financial Times type plot}
+
+\item{country_code}{three letter country code used for Financial Times plot}
 }
 \description{
 Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.
@@ -78,10 +93,9 @@ my_args <- data.frame(
   map_path = "c:/temp/shapefiles",
   map_layer = "SLE_adm3",
   map_region =  "NAME_2",
+  switch = "y",
   stringsAsFactors = FALSE
   )
-
-
 
 dashdash(output_file = "dashtest.html",
          title = "title2",

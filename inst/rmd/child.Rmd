@@ -8,97 +8,60 @@ output: html_document
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 
-fam <- families[k]
-
+my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 ```
 
 
-## `r gsub("_", " ", fam)`  {.tabset  .tabset-pills}
-
-
-```{r}
-
-vars <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(variable)
-var_labs <- my_vars %>% filter(family == fam & !is.na(variable)) %>% pull(short_label)
-names(var_labs) <- vars
-
-current_means <- my_data[, c("id", "date", vars)] %>%
- filter(date == max(date)) %>%
- group_by(id, date)  %>%
- summarise_all( function(x)  mean(x, na.rm = T)) 
-```
+## `r gsub("_", " ", families[k])`  {.tabset  .tabset-pills}
 
 ### Time trends
 
-```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = length(vars)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
+#### National aggregates
 
-# New facet label names for supp variable
-pd <- position_dodge(0.1) # move them .05 to the left and right
+```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
 
-  my_data %>% 
-    
-    select(all_of(c("id", "date", vars))) %>%
-    reshape2::melt(id.vars= c("id", "date"))  %>% 
-    group_by(id, date, variable) %>%
-    summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), ~length(.))) %>%
-    mutate(se = sd / sqrt(length)) %>%
-    
-    ggplot(aes(x=date, y=mean)) + 
-    geom_errorbar(aes(ymin=mean-1.96*se, ymax=mean+1.96*se), width=.1, position=pd) +
-    geom_line(position=pd) +
-    geom_point(position=pd) +
-    facet_grid(variable ~ id, scales = "free_y", labeller = labeller(variable = var_labs), switch = switch) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
 
 ```
 
-### Maps
-
-Showing most recent data available for each `r group`.
-
-`r if(scale_vars) paste("Each map shows the *relative position* of each", group, "--- a score of 0 means average, and a score of 2 or -2 means far above or below average.")`
+#### Broken down by `r group`
 
 
-```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.cap = paste("Distribution of", ifelse(scale_vars, "standardized", "untransformed"), "variables")}
+```{r, echo = FALSE, fig.cap="Disaggregated average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = nrow(my_subset)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
 
-scale2 <- function(x, na.rm = FALSE) {
-  x <- as.numeric(x)
- (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)}
-
-par(mar=c(0,0,0,0))
-
-current_means_map <- current_means %>% data.frame()
-if(scale_vars)
-    current_means_map <- current_means_map %>% 
-      mutate_at(vars, scale2)
-
-df_map <- left_join(shp_df, current_means_map)  %>% select(-date) %>%
-  reshape2::melt(id.vars= c("id", "long", "lat", "order", "hole", "piece", "group"))
-
-ggplot() +
-  geom_polygon(data = df_map, 
-               aes( x = long, y = lat,  group = group, fill=value), color="white") +
-  theme_void() + coord_map() + facet_wrap(~variable, labeller = labeller(variable = var_labs))
-
+plot_disaggregates(my_data, my_subset, pd = pd, switch = switch)
 
 ```
+
 
 
 ### Current averages
 
 ```{r, echo = FALSE}
 
-current_means %>% 
- kable(caption = paste("Mean responses in each ", group, " (most recent date)"), col.names = c(group, "Date", var_labs), digits = 2)
+current_means <- get_current_means(my_data, my_subset, recent = 1)
+
+
+kable(current_means, caption = paste("Mean responses in each ", group, " (most recent date)"), 
+        col.names = c(group, "Date", my_subset$short_label), 
+        digits = 2)
 
 ```
+
+
+<!-- Optionally add maps -->
+
+```{r, child = add_mapsRmd, echo = FALSE, eval = add_maps}
+
+```
+
 
 ### Definitions of measures
 
 ```{r, echo = FALSE, warning = FALSE}
 
-my_vars %>% filter(family == fam) %>% select(short_label, description) %>% kable(caption = "Data definitions", col.names = c("Measure", "Definition"))
-
+my_subset %>% select(short_label, description) %>% 
+  kable(caption = "Data definitions", col.names = c("Measure", "Definition"))
 
 ```
 

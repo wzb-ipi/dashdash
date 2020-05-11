@@ -1,0 +1,24 @@
+---
+title: "ft plot"
+author: "sl team"
+date: "4/26/2020"
+output: html_document
+---
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+fam <- families[k]
+
+```
+
+
+## Current cases
+
+
+```{r, message = FALSE, warning = FALSE}
+
+ft_country_graphs(my_country_code = country_code, df = ft_data)
+
+```
+
+**Source**: Figures draw from the European Centre for Disease Prevention and Control  

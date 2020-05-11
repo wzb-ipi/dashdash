@@ -6,17 +6,21 @@
 #' with `install.packages('rgeos', type='source')` and `install.packages('rgdal', type='source')`
 #'
 #' @param output_file Path to where ouutput should be written, e.g. "docs/index.html"
-#' @param my_vars dataframe with mapping from variable names to variable families and labels. One ro per variable.
+#' @param my_vars dataframe with mapping from variable names to variable families and labels. One row per variable.
 #' @param my_data dataframe with data on variables listed in `my_vars`. Should contain a `id` variable that connects with units in map files and a `date` variable.
 #' @param my_args dataframe with arguments to customize a dashboard.
 #' @param title Dashboard title
 #' @param subtitle Dashboard subtitle
 #' @param author String, names of authors.
+#' @param add_maps Option to add a map tab
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
 #' @param map_layer String, map layer.
 #' @param switch ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".
 #' @param scale_vars Logical. Whether to scale_vars variabels before map plotting.
+#' @param ft_plot Add a Financial Times type plot
+#' @param country_code three letter country code used for Financial Times plot
+#' @param pd_width position dodge argument for graphing aesthetics
 #' @importFrom dplyr mutate filter
 #' @importFrom skimr skim
 #' @export
@@ -48,10 +52,9 @@
 #'   map_path = "c:/temp/shapefiles",
 #'   map_layer = "SLE_adm3",
 #'   map_region =  "NAME_2",
+#'   switch = "y",
 #'   stringsAsFactors = FALSE
 #'   )
-#'
-#'
 #'
 #' dashdash(output_file = "dashtest.html",
 #'          title = "title2",
@@ -69,11 +72,20 @@ dashdash <- function(output_file,
                      group = NULL,
                      subtitle = NULL,
                      author = NULL,
+                     add_maps = NULL,
                      map_path = NULL,
                      map_region = NULL,
                      map_layer = NULL,
                      scale_vars = NULL,
+                     pd_width = .1,
+                     switch = NULL,
+                     ft_plot = NULL,
+                     country_code = NULL,
                      ...){
+
+  # Check integirty of inputs
+  check_my_vars(my_vars)
+  check_my_data(my_data)
 
   if(is.null(title)) title <- my_args$title
   if(is.null(title)) title <- "No title provided"
@@ -88,21 +100,61 @@ dashdash <- function(output_file,
   if(is.null(map_path)) map_path <- my_args$map_path
   if(is.null(map_path)) map_path <-  system.file("shapefiles", package = "dashdash")
 
-  if(is.null(map_region)) map_region <- my_args$map_region
-  if(is.null(map_layer)) map_layer  <- my_args$map_layer
+  if(is.null(add_maps)) add_maps <- my_args$add_maps
+  if(is.null(add_maps)) add_maps <- ifelse(is.null(my_args$map_path), FALSE, TRUE)
+
+  if(add_maps){
+    if(is.null(map_region)) map_region <- my_args$map_region
+    if(is.null(map_layer)) map_layer   <- my_args$map_layer
+    if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
+
+    # Prep maps
+
+    if (!isTRUE(gpclibPermitStatus())){
+      gpclibPermit()
+    }
+
+    shp <- readOGR(dsn = map_path,
+                   layer=map_layer,
+                   verbose=FALSE,
+                   stringsAsFactors = FALSE)
+
+    shp_df <- broom::tidy(shp, region = map_region)
+
+    }
 
   if(is.null(scale_vars)) scale_vars <- my_args$scale_vars
   if(is.null(scale_vars)) scale_vars <- FALSE
-  if(scale_vars == "TRUE") scale_vars <- TRUE
-  if(scale_vars == "FALSE") scale_vars <- FALSE
 
-  switch  <- my_args$switch
+  # Prep FT plot arguments
+  if(is.null(ft_plot)) ft_plot <- my_args$ft_plot
+  if(is.null(ft_plot)) ft_plot <- FALSE
+  if(ft_plot){
+    if(is.null(country_code)) country_code <- my_args$country_code
+    if(is.null(country_code)) stop("ft graphic requires country_code argument")
+    ft_data <- read.csv("https://wzb-ipi.github.io/corona/df_full.csv")
+  }
 
-  # To do: -- check if layer is contained in my maps and turn off maps if not
-  if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
+  # Prep graph options
+  if(is.null(switch)) switch <- my_args$switch
+  if(is.null(switch)) switch <- "y"
+  pd <- ggplot2::position_dodge(pd_width)
 
-  dashRmd  <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
-  childRmd <- system.file("rmd", "child.Rmd", package = "dashdash")
+
+  # Data checks
+  if(!all(c("date", "id") %in% names(my_data))) stop("my_data should include date and id variables")
+  my_data <- mutate(my_data, date = as.Date(date))
+
+  # Get Rmd paths
+  dashRmd     <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
+  childRmd    <- system.file("rmd", "child.Rmd", package = "dashdash")
+  ftplotRmd   <- system.file("rmd", "ft_plot.Rmd", package = "dashdash")
+  add_mapsRmd <- system.file("rmd", "add_maps.Rmd", package = "dashdash")
+
+  # Setup
+  families   <- my_vars %>% pull(family) %>% unique
+  n_families <- length(families)
+
   rmarkdown::render(dashRmd,
                     output_file = output_file,
                     params = list(
