@@ -26,4 +26,5 @@ Depends:
   maptools,
   tidyselect, 
   checkmate
-
+Suggests: 
+    testthat
