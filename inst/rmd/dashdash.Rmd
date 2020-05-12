@@ -70,11 +70,10 @@ my_data %>%
 
 **Technical**: Summary measures on all data.
 
-```{r summaries, warning = FALSE, echo = FALSE}
-skimr::skim(my_data)
-```
 
-# 
+```{r summaries, echo = FALSE, message = FALSE, warning = FALSE}
+summary_table(my_data, my_vars)
+```
 
 ---
 

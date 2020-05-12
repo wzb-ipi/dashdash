@@ -22,9 +22,11 @@ Besides helping you display data we have two ulterior motives:
 
 Notes:
 
-* **Software**: the dashboard is produced using `Rmarkdown` but the inputs are just datas. If you work in stata or anything else and can produce `.dta` files (best to save as version 13 or below), `.csv` or `xls` it should be easy to input those to this set up. 
+* **Software**: the dashboard is produced using `Rmarkdown` but the inputs are just data sets. If you work in stata or anything else and can produce `.dta` files (best to save as version 13 or below), `.csv` or `xls` it should be easy to input those to this set up. 
 
-* **Hosting**: If you can get the input files to us and can regularly upload your data to github we think we can produce and host the dashboard on this site and catalogue it with other ones. Alternatively the package produces a htm file that you can host anywhere. Contact us at:...
+* **Modifying the software.** You can copy or fork the repository to modify it to suit your needs (pull requests also welcome!). The package contains very simple code. The main function is just a  call to `rmarkdown::render` to compile an `.Rmd` file. The `.Rmd` file pulls in some "child" `.Rmd`s. These `.Rmds` determine the overall stucture of the dashboard. For content, the `Rmd`s call to simple functions (e.g. `plot_aggregates()`)  that mostly implement calls to `dplyr` and `ggplot` to make tables and graphs. So edit the `.Rmd`s   (found in `\inst`) to modify the structure and edit the `.R`s (found in `\R`) to modify the analyses. 
+
+* **Hosting**: If you can get the input files to us and can regularly upload your data to github we think we can produce and host the dashboard on this site and catalogue it with other ones. Alternatively the package produces a html file that you can host anywhere. If you have a Covid survey that you want to connect with this drop a note to `macartan.humphreys@wzb.eu` or `julio.solis@wzb.eu`.
 
 * **Note on open source material**: All material here is open source. Data posted here will be made public and should not contain any personally identifiable information.
 
@@ -90,7 +92,7 @@ my_args <- data.frame(
   intro_text = "Intro text",
   intro_note = "Lots of great people worked on this. More information here: ...",
   data_note = "Study specific note about data source",
-  map_path = paste0(getwd(), '/shapefiles'),
+  map_path = '~/Documents/GitHub/dashdash/docs/shapefiles/',
   map_layer = "SLE_adm3",
   map_region =  "NAME_2",
   group = "District",
@@ -111,7 +113,7 @@ The dashboard is then produced by `dashdash::dashdash` like this:
 ```{r, message = FALSE, warning = FALSE, include = FALSE}
 
 dashdash::dashdash(
-  output_file = "C:/Dropbox/github/dashdash/docs/example.html",
+  output_file = "~/Documents/GitHub/dashdash/docs/index.html",
   title = "A sample dashboard for my study",
   subtitle = "What's special about this study",
   my_data = my_data,
