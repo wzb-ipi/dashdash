@@ -4,6 +4,7 @@ output:
   flexdashboard::flex_dashboard:
     orientation: rows
 ---
+<<<<<<< HEAD
 ```{r, echo = F, include = F}
 library(tidyverse)
 source("flexdashboard-setup.R")
@@ -20,10 +21,17 @@ Row {data-heigth=150}
 ```{r}
 ```
 Row {data-height=700}
+=======
+
+HOME {data-orientation=columns}
+=====================================
+Column {data-width=800}
+>>>>>>> Initial flexboard setup
 -------------------------------------
 ### FT plot
 ```{r}
 ```
+<<<<<<< HEAD
 ### Other plot
 ```{r}
 ```
@@ -32,6 +40,14 @@ Row {data-height=150}
 `r my_args$intro_note`
 
 SL1{data-navmenu='TIME SERIES'}
+=======
+Column {data-width=200}
+-------------------------------------
+### Key facts
+```{r}
+```
+TIME SERIES{data-navmenu=SL1}
+>>>>>>> Initial flexboard setup
 =====================================
 Row{data-height=800 .tabset}
 -------------------------------------
@@ -48,7 +64,11 @@ Row{data-height=200}
 
 ```{r}
 ```
+<<<<<<< HEAD
 SL1{data-navmenu='MAPS'}
+=======
+MAPS{data-navmenu=SL1}
+>>>>>>> Initial flexboard setup
 =====================================
 Row{data-height=800}
 -------------------------------------
@@ -60,12 +80,20 @@ Row{data-height=800}
 ### Description of measures
 ```{r}
 ```
+<<<<<<< HEAD
 SL1{data-navmenu='ALL DATA'}
+=======
+ALL DATA{data-navmenu=SL1}
+>>>>>>> Initial flexboard setup
 ======================================
 ### KABLE FOR DATA DOWNLOAD
 ```{r}
 ```
+<<<<<<< HEAD
 SL2{data-navmenu='TIME SERIES'}
+=======
+TIME SERIES{data-navmenu=SL2}
+>>>>>>> Initial flexboard setup
 =====================================
 Row{data-height=800 .tabset}
 -------------------------------------
@@ -85,7 +113,11 @@ Row{data-height=200}
 ```{r}
 ```
 
+<<<<<<< HEAD
 SL2{data-navmenu=MAPS}
+=======
+MAPS{data-navmenu=SL2}
+>>>>>>> Initial flexboard setup
 =====================================
 Row{data-height=800}
 -------------------------------------
@@ -97,7 +129,11 @@ Row{data-height=800}
 ### Description of measures
 ```{r}
 ```
+<<<<<<< HEAD
 SL2{data-navmenu='ALL DATA'}
+=======
+ALL DATA{data-navmenu=SL2}
+>>>>>>> Initial flexboard setup
 ======================================
 ### KABLE FOR DATA DOWNLOAD
 ```{r}
