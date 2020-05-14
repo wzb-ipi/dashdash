@@ -22,8 +22,8 @@ plot_aggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switc
     select(all_of(c("date", vars))) %>%
     reshape2::melt(id.vars= c("date"))  %>%
     group_by(date, variable) %>%
-    summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), ~length(.))) %>%
-    mutate(se = sd / sqrt(length),
+    summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), n = ~gdata::nobs(.))) %>%
+    mutate(se = sd / sqrt(n),
            ymin=mean-1.96*se,
            ymax=mean+1.96*se) %>%
     left_join(ranges)

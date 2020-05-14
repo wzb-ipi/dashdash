@@ -22,8 +22,8 @@ plot_disaggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1), sw
     select(all_of(c("id", "date", vars))) %>%
     reshape2::melt(id.vars= c("id", "date"))  %>%
     group_by(id, date, variable) %>%
-    summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), ~length(.))) %>%
-    mutate(se = sd / sqrt(length), ymin=mean-1.96*se, ymax=mean+1.96*se) %>%
+    summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), n = ~gdata::nobs(.))) %>%
+    mutate(se = sd / sqrt(n), ymin=mean-1.96*se, ymax=mean+1.96*se) %>%
     left_join(ranges)
 
   # Prep plot
