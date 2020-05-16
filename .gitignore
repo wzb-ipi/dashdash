@@ -4,5 +4,5 @@
 .RData
 .Ruserdata
 .DS_Store
-.Ruserdata
-rsconnect
+.Rproj.user
+.Rproj.user/shared/notebooks/paths

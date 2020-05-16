@@ -20,6 +20,14 @@ Row {data-heigth=150}
 ```{r}
 ```
 Row {data-height=700}
+<<<<<<< HEAD
+=======
+=======
+
+HOME {data-orientation=columns}
+=====================================
+Column {data-width=800}
+>>>>>>> commits in summary_table.R + initial flexboard setup
 -------------------------------------
 ### FT plot
 ```{r}
@@ -32,6 +40,16 @@ Row {data-height=150}
 `r my_args$intro_note`
 
 SL1{data-navmenu='TIME SERIES'}
+<<<<<<< HEAD
+=======
+=======
+Column {data-width=200}
+-------------------------------------
+### Key facts
+```{r}
+```
+TIME SERIES{data-navmenu=SL1}
+>>>>>>> commits in summary_table.R + initial flexboard setup
 =====================================
 Row{data-height=800 .tabset}
 -------------------------------------
@@ -49,6 +67,11 @@ Row{data-height=200}
 ```{r}
 ```
 SL1{data-navmenu='MAPS'}
+<<<<<<< HEAD
+=======
+=======
+MAPS{data-navmenu=SL1}
+>>>>>>> commits in summary_table.R + initial flexboard setup
 =====================================
 Row{data-height=800}
 -------------------------------------
@@ -61,11 +84,21 @@ Row{data-height=800}
 ```{r}
 ```
 SL1{data-navmenu='ALL DATA'}
+<<<<<<< HEAD
+=======
+=======
+ALL DATA{data-navmenu=SL1}
+>>>>>>> commits in summary_table.R + initial flexboard setup
 ======================================
 ### KABLE FOR DATA DOWNLOAD
 ```{r}
 ```
 SL2{data-navmenu='TIME SERIES'}
+<<<<<<< HEAD
+=======
+=======
+TIME SERIES{data-navmenu=SL2}
+>>>>>>> commits in summary_table.R + initial flexboard setup
 =====================================
 Row{data-height=800 .tabset}
 -------------------------------------
@@ -86,6 +119,11 @@ Row{data-height=200}
 ```
 
 SL2{data-navmenu=MAPS}
+<<<<<<< HEAD
+=======
+=======
+MAPS{data-navmenu=SL2}
+>>>>>>> commits in summary_table.R + initial flexboard setup
 =====================================
 Row{data-height=800}
 -------------------------------------
@@ -98,6 +136,11 @@ Row{data-height=800}
 ```{r}
 ```
 SL2{data-navmenu='ALL DATA'}
+<<<<<<< HEAD
+=======
+=======
+ALL DATA{data-navmenu=SL2}
+>>>>>>> commits in summary_table.R + initial flexboard setup
 ======================================
 ### KABLE FOR DATA DOWNLOAD
 ```{r}
