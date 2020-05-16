@@ -1,0 +1,16 @@
+<<<<<<< HEAD
+.Rproj.user/*
+=======
+>>>>>>> e04c348... Initial flexboard setup
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+.Rproj.user
+<<<<<<< HEAD
+.Rproj.user/shared/notebooks/paths
+rsconnect
+=======
+.Ruserdata
+>>>>>>> e04c348... Initial flexboard setup

@@ -28,4 +28,8 @@ Depends:
   table1,
   checkmate
 Suggests: 
-    testthat
+  testthat
+  checkmate,
+  data.table
+  
+
