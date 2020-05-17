@@ -25,6 +25,7 @@ Depends:
   magrittr,
   maptools,
   tidyselect,
-  table1,
-  checkmate
+  checkmate,
+  data.table
+  
 
