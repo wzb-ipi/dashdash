@@ -111,7 +111,7 @@ The dashboard is then produced by `dashdash::dashdash` like this:
 ```{r, message = FALSE, warning = FALSE, include = FALSE}
 
 dashdash::dashdash(
-  output_file = "C:/Dropbox/github/dashdash/docs/example.html",
+  output_file = paste(getwd(), "example.html"),
   title = "A sample dashboard for my study",
   subtitle = "What's special about this study",
   my_data = my_data,

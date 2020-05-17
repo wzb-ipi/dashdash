@@ -24,6 +24,8 @@ Depends:
   gpclib,
   magrittr,
   maptools,
-  tidyselect, 
-  checkmate
+  tidyselect,
+  checkmate,
+  data.table
+  
 
