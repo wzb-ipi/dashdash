@@ -9,16 +9,7 @@
 
 
 summary_table <- function(df, my_vars){
-<<<<<<< HEAD
-  # select numeric variables
-  my_vars <- filter(my_vars, !is.na(short_label))
-  num_var <- names(select_if(df, is.numeric))
-  num_var <- num_var[num_var %in% my_vars$variable]
 
-    # relabel every numeric variables by my_vars
-  for (x in num_var){
-    table1::label(df[[x]]) <- my_vars[my_vars$variable == x,]$short_label
-=======
   # count the frequences by districts
   counts <- df %>% group_by(id) %>% count() %>% rename(N = n)
   # merge counts to df
@@ -47,7 +38,6 @@ summary_table <- function(df, my_vars){
                                     if (melt_data$variable[-1][x] == my_vars$variable[x]){
                                           melt_data$variable[-1][x]  <-  my_vars$short_label[x]}
                                     })
->>>>>>> master
   }
   DT::datatable(melt_data, rownames = FALSE,
                 extensions = 'Buttons', options = list(dom = 'Bfrtip', buttons = I('colvis')))
