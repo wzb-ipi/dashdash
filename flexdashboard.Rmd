@@ -4,19 +4,33 @@ output:
   flexdashboard::flex_dashboard:
     orientation: rows
 ---
-
-HOME {data-orientation=columns}
-=====================================
-Column {data-width=800}
--------------------------------------
-### FT plot
-```{r}
+```{r, echo = F, include = F}
+library(tidyverse)
+source("flexdashboard-setup.R")
 ```
-Column {data-width=200}
+
+
+HOME 
+=====================================
+`r my_args$intro_text`
+
+Row {data-heigth=150}
 -------------------------------------
 ### Key facts
 ```{r}
 ```
+Row {data-height=700}
+-------------------------------------
+### FT plot
+```{r}
+```
+### Other plot
+```{r}
+```
+Row {data-height=150}
+-------------------------------------
+`r my_args$intro_note`
+
 TIME SERIES{data-navmenu=SL1}
 =====================================
 Row{data-height=800 .tabset}
