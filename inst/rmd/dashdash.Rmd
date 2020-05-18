@@ -12,7 +12,6 @@ output:
 
 
 ```{r, include=FALSE, echo = FALSE}
-
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
