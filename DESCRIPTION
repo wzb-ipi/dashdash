@@ -25,7 +25,14 @@ Depends:
   magrittr,
   maptools,
   tidyselect,
+<<<<<<< HEAD
   table1,
   checkmate
 Suggests: 
     testthat
+=======
+  checkmate,
+  data.table
+  
+
+>>>>>>> master
