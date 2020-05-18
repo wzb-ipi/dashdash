@@ -31,7 +31,7 @@ Row {data-height=150}
 -------------------------------------
 `r my_args$intro_note`
 
-TIME SERIES{data-navmenu=SL1}
+SL1{data-navmenu='TIME SERIES'}
 =====================================
 Row{data-height=800 .tabset}
 -------------------------------------
@@ -48,7 +48,7 @@ Row{data-height=200}
 
 ```{r}
 ```
-MAPS{data-navmenu=SL1}
+SL1{data-navmenu='MAPS'}
 =====================================
 Row{data-height=800}
 -------------------------------------
@@ -60,12 +60,12 @@ Row{data-height=800}
 ### Description of measures
 ```{r}
 ```
-ALL DATA{data-navmenu=SL1}
+SL1{data-navmenu='ALL DATA'}
 ======================================
 ### KABLE FOR DATA DOWNLOAD
 ```{r}
 ```
-TIME SERIES{data-navmenu=SL2}
+SL2{data-navmenu='TIME SERIES'}
 =====================================
 Row{data-height=800 .tabset}
 -------------------------------------
@@ -85,7 +85,7 @@ Row{data-height=200}
 ```{r}
 ```
 
-MAPS{data-navmenu=SL2}
+SL2{data-navmenu=MAPS}
 =====================================
 Row{data-height=800}
 -------------------------------------
@@ -97,7 +97,7 @@ Row{data-height=800}
 ### Description of measures
 ```{r}
 ```
-ALL DATA{data-navmenu=SL2}
+SL2{data-navmenu='ALL DATA'}
 ======================================
 ### KABLE FOR DATA DOWNLOAD
 ```{r}
