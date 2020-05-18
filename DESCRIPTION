@@ -26,7 +26,8 @@ Depends:
   maptools,
   tidyselect,
   checkmate,
-  data.table
+  data.table,
+  DT
 Suggests: 
     testthat
 

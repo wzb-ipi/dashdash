@@ -6,7 +6,8 @@
 #' @param date date variable
 #' @export
 
-
+# check if var is date variable
+is.date <- function(date) inherits(date, 'Date')
 
 summary_table <- function(df, my_vars){
 
@@ -14,8 +15,6 @@ summary_table <- function(df, my_vars){
   counts <- df %>% group_by(id) %>% count() %>% rename(N = n)
   # merge counts to df
   counts_df <- merge(counts, df)
-  # check if var is date variable
-  is.date <- function(date) inherits(date, 'Date')
   # remove date variable
   counts_df <- counts_df[,!sapply(counts_df, is.date)]
   # calculate average in all and responding frequence

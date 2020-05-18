@@ -2,10 +2,10 @@
 
 if (.runThisTest) {
 
-  context(desc = "Testing current_means")
+  context(desc = "Testing summary_table")
 
   testthat::test_that(
-    desc = "Testing get_current_means",
+    desc = "Testing summary_table",
     code = {
       df <- data_generator()[[1]]
       my_vars <- data_generator()[[2]]
