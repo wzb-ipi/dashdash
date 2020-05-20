@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 .Rproj.user/*
-=======
->>>>>>> e04c348... Initial flexboard setup
-.Rproj.user
 .Rhistory
 .RData
 .Ruserdata
@@ -13,4 +9,5 @@
 rsconnect
 =======
 .Ruserdata
->>>>>>> e04c348... Initial flexboard setup
+rsconnect
+>>>>>>> 2c68f82... update last week
