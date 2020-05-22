@@ -8,61 +8,48 @@ output:
 library(tidyverse)
 source("flexdashboard-setup.R")
 ```
-
-<<<<<<< HEAD
-
 HOME 
-=====================================
+================================
 `r my_args$intro_text`
 
-Row {data-heigth=150}
--------------------------------------
-### Key facts
-```{r}
-```
-Row {data-height=700}
-=======
-=======
->>>>>>> 2c68f82... update last week
+Row {data-height=50} 
+------------------------
 
-HOME 
-=====================================
-`r my_args$intro_text`
+### Key fact 1
+```{r}
+print("Gauge 1")
+```
+### Key fact 2
+```{r}
+print("Gauge 2")
+```
+### Key fact 3
+```{r}
+print("Gauge 3")
+```
+### Key fact 4
+```{r}
+print("Gauge 4")
+```
 
-Row {data-heigth=150}
--------------------------------------
-### Key facts
+Row {data-height=750}
+------------------------
+
+### FT Plot
 ```{r}
+
 ```
-<<<<<<< HEAD
-### Other plot
-```{r}
-```
-Row {data-height=150}
--------------------------------------
+
+Row {data-height=50}
+------------------------
 `r my_args$intro_note`
 
 SL1{data-navmenu='TIME SERIES'}
-=======
-Column {data-width=200}
-=======
-Row {data-height=700}
->>>>>>> 2c68f82... update last week
--------------------------------------
-### FT plot
-```{r}
-```
-### Other plot
-```{r}
-```
-Row {data-height=150}
--------------------------------------
-`r my_args$intro_note`
+================================
 
-TIME SERIES{data-navmenu=SL1}
-=====================================
 Row{data-height=800 .tabset}
--------------------------------------
+------------------------
+
 ### NATIONAL
 ```{r}
 ```
@@ -71,75 +58,83 @@ Row{data-height=800 .tabset}
 ```
 
 Row{data-height=200}
--------------------------------------
-### Description of measures
+------------------------
 
+### Description of measures
 ```{r}
 ```
+
 SL1{data-navmenu='MAPS'}
-=======
-MAPS{data-navmenu=SL1}
-=====================================
+================================
+
 Row{data-height=800}
--------------------------------------
+------------------------
+
 ### PLOTS
 ```{r}
 ```
-Row{data-height=800}
--------------------------------------
+
+Row{data-height=200}
+------------------------
+
 ### Description of measures
 ```{r}
 ```
+
+
 SL1{data-navmenu='ALL DATA'}
-=======
-ALL DATA{data-navmenu=SL1}
-======================================
-### KABLE FOR DATA DOWNLOAD
-```{r}
-```
-SL2{data-navmenu='TIME SERIES'}
-=======
-TIME SERIES{data-navmenu=SL2}
-=====================================
-Row{data-height=800 .tabset}
--------------------------------------
-### NATIONAL
+================================
+
+## KABLE FOR DATA DOWNLOAD
 ```{r}
 ```
 
+SL2{data-navmenu='TIME SERIES'}
+================================
+
+Row{data-height=800 .tabset}
+------------------------
+
+### NATIONAL
+```{r}
+```
 ### REGIONAL
 ```{r}
 ```
 
-
 Row{data-height=200}
--------------------------------------
-### Description of measures
+------------------------
 
+### Description of measures
 ```{r}
 ```
 
-SL2{data-navmenu=MAPS}
-=======
-MAPS{data-navmenu=SL2}
-=====================================
+SL2{data-navmenu='MAPS'}
+================================
+
 Row{data-height=800}
--------------------------------------
+------------------------
+
 ### PLOTS
 ```{r}
 ```
-Row{data-height=800}
--------------------------------------
+
+Row{data-height=200}
+------------------------
+
 ### Description of measures
 ```{r}
 ```
+
+
 SL2{data-navmenu='ALL DATA'}
-=======
-ALL DATA{data-navmenu=SL2}
-======================================
-### KABLE FOR DATA DOWNLOAD
+================================
+
+## KABLE FOR DATA DOWNLOAD
 ```{r}
 ```
+
+
 AGGREGATION
-=====================================
+================================
 ### Still coming soon
