@@ -21,6 +21,7 @@ Showing most recent data available for each `r group`.
 
 add_maps(my_subset=my_subset,
          current_means=current_means, 
-         shp_df=shp_df)
+         shp_df=shp_df,
+         scale_vars=scale_vars)
 
 ```

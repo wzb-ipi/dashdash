@@ -39,7 +39,7 @@ auto_maps <- function(country_code, level=1, map_region="NAME_1"){
 #' Make maps and plot them
 #'
 
-add_maps <- function(my_subset, current_means, shp_df){
+add_maps <- function(my_subset, current_means, shp_df, scale_vars){
   vars <- pull(my_subset, variable)
   var_labs <- my_subset  %>% pull(short_label)
   names(var_labs) <- vars
