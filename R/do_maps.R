@@ -5,7 +5,7 @@
 
 do_maps <- function(map_path, map_region){
 
-  if(is.null(map_path)) map_layer <- tools::file_path_sans_ext(basename(map_path))
+  if(!is.null(map_path)) map_layer <- tools::file_path_sans_ext(basename(map_path))
 
   if(is.null(map_region)) map_region <- my_args$map_region
 
@@ -15,12 +15,12 @@ do_maps <- function(map_path, map_region){
     gpclibPermit()
   }
 
-  shp <- readOGR(dsn = map_path,
+  shp <<- readOGR(dsn = map_path,
                  layer = map_layer,
                  verbose = FALSE,
                  stringsAsFactors = FALSE)
 
-  shp_df <- broom::tidy(shp, region = map_region)
+  shp_df <<- broom::tidy(shp, region = map_region)
 
 }
 
