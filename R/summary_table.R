@@ -16,8 +16,7 @@ summary_table <- function(df, my_vars){
     table1::label(df[[x]]) <- my_vars[my_vars$variable == x,]$short_label
   }
   # formula for setting col and row
-  formula <- as.formula(paste( "~", paste(paste(num_var, collapse=" + "), names(select_if(df, is.character)), sep=" | ")))
+  formula <- as.formula(paste( "~", paste(paste(num_var, collapse=" + "), "id", sep=" | ")))
   # get the summary table
   table1::table1(formula, data = df)
-
 }
