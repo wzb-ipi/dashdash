@@ -38,6 +38,14 @@ if(scale_vars)
 df_map <- left_join(shp_df, current_means_map)  %>% select(-date) %>%
   reshape2::melt(id.vars= c("id", "long", "lat", "order", "hole", "piece", "group"))
 
+if (nrow(filter(df_map, is.na(value)))!=0){
+    check_na <- filter(df_map, is.na(value)) 
+    check_na <- unique(check_na$id)
+    for (place in check_na) {
+        warning(paste0(place, " did not find matches "))
+    }
+}
+
 ggplot() +
   geom_polygon(data = df_map, 
                aes( x = long, y = lat,  group = group, fill=value), color="white") +
