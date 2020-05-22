@@ -1,0 +1,73 @@
+---
+title: "Mexico dashboard"
+author: "JSSA"
+date: "5/22/2020"
+output:
+  rmdformats::html_clean
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dashdash)
+library(readxl)
+library(readr)
+library(haven)
+```
+
+
+# Gather inputs
+
+```{r}
+
+my_vars <- read_excel("mex_vars.xlsx")
+
+vars_used  <- my_vars %>% filter(!is.na(variable)) %>% pull(variable)
+
+print(getwd())
+
+my_data <- read_dta("mex_data.dta")
+
+n <- rownames(my_data)
+my_data <- cbind(n=n, my_data)
+
+# Light data cleaning
+my_data <- select(my_data, c(id=edo, date=fecha, "n", all_of(vars_used)))  %>%
+  mutate(date = as.Date(date, format = "%d%b%Y"))
+
+my_args <- read_excel("mex_args.xlsx")
+
+```
+
+```{r master, message = FALSE, warning = FALSE, include = FALSE}
+wd <- getwd()
+dashdash::dashdash(
+  output_file = paste0(wd, "/mexample.html"),
+  map_path = paste0(wd, "/shapefiles"),
+  map_layer = "gadm36_MEX_1",
+  map_region = "NAME_1",
+  add_maps = TRUE,
+  my_data = my_data,
+  my_vars = my_vars,
+  my_args = my_args
+)
+
+
+```
+
+```{r auto_maps_new, message = FALSE, warning = FALSE, include = FALSE}
+wd <- getwd()
+dashdash::dashdash(
+  output_file = paste0(wd, "/index.html"),
+  my_data = my_data,
+  my_vars = my_vars,
+  my_args = my_args,
+  title="Crime in Mexico",
+  add_maps = TRUE,
+  country_code = "MEX",
+  level = 1,
+  map_region = "NAME_1"
+)
+
+
+```
+

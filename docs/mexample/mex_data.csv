@@ -1,0 +1,1581 @@
+mun,edo,fecha,man,urban,d_victim_crime,n_victim_crime,d_murder,n_murder,d_dissappeared,family_dis,perception_sec
+Dolores Hidalgo,Guanajuato,12feb2019,1,1,0,,0,,1,0,2
+Mérida,Yucatán,03mar2019,0,1,0,,0,,1,0,3
+Othón P. Blanco,Quintana Roo,04mar2019,0,0,0,,0,,1,0,3
+Amatán,Chiapas,08mar2019,0,0,0,,1,3,1,0,2
+Tijuana,Baja California,27feb2019,0,1,0,,0,,1,0,3
+Othón P. Blanco,Quintana Roo,04mar2019,0,1,0,,1,3,1,0,1
+Mérida,Yucatán,03mar2019,0,1,0,,0,,0,0,4
+Paraíso,Tabasco,02mar2019,0,0,0,,0,,1,1,3
+Tampico,Tamaulipas,03mar2019,0,1,0,,0,,1,0,3
+Othón P. Blanco,Quintana Roo,04mar2019,1,1,0,,0,,1,0,2
+Tijuana,Baja California,27feb2019,1,1,0,,1,3,1,0,2
+Amatán,Chiapas,09mar2019,0,0,0,,1,3,1,0,4
+Zapotlán El Grande,Jalisco,13feb2019,1,1,0,,0,,1,0,1
+Paraíso,Tabasco,02mar2019,1,0,0,,0,,1,0,3
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,0,0,0,,0,,1,0,2
+Ahuacatlán,Nayarit,07mar2019,0,1,0,,0,,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,0,0,,0,,0,0,3
+Coatzacoalcos,Veracruz,24feb2019,1,1,0,,0,,1,0,2
+Moroleón,Guanajuato,16feb2019,1,1,0,,1,3,1,0,4
+Moroleón,Guanajuato,16feb2019,0,1,0,,1,1,1,0,3
+Honey,Puebla,08mar2019,0,0,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,30jan2019,1,1,0,,1,2,1,1,3
+Paraíso,Tabasco,02mar2019,1,0,0,,0,,1,1,4
+Cosoleacaque,Veracruz,23feb2019,0,1,0,,0,,1,1,3
+Coatzacoalcos,Veracruz,24feb2019,1,1,0,,1,2,1,0,3
+Hopelchén,Campeche,05mar2019,1,0,0,,1,3,1,0,2
+Tijuana,Baja California,27feb2019,0,1,0,,1,1,1,0,3
+Hueyapan de Ocampo,Veracruz,22feb2019,1,0,0,,0,,1,0,3
+Monterrey,Nuevo León,28feb2019,1,1,0,,1,2,1,0,4
+Monterrey,Nuevo León,26feb2019,1,1,0,,1,2,1,0,3
+Mérida,Yucatán,03mar2019,1,1,0,,0,,1,0,1
+León,Guanajuato,13feb2019,1,0,0,,1,3,1,0,3
+Zitácuaro,Michoacán,03feb2019,1,0,0,,0,,1,0,2
+Cosoleacaque,Veracruz,23feb2019,1,1,0,,1,3,1,0,2
+Naucalpan de Juárez,Estado de México,07feb2019,0,1,0,,0,,1,0,3
+Leonardo Bravo,Guerrero,01mar2019,1,1,0,,0,,1,0,2
+Morelia,Michoacán,09feb2019,1,1,0,,0,,1,0,3
+Gustavo A. Madero,Distrito Federal,04feb2019,0,1,0,,0,,1,0,4
+Hopelchén,Campeche,05mar2019,1,0,0,,0,,1,0,4
+Toluca,Estado de México,05feb2019,1,0,0,,0,,1,0,3
+Moroleón,Guanajuato,16feb2019,1,1,0,,1,2,0,0,2
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,1,0,0,,0,,1,0,4
+San Cristóbal,Chiapas,06mar2019,0,1,0,,0,,1,0,.a
+Atizapán de Zaragoza,Estado de México,14feb2019,0,1,0,,1,2,1,0,2
+Ahuacatlán,Nayarit,07mar2019,0,1,0,,0,,1,0,1
+Ixtapaluca,Estado de México,02feb2019,1,1,0,,0,,1,0,2
+León,Guanajuato,15feb2019,0,1,0,,0,,0,0,2
+Zitácuaro,Michoacán,06feb2019,1,0,0,,0,,1,0,2
+Amatán,Chiapas,09mar2019,0,0,0,,1,2,1,0,2
+Lerdo,Durango,23feb2019,1,0,0,,1,1,1,0,4
+Ciudad Juárez,Chihuahua,24feb2019,0,1,0,,1,2,1,1,3
+Bochil,Chiapas,08mar2019,0,1,0,,1,3,1,0,4
+Hopelchén,Campeche,05mar2019,0,0,0,,0,,1,0,2
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,0,2
+Ecatepec de Morelos,Estado de México,01feb2019,0,1,0,,0,,1,0,.b
+San Lucas Ojitlán,Oaxaca,12feb2019,0,0,0,,0,,1,0,1
+Huaquechula,Puebla,08feb2019,1,0,0,,0,,1,0,2
+Pénjamo,Guanajuato,14feb2019,0,0,0,,0,,1,0,1
+Rosario,Sinaloa,05mar2019,1,1,0,,0,,1,0,1
+Toluca,Estado de México,21mar2019,1,1,0,,0,,1,0,2
+Ecatepec de Morelos,Estado de México,01feb2019,1,1,0,,0,,1,0,2
+San Cristóbal,Chiapas,06mar2019,1,1,0,,1,3,1,0,3
+Cuautitlán Izcalli,Estado de México,05feb2019,1,1,0,,1,.a,1,0,2
+San Lucas Ojitlán,Oaxaca,12feb2019,1,0,0,,0,,1,0,3
+Centro,Tabasco,01mar2019,1,1,0,,0,,1,0,3
+Villagrán,Tamaulipas,02mar2019,0,1,0,,0,,1,0,.b
+Uxpanapa,Veracruz,11feb2019,0,0,0,,0,,0,0,1
+Tlalnepantla de Baz,Estado de México,30jan2019,0,1,0,,1,3,0,0,2
+Tampico,Tamaulipas,03mar2019,0,1,0,,0,,1,0,4
+Monclova,Coahuila,24feb2019,1,1,0,,0,,1,0,1
+Mesones Hidalgo,Oaxaca,15feb2019,0,1,0,,0,,0,0,4
+Monterrey,Nuevo León,26feb2019,0,1,0,,1,3,1,0,1
+Ixtapaluca,Estado de México,04feb2019,0,1,0,,0,,1,0,.a
+San Cristóbal,Chiapas,06mar2019,1,1,0,,0,,1,0,4
+Hopelchén,Campeche,05mar2019,1,0,0,,0,,1,1,4
+Naucalpan de Juárez,Estado de México,07feb2019,0,1,0,,0,,1,0,3
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,0,3
+Mexicali,Baja California,26feb2019,1,1,0,,0,,0,0,2
+Chihuahua,Chihuahua,24feb2019,1,1,0,,1,2,1,0,1
+Angostura,Sinaloa,03mar2019,1,1,0,,0,,0,0,.b
+Benito Juárez,Distrito Federal,05feb2019,0,1,0,,0,,1,0,4
+Villa Corzo,Chiapas,07mar2019,0,0,0,,1,3,1,0,3
+Gustavo A. Madero,Distrito Federal,04feb2019,1,1,0,,0,,1,0,2
+Tonalá,Jalisco,16feb2019,1,1,0,,0,,1,0,3
+Cuencamé,Durango,22feb2019,0,1,0,,0,,1,0,1
+San Luis Potosí,San Luis Potosí,03mar2019,1,1,0,,0,,1,0,3
+Zitácuaro,Michoacán,06feb2019,0,0,0,,0,,1,0,3
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,0,0,0,,0,,1,0,4
+Chihuahua,Chihuahua,25feb2019,0,1,0,,0,,1,0,2
+Culiacán,Sinaloa,04mar2019,0,0,0,,0,,1,0,4
+Guaymas,Sonora,02mar2019,0,1,0,,0,,1,0,3
+Hueyapan de Ocampo,Veracruz,22feb2019,1,0,0,,0,,0,0,1
+Cuencamé,Durango,22feb2019,1,1,0,,1,3,1,0,4
+Iztapalapa,Distrito Federal,31jan2019,1,1,0,,0,,1,0,4
+Tabasco,Zacatecas,06mar2019,0,0,0,,0,,1,0,3
+Pátzcuaro,Michoacán,10feb2019,1,1,0,,0,,1,0,1
+San Felipe Orizatlán,Hidalgo,26mar2019,0,0,0,,0,,1,0,3
+Tijuana,Baja California,27feb2019,1,1,0,,0,,1,0,4
+Comondú,Baja California Sur,23mar2019,1,1,0,,1,2,1,0,2
+Ciudad Victoria,Tamaulipas,01mar2019,0,1,0,,0,,0,0,2
+Amatán,Chiapas,09mar2019,1,0,0,,1,3,1,0,3
+Zapotlán El Grande,Jalisco,10feb2019,0,1,0,,0,,1,0,3
+Acámbaro,Guanajuato,22mar2019,0,1,0,,0,,0,0,1
+Yautepec,Morelos,22feb2019,0,1,0,,0,,1,0,4
+Tabasco,Zacatecas,06mar2019,1,0,0,,0,,1,0,2
+Morelia,Michoacán,07feb2019,0,1,0,,0,,1,0,3
+Tabasco,Zacatecas,06mar2019,0,0,0,,0,,0,0,.b
+Nopala de Villagrán,Hidalgo,07mar2019,1,1,0,,1,2,1,0,1
+Leonardo Bravo,Guerrero,01mar2019,0,1,0,,0,,1,1,2
+Centro,Tabasco,01mar2019,0,1,0,,1,3,1,0,3
+Lerdo,Durango,23feb2019,0,0,0,,0,,1,0,2
+Leonardo Bravo,Guerrero,01mar2019,1,1,0,,0,,1,0,3
+Ixtapaluca,Estado de México,04feb2019,1,1,0,,1,3,1,0,4
+Iztacalco,Distrito Federal,30jan2019,0,1,0,,0,,1,0,1
+Chihuahua,Chihuahua,24feb2019,1,1,0,,1,3,1,0,2
+Parras,Coahuila,23feb2019,1,1,0,,0,,1,0,2
+Huaquechula,Puebla,08feb2019,1,0,0,,0,,1,0,2
+Alvaro Obregón,Distrito Federal,02feb2019,1,1,0,,1,2,1,0,3
+Coatzacoalcos,Veracruz,24feb2019,1,1,0,,1,3,1,0,1
+Othón P. Blanco,Quintana Roo,04mar2019,0,0,0,,1,3,1,0,1
+San Felipe Orizatlán,Hidalgo,26mar2019,0,0,0,,0,,0,0,4
+Centro,Tabasco,01mar2019,1,1,0,,1,1,1,0,.b
+León,Guanajuato,13feb2019,0,0,0,,1,3,1,0,3
+Cuautitlán Izcalli,Estado de México,05feb2019,1,1,0,,0,,1,0,3
+Papantla,Veracruz,06feb2019,0,0,0,,0,,1,0,2
+Ciudad Victoria,Tamaulipas,01mar2019,0,1,0,,0,,0,0,1
+Othón P. Blanco,Quintana Roo,04mar2019,0,1,0,,0,,1,0,1
+Ocoyucan,Puebla,25mar2019,1,1,0,,0,,1,0,1
+Hopelchén,Campeche,05mar2019,0,0,0,,0,,1,0,2
+Mérida,Yucatán,03mar2019,0,1,0,,1,3,1,0,3
+San Cristóbal,Chiapas,06mar2019,0,1,0,,0,,1,0,3
+Nopala de Villagrán,Hidalgo,07mar2019,0,1,0,,1,3,1,0,3
+Zapopan,Jalisco,15feb2019,1,1,0,,1,2,1,0,3
+León,Guanajuato,13feb2019,1,0,0,,1,1,1,0,2
+San Luis Río Colorado,Sonora,25feb2019,1,1,0,,0,,1,0,2
+Caltepec,Puebla,16feb2019,1,1,0,,0,,0,0,2
+Fresnillo,Zacatecas,05mar2019,1,1,0,,1,2,0,0,1
+Los Cabos,Baja California Sur,25mar2019,1,0,0,,0,,1,0,3
+Tijuana,Baja California,28feb2019,0,1,0,,1,2,1,0,2
+Chicoloapan,Estado de México,05feb2019,1,1,0,,1,1,1,0,4
+Bochil,Chiapas,08mar2019,0,1,0,,0,,1,0,3
+Paraíso,Tabasco,02mar2019,0,0,0,,0,,1,0,3
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,1,2,1,0,3
+Zamora,Michoacán,11feb2019,0,1,0,,1,1,1,1,4
+Toluca,Estado de México,04feb2019,0,1,0,,0,,1,0,2
+Boca del Río,Veracruz,07feb2019,0,1,0,,1,1,1,1,4
+Eduardo Neri,Guerrero,28feb2019,1,1,0,,1,2,1,0,4
+Alvaro Obregón,Distrito Federal,02feb2019,0,1,0,,1,3,1,0,2
+Nezahualcóyotl,Estado de México,01feb2019,0,1,0,,0,,1,0,3
+Metlatónoc,Guerrero,02mar2019,1,0,0,,0,,1,0,4
+León,Guanajuato,13feb2019,1,0,0,,0,,0,0,4
+Nopala de Villagrán,Hidalgo,07mar2019,0,1,0,,1,2,1,0,3
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,1,3,1,0,2
+Zapopan,Jalisco,15feb2019,0,1,0,,1,2,1,0,4
+Villa Corzo,Chiapas,07mar2019,0,0,0,,0,,0,0,3
+Puebla,Puebla,07feb2019,0,1,0,,0,,0,0,3
+Amatán,Chiapas,09mar2019,1,0,0,,1,1,1,0,3
+Matehuala,San Luis Potosí,02mar2019,0,1,0,,0,,1,0,4
+Atotonilco El Alto,Jalisco,18feb2019,1,0,0,,0,,1,0,1
+Iztapalapa,Distrito Federal,31jan2019,1,1,0,,1,2,1,0,4
+Cuencamé,Durango,22feb2019,1,1,0,,0,,0,0,1
+Monclova,Coahuila,24feb2019,0,1,0,,0,,1,0,3
+Uxpanapa,Veracruz,11feb2019,0,0,0,,0,,1,0,1
+Mérida,Yucatán,03mar2019,0,1,0,,0,,0,0,2
+Monclova,Coahuila,24feb2019,0,1,0,,0,,1,0,3
+Jiutepec,Morelos,21feb2019,0,1,0,,0,,1,0,3
+Papantla,Veracruz,06feb2019,1,0,0,,1,2,1,0,2
+Moroleón,Guanajuato,16feb2019,0,1,0,,1,2,1,0,3
+Saltillo,Coahuila,22feb2019,0,1,0,,0,,1,0,3
+Zumpango,Estado de México,01feb2019,0,1,0,,1,3,0,0,3
+Zumpango,Estado de México,01feb2019,0,1,0,,1,3,1,0,4
+Pénjamo,Guanajuato,14feb2019,0,0,0,,0,,1,0,1
+León,Guanajuato,15feb2019,1,1,0,,1,3,1,0,3
+Ciudad Victoria,Tamaulipas,01mar2019,1,1,0,,1,3,1,0,3
+Monterrey,Nuevo León,28feb2019,0,1,0,,0,,1,0,1
+Iguala de la Independencia,Guerrero,03mar2019,1,1,0,,1,3,1,0,4
+Iztapalapa,Distrito Federal,30jan2019,1,1,0,,1,3,1,0,4
+San Nicolás de los Garza,Nuevo León,26feb2019,1,1,0,,0,,1,0,3
+Villagrán,Tamaulipas,02mar2019,1,1,0,,0,,0,0,3
+Morelia,Michoacán,06feb2019,0,1,0,,0,,1,0,3
+Tepeji del Río de Ocampo,Hidalgo,12feb2019,1,0,0,,0,,1,0,2
+Tampamolón Corona,San Luis Potosí,03mar2019,1,1,0,,0,,1,0,4
+Rosario,Sinaloa,05mar2019,0,1,0,,0,,0,0,2
+Cuauhtémoc,Distrito Federal,02feb2019,0,1,0,,1,3,1,0,2
+San Nicolás de los Garza,Nuevo León,26feb2019,0,1,0,,1,3,1,0,4
+Pénjamo,Guanajuato,14feb2019,0,0,0,,0,,1,0,1
+Zapopan,Jalisco,15feb2019,0,1,0,,1,2,1,0,3
+Guaymas,Sonora,24feb2019,1,1,0,,1,2,0,0,1
+Dolores Hidalgo,Guanajuato,12feb2019,0,1,0,,1,1,1,0,4
+Guaymas,Sonora,24feb2019,1,1,0,,0,,1,0,1
+Villa de Alvarez,Colima,12feb2019,1,1,0,,0,,0,0,1
+Naucalpan de Juárez,Estado de México,11feb2019,0,1,0,,1,3,1,0,2
+Saltillo,Coahuila,27feb2019,1,1,0,,0,,0,0,1
+Yautepec,Morelos,23feb2019,0,1,0,,1,3,1,0,4
+San Luis Río Colorado,Sonora,25feb2019,0,1,0,,0,,1,0,3
+Ixtenco,Tlaxcala,05feb2019,0,1,0,,1,1,1,0,4
+Papantla,Veracruz,06feb2019,1,0,0,,0,,0,0,2
+Caltepec,Puebla,16feb2019,0,1,0,,0,,1,0,1
+Alvaro Obregón,Distrito Federal,02feb2019,0,1,0,,1,3,1,0,3
+Villa de Alvarez,Colima,09feb2019,1,1,0,,0,,1,0,3
+Los Cabos,Baja California Sur,25mar2019,1,0,0,,0,,1,0,2
+Santa Catarina,Nuevo León,25feb2019,0,1,0,,0,,1,0,3
+Monclova,Coahuila,24feb2019,1,1,0,,0,,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,1,0,,0,,1,0,2
+Valle de Chalco Solidaridad,Estado de México,04feb2019,1,1,0,,1,2,1,0,2
+Villa de Alvarez,Colima,09feb2019,0,1,0,,0,,1,0,2
+Tlaquepaque,Jalisco,17feb2019,0,1,0,,0,,1,0,.b
+Ahuacatlán,Nayarit,07mar2019,0,1,0,,0,,1,0,4
+Tlalnepantla de Baz,Estado de México,30jan2019,0,1,0,,1,1,0,0,4
+Atotonilco El Alto,Jalisco,18feb2019,0,0,0,,0,,1,0,3
+Oaxaca de Juárez,Oaxaca,13feb2019,1,1,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,1,3,1,0,2
+Cosoleacaque,Veracruz,23feb2019,1,1,0,,1,2,1,0,3
+Honey,Puebla,08mar2019,0,0,0,,0,,1,0,2
+Eduardo Neri,Guerrero,28feb2019,0,1,0,,1,2,1,0,2
+Rosario,Sinaloa,05mar2019,1,1,0,,0,,0,0,3
+Tepic,Nayarit,06mar2019,0,1,0,,1,3,1,0,3
+Jamay,Jalisco,11feb2019,0,1,0,,0,,1,0,2
+Iztacalco,Distrito Federal,13mar2019,0,1,0,,1,1,1,0,3
+San Juan de los Lagos,Jalisco,19feb2019,0,1,0,,0,,1,0,.b
+Nicolás Romero,Estado de México,04feb2019,0,0,0,,1,2,1,0,4
+Hopelchén,Campeche,05mar2019,1,0,0,,0,,1,0,2
+Acámbaro,Guanajuato,22mar2019,0,1,0,,1,3,1,0,1
+Tijuana,Baja California,27feb2019,1,1,0,,0,,1,0,1
+Villa Corzo,Chiapas,07mar2019,0,0,0,,1,2,1,0,3
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,1,1,1,0,2
+Metlatónoc,Guerrero,02mar2019,0,0,0,,0,,1,0,2
+Tijuana,Baja California,28feb2019,0,1,0,,1,2,1,0,3
+Zamora,Michoacán,11feb2019,0,1,0,,1,3,1,0,4
+Cuautitlán Izcalli,Estado de México,10feb2019,0,1,0,,1,.a,1,0,4
+Cuencamé,Durango,22feb2019,0,1,0,,0,,1,0,3
+Huaquechula,Puebla,08feb2019,0,0,0,,0,,1,0,3
+Rosario,Sinaloa,05mar2019,0,1,0,,0,,0,0,4
+Culiacán,Sinaloa,04mar2019,1,0,0,,0,,1,0,4
+Ecatepec de Morelos,Estado de México,01feb2019,0,1,0,,0,,1,0,4
+Puebla,Puebla,06feb2019,0,1,0,,.a,,1,0,3
+Xalapa,Veracruz,07feb2019,1,1,0,,0,,1,0,2
+Pátzcuaro,Michoacán,07feb2019,0,1,0,,1,3,1,1,2
+Villagrán,Tamaulipas,02mar2019,1,1,0,,0,,0,0,2
+Ciudad Victoria,Tamaulipas,01mar2019,1,1,0,,1,2,.a,,3
+Ciudad Victoria,Tamaulipas,01mar2019,0,1,0,,0,,1,0,3
+Othón P. Blanco,Quintana Roo,04mar2019,0,0,0,,1,3,1,0,3
+Oaxaca de Juárez,Oaxaca,13feb2019,1,1,0,,0,,1,0,3
+Iztapalapa,Distrito Federal,30jan2019,1,1,0,,1,3,1,0,2
+Tlalnepantla de Baz,Estado de México,31jan2019,0,1,0,,.a,,1,0,3
+Toluca,Estado de México,05feb2019,1,0,0,,0,,0,0,1
+Metlatónoc,Guerrero,02mar2019,1,0,0,,0,,0,0,2
+Villa Juárez,San Luis Potosí,01mar2019,1,0,0,,.a,,1,0,3
+San Felipe Orizatlán,Hidalgo,27mar2019,1,0,0,,1,3,1,0,4
+Orizaba,Veracruz,09feb2019,0,1,0,,0,,1,0,3
+Angostura,Sinaloa,03mar2019,0,1,0,,1,1,1,0,3
+Huaquechula,Puebla,08feb2019,1,0,0,,0,,1,0,1
+Jamay,Jalisco,14feb2019,0,1,0,,0,,1,0,1
+Coatzacoalcos,Veracruz,24feb2019,0,1,0,,0,,1,0,4
+Morelia,Michoacán,07feb2019,0,1,0,,0,,1,0,1
+Amatán,Chiapas,08mar2019,0,0,0,,0,,1,0,2
+Santa Catarina,Nuevo León,25feb2019,1,1,0,,0,,1,0,2
+Zapopan,Jalisco,15feb2019,0,1,0,,1,1,1,0,3
+Angostura,Sinaloa,03mar2019,0,1,0,,0,,0,0,1
+Tlaquepaque,Jalisco,17feb2019,0,1,0,,1,.a,1,0,1
+Tlalnepantla de Baz,Estado de México,30jan2019,0,1,0,,0,,1,0,1
+Benito Juárez,Distrito Federal,01feb2019,1,1,0,,0,,1,0,1
+San Lucas Ojitlán,Oaxaca,12feb2019,1,0,0,,0,,1,0,2
+Nezahualcóyotl,Estado de México,13mar2019,1,1,0,,1,2,1,0,2
+Jamay,Jalisco,19feb2019,1,1,0,,0,,1,0,4
+San Lucas Ojitlán,Oaxaca,12feb2019,1,0,0,,0,,1,0,2
+Puebla,Puebla,07feb2019,0,1,0,,0,,1,0,2
+Dolores Hidalgo,Guanajuato,12feb2019,0,1,0,,0,,1,0,1
+Villa Juárez,San Luis Potosí,01mar2019,1,0,0,,1,3,1,0,2
+Chihuahua,Chihuahua,25feb2019,0,1,0,,1,3,1,0,1
+Jiutepec,Morelos,21feb2019,1,1,0,,1,3,1,0,3
+Zamora,Michoacán,11feb2019,0,1,0,,1,3,1,0,3
+Mexicali,Baja California,25feb2019,0,1,0,,0,,1,1,3
+Gustavo A. Madero,Distrito Federal,04feb2019,0,1,0,,1,3,1,0,2
+Iztacalco,Distrito Federal,31jan2019,1,1,0,,1,2,1,0,2
+Ocoyucan,Puebla,25mar2019,0,1,0,,1,3,1,0,3
+San Cristóbal,Chiapas,06mar2019,0,1,0,,0,,1,0,3
+Parras,Coahuila,23feb2019,1,1,0,,0,,1,0,3
+Ixtapaluca,Estado de México,02feb2019,0,1,0,,1,3,1,0,4
+Caltepec,Puebla,16feb2019,0,1,0,,0,,1,0,4
+Ojinaga,Chihuahua,28feb2019,0,1,0,,0,,1,0,2
+Honey,Puebla,08mar2019,1,0,0,,0,,1,0,2
+Guaymas,Sonora,24feb2019,0,1,0,,0,,1,0,3
+Zapopan,Jalisco,15feb2019,0,1,0,,0,,1,0,2
+Parras,Coahuila,23feb2019,0,1,0,,0,,1,0,1
+Cuencamé,Durango,22feb2019,1,1,0,,0,,1,0,2
+Hueyapan de Ocampo,Veracruz,22feb2019,0,0,0,,0,,1,1,1
+Tijuana,Baja California,27feb2019,0,1,0,,1,2,0,0,3
+Iztacalco,Distrito Federal,30jan2019,1,1,0,,1,3,1,0,3
+Navojoa,Sonora,23feb2019,1,1,0,,0,,1,0,2
+Chicoloapan,Estado de México,05feb2019,1,1,0,,1,3,1,0,4
+Asunción Nochixtlán,Oaxaca,13feb2019,1,1,0,,0,,1,0,2
+Tlalnepantla de Baz,Estado de México,30jan2019,0,1,0,,1,3,1,0,2
+Pénjamo,Guanajuato,14feb2019,1,0,0,,1,3,1,0,2
+Tampamolón Corona,San Luis Potosí,03mar2019,0,1,0,,1,3,1,0,3
+Iguala de la Independencia,Guerrero,03mar2019,0,1,0,,1,3,1,0,4
+San Juan de los Lagos,Jalisco,19feb2019,1,1,0,,0,,1,0,2
+Zapopan,Jalisco,12feb2019,0,1,0,,1,3,1,1,3
+Zapopan,Jalisco,15feb2019,0,1,0,,0,,1,0,3
+Ahuacatlán,Nayarit,06mar2019,1,1,0,,1,3,1,0,3
+Tepezalá,Aguascalientes,07mar2019,1,1,0,,0,,1,0,1
+Naucalpan de Juárez,Estado de México,07feb2019,0,1,0,,1,3,1,0,4
+El Marqués,Querétaro,21feb2019,1,0,0,,0,,0,0,1
+Ciudad Victoria,Tamaulipas,01mar2019,0,1,0,,1,2,1,0,4
+Eduardo Neri,Guerrero,28feb2019,1,1,0,,1,1,1,1,4
+Zapopan,Jalisco,16feb2019,1,1,0,,0,,0,0,3
+Guaymas,Sonora,24feb2019,0,1,0,,1,3,1,0,4
+Angostura,Sinaloa,03mar2019,1,1,0,,0,,0,0,1
+León,Guanajuato,13feb2019,0,0,0,,0,,1,0,3
+Villa Juárez,San Luis Potosí,01mar2019,0,0,0,,0,,1,0,3
+Asunción Nochixtlán,Oaxaca,14feb2019,0,1,0,,0,,1,0,2
+Cosoleacaque,Veracruz,23feb2019,0,1,0,,0,,1,0,3
+Atotonilco El Alto,Jalisco,18feb2019,1,0,0,,0,,1,0,3
+Nezahualcóyotl,Estado de México,01feb2019,1,1,0,,1,3,1,0,3
+Morelia,Michoacán,09feb2019,0,1,0,,0,,0,0,3
+Honey,Puebla,08mar2019,1,0,0,,0,,1,0,2
+Xalapa,Veracruz,07feb2019,1,1,0,,1,2,1,0,2
+Morelia,Michoacán,09feb2019,1,1,0,,0,,1,0,.b
+Zitácuaro,Michoacán,06feb2019,1,0,0,,1,2,1,0,4
+Nicolás Romero,Estado de México,04feb2019,1,0,0,,0,,1,0,.a
+León,Guanajuato,15feb2019,1,1,0,,1,3,1,0,2
+Nopala de Villagrán,Hidalgo,07mar2019,0,1,0,,0,,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,1,0,,0,,0,0,2
+Toluca,Estado de México,05feb2019,1,0,0,,1,3,1,0,3
+Culiacán,Sinaloa,04mar2019,0,0,0,,0,,1,0,1
+Los Cabos,Baja California Sur,24mar2019,0,0,0,,0,,1,0,2
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,1,0,0,,1,3,1,0,2
+Fresnillo,Zacatecas,05mar2019,1,1,0,,0,,0,0,4
+Mexicali,Baja California,26feb2019,1,1,0,,1,3,1,0,4
+Monterrey,Nuevo León,25feb2019,0,1,0,,1,3,1,0,2
+Villa Corzo,Chiapas,07mar2019,1,0,0,,0,,1,0,2
+Pachuca de Soto,Hidalgo,11feb2019,1,1,0,,1,3,1,0,2
+Boca del Río,Veracruz,08feb2019,0,1,0,,1,3,1,0,2
+San Luis Potosí,San Luis Potosí,04mar2019,1,1,0,,0,,1,0,2
+Zitácuaro,Michoacán,06feb2019,0,0,0,,1,3,1,0,2
+Honey,Puebla,08mar2019,1,0,0,,0,,1,0,4
+Alvaro Obregón,Distrito Federal,02feb2019,0,1,0,,0,,1,0,2
+Iguala de la Independencia,Guerrero,03mar2019,0,1,0,,1,.a,1,0,3
+Eduardo Neri,Guerrero,28feb2019,0,1,0,,1,2,0,0,2
+Villagrán,Tamaulipas,02mar2019,1,1,0,,0,,0,0,1
+Morelia,Michoacán,07feb2019,1,1,0,,1,3,1,0,3
+Naucalpan de Juárez,Estado de México,13mar2019,0,1,0,,1,1,1,0,4
+Puebla,Puebla,06feb2019,0,1,0,,1,2,1,0,3
+Puebla,Puebla,07feb2019,0,1,0,,0,,1,0,4
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,0,0,0,,0,,1,0,2
+Centro,Tabasco,01mar2019,1,1,0,,0,,1,0,4
+Playa Vicente,Veracruz,10feb2019,0,1,0,,1,3,1,0,3
+Tampamolón Corona,San Luis Potosí,03mar2019,1,1,0,,0,,0,0,4
+Culiacán,Sinaloa,04mar2019,1,0,0,,0,,1,0,3
+Cuencamé,Durango,22feb2019,0,1,0,,0,,1,0,2
+Angostura,Sinaloa,03mar2019,1,1,0,,1,.a,1,0,2
+San Felipe Orizatlán,Hidalgo,26mar2019,0,0,0,,0,,1,0,2
+Nicolás Romero,Estado de México,04feb2019,1,0,0,,1,3,1,0,1
+Eduardo Neri,Guerrero,28feb2019,1,1,0,,1,1,1,0,2
+Asunción Nochixtlán,Oaxaca,14feb2019,0,1,0,,0,,1,0,.b
+Tlalnepantla de Baz,Estado de México,30jan2019,1,1,0,,0,,1,0,1
+Mérida,Yucatán,03mar2019,0,1,0,,1,2,1,0,1
+Lerdo,Durango,23feb2019,1,0,0,,0,,1,0,2
+Morelia,Michoacán,09feb2019,1,1,0,,0,,1,0,4
+Cosoleacaque,Veracruz,23feb2019,0,1,0,,0,,1,.a,3
+Monterrey,Nuevo León,26feb2019,1,1,0,,1,2,1,0,4
+Cuautitlán Izcalli,Estado de México,06feb2019,1,1,0,,1,3,1,1,4
+Matehuala,San Luis Potosí,02mar2019,0,1,0,,0,,1,0,2
+Honey,Puebla,08mar2019,1,0,0,,0,,0,0,2
+Nopala de Villagrán,Hidalgo,07mar2019,0,1,0,,1,2,1,0,3
+Playa Vicente,Veracruz,10feb2019,0,1,0,,0,,1,0,2
+Tijuana,Baja California,28feb2019,1,1,0,,1,2,1,0,1
+Papantla,Veracruz,06feb2019,0,0,0,,1,3,0,0,3
+Ciudad Juárez,Chihuahua,25feb2019,1,1,0,,0,,1,0,1
+Villa Corzo,Chiapas,07mar2019,1,0,0,,1,3,1,0,2
+El Marqués,Querétaro,21feb2019,1,0,0,,0,,1,0,4
+Ciudad Juárez,Chihuahua,24feb2019,0,1,0,,1,3,1,0,2
+Nicolás Romero,Estado de México,04feb2019,1,0,0,,1,3,1,1,3
+Morelia,Michoacán,06feb2019,0,1,0,,0,,1,0,4
+Tepic,Nayarit,06mar2019,0,1,0,,0,,0,0,2
+Tampico,Tamaulipas,03mar2019,0,1,0,,0,,1,0,1
+Chihuahua,Chihuahua,24feb2019,1,1,0,,1,2,1,0,1
+Benito Juárez,Distrito Federal,01feb2019,0,1,0,,1,3,1,0,4
+Rosario,Sinaloa,05mar2019,0,1,0,,1,2,1,0,.a
+Angostura,Sinaloa,03mar2019,0,1,0,,0,,1,0,3
+Tepezalá,Aguascalientes,07mar2019,0,1,0,,0,,1,0,2
+Ciudad Juárez,Chihuahua,27feb2019,1,1,0,,1,2,0,0,1
+Monclova,Coahuila,24feb2019,0,1,0,,0,,0,0,3
+Morelia,Michoacán,07feb2019,1,1,0,,1,3,1,0,3
+Acámbaro,Guanajuato,22mar2019,1,1,0,,1,2,1,0,2
+Lerdo,Durango,23feb2019,0,0,0,,0,,1,1,2
+Monterrey,Nuevo León,26feb2019,1,1,0,,1,1,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,0,0,,1,1,1,1,4
+Leonardo Bravo,Guerrero,01mar2019,0,1,0,,0,,1,0,1
+Valle de Chalco Solidaridad,Estado de México,04feb2019,0,1,0,,1,3,1,0,4
+Jamay,Jalisco,14feb2019,1,1,0,,0,,0,0,2
+Tijuana,Baja California,28feb2019,1,1,0,,1,3,1,0,1
+Jiutepec,Morelos,22feb2019,1,1,0,,1,3,1,0,3
+Hopelchén,Campeche,05mar2019,0,0,0,,0,,1,0,4
+San Juan de los Lagos,Jalisco,19feb2019,1,1,0,,0,,1,0,3
+Guaymas,Sonora,24feb2019,1,1,0,,1,2,1,0,4
+Ahuacatlán,Nayarit,07mar2019,1,1,0,,0,,1,0,3
+Zapopan,Jalisco,12feb2019,1,1,0,,1,2,1,1,4
+Tlaquepaque,Jalisco,17feb2019,1,1,0,,1,3,1,0,3
+San Nicolás de los Garza,Nuevo León,28feb2019,0,1,0,,1,3,1,0,4
+Uxpanapa,Veracruz,11feb2019,0,0,0,,0,,1,1,2
+Gustavo A. Madero,Distrito Federal,04feb2019,1,1,0,,1,3,1,0,3
+Puebla,Puebla,06feb2019,1,1,0,,1,2,0,0,4
+Santa Catarina,Nuevo León,25feb2019,0,1,0,,1,1,0,0,3
+Mexicali,Baja California,26feb2019,1,1,0,,1,3,1,0,2
+Chicoloapan,Estado de México,05feb2019,1,1,0,,1,2,1,0,4
+Playa Vicente,Veracruz,10feb2019,0,1,0,,0,,1,0,2
+Comondú,Baja California Sur,22mar2019,0,1,0,,0,,0,0,2
+Rosario,Sinaloa,05mar2019,0,1,0,,0,,0,0,2
+Tabasco,Zacatecas,06mar2019,0,0,0,,0,,0,0,2
+Honey,Puebla,08mar2019,0,0,0,,0,,1,0,3
+Chihuahua,Chihuahua,25feb2019,1,1,0,,0,,1,0,1
+Ojinaga,Chihuahua,28feb2019,0,1,0,,0,,1,0,2
+Lerdo,Durango,23feb2019,0,0,0,,1,2,1,1,3
+Chicoloapan,Estado de México,05feb2019,0,1,0,,1,1,1,0,1
+Monterrey,Nuevo León,28feb2019,1,1,0,,0,,1,0,1
+Jamay,Jalisco,14feb2019,0,1,0,,0,,1,0,.b
+Zumpango,Estado de México,01feb2019,0,1,0,,1,3,1,0,3
+Morelia,Michoacán,08feb2019,0,1,0,,1,1,1,0,4
+Lerdo,Durango,23feb2019,1,0,0,,1,3,1,0,2
+Morelia,Michoacán,06feb2019,0,1,0,,0,,1,0,3
+Zamora,Michoacán,08feb2019,0,1,0,,1,3,1,0,3
+Parras,Coahuila,23feb2019,0,1,0,,0,,1,0,1
+Leonardo Bravo,Guerrero,01mar2019,0,1,0,,1,3,1,1,2
+Zapotlán El Grande,Jalisco,13feb2019,0,1,0,,0,,1,0,2
+Papantla,Veracruz,05feb2019,0,0,0,,1,3,1,1,2
+San Juan de los Lagos,Jalisco,19feb2019,1,1,0,,0,,1,1,2
+Coatzacoalcos,Veracruz,24feb2019,0,1,0,,0,,1,0,4
+Tlaquepaque,Jalisco,17feb2019,1,1,0,,1,1,1,0,2
+Pátzcuaro,Michoacán,07feb2019,1,1,0,,1,3,1,0,3
+Ojinaga,Chihuahua,28feb2019,0,1,0,,1,3,1,0,3
+Monterrey,Nuevo León,28feb2019,0,1,0,,1,1,1,0,4
+Iztacalco,Distrito Federal,30jan2019,1,1,0,,0,,1,0,2
+Angostura,Sinaloa,03mar2019,0,1,0,,0,,1,0,3
+Saltillo,Coahuila,27feb2019,0,1,0,,0,,1,0,2
+Villagrán,Tamaulipas,02mar2019,0,1,0,,0,,1,0,3
+El Marqués,Querétaro,21feb2019,0,0,0,,0,,1,1,3
+Benito Juárez,Distrito Federal,05feb2019,1,1,0,,0,,1,0,3
+Puebla,Puebla,07feb2019,1,1,0,,0,,1,0,2
+Alvaro Obregón,Distrito Federal,02feb2019,1,1,0,,1,3,1,0,4
+Nopala de Villagrán,Hidalgo,07mar2019,1,1,0,,0,,1,0,4
+Ojinaga,Chihuahua,28feb2019,1,1,0,,0,,1,0,.a
+El Marqués,Querétaro,22feb2019,0,0,0,,0,,1,1,4
+Morelia,Michoacán,08feb2019,0,1,0,,0,,0,0,3
+Toluca,Estado de México,21mar2019,1,1,0,,0,,1,0,3
+San Felipe Orizatlán,Hidalgo,26mar2019,0,0,0,,1,2,1,1,3
+Parras,Coahuila,23feb2019,0,1,0,,0,,1,0,2
+Valle de Chalco Solidaridad,Estado de México,04feb2019,0,1,0,,0,,1,0,3
+Cuautitlán Izcalli,Estado de México,10feb2019,0,1,0,,0,,1,0,2
+Fresnillo,Zacatecas,05mar2019,0,1,0,,0,,1,0,4
+Zapopan,Jalisco,13feb2019,1,1,0,,0,,1,0,4
+Navojoa,Sonora,23feb2019,1,1,0,,0,,1,0,1
+Zapotlán El Grande,Jalisco,13feb2019,1,1,0,,0,,1,0,2
+Uxpanapa,Veracruz,11feb2019,1,0,0,,0,,1,0,1
+Pénjamo,Guanajuato,14feb2019,0,0,0,,0,,1,0,3
+Chicoloapan,Estado de México,05feb2019,0,1,0,,1,3,0,1,4
+Tijuana,Baja California,27feb2019,1,1,0,,1,2,1,0,2
+Los Cabos,Baja California Sur,25mar2019,0,0,0,,0,,1,0,1
+Santa Catarina,Nuevo León,25feb2019,0,1,0,,1,2,1,0,4
+San Nicolás de los Garza,Nuevo León,28feb2019,0,1,0,,0,,1,0,3
+Pachuca de Soto,Hidalgo,11feb2019,0,1,0,,0,,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,1,0,,1,3,1,0,2
+Tepeji del Río de Ocampo,Hidalgo,12feb2019,1,0,0,,0,,1,0,3
+Comondú,Baja California Sur,23mar2019,1,1,0,,1,3,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,0,1,0,,0,,1,0,.b
+Iztacalco,Distrito Federal,01feb2019,0,1,0,,.a,,1,0,4
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,1,3,1,0,3
+Tláhuac,Distrito Federal,04feb2019,1,1,0,,1,3,1,0,1
+Mérida,Yucatán,03mar2019,1,1,0,,1,3,0,0,2
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,1,0,0,,1,3,1,1,2
+Tijuana,Baja California,28feb2019,1,1,0,,1,1,1,0,2
+Monclova,Coahuila,24feb2019,1,1,0,,0,,1,0,2
+Ixtapaluca,Estado de México,02feb2019,1,1,0,,0,,0,1,2
+Ahuacatlán,Nayarit,06mar2019,1,1,0,,0,,1,0,1
+Dolores Hidalgo,Guanajuato,12feb2019,1,1,0,,0,,1,0,4
+Tepeji del Río de Ocampo,Hidalgo,12feb2019,1,0,0,,0,,1,0,3
+Naucalpan de Juárez,Estado de México,11feb2019,0,1,0,,0,,1,0,4
+Metepec,Estado de México,04feb2019,0,1,0,,0,,1,0,1
+Tepic,Nayarit,06mar2019,1,1,0,,0,,1,0,1
+Valle de Chalco Solidaridad,Estado de México,04feb2019,1,1,0,,1,3,1,0,3
+Ixtenco,Tlaxcala,05feb2019,1,1,0,,0,,1,0,2
+Mexicali,Baja California,01mar2019,0,1,0,,1,3,1,1,3
+Asunción Nochixtlán,Oaxaca,14feb2019,0,1,0,,0,,1,0,4
+Centro,Tabasco,01mar2019,1,1,0,,1,3,1,0,2
+Jamay,Jalisco,14feb2019,0,1,0,,0,,1,0,2
+Nezahualcóyotl,Estado de México,05feb2019,0,1,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,31jan2019,1,1,0,,1,3,1,0,3
+Toluca,Estado de México,04feb2019,1,1,0,,1,3,1,0,3
+Tlaquepaque,Jalisco,17feb2019,0,1,0,,1,3,1,0,4
+Alvaro Obregón,Distrito Federal,02feb2019,0,1,0,,0,,1,0,1
+Tlalnepantla de Baz,Estado de México,30jan2019,1,1,0,,1,1,1,0,3
+Chihuahua,Chihuahua,25feb2019,0,1,0,,0,,1,0,1
+Ciudad Juárez,Chihuahua,24feb2019,1,1,0,,1,1,1,0,1
+Ecatepec de Morelos,Estado de México,01feb2019,1,1,0,,0,,1,0,1
+Chihuahua,Chihuahua,24feb2019,0,1,0,,1,.a,1,0,3
+Othón P. Blanco,Quintana Roo,04mar2019,1,0,0,,0,,1,0,1
+Pénjamo,Guanajuato,14feb2019,1,0,0,,0,,1,1,1
+Paraíso,Tabasco,02mar2019,1,0,0,,0,,1,0,3
+Tepezalá,Aguascalientes,07mar2019,1,1,0,,0,,1,0,3
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,0,4
+Yautepec,Morelos,23feb2019,0,1,0,,1,2,1,1,3
+Chicoloapan,Estado de México,05feb2019,1,1,0,,1,3,1,0,2
+Tepeji del Río de Ocampo,Hidalgo,12feb2019,0,0,0,,0,,1,0,3
+Valle de Chalco Solidaridad,Estado de México,04feb2019,0,1,0,,0,,1,0,4
+Tijuana,Baja California,27feb2019,0,1,0,,1,.a,1,0,2
+San Luis Potosí,San Luis Potosí,04mar2019,0,1,0,,1,3,0,0,4
+Ixtapaluca,Estado de México,13mar2019,1,1,0,,1,3,1,0,3
+Centro,Tabasco,01mar2019,1,1,0,,0,,1,0,3
+Zitácuaro,Michoacán,06feb2019,1,0,0,,1,2,1,0,.a
+Centro,Tabasco,01mar2019,0,1,0,,1,3,1,0,3
+Xalapa,Veracruz,07feb2019,0,1,0,,1,3,1,0,4
+Asunción Nochixtlán,Oaxaca,13feb2019,1,1,0,,0,,1,0,1
+Zitácuaro,Michoacán,06feb2019,1,0,0,,0,,0,0,4
+Orizaba,Veracruz,09feb2019,1,1,0,,1,2,1,0,2
+Puebla,Puebla,07feb2019,0,1,0,,1,1,1,0,3
+Hueyapan de Ocampo,Veracruz,22feb2019,1,0,0,,0,,1,0,3
+Nicolás Romero,Estado de México,02feb2019,0,1,0,,0,,1,0,4
+Yautepec,Morelos,23feb2019,1,1,0,,0,,0,0,1
+Valle de Chalco Solidaridad,Estado de México,04feb2019,0,1,0,,1,3,1,0,4
+Paraíso,Tabasco,02mar2019,1,0,0,,0,,1,0,1
+Boca del Río,Veracruz,08feb2019,0,1,0,,0,,1,0,3
+Cosoleacaque,Veracruz,23feb2019,1,1,0,,0,,1,0,4
+Navojoa,Sonora,23feb2019,1,1,0,,0,,1,0,1
+Othón P. Blanco,Quintana Roo,04mar2019,0,0,0,,0,,1,0,2
+Cosoleacaque,Veracruz,23feb2019,1,1,0,,1,1,1,0,3
+Parras,Coahuila,23feb2019,1,1,0,,0,,1,0,1
+Guaymas,Sonora,24feb2019,0,1,0,,1,3,1,0,2
+Bochil,Chiapas,08mar2019,0,1,0,,1,3,1,0,4
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,1,1,1,0,2
+Centro,Tabasco,01mar2019,1,1,0,,0,,1,0,3
+San Cristóbal,Chiapas,06mar2019,1,1,0,,0,,1,0,4
+Villagrán,Tamaulipas,02mar2019,0,1,0,,0,,1,0,2
+Nezahualcóyotl,Estado de México,01feb2019,1,1,0,,0,,1,0,3
+Oaxaca de Juárez,Oaxaca,13feb2019,0,1,0,,0,,1,0,2
+Tonalá,Jalisco,16feb2019,0,1,0,,1,1,1,0,4
+Zapopan,Jalisco,15feb2019,0,1,0,,0,,1,0,3
+Yautepec,Morelos,04mar2019,1,1,0,,1,3,1,0,2
+Monterrey,Nuevo León,26feb2019,0,1,0,,0,,1,0,4
+Playa Vicente,Veracruz,10feb2019,1,1,0,,0,,1,0,3
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,1,3,1,0,3
+Moroleón,Guanajuato,16feb2019,0,1,0,,1,2,1,0,4
+Valle de Chalco Solidaridad,Estado de México,04feb2019,0,1,0,,1,2,1,0,4
+Gustavo A. Madero,Distrito Federal,02feb2019,0,1,0,,0,,1,0,2
+San Lucas Ojitlán,Oaxaca,12feb2019,0,0,0,,1,1,0,0,4
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,31jan2019,1,1,0,,1,1,1,0,2
+Tlalnepantla de Baz,Estado de México,30jan2019,1,1,0,,1,.a,1,0,3
+Tonalá,Jalisco,16feb2019,1,1,0,,1,2,1,0,3
+San Luis Río Colorado,Sonora,25feb2019,0,1,0,,1,2,1,0,3
+Atotonilco El Alto,Jalisco,18feb2019,1,0,0,,0,,1,0,3
+Tláhuac,Distrito Federal,04feb2019,0,1,0,,0,,1,0,3
+Metepec,Estado de México,03feb2019,1,1,0,,0,,1,1,1
+Iztacalco,Distrito Federal,31jan2019,1,1,0,,1,1,1,0,3
+Lerdo,Durango,23feb2019,0,0,0,,1,1,1,0,4
+Ixtenco,Tlaxcala,05feb2019,0,1,0,,0,,1,0,1
+Rosario,Sinaloa,05mar2019,0,1,0,,0,,1,0,1
+San Felipe Orizatlán,Hidalgo,27mar2019,0,0,0,,0,,1,0,3
+San Felipe Orizatlán,Hidalgo,26mar2019,0,0,0,,1,3,1,0,2
+Acámbaro,Guanajuato,22mar2019,1,1,0,,1,3,1,0,4
+Honey,Puebla,08mar2019,0,0,0,,0,,1,0,2
+El Marqués,Querétaro,22feb2019,1,0,0,,0,,1,0,1
+Tepic,Nayarit,06mar2019,0,1,0,,1,3,1,0,2
+Nicolás Romero,Estado de México,02feb2019,0,1,0,,1,2,1,0,4
+Querétaro,Querétaro,22feb2019,1,1,0,,0,,0,0,2
+El Marqués,Querétaro,21feb2019,0,0,0,,0,,1,0,4
+San Lucas Ojitlán,Oaxaca,12feb2019,0,0,0,,1,3,1,0,3
+Hopelchén,Campeche,05mar2019,0,0,0,,0,,1,0,4
+Atotonilco El Alto,Jalisco,18feb2019,0,0,0,,0,,1,0,3
+Lerdo,Durango,23feb2019,1,0,0,,1,1,1,0,3
+Mesones Hidalgo,Oaxaca,15feb2019,0,1,0,,0,,1,0,3
+Ojinaga,Chihuahua,28feb2019,1,1,0,,0,,1,0,1
+Santa Catarina,Nuevo León,25feb2019,1,1,0,,0,,1,0,2
+Zitácuaro,Michoacán,06feb2019,0,0,0,,0,,1,0,2
+Ixtenco,Tlaxcala,05feb2019,1,1,0,,0,,1,0,2
+Querétaro,Querétaro,22feb2019,0,1,0,,0,,1,0,2
+Comondú,Baja California Sur,22mar2019,1,1,0,,1,3,1,0,4
+Ahuacatlán,Nayarit,07mar2019,1,1,0,,0,,1,0,2
+Querétaro,Querétaro,22feb2019,0,1,0,,0,,1,0,2
+Villa Juárez,San Luis Potosí,01mar2019,1,0,0,,1,3,1,0,2
+Fresnillo,Zacatecas,05mar2019,0,1,0,,.a,,0,0,4
+Ojinaga,Chihuahua,28feb2019,0,1,0,,1,.a,1,0,3
+Tabasco,Zacatecas,06mar2019,1,0,0,,0,,1,0,2
+Ixtapaluca,Estado de México,02feb2019,1,1,0,,1,3,1,1,2
+Xalapa,Veracruz,06feb2019,1,1,0,,0,,1,0,2
+Los Cabos,Baja California Sur,25mar2019,0,0,0,,1,3,1,0,2
+Mesones Hidalgo,Oaxaca,15feb2019,1,1,0,,0,,1,0,2
+Tláhuac,Distrito Federal,04feb2019,0,1,0,,1,1,1,0,3
+Tepezalá,Aguascalientes,07mar2019,0,1,0,,0,,1,0,4
+El Marqués,Querétaro,22feb2019,1,0,0,,0,,1,0,2
+Tampico,Tamaulipas,03mar2019,0,1,0,,0,,1,0,.a
+Gustavo A. Madero,Distrito Federal,04feb2019,1,1,0,,0,,1,0,2
+Cuencamé,Durango,22feb2019,1,1,0,,0,,1,0,1
+Caltepec,Puebla,16feb2019,0,1,0,,0,,1,0,2
+Papantla,Veracruz,05feb2019,1,0,0,,1,3,1,1,4
+Playa Vicente,Veracruz,10feb2019,0,1,0,,1,2,1,0,3
+Ixtenco,Tlaxcala,05feb2019,1,1,0,,1,3,1,0,3
+Jiutepec,Morelos,21feb2019,1,1,0,,0,,1,0,2
+Gustavo A. Madero,Distrito Federal,04feb2019,0,1,0,,1,1,1,0,3
+Acámbaro,Guanajuato,22mar2019,1,1,0,,1,2,1,0,4
+Moroleón,Guanajuato,16feb2019,0,1,0,,1,2,1,0,3
+Puebla,Puebla,06feb2019,1,1,0,,1,2,1,0,2
+San Luis Potosí,San Luis Potosí,04mar2019,0,1,0,,0,,1,0,4
+Acámbaro,Guanajuato,22mar2019,0,1,0,,1,3,1,0,3
+El Marqués,Querétaro,22feb2019,1,0,0,,0,,1,0,1
+Pachuca de Soto,Hidalgo,11feb2019,0,1,0,,1,3,1,0,3
+Villa Juárez,San Luis Potosí,01mar2019,0,0,0,,0,,1,0,1
+Metlatónoc,Guerrero,02mar2019,0,0,0,,0,,1,0,3
+Mexicali,Baja California,25feb2019,1,1,0,,0,,1,0,3
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,0,,1,0,4
+Mérida,Yucatán,03mar2019,0,1,0,,0,,1,0,2
+Tonalá,Jalisco,16feb2019,0,1,0,,1,1,1,0,4
+Uxpanapa,Veracruz,11feb2019,1,0,0,,0,,1,0,2
+Villa de Alvarez,Colima,12feb2019,1,1,0,,1,1,1,0,1
+Mesones Hidalgo,Oaxaca,15feb2019,1,1,0,,1,1,1,0,2
+Iztapalapa,Distrito Federal,30jan2019,1,1,0,,1,3,1,0,3
+Santa Catarina,Nuevo León,25feb2019,1,1,0,,0,,0,0,1
+Morelia,Michoacán,08feb2019,1,1,0,,0,,1,0,2
+Metlatónoc,Guerrero,02mar2019,0,0,0,,0,,1,0,1
+Villa Juárez,San Luis Potosí,01mar2019,0,0,0,,0,,1,0,1
+Dolores Hidalgo,Guanajuato,12feb2019,1,1,0,,1,1,1,0,4
+Eduardo Neri,Guerrero,28feb2019,1,1,0,,1,3,1,0,2
+León,Guanajuato,15feb2019,0,1,0,,1,3,1,0,3
+Tabasco,Zacatecas,06mar2019,0,0,0,,0,,1,0,2
+Ecatepec de Morelos,Estado de México,01feb2019,1,1,0,,1,3,1,0,2
+Ciudad Victoria,Tamaulipas,01mar2019,0,1,0,,1,2,1,0,2
+San Nicolás de los Garza,Nuevo León,26feb2019,1,1,0,,0,,0,0,3
+Morelia,Michoacán,08feb2019,1,1,0,,0,,0,0,4
+Tampamolón Corona,San Luis Potosí,03mar2019,0,1,0,,1,3,1,0,3
+Tláhuac,Distrito Federal,04feb2019,1,1,0,,1,3,1,0,2
+Boca del Río,Veracruz,08feb2019,1,1,0,,0,,1,0,2
+Caltepec,Puebla,16feb2019,0,1,0,,0,,1,1,3
+Paraíso,Tabasco,02mar2019,0,0,0,,0,,1,0,3
+Querétaro,Querétaro,22feb2019,1,1,0,,0,,1,0,2
+Tampico,Tamaulipas,03mar2019,1,1,0,,1,2,1,0,4
+Villa Juárez,San Luis Potosí,01mar2019,1,0,0,,0,,1,0,2
+Los Cabos,Baja California Sur,24mar2019,0,0,0,,0,,1,0,3
+Orizaba,Veracruz,09feb2019,1,1,0,,1,3,1,0,3
+Villa Juárez,San Luis Potosí,01mar2019,0,0,0,,0,,1,0,2
+Boca del Río,Veracruz,08feb2019,1,1,0,,0,,1,0,3
+San Felipe Orizatlán,Hidalgo,27mar2019,1,0,0,,1,3,1,0,3
+Tepic,Nayarit,06mar2019,1,1,0,,0,,1,0,1
+Villa Juárez,San Luis Potosí,01mar2019,1,0,0,,1,3,0,0,2
+Jiutepec,Morelos,22feb2019,0,1,0,,1,2,1,0,3
+Ocoyucan,Puebla,25mar2019,1,1,0,,0,,1,0,3
+El Marqués,Querétaro,22feb2019,1,0,0,,0,,1,0,2
+San Juan de los Lagos,Jalisco,19feb2019,1,1,0,,0,,1,1,4
+Tampico,Tamaulipas,03mar2019,1,1,0,,0,,1,0,2
+Caltepec,Puebla,16feb2019,1,1,0,,0,,0,0,3
+Bochil,Chiapas,08mar2019,0,1,0,,1,3,1,1,4
+Tijuana,Baja California,27feb2019,0,1,0,,0,,1,0,4
+Honey,Puebla,08mar2019,0,0,0,,0,,1,0,4
+Acámbaro,Guanajuato,21mar2019,0,1,0,,0,,1,0,4
+San Luis Potosí,San Luis Potosí,04mar2019,1,1,0,,1,3,0,0,3
+Atotonilco El Alto,Jalisco,18feb2019,0,0,0,,0,,1,0,2
+Moroleón,Guanajuato,16feb2019,1,1,0,,1,2,1,0,2
+Navojoa,Sonora,23feb2019,0,1,0,,0,,1,0,1
+Puebla,Puebla,07feb2019,1,1,0,,1,1,0,0,3
+Tlalnepantla de Baz,Estado de México,30jan2019,1,1,0,,0,,1,0,3
+Tabasco,Zacatecas,06mar2019,1,0,0,,0,,1,0,2
+Monterrey,Nuevo León,26feb2019,1,1,0,,1,2,1,0,3
+Zapotlán El Grande,Jalisco,13feb2019,1,1,0,,0,,1,0,3
+Puebla,Puebla,06feb2019,1,1,0,,.a,,1,0,4
+Querétaro,Querétaro,22feb2019,0,1,0,,0,,1,0,2
+San Cristóbal,Chiapas,06mar2019,1,1,0,,1,1,1,0,2
+Hueyapan de Ocampo,Veracruz,22feb2019,0,0,0,,1,3,1,0,2
+Bochil,Chiapas,08mar2019,1,1,0,,1,2,1,0,2
+Matehuala,San Luis Potosí,02mar2019,0,1,0,,0,,1,0,1
+San Lucas Ojitlán,Oaxaca,12feb2019,0,0,0,,1,3,0,0,1
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,1,1,1,0,4
+Oaxaca de Juárez,Oaxaca,13feb2019,0,1,0,,0,,1,0,3
+Ojinaga,Chihuahua,28feb2019,1,1,0,,1,1,1,0,3
+Acámbaro,Guanajuato,22mar2019,1,1,0,,1,2,1,0,3
+Ahuacatlán,Nayarit,07mar2019,1,1,0,,1,3,1,1,2
+Atotonilco El Alto,Jalisco,18feb2019,0,0,0,,0,,1,0,3
+Guaymas,Sonora,24feb2019,1,1,0,,0,,1,0,2
+Oaxaca de Juárez,Oaxaca,13feb2019,0,1,0,,0,,1,1,3
+Jamay,Jalisco,11feb2019,1,1,0,,0,,1,0,1
+Pátzcuaro,Michoacán,10feb2019,1,1,0,,1,3,1,0,2
+Gustavo A. Madero,Distrito Federal,04feb2019,0,1,0,,1,1,1,0,3
+Cuauhtémoc,Distrito Federal,05feb2019,0,1,0,,0,,0,0,2
+Acámbaro,Guanajuato,22mar2019,0,1,0,,1,1,1,0,4
+Ixtapaluca,Estado de México,02feb2019,0,1,0,,1,1,1,0,3
+San Cristóbal,Chiapas,06mar2019,0,1,0,,0,,1,0,3
+San Luis Río Colorado,Sonora,25feb2019,1,1,0,,1,1,1,0,4
+Mesones Hidalgo,Oaxaca,15feb2019,1,1,0,,0,,1,0,2
+Cuauhtémoc,Distrito Federal,05feb2019,0,1,0,,0,,1,0,2
+Leonardo Bravo,Guerrero,01mar2019,1,1,0,,0,,0,0,2
+Cosoleacaque,Veracruz,23feb2019,0,1,0,,0,,1,0,1
+Culiacán,Sinaloa,04mar2019,1,0,0,,0,,0,0,2
+Ciudad Juárez,Chihuahua,25feb2019,1,1,0,,1,2,1,0,4
+Monclova,Coahuila,24feb2019,0,1,0,,1,.a,1,0,2
+Cuauhtémoc,Distrito Federal,05feb2019,0,1,0,,0,,1,0,2
+Iguala de la Independencia,Guerrero,03mar2019,0,1,0,,1,3,1,0,3
+Ixtenco,Tlaxcala,05feb2019,1,1,0,,0,,1,0,.b
+Gustavo A. Madero,Distrito Federal,02feb2019,0,1,0,,1,3,0,0,1
+Villa de Alvarez,Colima,12feb2019,1,1,0,,0,,1,0,2
+Honey,Puebla,08mar2019,0,0,0,,0,,1,0,3
+Ocoyucan,Puebla,25mar2019,0,1,0,,1,3,1,0,2
+San Lucas Ojitlán,Oaxaca,12feb2019,0,0,0,,1,2,1,0,1
+Saltillo,Coahuila,27feb2019,1,1,0,,1,3,0,0,1
+Yautepec,Morelos,22feb2019,0,1,0,,1,3,1,0,3
+Ciudad Juárez,Chihuahua,27feb2019,0,1,0,,0,,1,0,3
+Tonalá,Jalisco,16feb2019,0,1,0,,1,2,0,0,3
+Atizapán de Zaragoza,Estado de México,02feb2019,0,1,0,,0,,1,0,4
+Tlalnepantla de Baz,Estado de México,31jan2019,1,1,0,,0,,1,0,1
+Monterrey,Nuevo León,28feb2019,0,1,0,,0,,1,.a,3
+Tlaquepaque,Jalisco,17feb2019,1,1,0,,1,.a,1,0,3
+Culiacán,Sinaloa,04mar2019,1,0,0,,0,,1,0,2
+Villa de Alvarez,Colima,12feb2019,1,1,0,,1,.b,1,1,3
+Oaxaca de Juárez,Oaxaca,13feb2019,1,1,0,,0,,1,0,1
+Saltillo,Coahuila,27feb2019,0,1,0,,0,,1,0,4
+Parras,Coahuila,23feb2019,1,1,0,,0,,1,0,2
+Ciudad Victoria,Tamaulipas,01mar2019,1,1,0,,1,3,1,0,4
+Cosoleacaque,Veracruz,23feb2019,1,1,0,,0,,1,0,2
+Morelia,Michoacán,08feb2019,1,1,0,,0,,1,0,3
+Ojinaga,Chihuahua,28feb2019,0,1,0,,1,.a,1,0,3
+Yautepec,Morelos,22feb2019,0,1,0,,1,2,1,0,3
+Atotonilco El Alto,Jalisco,18feb2019,0,0,0,,0,,0,0,3
+Tampamolón Corona,San Luis Potosí,03mar2019,0,1,0,,0,,0,0,2
+Alvaro Obregón,Distrito Federal,02feb2019,1,1,0,,1,.a,1,0,3
+Morelia,Michoacán,09feb2019,0,1,0,,0,,1,0,3
+Tijuana,Baja California,27feb2019,0,1,0,,0,,1,0,2
+Jamay,Jalisco,14feb2019,1,1,0,,1,3,1,0,2
+Nicolás Romero,Estado de México,02feb2019,0,1,0,,0,,0,0,1
+Villagrán,Tamaulipas,02mar2019,1,1,0,,0,,1,0,2
+Amatán,Chiapas,09mar2019,1,0,0,,1,3,0,0,1
+Lerdo,Durango,23feb2019,1,0,0,,1,3,1,0,3
+Zitácuaro,Michoacán,06feb2019,0,0,0,,0,,1,0,1
+San Juan de los Lagos,Jalisco,19feb2019,0,1,0,,1,2,1,1,4
+Playa Vicente,Veracruz,10feb2019,0,1,0,,1,2,1,0,4
+Saltillo,Coahuila,27feb2019,0,1,0,,0,,1,0,3
+Tlaquepaque,Jalisco,17feb2019,1,1,0,,1,2,1,0,4
+San Nicolás de los Garza,Nuevo León,26feb2019,1,1,0,,0,,1,0,1
+Pátzcuaro,Michoacán,10feb2019,0,1,0,,0,,0,0,3
+Toluca,Estado de México,05feb2019,0,0,0,,1,2,1,0,3
+Pátzcuaro,Michoacán,07feb2019,1,1,0,,0,,1,0,2
+Zamora,Michoacán,11feb2019,1,1,0,,.a,,0,0,2
+Eduardo Neri,Guerrero,28feb2019,0,1,0,,0,,0,0,4
+Puebla,Puebla,07feb2019,1,1,0,,1,3,1,0,2
+León,Guanajuato,13feb2019,0,0,0,,0,,1,0,3
+Ocoyucan,Puebla,25mar2019,0,1,0,,1,3,1,0,4
+Tijuana,Baja California,28feb2019,0,1,0,,0,,1,0,2
+Cuencamé,Durango,22feb2019,0,1,0,,0,,1,0,2
+Orizaba,Veracruz,08feb2019,0,1,0,,0,,0,0,2
+Monclova,Coahuila,24feb2019,1,1,0,,0,,1,0,3
+Moroleón,Guanajuato,16feb2019,1,1,0,,0,,1,0,3
+Zamora,Michoacán,11feb2019,0,1,0,,0,,1,0,2
+Xalapa,Veracruz,07feb2019,0,1,0,,0,,1,0,1
+Los Cabos,Baja California Sur,25mar2019,0,0,0,,1,1,1,0,2
+Zitácuaro,Michoacán,06feb2019,1,0,0,,1,2,1,0,2
+Hopelchén,Campeche,05mar2019,1,0,0,,0,,1,0,2
+Cuencamé,Durango,22feb2019,0,1,0,,0,,0,0,2
+Puebla,Puebla,07feb2019,1,1,0,,0,,1,0,2
+Angostura,Sinaloa,03mar2019,0,1,0,,1,2,1,0,1
+Dolores Hidalgo,Guanajuato,13feb2019,1,1,0,,1,.a,1,0,3
+Paraíso,Tabasco,02mar2019,0,0,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,31jan2019,1,1,0,,1,3,1,0,2
+El Marqués,Querétaro,22feb2019,0,0,0,,0,,1,1,1
+Villa Corzo,Chiapas,07mar2019,0,0,0,,1,3,1,0,4
+Tepezalá,Aguascalientes,07mar2019,1,1,0,,0,,1,0,3
+Villa Corzo,Chiapas,07mar2019,1,0,0,,1,3,1,0,2
+San Cristóbal,Chiapas,06mar2019,1,1,0,,0,,1,0,4
+Comondú,Baja California Sur,24mar2019,1,1,0,,0,,0,0,2
+Cuauhtémoc,Distrito Federal,13mar2019,1,1,0,,0,,0,0,3
+Iztacalco,Distrito Federal,31jan2019,1,1,0,,1,2,1,0,4
+Villagrán,Tamaulipas,02mar2019,0,1,0,,0,,1,0,4
+Oaxaca de Juárez,Oaxaca,13feb2019,1,1,0,,0,,1,0,1
+Ixtenco,Tlaxcala,05feb2019,0,1,0,,0,,1,0,3
+Mexicali,Baja California,26feb2019,0,1,0,,1,1,1,0,4
+Ojinaga,Chihuahua,28feb2019,1,1,0,,0,,1,0,1
+San Nicolás de los Garza,Nuevo León,28feb2019,1,1,0,,0,,1,0,2
+Zapotlán El Grande,Jalisco,13feb2019,0,1,0,,0,,1,0,3
+Ciudad Juárez,Chihuahua,24feb2019,0,1,0,,1,2,1,0,3
+Monclova,Coahuila,24feb2019,0,1,0,,0,,1,0,3
+Uxpanapa,Veracruz,11feb2019,1,0,0,,0,,1,0,1
+Tláhuac,Distrito Federal,04feb2019,1,1,0,,1,2,1,0,1
+Fresnillo,Zacatecas,05mar2019,0,1,0,,1,3,1,0,2
+Nezahualcóyotl,Estado de México,13mar2019,0,1,0,,0,,1,0,3
+Pachuca de Soto,Hidalgo,11feb2019,1,1,0,,0,,1,0,1
+Matehuala,San Luis Potosí,02mar2019,1,1,0,,0,,1,0,2
+Monterrey,Nuevo León,28feb2019,1,1,0,,0,,1,0,3
+Hueyapan de Ocampo,Veracruz,22feb2019,0,0,0,,0,,1,0,2
+Metlatónoc,Guerrero,02mar2019,1,0,0,,0,,1,0,2
+León,Guanajuato,13feb2019,0,0,0,,1,3,1,0,3
+Ojinaga,Chihuahua,28feb2019,1,1,0,,0,,1,0,1
+Playa Vicente,Veracruz,10feb2019,1,1,0,,1,1,1,0,2
+Monclova,Coahuila,24feb2019,1,1,0,,0,,1,0,2
+Hueyapan de Ocampo,Veracruz,22feb2019,1,0,0,,1,2,1,0,3
+Nopala de Villagrán,Hidalgo,07mar2019,1,1,0,,1,3,1,0,4
+Tonalá,Jalisco,13feb2019,0,1,0,,1,1,1,0,1
+Pátzcuaro,Michoacán,10feb2019,1,1,0,,1,2,1,0,3
+Tijuana,Baja California,26feb2019,1,1,0,,1,2,1,0,2
+Valle de Chalco Solidaridad,Estado de México,04feb2019,1,1,0,,0,,.a,,.b
+Leonardo Bravo,Guerrero,01mar2019,1,1,0,,0,,1,0,1
+Tlalnepantla de Baz,Estado de México,31jan2019,1,1,0,,0,,1,0,2
+Naucalpan de Juárez,Estado de México,11feb2019,1,1,0,,0,,1,0,1
+Jamay,Jalisco,14feb2019,1,1,0,,0,,1,0,2
+Pénjamo,Guanajuato,14feb2019,1,0,0,,0,,1,0,3
+Toluca,Estado de México,01feb2019,1,1,0,,0,,0,0,4
+El Marqués,Querétaro,21feb2019,0,0,0,,0,,0,0,2
+San Juan de los Lagos,Jalisco,19feb2019,1,1,0,,0,,1,0,1
+Cuautitlán Izcalli,Estado de México,10feb2019,0,1,0,,1,2,0,0,4
+Monclova,Coahuila,24feb2019,0,1,0,,0,,1,0,2
+Tampico,Tamaulipas,03mar2019,1,1,0,,1,3,1,0,3
+Hueyapan de Ocampo,Veracruz,22feb2019,0,0,0,,0,,1,0,2
+Naucalpan de Juárez,Estado de México,07feb2019,0,1,0,,0,,1,0,4
+Toluca,Estado de México,02feb2019,0,0,0,,0,,1,0,4
+San Felipe Orizatlán,Hidalgo,27mar2019,1,0,0,,0,,1,0,3
+San Felipe Orizatlán,Hidalgo,27mar2019,1,0,0,,1,3,0,0,2
+Monterrey,Nuevo León,28feb2019,1,1,0,,0,,0,0,4
+Navojoa,Sonora,23feb2019,0,1,0,,0,,1,0,4
+Benito Juárez,Distrito Federal,05feb2019,1,1,0,,0,,1,1,3
+Atizapán de Zaragoza,Estado de México,05feb2019,0,1,0,,1,3,1,0,4
+Oaxaca de Juárez,Oaxaca,13feb2019,0,1,0,,1,3,1,0,3
+Mesones Hidalgo,Oaxaca,15feb2019,1,1,0,,0,,0,0,3
+Mesones Hidalgo,Oaxaca,15feb2019,0,1,0,,0,,1,0,3
+Nezahualcóyotl,Estado de México,13mar2019,1,1,0,,0,,1,0,2
+Papantla,Veracruz,06feb2019,0,0,0,,0,,1,0,3
+Tlalnepantla de Baz,Estado de México,31jan2019,1,1,0,,1,3,1,0,4
+Ciudad Victoria,Tamaulipas,01mar2019,0,1,0,,0,,1,0,2
+Atotonilco El Alto,Jalisco,18feb2019,1,0,0,,0,,0,0,2
+San Cristóbal,Chiapas,06mar2019,0,1,0,,0,,1,0,3
+Playa Vicente,Veracruz,10feb2019,1,1,0,,1,2,1,0,2
+San Luis Río Colorado,Sonora,25feb2019,0,1,0,,1,3,1,0,3
+Villagrán,Tamaulipas,02mar2019,1,1,0,,0,,1,0,1
+Boca del Río,Veracruz,07feb2019,0,1,0,,0,,1,0,3
+Culiacán,Sinaloa,04mar2019,0,0,0,,0,,1,0,1
+Mexicali,Baja California,26feb2019,1,1,0,,0,,0,0,2
+Orizaba,Veracruz,08feb2019,0,1,0,,0,,1,1,3
+Acámbaro,Guanajuato,22mar2019,1,1,0,,1,3,1,0,4
+Saltillo,Coahuila,27feb2019,1,1,0,,0,,0,0,2
+Zamora,Michoacán,08feb2019,1,1,0,,0,,1,0,4
+Nicolás Romero,Estado de México,30jan2019,0,1,0,,0,,1,0,4
+Zamora,Michoacán,11feb2019,1,1,0,,0,,1,0,1
+Uxpanapa,Veracruz,11feb2019,0,0,0,,0,,1,0,2
+Villa de Alvarez,Colima,12feb2019,0,1,0,,1,3,1,0,1
+Metepec,Estado de México,03feb2019,1,1,0,,0,,1,0,2
+Asunción Nochixtlán,Oaxaca,14feb2019,1,1,0,,0,,1,0,3
+Chicoloapan,Estado de México,05feb2019,1,1,0,,1,3,1,0,3
+Ciudad Juárez,Chihuahua,27feb2019,1,1,0,,1,2,1,0,4
+Zitácuaro,Michoacán,03feb2019,0,0,0,,1,2,1,0,3
+Querétaro,Querétaro,22feb2019,0,1,0,,1,3,1,0,2
+San Lucas Ojitlán,Oaxaca,12feb2019,1,0,0,,0,,1,0,1
+San Luis Río Colorado,Sonora,25feb2019,1,1,0,,1,3,1,0,1
+Los Cabos,Baja California Sur,24mar2019,1,0,0,,0,,1,0,.a
+Jiutepec,Morelos,22feb2019,0,1,0,,1,1,1,0,3
+Toluca,Estado de México,21mar2019,1,1,0,,0,,1,0,3
+Navojoa,Sonora,23feb2019,1,1,0,,0,,1,0,2
+Hopelchén,Campeche,05mar2019,0,0,0,,1,3,1,0,3
+Chihuahua,Chihuahua,25feb2019,0,1,0,,0,,1,0,4
+Jiutepec,Morelos,21feb2019,0,1,0,,1,3,1,0,3
+Orizaba,Veracruz,09feb2019,0,1,0,,0,,1,0,3
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,0,3
+Naucalpan de Juárez,Estado de México,06feb2019,0,1,0,,1,1,0,0,2
+San Juan de los Lagos,Jalisco,19feb2019,0,1,0,,.a,,1,0,2
+Honey,Puebla,08mar2019,1,0,0,,0,,1,0,2
+Metlatónoc,Guerrero,02mar2019,1,0,0,,0,,1,0,1
+Ciudad Juárez,Chihuahua,27feb2019,1,1,0,,0,,0,0,2
+Acámbaro,Guanajuato,22mar2019,0,1,0,,1,1,1,0,3
+Villa Corzo,Chiapas,07mar2019,1,0,0,,0,,1,0,1
+San Cristóbal,Chiapas,06mar2019,0,1,0,,1,3,1,0,3
+Villa de Alvarez,Colima,12feb2019,1,1,0,,1,2,1,0,2
+Cuautitlán Izcalli,Estado de México,10feb2019,0,1,0,,1,3,1,0,4
+Metlatónoc,Guerrero,02mar2019,0,0,0,,0,,1,1,2
+Tlaquepaque,Jalisco,17feb2019,0,1,0,,1,2,1,0,3
+Metepec,Estado de México,03feb2019,1,1,0,,0,,1,0,1
+Villa Corzo,Chiapas,07mar2019,0,0,0,,1,3,1,0,4
+Villa Corzo,Chiapas,07mar2019,1,0,0,,1,3,1,0,1
+Nicolás Romero,Estado de México,02feb2019,0,1,0,,1,2,1,0,3
+Ciudad Juárez,Chihuahua,24feb2019,1,1,0,,1,3,1,0,3
+Pátzcuaro,Michoacán,10feb2019,1,1,0,,1,3,1,0,2
+Fresnillo,Zacatecas,05mar2019,0,1,0,,0,,1,0,3
+Bochil,Chiapas,08mar2019,0,1,0,,0,,1,0,2
+Parras,Coahuila,23feb2019,0,1,0,,0,,0,0,2
+Playa Vicente,Veracruz,10feb2019,1,1,0,,1,.b,1,0,1
+Ciudad Victoria,Tamaulipas,01mar2019,1,1,0,,1,3,1,0,2
+Tonalá,Jalisco,16feb2019,1,1,0,,0,,1,0,4
+Santa Catarina,Nuevo León,25feb2019,1,1,0,,1,3,1,0,3
+Zapopan,Jalisco,15feb2019,1,1,0,,0,,1,0,4
+San Felipe Orizatlán,Hidalgo,26mar2019,0,0,0,,0,,1,0,2
+Rosario,Sinaloa,05mar2019,0,1,0,,1,3,1,0,2
+Metlatónoc,Guerrero,02mar2019,1,0,0,,0,,1,0,1
+Gustavo A. Madero,Distrito Federal,02feb2019,1,1,0,,0,,1,0,3
+Hueyapan de Ocampo,Veracruz,22feb2019,0,0,0,,0,,1,0,2
+Nicolás Romero,Estado de México,04feb2019,1,0,0,,0,,0,0,4
+León,Guanajuato,15feb2019,1,1,0,,0,,1,0,2
+Jiutepec,Morelos,21feb2019,0,1,0,,1,2,1,0,3
+Gustavo A. Madero,Distrito Federal,04feb2019,1,1,0,,0,,1,0,3
+Mérida,Yucatán,03mar2019,1,1,0,,0,,1,0,1
+Ciudad Juárez,Chihuahua,27feb2019,0,1,0,,0,,1,0,1
+Pátzcuaro,Michoacán,10feb2019,1,1,0,,1,3,1,0,2
+Chihuahua,Chihuahua,24feb2019,0,1,0,,1,2,1,0,2
+Tijuana,Baja California,28feb2019,0,1,0,,1,3,1,0,3
+Orizaba,Veracruz,08feb2019,0,1,0,,1,3,1,0,3
+Tepic,Nayarit,06mar2019,1,1,0,,1,3,1,0,3
+Pátzcuaro,Michoacán,10feb2019,0,1,0,,0,,1,0,3
+Tepic,Nayarit,06mar2019,0,1,0,,1,3,1,0,3
+Ciudad Juárez,Chihuahua,25feb2019,1,1,0,,0,,1,0,1
+Ecatepec de Morelos,Estado de México,01feb2019,1,1,0,,1,1,1,0,4
+Chicoloapan,Estado de México,05feb2019,0,1,0,,1,3,1,0,4
+Tepic,Nayarit,06mar2019,0,1,0,,0,,.a,,1
+San Nicolás de los Garza,Nuevo León,28feb2019,1,1,0,,0,,1,0,2
+Paraíso,Tabasco,02mar2019,0,0,0,,0,,1,0,4
+Ciudad Juárez,Chihuahua,25feb2019,0,1,0,,0,,1,0,1
+Toluca,Estado de México,05feb2019,1,0,0,,0,,1,0,2
+Nicolás Romero,Estado de México,04feb2019,1,0,0,,1,2,1,0,2
+Zapotlán El Grande,Jalisco,13feb2019,0,1,0,,0,,1,0,3
+Querétaro,Querétaro,22feb2019,1,1,0,,0,,1,0,2
+Tampico,Tamaulipas,03mar2019,0,1,0,,0,,1,0,2
+Hueyapan de Ocampo,Veracruz,22feb2019,0,0,0,,1,2,1,0,1
+Bochil,Chiapas,08mar2019,1,1,0,,0,,1,0,2
+Toluca,Estado de México,05feb2019,0,0,0,,0,,1,0,2
+Yautepec,Morelos,22feb2019,0,1,0,,1,1,1,0,4
+Tepezalá,Aguascalientes,07mar2019,0,1,0,,1,1,1,0,4
+Tepic,Nayarit,06mar2019,1,1,0,,0,,1,0,3
+Amatán,Chiapas,08mar2019,0,0,0,,1,3,1,0,3
+Hopelchén,Campeche,05mar2019,0,0,0,,0,,1,0,2
+Navojoa,Sonora,23feb2019,0,1,0,,0,,1,1,1
+Uxpanapa,Veracruz,11feb2019,1,0,0,,0,,1,0,4
+Lerdo,Durango,23feb2019,0,0,0,,1,1,1,0,2
+Villa de Alvarez,Colima,12feb2019,0,1,0,,1,2,1,0,4
+Naucalpan de Juárez,Estado de México,11feb2019,1,1,0,,0,,1,0,2
+Culiacán,Sinaloa,04mar2019,1,0,0,,0,,1,0,1
+Pénjamo,Guanajuato,14feb2019,0,0,0,,0,,1,0,2
+Cuautitlán Izcalli,Estado de México,05feb2019,1,1,0,,1,2,1,0,2
+San Luis Potosí,San Luis Potosí,04mar2019,0,1,0,,0,,1,0,3
+Dolores Hidalgo,Guanajuato,12feb2019,0,1,0,,0,,1,1,4
+Nezahualcóyotl,Estado de México,13mar2019,0,1,0,,1,2,1,0,3
+Parras,Coahuila,23feb2019,1,1,0,,0,,1,0,3
+Atizapán de Zaragoza,Estado de México,14feb2019,0,1,0,,1,2,1,0,4
+Orizaba,Veracruz,09feb2019,1,1,0,,0,,1,0,2
+Saltillo,Coahuila,27feb2019,0,1,0,,0,,1,0,1
+Iztapalapa,Distrito Federal,31jan2019,1,1,0,,1,3,1,0,3
+Monterrey,Nuevo León,28feb2019,0,1,0,,0,,1,0,3
+Naucalpan de Juárez,Estado de México,13mar2019,1,1,0,,0,,1,0,2
+León,Guanajuato,13feb2019,1,0,0,,1,3,1,0,2
+Matehuala,San Luis Potosí,02mar2019,1,1,0,,1,.a,0,0,3
+San Juan de los Lagos,Jalisco,19feb2019,0,1,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,1,2,1,0,4
+Atizapán de Zaragoza,Estado de México,05feb2019,0,1,0,,0,,1,.a,.b
+Pachuca de Soto,Hidalgo,11feb2019,0,1,0,,0,,1,0,4
+Nicolás Romero,Estado de México,04feb2019,1,0,0,,1,2,1,0,2
+Morelia,Michoacán,08feb2019,1,1,0,,0,,1,0,2
+Zumpango,Estado de México,01feb2019,0,1,0,,1,2,1,0,4
+Jiutepec,Morelos,21feb2019,1,1,0,,0,,0,0,1
+Playa Vicente,Veracruz,10feb2019,1,1,0,,1,1,1,0,2
+Acámbaro,Guanajuato,22mar2019,0,1,0,,0,,1,0,4
+Pátzcuaro,Michoacán,10feb2019,0,1,0,,0,,0,0,1
+Matehuala,San Luis Potosí,02mar2019,0,1,0,,1,2,0,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,0,0,,1,3,1,0,2
+Leonardo Bravo,Guerrero,01mar2019,0,1,0,,0,,1,0,3
+Xalapa,Veracruz,07feb2019,1,1,0,,1,2,1,0,2
+Papantla,Veracruz,05feb2019,0,0,0,,0,,1,0,3
+Papantla,Veracruz,05feb2019,0,0,0,,0,,1,0,3
+Ocoyucan,Puebla,25mar2019,0,1,0,,0,,1,0,3
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,1,3,1,0,3
+Tampico,Tamaulipas,03mar2019,1,1,0,,0,,1,0,2
+Ixtapaluca,Estado de México,02feb2019,1,1,0,,0,,1,0,2
+Uxpanapa,Veracruz,11feb2019,1,0,0,,0,,1,0,1
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,0,3
+Nicolás Romero,Estado de México,02feb2019,1,1,0,,1,2,1,0,2
+León,Guanajuato,13feb2019,1,0,0,,0,,1,0,1
+Caltepec,Puebla,16feb2019,1,1,0,,0,,1,0,1
+Tampamolón Corona,San Luis Potosí,03mar2019,0,1,0,,0,,1,0,4
+Nezahualcóyotl,Estado de México,01feb2019,0,1,0,,0,,1,0,4
+Lerdo,Durango,23feb2019,0,0,0,,0,,1,0,2
+Hopelchén,Campeche,05mar2019,1,0,0,,0,,0,0,4
+Ixtapaluca,Estado de México,02feb2019,0,1,0,,0,,1,0,2
+Orizaba,Veracruz,09feb2019,1,1,0,,0,,0,0,2
+Naucalpan de Juárez,Estado de México,15feb2019,1,1,0,,1,3,1,0,2
+Rosario,Sinaloa,05mar2019,1,1,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,1,2,1,0,3
+Ixtenco,Tlaxcala,05feb2019,0,1,0,,0,,1,0,2
+Morelia,Michoacán,09feb2019,1,1,0,,0,,1,0,2
+Los Cabos,Baja California Sur,25mar2019,0,0,0,,0,,1,0,2
+Morelia,Michoacán,09feb2019,0,1,0,,0,,1,0,2
+Pachuca de Soto,Hidalgo,11feb2019,0,1,0,,0,,1,0,2
+Pachuca de Soto,Hidalgo,11feb2019,0,1,0,,0,,1,0,3
+Monterrey,Nuevo León,28feb2019,1,1,0,,0,,0,0,1
+Nicolás Romero,Estado de México,30jan2019,1,1,0,,1,1,1,0,3
+Comondú,Baja California Sur,23mar2019,0,1,0,,0,,1,0,2
+Ocoyucan,Puebla,25mar2019,1,1,0,,1,3,1,0,4
+Tlaquepaque,Jalisco,17feb2019,0,1,0,,0,,1,0,1
+Asunción Nochixtlán,Oaxaca,14feb2019,1,1,0,,0,,1,0,3
+Los Cabos,Baja California Sur,24mar2019,1,0,0,,1,3,1,0,2
+Yautepec,Morelos,22feb2019,1,1,0,,1,2,1,0,4
+Pachuca de Soto,Hidalgo,11feb2019,1,1,0,,1,1,0,0,2
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,.a,3
+Metlatónoc,Guerrero,02mar2019,0,0,0,,0,,1,0,.a
+Boca del Río,Veracruz,07feb2019,0,1,0,,0,,1,0,2
+Zapopan,Jalisco,15feb2019,0,1,0,,0,,1,0,3
+Dolores Hidalgo,Guanajuato,13feb2019,1,1,0,,1,3,1,0,3
+Acámbaro,Guanajuato,21mar2019,1,1,0,,1,1,1,0,1
+Ciudad Juárez,Chihuahua,25feb2019,1,1,0,,0,,1,0,2
+Leonardo Bravo,Guerrero,01mar2019,1,1,0,,0,,0,0,1
+Comondú,Baja California Sur,24mar2019,1,1,0,,0,,1,0,2
+Cuencamé,Durango,22feb2019,0,1,0,,0,,1,0,2
+Villa de Alvarez,Colima,09feb2019,1,1,0,,1,3,1,0,1
+Dolores Hidalgo,Guanajuato,12feb2019,0,1,0,,0,,1,0,2
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,.b,,1,0,3
+Metepec,Estado de México,03feb2019,0,1,0,,0,,1,0,2
+Huaquechula,Puebla,08feb2019,0,0,0,,0,,1,0,2
+Pátzcuaro,Michoacán,10feb2019,0,1,0,,0,,1,1,4
+Iztapalapa,Distrito Federal,31jan2019,0,1,0,,1,2,1,1,4
+Tláhuac,Distrito Federal,04feb2019,0,1,0,,1,.a,1,0,3
+Moroleón,Guanajuato,16feb2019,0,1,0,,1,2,1,0,3
+Culiacán,Sinaloa,04mar2019,1,0,0,,0,,1,0,2
+Centro,Tabasco,01mar2019,1,1,0,,1,1,1,0,4
+Huaquechula,Puebla,08feb2019,0,0,0,,0,,1,0,2
+Los Cabos,Baja California Sur,24mar2019,1,0,0,,0,,1,0,2
+Zapopan,Jalisco,16feb2019,1,1,0,,0,,1,0,2
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,0,2
+Boca del Río,Veracruz,08feb2019,1,1,0,,0,,1,0,2
+Matehuala,San Luis Potosí,02mar2019,0,1,0,,0,,1,0,4
+Iguala de la Independencia,Guerrero,03mar2019,1,1,0,,1,3,1,1,3
+Mesones Hidalgo,Oaxaca,15feb2019,0,1,0,,0,,1,0,4
+León,Guanajuato,15feb2019,1,1,0,,1,2,1,0,2
+Eduardo Neri,Guerrero,28feb2019,0,1,0,,0,,1,0,3
+Metlatónoc,Guerrero,02mar2019,0,0,0,,0,,1,0,4
+Puebla,Puebla,06feb2019,0,1,0,,0,,1,0,3
+Centro,Tabasco,01mar2019,0,1,0,,0,,1,0,4
+Puebla,Puebla,06feb2019,0,1,0,,0,,0,0,1
+Tepezalá,Aguascalientes,07mar2019,0,1,0,,0,,1,0,2
+Zitácuaro,Michoacán,03feb2019,0,0,0,,1,2,1,0,4
+Tlalnepantla de Baz,Estado de México,30jan2019,0,1,0,,1,2,1,0,2
+Hueyapan de Ocampo,Veracruz,22feb2019,1,0,0,,0,,1,0,1
+Los Cabos,Baja California Sur,24mar2019,1,0,0,,0,,0,0,2
+Matehuala,San Luis Potosí,02mar2019,1,1,0,,0,,1,0,2
+Ixtenco,Tlaxcala,05feb2019,0,1,0,,0,,1,0,2
+Iztacalco,Distrito Federal,13mar2019,1,1,0,,0,,1,0,4
+Iztapalapa,Distrito Federal,30jan2019,0,1,0,,1,2,1,0,1
+Santa Catarina,Nuevo León,25feb2019,0,1,0,,1,1,1,0,4
+Tláhuac,Distrito Federal,04feb2019,0,1,0,,0,,1,0,2
+Yautepec,Morelos,23feb2019,0,1,0,,1,3,1,0,4
+Navojoa,Sonora,23feb2019,1,1,0,,0,,1,0,3
+Mesones Hidalgo,Oaxaca,15feb2019,0,1,0,,0,,0,0,2
+Iguala de la Independencia,Guerrero,03mar2019,1,1,0,,0,,1,0,3
+Nicolás Romero,Estado de México,30jan2019,1,1,0,,1,3,1,0,1
+Tampamolón Corona,San Luis Potosí,03mar2019,0,1,0,,0,,0,0,4
+Uxpanapa,Veracruz,11feb2019,0,0,0,,1,2,1,0,3
+Xalapa,Veracruz,07feb2019,1,1,0,,0,,1,0,3
+Tampamolón Corona,San Luis Potosí,03mar2019,0,1,0,,1,2,1,0,3
+Mérida,Yucatán,03mar2019,1,1,0,,0,,1,0,2
+Centro,Tabasco,01mar2019,1,1,0,,1,3,1,0,3
+Paraíso,Tabasco,02mar2019,0,0,0,,0,,1,0,4
+Cosoleacaque,Veracruz,23feb2019,1,1,0,,0,,1,0,2
+Angostura,Sinaloa,03mar2019,1,1,0,,1,3,1,0,4
+Caltepec,Puebla,16feb2019,0,1,0,,0,,1,0,2
+Yautepec,Morelos,22feb2019,1,1,0,,1,3,1,0,3
+Villa Juárez,San Luis Potosí,01mar2019,0,0,0,,0,,0,0,2
+Iztacalco,Distrito Federal,31jan2019,1,1,0,,1,3,1,0,2
+Pénjamo,Guanajuato,14feb2019,1,0,0,,0,,1,0,1
+Ecatepec de Morelos,Estado de México,01feb2019,0,1,0,,0,,1,0,2
+Honey,Puebla,08mar2019,0,0,0,,0,,1,0,3
+Santa Catarina,Nuevo León,25feb2019,0,1,0,,0,,1,0,2
+Fresnillo,Zacatecas,05mar2019,1,1,0,,0,,0,0,1
+Tepezalá,Aguascalientes,07mar2019,0,1,0,,0,,0,0,1
+Culiacán,Sinaloa,04mar2019,0,0,0,,0,,1,0,3
+Uxpanapa,Veracruz,11feb2019,1,0,0,,0,,1,0,3
+Morelia,Michoacán,07feb2019,0,1,1,4,0,,1,0,2
+Zapotlán El Grande,Jalisco,10feb2019,1,1,1,1,0,,1,0,3
+Zumpango,Estado de México,01feb2019,1,1,1,1,1,2,1,0,4
+Pénjamo,Guanajuato,14feb2019,1,0,1,1,1,3,1,0,4
+Tepic,Nayarit,06mar2019,1,1,1,2,0,,1,1,3
+Atotonilco El Alto,Jalisco,18feb2019,0,0,1,1,0,,0,0,3
+Paraíso,Tabasco,02mar2019,1,0,1,1,0,,1,0,2
+Benito Juárez,Distrito Federal,05feb2019,1,1,1,2,0,,1,0,3
+Huaquechula,Puebla,08feb2019,0,0,1,2,0,,1,0,2
+Chicoloapan,Estado de México,05feb2019,0,1,1,2,1,3,1,0,4
+Atizapán de Zaragoza,Estado de México,02feb2019,0,1,1,1,1,1,1,0,2
+Huaquechula,Puebla,08feb2019,0,0,1,2,0,,1,0,3
+Caltepec,Puebla,16feb2019,1,1,1,2,0,,1,0,3
+Morelia,Michoacán,04feb2019,0,1,1,3,0,,1,0,4
+Metepec,Estado de México,03feb2019,1,1,1,5,1,3,1,0,3
+Iztapalapa,Distrito Federal,30jan2019,1,1,1,10,1,3,1,1,4
+Morelia,Michoacán,08feb2019,1,1,1,3,1,3,1,0,3
+Morelia,Michoacán,09feb2019,0,1,1,1,0,,1,0,2
+Naucalpan de Juárez,Estado de México,07feb2019,0,1,1,1,0,,1,0,2
+Tlalnepantla de Baz,Estado de México,31jan2019,0,1,1,1,1,3,1,0,2
+Alvaro Obregón,Distrito Federal,02feb2019,1,1,1,1,0,,1,0,3
+Oaxaca de Juárez,Oaxaca,13feb2019,1,1,1,1,0,,1,0,1
+Morelia,Michoacán,05feb2019,0,1,1,3,1,2,1,0,4
+Yautepec,Morelos,23feb2019,0,1,1,2,1,3,1,0,2
+León,Guanajuato,15feb2019,0,1,1,8,1,2,1,0,4
+León,Guanajuato,15feb2019,1,1,1,1,0,,1,0,2
+Yautepec,Morelos,23feb2019,0,1,1,1,1,2,1,0,4
+Zapotlán El Grande,Jalisco,10feb2019,1,1,1,1,0,,1,0,1
+Zamora,Michoacán,11feb2019,0,1,1,1,1,3,0,0,2
+Tabasco,Zacatecas,06mar2019,0,0,1,1,0,,1,0,2
+Huaquechula,Puebla,08feb2019,0,0,1,2,0,,1,0,2
+Toluca,Estado de México,04feb2019,1,1,1,8,1,3,1,1,4
+León,Guanajuato,15feb2019,1,1,1,4,1,3,1,0,3
+San Lucas Ojitlán,Oaxaca,12feb2019,0,0,1,1,0,,1,0,3
+Jamay,Jalisco,14feb2019,1,1,1,1,1,3,1,0,3
+Benito Juárez,Distrito Federal,05feb2019,0,1,1,2,0,,1,0,4
+Toluca,Estado de México,02feb2019,0,0,1,1,1,3,1,0,4
+San Luis Río Colorado,Sonora,25feb2019,0,1,1,1,0,,1,0,3
+Iztacalco,Distrito Federal,30jan2019,1,1,1,1,.a,,1,0,2
+Gustavo A. Madero,Distrito Federal,02feb2019,0,1,1,2,1,2,1,0,4
+Valle de Chalco Solidaridad,Estado de México,04feb2019,1,1,1,2,0,,1,0,4
+Naucalpan de Juárez,Estado de México,15feb2019,1,1,1,2,1,3,1,0,3
+Yautepec,Morelos,22feb2019,0,1,1,2,0,,1,0,4
+Jiutepec,Morelos,22feb2019,0,1,1,2,1,3,1,0,3
+Othón P. Blanco,Quintana Roo,04mar2019,1,0,1,4,1,3,1,0,2
+Morelia,Michoacán,05feb2019,1,1,1,3,1,2,1,1,3
+Zapopan,Jalisco,12feb2019,1,1,1,1,1,.a,1,0,2
+Coatzacoalcos,Veracruz,24feb2019,0,1,1,1,1,1,1,0,4
+Culiacán,Sinaloa,04mar2019,0,0,1,1,0,,1,0,1
+Ixtapaluca,Estado de México,02feb2019,1,1,1,.b,0,,0,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,0,0,1,1,1,3,1,0,4
+Chicoloapan,Estado de México,05feb2019,0,1,1,10,1,2,1,0,4
+Monterrey,Nuevo León,25feb2019,1,1,1,4,1,1,1,0,2
+Ciudad Juárez,Chihuahua,27feb2019,0,1,1,1,1,2,1,0,1
+Puebla,Puebla,06feb2019,0,1,1,5,1,2,1,0,2
+Tláhuac,Distrito Federal,04feb2019,1,1,1,1,1,3,1,0,1
+Naucalpan de Juárez,Estado de México,07feb2019,0,1,1,2,0,,1,0,2
+Guaymas,Sonora,24feb2019,1,1,1,6,1,2,1,0,2
+Valle de Chalco Solidaridad,Estado de México,04feb2019,1,1,1,2,0,,0,0,2
+Iztacalco,Distrito Federal,30jan2019,1,1,1,1,0,,1,0,2
+Morelia,Michoacán,04feb2019,0,1,1,15,0,,1,1,4
+Rosario,Sinaloa,05mar2019,1,1,1,1,1,3,1,0,2
+Coatzacoalcos,Veracruz,24feb2019,1,1,1,1,1,1,1,0,3
+San Luis Potosí,San Luis Potosí,04mar2019,0,1,1,3,0,,1,0,3
+Jiutepec,Morelos,22feb2019,1,1,1,2,0,,1,0,1
+Atizapán de Zaragoza,Estado de México,05feb2019,0,1,1,1,0,,1,0,3
+Chihuahua,Chihuahua,25feb2019,1,1,1,1,0,,1,0,3
+Chicoloapan,Estado de México,05feb2019,0,1,1,7,1,2,1,1,4
+Huaquechula,Puebla,08feb2019,1,0,1,2,1,3,1,1,2
+Oaxaca de Juárez,Oaxaca,13feb2019,1,1,1,1,1,3,1,0,4
+Tijuana,Baja California,27feb2019,1,1,1,1,1,3,1,0,2
+Mesones Hidalgo,Oaxaca,15feb2019,0,1,1,4,0,,1,0,2
+Nopala de Villagrán,Hidalgo,07mar2019,1,1,1,4,1,1,1,0,4
+Centro,Tabasco,01mar2019,1,1,1,2,1,2,1,0,3
+Tlalnepantla de Baz,Estado de México,31jan2019,1,1,1,1,1,2,1,0,3
+Zumpango,Estado de México,01feb2019,0,1,1,7,0,,1,0,3
+Iguala de la Independencia,Guerrero,03mar2019,0,1,1,4,1,1,1,1,4
+Fresnillo,Zacatecas,05mar2019,1,1,1,1,1,2,1,1,4
+Gustavo A. Madero,Distrito Federal,04feb2019,0,1,1,10,1,1,1,0,4
+Guaymas,Sonora,24feb2019,1,1,1,1,1,3,1,0,1
+Zumpango,Estado de México,01feb2019,1,1,1,2,1,2,1,1,2
+Orizaba,Veracruz,09feb2019,1,1,1,1,1,3,1,0,2
+Coatzacoalcos,Veracruz,24feb2019,0,1,1,1,1,3,1,0,2
+Eduardo Neri,Guerrero,28feb2019,0,1,1,2,0,,1,0,4
+Yautepec,Morelos,22feb2019,1,1,1,1,1,3,0,0,3
+Papantla,Veracruz,06feb2019,1,0,1,2,1,2,1,0,2
+Asunción Nochixtlán,Oaxaca,13feb2019,0,1,1,2,1,3,0,0,3
+Iztacalco,Distrito Federal,23mar2019,0,1,1,4,1,3,1,0,3
+San Luis Río Colorado,Sonora,25feb2019,1,1,1,10,1,3,1,0,4
+Iztapalapa,Distrito Federal,30jan2019,1,1,1,1,1,3,1,0,3
+Dolores Hidalgo,Guanajuato,13feb2019,0,1,1,1,1,1,1,0,2
+Angostura,Sinaloa,03mar2019,1,1,1,4,1,1,1,1,3
+Gustavo A. Madero,Distrito Federal,02feb2019,1,1,1,2,0,,1,0,1
+Naucalpan de Juárez,Estado de México,11feb2019,0,1,1,2,1,2,1,0,4
+Gustavo A. Madero,Distrito Federal,02feb2019,1,1,1,2,0,,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,0,1,1,1,1,3,1,0,3
+San Nicolás de los Garza,Nuevo León,28feb2019,1,1,1,5,0,,0,0,2
+Villa de Alvarez,Colima,12feb2019,0,1,1,6,1,2,1,1,3
+Ixtapaluca,Estado de México,02feb2019,0,1,1,1,0,,1,0,3
+Cosoleacaque,Veracruz,23feb2019,0,1,1,3,1,1,1,0,3
+Metepec,Estado de México,03feb2019,0,1,1,1,1,3,1,0,3
+Chicoloapan,Estado de México,05feb2019,1,1,1,5,1,2,1,0,4
+Yautepec,Morelos,22feb2019,1,1,1,.b,0,,1,0,1
+Ciudad Juárez,Chihuahua,27feb2019,0,1,1,1,1,3,1,0,3
+Comondú,Baja California Sur,23mar2019,0,1,1,1,0,,1,1,3
+Navojoa,Sonora,23feb2019,1,1,1,2,0,,1,0,3
+Bochil,Chiapas,08mar2019,1,1,1,1,0,,0,0,3
+Cosoleacaque,Veracruz,23feb2019,0,1,1,3,0,,1,1,3
+Toluca,Estado de México,04feb2019,1,1,1,1,0,,1,0,2
+Amatán,Chiapas,09mar2019,0,0,1,3,0,,0,0,.b
+Guaymas,Sonora,24feb2019,0,1,1,1,0,,1,0,3
+Ecatepec de Morelos,Estado de México,01feb2019,1,1,1,2,0,,1,0,2
+Jamay,Jalisco,14feb2019,1,1,1,2,0,,0,0,2
+Ecatepec de Morelos,Estado de México,01feb2019,1,1,1,20,1,1,1,0,1
+Comondú,Baja California Sur,23mar2019,1,1,1,2,0,,1,0,1
+Iztacalco,Distrito Federal,30jan2019,0,1,1,3,0,,1,0,4
+Cuauhtémoc,Distrito Federal,05feb2019,1,1,1,2,1,2,1,0,3
+Querétaro,Querétaro,22feb2019,0,1,1,1,0,,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,1,1,1,1,3,1,0,4
+Toluca,Estado de México,04feb2019,1,1,1,3,0,,1,0,3
+Benito Juárez,Distrito Federal,05feb2019,0,1,1,3,0,,1,0,3
+León,Guanajuato,15feb2019,1,1,1,5,0,,1,0,1
+Moroleón,Guanajuato,16feb2019,1,1,1,2,1,3,1,0,2
+Ixtenco,Tlaxcala,05feb2019,1,1,1,5,0,,1,0,3
+Ixtenco,Tlaxcala,05feb2019,1,1,1,1,0,,1,0,4
+Angostura,Sinaloa,03mar2019,1,1,1,1,0,,1,0,4
+Nopala de Villagrán,Hidalgo,07mar2019,1,1,1,.b,1,2,1,0,4
+Nopala de Villagrán,Hidalgo,07mar2019,0,1,1,2,0,,1,0,4
+Zamora,Michoacán,11feb2019,0,1,1,1,1,3,1,0,3
+Lerdo,Durango,23feb2019,1,0,1,2,1,3,1,0,2
+Nicolás Romero,Estado de México,04feb2019,0,0,1,2,1,3,1,0,3
+Mexicali,Baja California,26feb2019,1,1,1,1,0,,1,0,2
+Puebla,Puebla,07feb2019,1,1,1,1,1,2,1,0,4
+Xalapa,Veracruz,06feb2019,0,1,1,1,1,3,1,0,4
+San Juan de los Lagos,Jalisco,19feb2019,0,1,1,.a,0,,1,1,4
+Puebla,Puebla,06feb2019,1,1,1,2,1,3,1,0,4
+Iztacalco,Distrito Federal,31jan2019,0,1,1,4,0,,1,0,4
+Morelia,Michoacán,04feb2019,0,1,1,4,0,,1,0,4
+Yautepec,Morelos,23feb2019,1,1,1,1,1,3,1,0,4
+Tabasco,Zacatecas,06mar2019,0,0,1,1,0,,1,0,2
+San Luis Potosí,San Luis Potosí,04mar2019,0,1,1,2,0,,1,0,3
+Iztapalapa,Distrito Federal,31jan2019,1,1,1,3,1,3,1,0,4
+Iztacalco,Distrito Federal,31jan2019,0,1,1,2,0,,1,1,3
+Nezahualcóyotl,Estado de México,01feb2019,0,1,1,1,.a,,1,0,2
+Atizapán de Zaragoza,Estado de México,02feb2019,1,1,1,2,1,2,1,0,3
+Gustavo A. Madero,Distrito Federal,02feb2019,1,1,1,2,0,,1,0,2
+Iztacalco,Distrito Federal,31jan2019,0,1,1,2,1,2,1,0,4
+Iguala de la Independencia,Guerrero,03mar2019,1,1,1,1,1,3,1,1,4
+Ciudad Juárez,Chihuahua,27feb2019,1,1,1,1,1,3,0,0,4
+Xalapa,Veracruz,06feb2019,1,1,1,1,1,2,1,0,4
+Querétaro,Querétaro,22feb2019,1,1,1,2,0,,1,0,2
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,0,0,1,1,0,,1,0,2
+Alvaro Obregón,Distrito Federal,02feb2019,0,1,1,1,0,,1,0,3
+San Lucas Ojitlán,Oaxaca,12feb2019,1,0,1,1,0,,1,0,3
+Nopala de Villagrán,Hidalgo,07mar2019,0,1,1,11,0,,1,0,3
+Villa Corzo,Chiapas,07mar2019,0,0,1,2,0,,1,0,4
+Nopala de Villagrán,Hidalgo,07mar2019,1,1,1,2,0,,1,0,4
+Tepic,Nayarit,06mar2019,1,1,1,5,0,,0,0,2
+Amatán,Chiapas,09mar2019,1,0,1,2,1,2,1,0,3
+San Nicolás de los Garza,Nuevo León,26feb2019,0,1,1,2,1,2,1,0,4
+Honey,Puebla,08mar2019,1,0,1,2,0,,1,0,2
+Ojinaga,Chihuahua,28feb2019,0,1,1,1,0,,1,0,2
+Iztacalco,Distrito Federal,23mar2019,1,1,1,3,1,2,1,0,2
+Tepeji del Río de Ocampo,Hidalgo,10feb2019,1,0,1,2,1,3,1,0,4
+Tonalá,Jalisco,16feb2019,1,1,1,2,1,1,1,0,3
+Pachuca de Soto,Hidalgo,11feb2019,0,1,1,3,0,,1,0,2
+Tonalá,Jalisco,13feb2019,0,1,1,1,1,2,1,0,4
+Matehuala,San Luis Potosí,02mar2019,1,1,1,.a,0,,0,0,4
+Monterrey,Nuevo León,26feb2019,0,1,1,2,1,1,1,0,2
+Tepeji del Río de Ocampo,Hidalgo,12feb2019,0,0,1,1,0,,1,0,3
+Pachuca de Soto,Hidalgo,11feb2019,1,1,1,2,0,,1,0,2
+Toluca,Estado de México,04feb2019,1,1,1,2,1,3,1,0,1
+León,Guanajuato,15feb2019,0,1,1,4,1,2,1,0,3
+Iztapalapa,Distrito Federal,30jan2019,0,1,1,1,1,2,1,0,2
+Nicolás Romero,Estado de México,04feb2019,1,0,1,1,1,3,1,0,2
+Iztapalapa,Distrito Federal,31jan2019,0,1,1,3,1,2,1,0,4
+Navojoa,Sonora,23feb2019,0,1,1,1,0,,1,0,3
+Caltepec,Puebla,16feb2019,1,1,1,1,1,1,1,0,4
+Zapopan,Jalisco,12feb2019,0,1,1,1,.a,,1,0,1
+Gustavo A. Madero,Distrito Federal,02feb2019,1,1,1,2,1,2,1,1,4
+Iztapalapa,Distrito Federal,31jan2019,1,1,1,3,1,3,1,0,2
+Santa Catarina,Nuevo León,25feb2019,1,1,1,1,0,,1,0,4
+San Felipe Orizatlán,Hidalgo,27mar2019,1,0,1,10,1,3,1,0,3
+Leonardo Bravo,Guerrero,01mar2019,1,1,1,3,1,2,1,1,4
+Leonardo Bravo,Guerrero,01mar2019,0,1,1,3,1,3,1,0,3
+Iztapalapa,Distrito Federal,31jan2019,1,1,1,4,1,1,1,0,4
+Monterrey,Nuevo León,28feb2019,0,1,1,1,0,,1,0,4
+Parras,Coahuila,23feb2019,0,1,1,1,0,,1,0,3
+Ecatepec de Morelos,Estado de México,01feb2019,0,1,1,1,0,,1,0,3
+Benito Juárez,Distrito Federal,01feb2019,1,1,1,.a,1,1,1,0,1
+Mexicali,Baja California,26feb2019,0,1,1,.a,0,,1,0,2
+Iguala de la Independencia,Guerrero,03mar2019,0,1,1,1,0,,1,1,3
+Morelia,Michoacán,07feb2019,1,1,1,1,0,,1,0,2
+Tlalnepantla de Baz,Estado de México,31jan2019,0,1,1,2,0,,1,0,4
+Cuautitlán Izcalli,Estado de México,10feb2019,0,1,1,2,1,2,1,0,3
+Gustavo A. Madero,Distrito Federal,04feb2019,1,1,1,2,1,2,1,0,2
+Pénjamo,Guanajuato,14feb2019,1,0,1,2,0,,1,0,4
+Centro,Tabasco,01mar2019,0,1,1,3,0,,1,0,3
+Zumpango,Estado de México,01feb2019,1,1,1,.b,0,,1,0,4
+Bochil,Chiapas,08mar2019,1,1,1,1,1,2,1,0,4
+Papantla,Veracruz,06feb2019,1,0,1,1,0,,1,0,3
+Cuautitlán Izcalli,Estado de México,10feb2019,0,1,1,2,1,3,1,0,3
+Amatán,Chiapas,09mar2019,1,0,1,2,1,3,1,1,3
+Gustavo A. Madero,Distrito Federal,02feb2019,0,1,1,1,0,,1,0,2
+Tonalá,Jalisco,16feb2019,1,1,1,1,1,2,1,0,4
+Iztapalapa,Distrito Federal,30jan2019,0,1,1,1,1,3,1,0,4
+Tlaquepaque,Jalisco,17feb2019,1,1,1,1,1,.b,1,0,2
+Ciudad Juárez,Chihuahua,25feb2019,0,1,1,1,0,,1,0,1
+Toluca,Estado de México,01feb2019,0,1,1,.a,1,3,1,0,4
+Zumpango,Estado de México,01feb2019,1,1,1,1,1,2,1,0,2
+Tepezalá,Aguascalientes,07mar2019,1,1,1,1,1,3,1,0,3
+Querétaro,Querétaro,22feb2019,1,1,1,1,1,3,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,0,1,1,1,3,1,0,3
+Yautepec,Morelos,22feb2019,1,1,1,3,1,1,1,1,4
+Morelia,Michoacán,07feb2019,1,1,1,1,0,,1,0,4
+Tlalnepantla de Baz,Estado de México,31jan2019,1,1,1,1,1,3,1,1,3
+Puebla,Puebla,06feb2019,1,1,1,2,0,,1,1,3
+Tonalá,Jalisco,13feb2019,0,1,1,2,1,1,1,0,2
+Tijuana,Baja California,28feb2019,1,1,1,4,1,1,1,0,3
+Cuauhtémoc,Distrito Federal,02feb2019,1,1,1,1,1,2,1,0,2
+Iztapalapa,Distrito Federal,30jan2019,1,1,1,1,1,2,1,0,3
+Ciudad Victoria,Tamaulipas,01mar2019,1,1,1,1,1,2,.a,,3
+Asunción Nochixtlán,Oaxaca,14feb2019,1,1,1,2,0,,1,0,4
+Oaxaca de Juárez,Oaxaca,13feb2019,0,1,1,4,1,3,1,0,3
+Morelia,Michoacán,09feb2019,0,1,1,2,1,2,1,0,3
+Navojoa,Sonora,23feb2019,1,1,1,1,1,1,1,1,2
+Tonalá,Jalisco,16feb2019,1,1,1,1,1,2,1,0,4
+Metepec,Estado de México,03feb2019,0,1,1,2,1,3,1,0,4
+Ciudad Juárez,Chihuahua,27feb2019,1,1,1,1,1,2,1,0,3
+Naucalpan de Juárez,Estado de México,06feb2019,0,1,1,4,1,1,1,0,4
+San Luis Río Colorado,Sonora,01mar2019,0,1,1,1,1,3,0,0,2
+Zamora,Michoacán,11feb2019,1,1,1,1,1,1,0,0,3
+Tepezalá,Aguascalientes,07mar2019,0,1,1,1,1,2,1,0,2
+Tampamolón Corona,San Luis Potosí,03mar2019,1,1,1,2,1,3,1,1,3
+Morelia,Michoacán,08feb2019,0,1,1,1,1,3,1,0,4
+Fresnillo,Zacatecas,05mar2019,1,1,1,3,1,2,1,0,3
+Matehuala,San Luis Potosí,02mar2019,0,1,1,1,1,3,1,0,4
+Pachuca de Soto,Hidalgo,11feb2019,1,1,1,1,0,,1,0,1
+Zapotlán El Grande,Jalisco,13feb2019,0,1,1,3,0,,1,0,2
+Ojinaga,Chihuahua,28feb2019,1,1,1,2,0,,1,0,3
+Atizapán de Zaragoza,Estado de México,05feb2019,1,1,1,1,1,3,1,0,4
+Zapotlán El Grande,Jalisco,13feb2019,1,1,1,1,1,3,1,0,2
+Toluca,Estado de México,05feb2019,0,0,1,5,1,3,1,0,4
+Tláhuac,Distrito Federal,04feb2019,0,1,1,1,1,2,1,0,4
+Alvaro Obregón,Distrito Federal,02feb2019,1,1,1,4,1,3,1,0,1
+Valle de Chalco Solidaridad,Estado de México,04feb2019,0,1,1,2,1,2,1,1,4
+Zapotlán El Grande,Jalisco,13feb2019,0,1,1,5,0,,1,0,1
+Iguala de la Independencia,Guerrero,03mar2019,1,1,1,1,1,3,1,0,3
+Rosario,Sinaloa,05mar2019,1,1,1,20,1,1,1,1,3
+Iztapalapa,Distrito Federal,31jan2019,1,1,1,1,1,3,1,0,4
+Gustavo A. Madero,Distrito Federal,04feb2019,0,1,1,2,1,2,1,0,4
+Matehuala,San Luis Potosí,02mar2019,1,1,1,2,1,2,1,1,1
+Tlaquepaque,Jalisco,17feb2019,0,1,1,5,1,1,1,0,4
+Centro,Tabasco,01mar2019,1,1,1,1,1,1,1,0,2
+Xalapa,Veracruz,07feb2019,0,1,1,1,1,2,1,0,1
+Tepezalá,Aguascalientes,07mar2019,1,1,1,2,0,,1,0,2
+Jamay,Jalisco,11feb2019,0,1,1,3,0,,1,0,3
+Tampico,Tamaulipas,03mar2019,1,1,1,2,0,,1,0,2
+Gustavo A. Madero,Distrito Federal,02feb2019,0,1,1,2,0,,1,0,3
+Cuencamé,Durango,22feb2019,0,1,1,1,1,3,1,0,4
+Atotonilco El Alto,Jalisco,18feb2019,0,0,1,2,0,,1,0,4
+Oaxaca de Juárez,Oaxaca,13feb2019,0,1,1,2,1,3,1,1,4
+Saltillo,Coahuila,27feb2019,1,1,1,3,1,1,1,0,4
+Santa Catarina,Nuevo León,25feb2019,0,1,1,7,1,2,1,0,2
+Morelia,Michoacán,09feb2019,0,1,1,5,0,,1,0,3
+Tampico,Tamaulipas,03mar2019,0,1,1,3,0,,1,1,4
+Asunción Nochixtlán,Oaxaca,14feb2019,0,1,1,1,1,3,1,0,3
+Cuauhtémoc,Distrito Federal,01feb2019,1,1,1,2,1,3,1,0,3
+Querétaro,Querétaro,22feb2019,0,1,1,1,0,,1,0,2
+Comondú,Baja California Sur,23mar2019,0,1,1,1,0,,1,0,3
+Tampamolón Corona,San Luis Potosí,03mar2019,1,1,1,3,1,2,1,0,4
+Iztapalapa,Distrito Federal,30jan2019,0,1,1,2,1,1,1,0,4
+Angostura,Sinaloa,03mar2019,0,1,1,1,1,1,1,1,3
+San Luis Potosí,San Luis Potosí,03mar2019,1,1,1,1,1,3,1,0,2
+Orizaba,Veracruz,08feb2019,1,1,1,1,0,,1,1,2
+Iztapalapa,Distrito Federal,31jan2019,0,1,1,2,1,3,1,0,3
+Monclova,Coahuila,24feb2019,1,1,1,1,0,,1,0,2
+El Marqués,Querétaro,21feb2019,0,0,1,2,0,,1,0,4
+Ocoyucan,Puebla,25mar2019,0,1,1,1,0,,1,1,3
+Jiutepec,Morelos,22feb2019,1,1,1,2,0,,1,0,3
+Metepec,Estado de México,01feb2019,1,1,1,2,1,1,1,1,4
+Iztapalapa,Distrito Federal,31jan2019,1,1,1,4,1,2,1,0,1
+Ocoyucan,Puebla,25mar2019,1,1,1,1,0,,1,0,4
+Tabasco,Zacatecas,06mar2019,1,0,1,1,1,3,1,0,3
+Cuauhtémoc,Distrito Federal,05feb2019,0,1,1,3,0,,1,0,4
+Gustavo A. Madero,Distrito Federal,02feb2019,1,1,1,1,0,,1,0,2
+Orizaba,Veracruz,09feb2019,0,1,1,1,0,,1,0,3
+Fresnillo,Zacatecas,05mar2019,1,1,1,2,0,,1,0,2
+Papantla,Veracruz,06feb2019,1,0,1,5,0,,1,0,1
+Iztapalapa,Distrito Federal,31jan2019,0,1,1,1,0,,1,0,4
+Iztacalco,Distrito Federal,13mar2019,0,1,1,1,1,1,1,0,4
+Xalapa,Veracruz,06feb2019,0,1,1,1,1,3,1,0,4
+Zapopan,Jalisco,15feb2019,0,1,1,3,1,3,1,0,2
+Centro,Tabasco,01mar2019,1,1,1,2,1,3,1,0,2
+Guaymas,Sonora,24feb2019,0,1,1,1,0,,1,0,3
+Monterrey,Nuevo León,28feb2019,0,1,1,2,1,.a,1,0,2
+Boca del Río,Veracruz,07feb2019,0,1,1,1,1,1,1,1,4
+Ciudad Juárez,Chihuahua,27feb2019,0,1,1,2,1,1,1,0,3
+Comondú,Baja California Sur,23mar2019,0,1,1,5,0,,1,0,2
+Iztacalco,Distrito Federal,13mar2019,1,1,1,1,1,3,1,0,3
+Ecatepec de Morelos,Estado de México,01feb2019,0,1,1,2,1,3,1,0,3
+Ciudad Juárez,Chihuahua,27feb2019,0,1,1,4,1,1,1,0,2
+Playa Vicente,Veracruz,10feb2019,0,1,1,2,0,,1,0,3
+Dolores Hidalgo,Guanajuato,13feb2019,1,1,1,5,1,1,1,0,4
+Ocoyucan,Puebla,25mar2019,1,1,1,1,0,,1,0,3
+Nezahualcóyotl,Estado de México,01feb2019,1,1,1,3,0,,1,0,4
+Zapopan,Jalisco,15feb2019,0,1,1,1,1,3,1,0,3
+Tabasco,Zacatecas,06mar2019,0,0,1,2,1,3,1,1,2
+Tláhuac,Distrito Federal,13mar2019,1,1,1,1,1,2,0,0,3
+Culiacán,Sinaloa,04mar2019,0,0,1,1,0,,1,0,2
+Benito Juárez,Distrito Federal,05feb2019,0,1,1,2,0,,1,0,3
+Morelia,Michoacán,08feb2019,0,1,1,3,0,,1,0,4
+San Luis Potosí,San Luis Potosí,03mar2019,0,1,1,3,1,2,1,0,4
+Tlalnepantla de Baz,Estado de México,31jan2019,0,1,1,7,0,,1,0,1
+Coatzacoalcos,Veracruz,24feb2019,0,1,1,1,1,3,1,1,3
+Tlalnepantla de Baz,Estado de México,31jan2019,0,1,1,5,0,,1,0,4
+Moroleón,Guanajuato,16feb2019,1,1,1,1,1,2,1,0,2
+Villagrán,Tamaulipas,02mar2019,1,1,1,2,0,,1,0,2
+Leonardo Bravo,Guerrero,01mar2019,0,1,1,2,1,3,1,0,3
+Naucalpan de Juárez,Estado de México,11feb2019,1,1,1,4,0,,1,0,4
+Tlalnepantla de Baz,Estado de México,31jan2019,0,1,1,2,0,,1,0,3
+Amatán,Chiapas,09mar2019,1,0,1,1,1,2,1,0,3
+Tepezalá,Aguascalientes,07mar2019,0,1,1,3,1,.a,1,0,3
+Metepec,Estado de México,31jan2019,0,1,1,2,0,,1,0,2
+San Juan de los Lagos,Jalisco,19feb2019,1,1,1,2,0,,1,0,3
+Naucalpan de Juárez,Estado de México,06feb2019,1,1,1,1,1,3,1,0,3
+San Juan de los Lagos,Jalisco,19feb2019,0,1,1,1,0,,1,1,4
+Huaquechula,Puebla,08feb2019,1,0,1,3,0,,1,1,3
+Fresnillo,Zacatecas,05mar2019,0,1,1,2,0,,0,0,3
+Boca del Río,Veracruz,07feb2019,0,1,1,1,1,2,1,0,3
+Hueyapan de Ocampo,Veracruz,22feb2019,1,0,1,1,1,3,1,0,2
+Cuautitlán Izcalli,Estado de México,10feb2019,1,1,1,5,1,3,1,0,4
+Pachuca de Soto,Hidalgo,11feb2019,1,1,1,4,1,3,1,0,4
+Zapopan,Jalisco,15feb2019,0,1,1,2,1,2,1,0,3
+Toluca,Estado de México,05feb2019,0,0,1,2,0,,1,1,2
+Othón P. Blanco,Quintana Roo,04mar2019,0,1,1,.a,0,,1,1,2
+Rosario,Sinaloa,05mar2019,1,1,1,2,1,3,1,1,3
+Puebla,Puebla,07feb2019,0,1,1,2,0,,1,1,4
+Coatzacoalcos,Veracruz,24feb2019,1,1,1,3,0,,1,1,4
+Bochil,Chiapas,08mar2019,0,1,1,1,0,,0,1,4
+Tijuana,Baja California,28feb2019,1,1,1,3,1,3,1,0,2
+Iguala de la Independencia,Guerrero,03mar2019,1,1,1,3,1,3,1,0,4
+Nicolás Romero,Estado de México,02feb2019,0,1,1,2,1,3,1,0,4
+Zapopan,Jalisco,15feb2019,0,1,1,2,0,,1,0,4
+Caltepec,Puebla,16feb2019,1,1,1,3,1,1,1,0,3
+Metlatónoc,Guerrero,02mar2019,1,0,1,1,0,,1,0,3
+San Cristóbal,Chiapas,06mar2019,1,1,1,3,1,2,1,0,3
+Puebla,Puebla,07feb2019,0,1,1,1,0,,1,0,3
+Dolores Hidalgo,Guanajuato,12feb2019,0,1,1,1,1,2,1,0,4
+Eduardo Neri,Guerrero,28feb2019,1,1,1,8,1,2,1,0,3
+Zapopan,Jalisco,15feb2019,0,1,1,2,1,1,1,1,4
+Naucalpan de Juárez,Estado de México,11feb2019,1,1,1,1,1,3,1,0,3
+Monterrey,Nuevo León,25feb2019,0,1,1,1,1,1,1,0,2
+Chihuahua,Chihuahua,24feb2019,1,1,1,1,1,1,1,0,1
+Yautepec,Morelos,22feb2019,1,1,1,1,1,2,1,0,2
+Iztapalapa,Distrito Federal,30jan2019,1,1,1,3,1,2,1,0,3
+Iguala de la Independencia,Guerrero,03mar2019,1,1,1,1,0,,1,0,1
+Culiacán,Sinaloa,04mar2019,0,0,1,4,0,,1,0,3
+San Felipe Orizatlán,Hidalgo,27mar2019,1,0,1,4,0,,1,0,3
+Tabasco,Zacatecas,06mar2019,1,0,1,1,1,2,1,0,3
+Nicolás Romero,Estado de México,02feb2019,0,1,1,2,1,3,1,0,2
+Nezahualcóyotl,Estado de México,13mar2019,1,1,1,2,0,,1,0,2
+Guaymas,Sonora,24feb2019,0,1,1,3,1,3,1,0,4
+Naucalpan de Juárez,Estado de México,07feb2019,0,1,1,4,1,3,1,0,3
+San Lucas Ojitlán,Oaxaca,12feb2019,1,0,1,3,1,2,1,0,3
+San Luis Potosí,San Luis Potosí,04mar2019,1,1,1,1,1,3,1,0,3
+Morelia,Michoacán,05feb2019,1,1,1,4,1,3,1,0,2
+Eduardo Neri,Guerrero,28feb2019,1,1,1,1,0,,1,0,2
+Paraíso,Tabasco,02mar2019,1,0,1,1,1,1,1,0,1
+Monterrey,Nuevo León,26feb2019,0,1,1,1,0,,1,0,3
+Asunción Nochixtlán,Oaxaca,13feb2019,1,1,1,3,1,2,1,0,2
+Ocoyucan,Puebla,25mar2019,0,1,1,2,1,2,1,0,4
+Centro,Tabasco,01mar2019,0,1,1,3,1,3,1,0,3
+Naucalpan de Juárez,Estado de México,11feb2019,0,1,1,2,1,3,1,0,4
+Villa Juárez,San Luis Potosí,01mar2019,0,0,1,2,1,3,1,0,2
+San Luis Río Colorado,Sonora,25feb2019,1,1,1,1,1,1,1,0,3
+Tijuana,Baja California,28feb2019,0,1,1,1,1,3,1,0,2
+Tijuana,Baja California,28feb2019,1,1,1,.a,1,1,1,.a,4
+León,Guanajuato,15feb2019,0,1,1,2,1,2,1,0,3
+Pénjamo,Guanajuato,14feb2019,0,0,1,1,0,,1,1,4
+Tepic,Nayarit,06mar2019,0,1,1,5,1,3,1,0,4
+Comondú,Baja California Sur,22mar2019,0,1,1,1,0,,1,0,4
+León,Guanajuato,15feb2019,0,1,1,5,1,1,1,0,4
+Tijuana,Baja California,28feb2019,0,1,1,2,1,2,1,0,2
+Tlaquepaque,Jalisco,17feb2019,1,1,1,1,1,1,1,0,2
+Nicolás Romero,Estado de México,02feb2019,0,1,1,2,0,,1,1,4
+Saltillo,Coahuila,27feb2019,1,1,1,1,0,,1,0,3
+Cuauhtémoc,Distrito Federal,02feb2019,0,1,1,4,1,3,1,0,3
+Zumpango,Estado de México,01feb2019,1,1,1,2,1,3,1,1,4
+Naucalpan de Juárez,Estado de México,15feb2019,1,1,1,2,0,,1,0,4
+Boca del Río,Veracruz,08feb2019,1,1,1,3,1,2,1,0,4
+Iztacalco,Distrito Federal,30jan2019,0,1,1,1,1,3,1,0,3
+Centro,Tabasco,01mar2019,1,1,1,4,0,,1,0,2
+Villa Juárez,San Luis Potosí,01mar2019,1,0,1,1,0,,1,1,3
+Ciudad Victoria,Tamaulipas,01mar2019,1,1,1,2,1,1,1,0,3
+Toluca,Estado de México,05feb2019,1,0,1,3,0,,1,0,3
+Guaymas,Sonora,02mar2019,0,1,1,2,0,,1,0,1
+Villa Corzo,Chiapas,07mar2019,1,0,1,1,0,,1,0,2
+Huaquechula,Puebla,08feb2019,1,0,1,3,1,3,1,0,3
+San Luis Potosí,San Luis Potosí,04mar2019,0,1,1,1,1,3,1,1,2
+Gustavo A. Madero,Distrito Federal,02feb2019,0,1,1,1,0,,1,0,3
+Yautepec,Morelos,23feb2019,0,1,1,2,1,3,1,0,3
+Puebla,Puebla,07feb2019,1,1,1,2,0,,1,0,2
+Ciudad Juárez,Chihuahua,24feb2019,0,1,1,2,1,2,1,0,3
+Saltillo,Coahuila,27feb2019,1,1,1,1,0,,1,0,2
+Atotonilco El Alto,Jalisco,18feb2019,0,0,1,2,0,,1,0,2
+León,Guanajuato,13feb2019,1,0,1,3,1,2,1,1,4
+Iztapalapa,Distrito Federal,30jan2019,0,1,1,1,1,1,1,0,4
+Iztapalapa,Distrito Federal,31jan2019,0,1,1,2,1,2,1,0,4
+Toluca,Estado de México,02feb2019,1,0,1,1,1,3,0,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,1,1,1,1,0,,1,0,3
+Ciudad Juárez,Chihuahua,27feb2019,1,1,1,1,0,,1,0,2
+Uxpanapa,Veracruz,11feb2019,0,0,1,2,1,3,1,0,3
+León,Guanajuato,13feb2019,0,0,1,6,1,3,1,1,4
+Ecatepec de Morelos,Estado de México,01feb2019,1,1,1,7,1,3,1,1,2
+Mexicali,Baja California,25feb2019,0,1,1,4,1,2,1,0,3
+Bochil,Chiapas,08mar2019,1,1,1,2,1,2,1,0,4
+Tlalnepantla de Baz,Estado de México,31jan2019,1,1,1,3,0,,1,0,3
+Metepec,Estado de México,31jan2019,1,1,1,2,0,,1,0,2
+Zapopan,Jalisco,15feb2019,0,1,1,1,1,2,1,0,3
+Boca del Río,Veracruz,08feb2019,1,1,1,3,1,3,1,0,1
+Villagrán,Tamaulipas,02mar2019,0,1,1,.a,0,,1,0,3
+San Luis Río Colorado,Sonora,25feb2019,0,1,1,1,0,,1,0,2
+Acámbaro,Guanajuato,22mar2019,0,1,1,1,1,.b,0,0,3
+Xalapa,Veracruz,07feb2019,0,1,1,2,0,,1,0,3
+León,Guanajuato,13feb2019,0,0,1,2,1,3,1,0,3
+Othón P. Blanco,Quintana Roo,04mar2019,0,1,1,1,0,,1,0,3
+Zapopan,Jalisco,15feb2019,0,1,1,3,1,2,1,0,4
+Iztapalapa,Distrito Federal,30jan2019,0,1,1,.a,1,.a,1,0,4
+Toluca,Estado de México,01feb2019,1,1,1,1,0,,1,1,3
+Iztacalco,Distrito Federal,30jan2019,0,1,1,4,0,,1,0,4
+Bochil,Chiapas,08mar2019,1,1,1,1,0,,1,0,4
+Ocoyucan,Puebla,25mar2019,1,1,1,.a,1,3,1,1,3
+Atizapán de Zaragoza,Estado de México,14feb2019,1,1,1,1,1,3,1,0,2
+Mexicali,Baja California,26feb2019,0,1,1,4,1,2,1,1,4
+Tláhuac,Distrito Federal,04feb2019,0,1,1,3,0,,1,0,1
+Coatzacoalcos,Veracruz,24feb2019,0,1,1,1,1,2,1,0,4
+Tepic,Nayarit,06mar2019,0,1,1,2,1,3,1,0,2
+Zapopan,Jalisco,12feb2019,1,1,1,6,1,2,1,0,4
+Mesones Hidalgo,Oaxaca,15feb2019,1,1,1,3,0,,1,0,3
+Asunción Nochixtlán,Oaxaca,14feb2019,0,1,1,5,0,,1,0,3
+Ahuacatlán,Nayarit,07mar2019,0,1,1,1,0,,1,0,3
+Benito Juárez,Distrito Federal,05feb2019,1,1,1,3,0,,1,0,2
+Caltepec,Puebla,16feb2019,0,1,1,2,0,,1,0,3
+Santa Catarina,Nuevo León,25feb2019,1,1,1,1,1,3,1,0,3
+Cuauhtémoc,Distrito Federal,02feb2019,1,1,1,3,1,3,1,1,3
+Monterrey,Nuevo León,25feb2019,0,1,1,2,1,2,1,0,3
+Fresnillo,Zacatecas,05mar2019,0,1,1,1,1,2,1,0,3
+Iztapalapa,Distrito Federal,31jan2019,1,1,1,1,1,3,1,0,2
+Puebla,Puebla,06feb2019,0,1,1,3,1,3,1,1,4
+San Luis Potosí,San Luis Potosí,04mar2019,1,1,1,2,1,3,1,0,1
+León,Guanajuato,13feb2019,1,0,1,9,1,2,1,0,4
+Cuauhtémoc,Distrito Federal,13mar2019,1,1,1,2,1,3,1,0,2
+Dolores Hidalgo,Guanajuato,12feb2019,0,1,1,10,0,,1,0,2
+Othón P. Blanco,Quintana Roo,04mar2019,0,0,1,1,1,2,1,0,3
+Metepec,Estado de México,03feb2019,1,1,1,1,0,,1,0,1
+Eduardo Neri,Guerrero,28feb2019,0,1,1,2,1,1,1,1,4
+Atizapán de Zaragoza,Estado de México,14feb2019,1,1,1,1,0,,1,0,3
+Yautepec,Morelos,23feb2019,1,1,1,2,1,3,1,0,2
+Cuencamé,Durango,22feb2019,1,1,1,1,0,,1,0,3
+Parras,Coahuila,23feb2019,0,1,1,1,0,,1,0,2
+Nicolás Romero,Estado de México,04feb2019,0,0,1,.a,1,1,1,0,4
+Yautepec,Morelos,23feb2019,0,1,1,10,1,3,1,0,4
+San Luis Río Colorado,Sonora,25feb2019,1,1,1,1,1,2,1,0,3
+Valle de Chalco Solidaridad,Estado de México,04feb2019,1,1,1,3,0,,1,0,1
+Iztacalco,Distrito Federal,13mar2019,1,1,1,1,1,3,0,0,2
+Iztacalco,Distrito Federal,13mar2019,0,1,1,2,1,2,1,1,4
+Tampico,Tamaulipas,03mar2019,1,1,1,1,0,,0,0,1
+Tláhuac,Distrito Federal,04feb2019,1,1,1,2,0,,1,0,2
+Yautepec,Morelos,22feb2019,0,1,1,2,1,1,1,0,4
+Naucalpan de Juárez,Estado de México,11feb2019,1,1,1,1,0,,1,0,3
+Querétaro,Querétaro,22feb2019,1,1,1,1,0,,1,0,1
+Mérida,Yucatán,03mar2019,1,1,1,2,0,,1,0,3
+Pachuca de Soto,Hidalgo,11feb2019,0,1,1,1,0,,0,0,4
+Cuautitlán Izcalli,Estado de México,05feb2019,1,1,1,.b,0,,1,0,.b
+Tlalnepantla de Baz,Estado de México,30jan2019,1,1,1,1,1,3,1,1,3
+Mesones Hidalgo,Oaxaca,15feb2019,1,1,1,1,0,,1,0,1
+Playa Vicente,Veracruz,10feb2019,1,1,1,3,1,3,1,0,2
+Iztapalapa,Distrito Federal,30jan2019,1,1,1,1,1,2,1,0,4
+Yautepec,Morelos,04mar2019,1,1,1,7,1,1,1,1,4
+Gustavo A. Madero,Distrito Federal,04feb2019,1,1,1,2,1,2,1,0,4
+Atizapán de Zaragoza,Estado de México,14feb2019,1,1,1,2,0,,1,1,3
+Puebla,Puebla,06feb2019,1,1,1,1,0,,1,0,4
+Zamora,Michoacán,08feb2019,0,1,1,3,1,3,1,0,2
+Moroleón,Guanajuato,16feb2019,0,1,1,6,1,2,1,0,3
+Ixtenco,Tlaxcala,05feb2019,0,1,1,1,0,,1,0,2
+Iztapalapa,Distrito Federal,30jan2019,0,1,1,.b,1,1,1,0,2
+Tlalnepantla de Baz,Estado de México,30jan2019,1,1,1,2,1,2,1,1,3
+Alvaro Obregón,Distrito Federal,02feb2019,1,1,1,1,0,,1,0,3
+Zumpango,Estado de México,01feb2019,0,1,1,3,0,,1,0,4
+Benito Juárez,Distrito Federal,05feb2019,0,1,1,.a,1,3,1,0,.a
+Tlalnepantla de Baz,Estado de México,30jan2019,0,1,1,4,1,.a,1,0,3
+Iztapalapa,Distrito Federal,30jan2019,1,1,1,10,1,2,1,0,1
+Nicolás Romero,Estado de México,04feb2019,0,0,1,1,0,,1,0,2
+Navojoa,Sonora,23feb2019,0,1,1,1,0,,1,0,2
+Ahuacatlán,Nayarit,07mar2019,1,1,1,9,0,,1,0,1
+Tampamolón Corona,San Luis Potosí,03mar2019,1,1,1,1,1,1,1,0,4
+Yautepec,Morelos,23feb2019,1,1,1,2,0,,1,0,4
+Tampamolón Corona,San Luis Potosí,03mar2019,1,1,1,2,1,3,1,0,3
+Saltillo,Coahuila,27feb2019,0,1,1,2,0,,1,0,3
+Villa de Alvarez,Colima,12feb2019,1,1,1,2,1,3,1,0,2
+Zapotlán El Grande,Jalisco,10feb2019,0,1,1,2,1,2,0,0,4
+San Nicolás de los Garza,Nuevo León,26feb2019,0,1,1,1,0,,1,0,3
+Matehuala,San Luis Potosí,02mar2019,1,1,1,2,1,3,1,0,3
+Ahuacatlán,Nayarit,07mar2019,0,1,1,3,0,,1,0,3
+Iztacalco,Distrito Federal,30jan2019,0,1,1,1,.a,,1,0,2
+Zapopan,Jalisco,15feb2019,1,1,1,2,1,3,1,1,2
+Ahuacatlán,Nayarit,06mar2019,0,1,1,2,0,,1,0,1
+Coatzacoalcos,Veracruz,24feb2019,1,1,1,2,0,,1,0,4
+Morelia,Michoacán,07feb2019,0,1,1,2,0,,1,0,3
+Alvaro Obregón,Distrito Federal,02feb2019,0,1,1,2,0,,1,0,2
+Nicolás Romero,Estado de México,04feb2019,0,0,1,1,1,2,1,0,3
+Monterrey,Nuevo León,28feb2019,0,1,1,1,1,1,1,1,4
+Zumpango,Estado de México,01feb2019,1,1,1,6,1,3,1,0,4
+Cuautitlán Izcalli,Estado de México,06feb2019,1,1,1,2,1,3,1,0,3
+Mérida,Yucatán,03mar2019,1,1,1,3,0,,1,0,2
+Nicolás Romero,Estado de México,02feb2019,1,1,1,1,1,2,1,0,4
+Angostura,Sinaloa,03mar2019,0,1,1,4,1,3,0,0,4
+Atizapán de Zaragoza,Estado de México,05feb2019,1,1,1,3,1,2,1,0,3
+Ocoyucan,Puebla,25mar2019,0,1,1,2,1,3,1,0,2
+Villagrán,Tamaulipas,02mar2019,0,1,,,0,,0,0,.a
