@@ -15,7 +15,7 @@
 #' @param add_maps Option to add a map tab
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
-#' @param map_layer String, map layer.
+#' @param level Numeric. Administrative level if using GADMtools maps (1, 2, 3).
 #' @param switch ggplot2 argument: By default, the labels are displayed on the top and right of the plot. If "x", the top labels will be displayed to the bottom. If "y", the right-hand side labels will be displayed to the left. Can also be set to "both".
 #' @param scale_vars Logical. Whether to scale_vars variabels before map plotting.
 #' @param ft_plot Add a Financial Times type plot

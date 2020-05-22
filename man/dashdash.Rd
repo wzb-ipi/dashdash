@@ -16,7 +16,7 @@ dashdash(
   add_maps = NULL,
   map_path = NULL,
   map_region = NULL,
-  map_layer = NULL,
+  level = NULL,
   scale_vars = NULL,
   pd_width = 0.1,
   switch = NULL,
@@ -46,7 +46,7 @@ dashdash(
 
 \item{map_region}{String, map region.}
 
-\item{map_layer}{String, map layer.}
+\item{level}{Numeric. Administrative level if using GADMtools maps (1, 2, 3).}
 
 \item{scale_vars}{Logical. Whether to scale_vars variabels before map plotting.}
 
