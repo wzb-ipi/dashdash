@@ -75,7 +75,7 @@ dashdash <- function(output_file,
                      add_maps = NULL,
                      map_path = NULL,
                      map_region = NULL,
-                     map_layer = NULL,
+                     level = NULL,
                      scale_vars = NULL,
                      pd_width = .1,
                      switch = NULL,
@@ -84,8 +84,8 @@ dashdash <- function(output_file,
                      ...){
 
   # Check integirty of inputs
-  check_my_vars(my_vars)
-  check_my_data(my_data)
+  dashdash:::check_my_vars(my_vars)
+  dashdash:::check_my_data(my_data)
 
   if(is.null(title)) title <- my_args$title
   if(is.null(title)) title <- "No title provided"
@@ -93,33 +93,24 @@ dashdash <- function(output_file,
   if(is.null(group)) group <- my_args$group
   if(is.null(group)) group <- "Group"
 
-  if(is.null(subtitle))   subtitle <- my_args$subtitle
+  if(is.null(subtitle)) subtitle <- my_args$subtitle
 
   if(is.null(author))  author <- my_args$author
 
-  if(is.null(map_path)) map_path <- my_args$map_path
-  if(is.null(map_path)) map_path <-  system.file("shapefiles", package = "dashdash")
-
   if(is.null(add_maps)) add_maps <- my_args$add_maps
-  if(is.null(add_maps)) add_maps <- ifelse(is.null(my_args$map_path), FALSE, TRUE)
 
-  if(add_maps){
+  if(isTRUE(add_maps)){
+
+    if(is.null(map_path)) map_path <- my_args$map_path
     if(is.null(map_region)) map_region <- my_args$map_region
-    if(is.null(map_layer)) map_layer   <- my_args$map_layer
-    if(is.null(map_layer)) stop("Map layer should be provided; e.g. `SLE_adm3`")
 
-    # Prep maps
-
-    if (!isTRUE(gpclibPermitStatus())){
-      gpclibPermit()
+    if(!is.null(map_path)){
+      do_maps(map_path, map_region)
     }
 
-    shp <- readOGR(dsn = map_path,
-                   layer=map_layer,
-                   verbose=FALSE,
-                   stringsAsFactors = FALSE)
-
-    shp_df <- broom::tidy(shp, region = map_region)
+    if(is.null(map_path) & !is.null(country_code) & !is.null(level)){
+      dashdash:::auto_maps(country_code, level,  map_region)
+    }
 
     }
 
