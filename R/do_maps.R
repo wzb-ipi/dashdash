@@ -30,6 +30,6 @@ do_maps <- function(map_path, map_region){
 #'
 
 auto_maps <- function(country_code, level=1, map_region="NAME_1"){
-  shp <- GADMTools::gadm_sp_loadCountries(fileNames = country_code, level = 1, basefile = './shapefiles', simplify=0.01)
-  shp_df <-broom::tidy(shp$spdf, region = map_region)
+  shp <<- GADMTools::gadm_sp_loadCountries(fileNames = country_code, level = 1, basefile = './shapefiles', simplify=0.01)
+  shp_df <<-broom::tidy(shp$spdf, region = map_region)
 }
