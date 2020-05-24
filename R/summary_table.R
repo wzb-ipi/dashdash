@@ -49,4 +49,6 @@ summary_table <- function(df, my_vars){
   DT::datatable(melt_data, rownames = FALSE,
                 extensions = 'Buttons', options = list(dom = 'Bfrtip', buttons = I('colvis')))
 
+  }
 }
+

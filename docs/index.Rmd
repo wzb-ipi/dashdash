@@ -18,19 +18,19 @@ Here's an example from Sierra Leone:  https://sl-dashboard.github.io/corona/
 Besides helping you display data we have two ulterior motives:
 
 * If teams use this it would be easy to use it to create a meta-dashboard across teams and countries making it easy to locate and view the good work being done
-* If teams use this then it would not be hard to pool studies together to calculate cross study aggregates. In addition to the basic information, good aggregation woudl require sampling weights information.
+* If teams use this then it would not be hard to pool studies together to calculate cross study aggregates. In addition to the basic information, good aggregation would require sampling weights information.
 
 Notes:
 
 * **Software**: the dashboard is produced using `Rmarkdown` but the inputs are just data sets. If you work in stata or anything else and can produce `.dta` files (best to save as version 13 or below), `.csv` or `xls` it should be easy to input those to this set up. 
 
-* **Modifying the software.** You can copy or fork the repository to modify it to suit your needs (pull requests also welcome!). The package contains very simple code. The main function is just a  call to `rmarkdown::render` to compile an `.Rmd` file. The `.Rmd` file pulls in some "child" `.Rmd`s. These `.Rmds` determine the overall stucture of the dashboard. For content, the `Rmd`s call to simple functions (e.g. `plot_aggregates()`)  that mostly implement calls to `dplyr` and `ggplot` to make tables and graphs. So edit the `.Rmd`s   (found in `\inst`) to modify the structure and edit the `.R`s (found in `\R`) to modify the analyses. 
+* **Modifying the software.** You can copy or fork the repository to modify it to suit your needs (pull requests also welcome!). The package contains very simple code. The main function is just a  call to `rmarkdown::render` to compile an `.Rmd` file. The `.Rmd` file pulls in some "child" `.Rmd`s. These `.Rmds` determine the overall structure of the dashboard. For content, the `Rmd`s call to simple functions (e.g. `plot_aggregates()`)  that mostly implement calls to `dplyr` and `ggplot` to make tables and graphs. So edit the `.Rmd`s   (found in `\inst`) to modify the structure and edit the `.R`s (found in `\R`) to modify the analyses. 
 
 * **Hosting**: If you can get the input files to us and can regularly upload your data to github we think we can produce and host the dashboard on this site and catalogue it with other ones. Alternatively the package produces a html file that you can host anywhere. If you have a Covid survey that you want to connect with this drop a note to `macartan.humphreys@wzb.eu` or `julio.solis@wzb.eu`.
 
 * **Note on open source material**: All material here is open source. Data posted here will be made public and should not contain any personally identifiable information.
 
-* **Workflow**: we are still figuring it out but we think we can set this up so that once the basic parameteres are set, periodic data can be provided via a pull request or a link to a repository and then the dashboard will automatically update.
+* **Workflow**: we are still figuring it out but we think we can set this up so that once the basic parameters are set, periodic data can be provided via a pull request or a link to a repository and then the dashboard will automatically update.
 
 # 2. Inputs
 
