@@ -4,40 +4,95 @@ output:
   flexdashboard::flex_dashboard:
     orientation: rows
 ---
-```{r, echo = F, include = F}
-library(tidyverse)
+```{r, include=FALSE, echo = FALSE}
+library("tidyverse")
+library("plotly")
+library("flexdashboard")
+library("dashdash")
 source("flexdashboard-setup.R")
+knitr::opts_chunk$set(echo = FALSE)
+ft_data <- read.csv("https://wzb-ipi.github.io/corona/df_full.csv") %>% 
+  mutate(date_rep = as.Date(date))
+ft_data_sle <- ft_data %>% filter(geoid2 == "SLE")
+max_date <- which.max(ft_data_sle$date_rep)
+
+  # Check integirty of inputs
+title <- my_args$title
+group <- my_args$group
+subtitle <- my_args$subtitle
+author <- my_args$author
+map_path <- "C:\\Users\\julia\\dashdash\\docs\\shapefiles"
+add_maps <- my_args$add_maps
+
+map_region <- my_args$map_region
+map_layer   <- my_args$map_layer
+    
+if (!isTRUE(gpclibPermitStatus())){
+      gpclibPermit()
+    }
+
+shp <- readOGR(dsn = path.expand(map_path),
+               layer = map_layer,
+               verbose=FALSE,
+               stringsAsFactors = FALSE)
+
+shp_df <- broom::tidy(shp, region = map_region)
+
+scale_vars <- FALSE
+
+# Prep FT plot arguments
+pd_width <- 0.1
+switch <- my_args$switch
+pd <- ggplot2::position_dodge(pd_width)
+
+# Setup
+families   <- my_vars %>% pull(family) %>% unique
+n_families <- length(families)
+k <- 1
+my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 ```
+
 HOME 
 ================================
 `r my_args$intro_text`
 
-Row {data-height=50} 
+Row {data-height=100}
 ------------------------
 
-### Key fact 1
+### Cases on `r ft_data_sle$date_rep[max_date]`
 ```{r}
-print("Gauge 1")
-```
-### Key fact 2
-```{r}
-print("Gauge 2")
-```
-### Key fact 3
-```{r}
-print("Gauge 3")
-```
-### Key fact 4
-```{r}
-print("Gauge 4")
+valueBox(ft_data_sle$cases[max_date], icon = "fa-heart-o")
 ```
 
-Row {data-height=750}
+### Cumulative deaths on `r ft_data_sle$date_rep[max_date]`
+```{r}
+valueBox(ft_data_sle$deaths_cum[max_date], icon = "fa-heart")
+```
+
+### Days elapsed  
+```{r}
+valueBox(ft_data_sle$elapsed[max_date], icon = "fa-area-chart")
+```
+
+### Most Cum. Deaths in Region
+```{r}
+worst_perf_country <- ft_data %>%
+  filter(region == "Sub-Saharan Africa") %>% 
+  group_by(geoid2) %>% 
+  filter(deaths == max(deaths)) %>% 
+  ungroup %>% 
+  filter(deaths == max(deaths)) %>% 
+  select(country)
+
+valueBox(as.character(worst_perf_country))
+```
+
+Row {data-height=700}
 ------------------------
 
 ### FT Plot
 ```{r}
-
+ggplotly(ft_country_graphs("SLE", df = ft_data))
 ```
 
 Row {data-height=50}
@@ -47,46 +102,95 @@ Row {data-height=50}
 SL1{data-navmenu='TIME SERIES'}
 ================================
 
-Row{data-height=800 .tabset}
+Row{data-height=700 .tabset}
 ------------------------
-
 ### NATIONAL
-```{r}
+```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
+plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
 ```
 ### REGIONAL
-```{r}
+```{r, echo = FALSE, fig.cap="Disaggregated average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = nrow(my_subset)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
+plot_disaggregates(my_data, my_subset, pd = pd, switch = my_args$switch)
 ```
 
-Row{data-height=200}
+Row{data-height=300}
 ------------------------
 
-### Description of measures
+### Definition of measures
 ```{r}
+my_subset %>% select(short_label, description) %>% 
+  kable(caption = "Data definitions", col.names = c("Measure", "Definition"))
 ```
 
 SL1{data-navmenu='MAPS'}
 ================================
 
-Row{data-height=800}
+Row{data-height=700}
 ------------------------
 
 ### PLOTS
-```{r}
+```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.cap = paste("Distribution of", ifelse(scale_vars, "standardized", "untransformed"), "variables")}
+current_means <- get_current_means(my_data, my_subset, recent = 1)
+scale_vars <- my_args$scale_vars
+
+vars <- pull(my_subset, variable)
+var_labs <- my_subset  %>% pull(short_label)
+names(var_labs) <- vars
+
+  
+scale2 <- function(x, na.rm = FALSE) {
+  x <- as.numeric(x)
+ (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)}
+
+par(mar=c(0,0,0,0))
+
+current_means_map <- current_means %>% data.frame()
+
+#if(scale_vars)
+#    current_means_map <- current_means_map %>% 
+#      mutate_at(my_subset$variable, scale2)
+
+df_map <- left_join(shp_df, current_means_map)  %>% select(-date) %>%
+  reshape2::melt(id.vars= c("id", "long", "lat", "order", "hole", "piece", "group"))
+
+ggplot() +
+  geom_polygon(data = df_map, 
+               aes( x = long, y = lat,  group = group, fill=value), color="white") +
+  theme_void() + coord_map() + facet_wrap(~variable, labeller = labeller(variable = var_labs))
 ```
 
-Row{data-height=200}
+Row{data-height=300}
 ------------------------
 
 ### Description of measures
-```{r}
+```{r, echo = FALSE, warning = FALSE}
+my_subset %>% select(short_label, description) %>% 
+  kable(caption = "Data definitions", col.names = c("Measure", "Definition"))
 ```
 
 
 SL1{data-navmenu='ALL DATA'}
 ================================
 
-## KABLE FOR DATA DOWNLOAD
-```{r}
+## Browse data
+```{r datatable, echo = FALSE, message = FALSE, warning = FALSE}
+my_data %>%
+ group_by(id, date) %>% mutate(obs = n()) %>% ungroup %>%
+ group_by(id, date)  %>%
+ summarise_all( function(x)  mean(x, na.rm = T)) %>% 
+ mutate_if(is.numeric, ~round(., 3)) %>%
+  datatable(caption = paste('Data to date,', group, 'level'), 
+          rownames = TRUE, 
+          extensions = c('Buttons', 'Scroller', 'ColReorder', 'FixedColumns'), 
+          options = list(colreorder = TRUE, 
+                         dom = 'Bfrtip',
+                         buttons = c('copy', 'csv', 'excel'),
+                         deferRender = TRUE,
+                         scrollY = 200,
+                         scroller = TRUE,
+                         scrollX = TRUE
+#          fixedColumns = list(leftColumns = 1)
+  )) 
 ```
 
 SL2{data-navmenu='TIME SERIES'}
@@ -138,3 +242,7 @@ SL2{data-navmenu='ALL DATA'}
 AGGREGATION
 ================================
 ### Still coming soon
+
+ABOUT
+================================
+### [ABOUT](https://covidsurveys.github.io/sidebar/)

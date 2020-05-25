@@ -26,7 +26,8 @@ Depends:
   maptools,
   tidyselect,
   table1,
-  checkmate
+  checkmate,
+  maditr
 Suggests: 
   testthat,
   checkmate,
