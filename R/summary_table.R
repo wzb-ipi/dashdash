@@ -18,12 +18,12 @@ summary_table <- function(df, my_vars){
   # remove date variable
   counts_df <- counts_df[,!sapply(counts_df, is.date)]
   # calculate average in all and responding frequence
-  all_mean <- apply(df[, sapply(df, is.numeric)], 2, mean)
+  all_mean <- apply(df[, sapply(df, is.numeric)], 2, mean,na.rm=TRUE)
   all_count <- nrow(df)
   names(all_count) <- "N"
   all_summary <- round(c(all_count, all_mean),4)
   # transpose the datframe
-  melt_data <- dcast(melt(counts_df), variable ~ id, mean)
+  melt_data <- dcast(melt(counts_df), variable ~ id, mean,na.rm=TRUE)
   # select numeric var
   is.num <- sapply(melt_data, is.numeric)
   melt_data[is.num] <- lapply(melt_data[is.num], round, 4)
