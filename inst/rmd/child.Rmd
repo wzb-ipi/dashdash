@@ -16,12 +16,22 @@ my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 
 ### Time trends
 
+```{r, echo = FALSE}
+daily <- (isTRUE("daily" %in% trend) & !isTRUE("moving_average"%in% trend))
+mov_average <- (!isTRUE("daily" %in% trend) & isTRUE("moving_average"%in% trend))
+both <- (isTRUE("daily" %in% trend) & isTRUE("moving_average"%in% trend))
+```
+
 #### National aggregates
 
-```{r, echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
+```{r, eval=(daily|both), echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
 
 plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
+```
 
+```{r, eval=(mov_average|both), echo = FALSE, fig.cap="3 day moving average with 95% confidence intervals", message = FALSE, warning = FALSE}
+
+plot_mov_avg(my_data, my_subset, pd = pd, switch = switch)
 ```
 
 #### Broken down by `r group`

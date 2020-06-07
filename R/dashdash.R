@@ -12,6 +12,7 @@
 #' @param title Dashboard title
 #' @param subtitle Dashboard subtitle
 #' @param author String, names of authors.
+#' @param trend List. "daily" for high-frequency daily plots or "moving_average" for 3 day movjng average.
 #' @param add_maps Option to add a map tab
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
@@ -72,6 +73,7 @@ dashdash <- function(output_file,
                      group = NULL,
                      subtitle = NULL,
                      author = NULL,
+                     trend = list("daily"),
                      add_maps = NULL,
                      map_path = NULL,
                      map_region = NULL,
