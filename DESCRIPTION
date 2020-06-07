@@ -26,6 +26,7 @@ Depends:
   maptools,
   tidyselect,
   data.table,
-  checkmate
+  checkmate,
+  zoo
 Suggests: 
     testthat
