@@ -39,6 +39,7 @@ my_args <- read_excel("mex_args.xlsx")
 ```
 
 ```{r master, message = FALSE, warning = FALSE, include = FALSE}
+# start <- Sys.time()
 wd <- getwd()
 dashdash::dashdash(
   output_file = paste0(wd, "/mexample.html"),
@@ -50,7 +51,8 @@ dashdash::dashdash(
   my_vars = my_vars,
   my_args = my_args
 )
-
+# end <- Sys.time()
+# duration <- end -start
 
 ```
 
