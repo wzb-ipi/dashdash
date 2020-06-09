@@ -13,6 +13,7 @@ dashdash(
   group = NULL,
   subtitle = NULL,
   author = NULL,
+  trend = list("daily"),
   add_maps = NULL,
   map_path = NULL,
   map_region = NULL,
@@ -39,6 +40,8 @@ dashdash(
 \item{subtitle}{Dashboard subtitle}
 
 \item{author}{String, names of authors.}
+
+\item{trend}{List. "daily" for high-frequency daily plots or "moving_average" for 3 day movjng average.}
 
 \item{add_maps}{Option to add a map tab}
 

@@ -25,7 +25,8 @@ Depends:
   magrittr,
   maptools,
   tidyselect,
-  table1,
-  checkmate
+  data.table,
+  checkmate,
+  zoo
 Suggests: 
     testthat
