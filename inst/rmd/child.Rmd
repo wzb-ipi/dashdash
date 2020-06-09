@@ -29,7 +29,7 @@ plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
 
 ```{r, echo = FALSE, fig.cap="Disaggregated average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = nrow(my_subset)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
 
-plot_disaggregates(my_data, my_subset, pd = pd, switch = switch)
+plot_disaggregates_row(my_data, my_subset, pd = pd, switch = switch)
 
 ```
 
