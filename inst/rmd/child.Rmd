@@ -25,21 +25,19 @@ both <- (isTRUE("daily" %in% trend) & isTRUE("moving_average"%in% trend))
 #### National aggregates
 
 ```{r, eval=(daily|both), echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
-
 plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
 ```
 
-```{r, eval=(mov_average|both), echo = FALSE, fig.cap="3 day moving average with 95% confidence intervals", message = FALSE, warning = FALSE}
-
+```{r, eval=(mov_average|both), echo = FALSE, fig.cap="3 day moving average with 95% confidence intervals", fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE}
 plot_mov_avg(my_data, my_subset, pd = pd, switch = switch)
 ```
 
 #### Broken down by `r group`
 
 
-```{r, echo = FALSE, fig.cap="Disaggregated average responses for a given day (dot) with 95% confidence intervals (whiskers)", fig.height = nrow(my_subset)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, fig.cap="Disaggregated 3 day moving average with 95% confidence intervals for Edo and Delta", fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE}
 
-plot_disaggregates(my_data, my_subset, pd = pd, switch = switch)
+plot_d_mov_avg(my_data, my_subset, pd = pd, switch = switch)
 
 ```
 
@@ -73,8 +71,8 @@ kable(current_means, caption = paste("Mean responses in each ", group, " (most r
 if("min" %in% colnames(my_subset) & "max" %in% colnames(my_subset))
 {
   my_subset %>% mutate(range = paste(as.character(min), "-", as.character(max))) %>%
-    select(short_label, description, range) %>% 
-   kable(caption = "Data definitions", col.names = c("Measure", "Definition", "Range"))
+    select(short_label, description, range, scale) %>% 
+   kable(caption = "Data definitions", col.names = c("Measure", "Definition", "Range", "Respone options"))
 }else {
   my_subset %>% select(short_label, description) %>% 
   kable(caption = "Data definitions", col.names = c("Measure", "Definition"))
