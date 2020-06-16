@@ -26,6 +26,7 @@ Depends:
   maptools,
   tidyselect,
   table1,
-  checkmate
+  checkmate,
+  gridExtra
 Suggests: 
     testthat

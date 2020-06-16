@@ -92,7 +92,7 @@ plot_disaggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1), sw
       geom_line(position=pd) +
       facet_grid(variable ~ id, scales = "free_y",
                  labeller = labeller(variable = var_labs),
-                 switch = switch, ncol = 16) +
+                 switch = switch) +
       theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
   # Add floor and ceiling as ghost layer
