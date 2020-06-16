@@ -10,6 +10,8 @@ summary_table(df, my_vars)
 \item{df}{dataframe}
 
 \item{my_vars}{df with info about variables}
+
+\item{date}{date variable}
 }
 \description{
 summary table
