@@ -25,14 +25,11 @@ Depends:
   magrittr,
   maptools,
   tidyselect,
-<<<<<<< HEAD
   table1,
   checkmate,
   gridExtra
-=======
   data.table,
   checkmate,
   zoo
->>>>>>> 5c540cdc8fc167b60d2ae77193f4ade6a49bed29
 Suggests: 
     testthat
