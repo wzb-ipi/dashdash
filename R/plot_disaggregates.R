@@ -91,7 +91,8 @@ plot_d_mov_avg <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch
     facet_grid(variable ~ id, scales = "free_y",
                labeller = labeller(variable = var_labs),
                switch = switch) +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1),
+          strip.text.y = element_text(size = 6)) +
     scale_x_date(date_breaks = "3 days" , date_labels = "%d-%b")+
     scale_y_continuous(name="3 day moving average")
 
