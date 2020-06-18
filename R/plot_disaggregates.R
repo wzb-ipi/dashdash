@@ -46,7 +46,7 @@ factorize_vars <- function(df, my_vars){
 
 plot_disaggregates_row <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch = "y", nrow = NULL){
 
-  fac_var <- as.logical(my_vars$factor)
+  # fac_var <- as.logical(my_vars$factor)
   vars <- pull(my_vars, variable)
   var_labs <- my_vars  %>% pull(short_label)
   names(var_labs) <- vars
@@ -67,8 +67,13 @@ plot_disaggregates_row <- function(df, my_vars, pd = ggplot2::position_dodge(.1)
 
 
   # Row num for layout
-  nrow <- row_function(length(unique(df2$id)))
-  row_id <- split(unique(df2$id), rep(seq(nrow), each = length(unique(df2$id)) /nrow))
+  if(is.null(nrow)){
+    nrow <- row_function(length(unique(df2$id)))
+    row_id <- split(unique(df2$id), rep(seq(nrow), each = length(unique(df2$id)) /nrow))
+  }else{
+    row_id <- split(unique(df2$id), rep(seq(nrow), each = length(unique(df2$id)) /nrow))
+  }
+
   # subplot to 4 parts
   subplots <- list()
   for(i in 1:nrow){
