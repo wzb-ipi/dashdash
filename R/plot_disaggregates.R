@@ -17,10 +17,36 @@ row_function <- function(num) {
   return(row)
 }
 
+# convert some vars to factor vars
+factorize_vars <- function(df, my_vars){
+  vars_vec <- names(df) %in% my_vars$variable
+  factor_vars <- c()
+  for(i in 1:length(vars_vec)){
+    if(vars_vec[i] == T && as.logical(my_vars[my_vars$variable == names(df)[i],]$factor)){
+      factor_vars[i] = T
+    }else{
+      factor_vars[i] = F
+    }
+  }
+  # convert to factor vars
+  df[, factor_vars] <- lapply(df[, factor_vars], factor)
+  # extract labels of all factor vars
+  factor_label <- my_vars[my_vars$variable %in% names(df[, factor_vars]), ]$label
+  # extract factor vars name
+  factor_var_name <- names(df)[factor_vars]
+  # change levels of each factor var
+  for(i in 1:length(factor_var_name)){
+    levels(df[[factor_var_name[i]]]) <- unlist(strsplit(factor_label[i], ","))
+  }
+
+  return(df)
+}
+
 
 
 plot_disaggregates_row <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch = "y", nrow = NULL){
 
+  fac_var <- as.logical(my_vars$factor)
   vars <- pull(my_vars, variable)
   var_labs <- my_vars  %>% pull(short_label)
   names(var_labs) <- vars
@@ -38,6 +64,7 @@ plot_disaggregates_row <- function(df, my_vars, pd = ggplot2::position_dodge(.1)
     summarise_all(list(~mean(., na.rm = TRUE), ~sd(., na.rm = TRUE), n = ~gdata::nobs(.))) %>%
     mutate(se = sd / sqrt(n), ymin=mean-1.96*se, ymax=mean+1.96*se) %>%
     left_join(ranges)
+
 
   # Row num for layout
   nrow <- row_function(length(unique(df2$id)))
