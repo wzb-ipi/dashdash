@@ -8,10 +8,9 @@ subtitle: "`r params$set_subtitle`"
 author: "`r params$author`"
 output: 
   html_document:
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: false
+  toc: true
+  toc_float: true
+  toc_collapsed: true
 ---
 
 
