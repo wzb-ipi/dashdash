@@ -7,7 +7,11 @@ title: "`r params$set_title`"
 subtitle: "`r params$set_subtitle`"
 author: "`r params$author`"
 output: 
-  html_document
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
 ---
 
 
