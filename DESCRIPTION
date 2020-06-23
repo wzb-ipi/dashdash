@@ -27,7 +27,7 @@ Depends:
   tidyselect,
   table1,
   checkmate,
-  gridExtra
+  gridExtra,
   data.table,
   checkmate,
   zoo
