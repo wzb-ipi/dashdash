@@ -117,7 +117,6 @@ The dashboard is then produced by `dashdash::dashdash` like this:
 setwd("~/Documents/GitHub/dashdash/docs")
 wd <- getwd()
 
-
 dashdash::dashdash(
   output_file = paste0(wd, "/example.html"),
   title = "A sample dashboard for my study",
