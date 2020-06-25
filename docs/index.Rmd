@@ -15,22 +15,22 @@ Lots of Covid-19 studies are going on. This tool can be used to present basic re
 
 Here's an example from Sierra Leone:  https://sl-dashboard.github.io/corona/
 
+Here's another one from Nigeria: https://wzb-ipi.github.io/nigeria_dashboard/
+
 Besides helping you display data we have two ulterior motives:
 
 * If teams use this it would be easy to use it to create a meta-dashboard across teams and countries making it easy to locate and view the good work being done
-* If teams use this then it would not be hard to pool studies together to calculate cross study aggregates. In addition to the basic information, good aggregation woudl require sampling weights information.
+* If teams use this then it would not be hard to pool studies together to calculate cross study aggregates. In addition to the basic information, good aggregation would require sampling weights information.
 
 Notes:
 
-* **Software**: the dashboard is produced using `Rmarkdown` but the inputs are just data sets. If you work in stata or anything else and can produce `.dta` files (best to save as version 13 or below), `.csv` or `xls` it should be easy to input those to this set up. 
+* **Software**: the dashboard is produced using `Rmarkdown` but the inputs are just data sets. 
 
 * **Modifying the software.** You can copy or fork the repository to modify it to suit your needs (pull requests also welcome!). The package contains very simple code. The main function is just a  call to `rmarkdown::render` to compile an `.Rmd` file. The `.Rmd` file pulls in some "child" `.Rmd`s. These `.Rmds` determine the overall stucture of the dashboard. For content, the `Rmd`s call to simple functions (e.g. `plot_aggregates()`)  that mostly implement calls to `dplyr` and `ggplot` to make tables and graphs. So edit the `.Rmd`s   (found in `\inst`) to modify the structure and edit the `.R`s (found in `\R`) to modify the analyses. 
 
-* **Hosting**: If you can get the input files to us and can regularly upload your data to github we think we can produce and host the dashboard on this site and catalogue it with other ones. Alternatively the package produces a html file that you can host anywhere. If you have a Covid survey that you want to connect with this drop a note to `macartan.humphreys@wzb.eu` or `julio.solis@wzb.eu`.
+* **Hosting**: If you can get the input files to us and can regularly upload your data to Github we think we can produce and host the dashboard on this site and catalogue it with other ones. Alternatively the package produces a html file that you can host anywhere. If you have a Covid survey that you want to connect with this drop a note to `macartan.humphreys@wzb.eu` or `julio.solis@wzb.eu`.
 
 * **Note on open source material**: All material here is open source. Data posted here will be made public and should not contain any personally identifiable information.
-
-* **Workflow**: we are still figuring it out but we think we can set this up so that once the basic parameteres are set, periodic data can be provided via a pull request or a link to a repository and then the dashboard will automatically update.
 
 # 2. Inputs
 
@@ -47,6 +47,7 @@ A spreadsheet that says what your variables are and to which families they belon
    short_label = c("Is market open?", "Price of a rice", "Aware of Covid19", "Access to water"),
    description = c("details on market open", "Price of a cup of rice", "Details on aware of Covid19", "Details on access to water"),
    min = c(-2, -1, 0, NA),
+   max = c(2, 1, 1, NA),
    stringsAsFactors = FALSE
  )
 
@@ -54,7 +55,8 @@ kable(my_vars, caption = "sample `my_vars` dataframe")
 
 ```
 
-The short labels here appear on the figures and graphs and really should be short.
+Good visualization requires that short labels are actually short and that you provide the range of the variable (min and mex values). The latter point, however, is optional. To tackle problems with the former we provide a tab with definition measures.
+
 
 ## `my_data`  dataframe
 
@@ -62,7 +64,7 @@ Your data, cleaned and transformed to the point where it is ready for display:
 
 ```{r, echo = FALSE}
 my_data <-
-   expand_grid(id = c("Bo", "Bombali", "Bonthe"), date = as.Date(c("2020-04-18", "2020-04-19", "2020-04-20"))) %>%
+   expand_grid(id = c("Bo", "Bombali", "Bonthe"), date = as.Date(c("2020-06-13", "2020-06-14", "2020-06-15", "2020-06-16", "2020-06-17", "2020-06-18", "2020-06-19"))) %>%
    data.frame(stringsAsFactors = FALSE) %>%
      mutate(n = 3) %>%
      uncount(n) %>%
@@ -79,7 +81,7 @@ datatable(my_data, caption = "sample `my_data` dataframe")
 
 The key requirements are that the dataset contains:
 
-* an `id` variable which gives the level at which you want the data to be aggregated for averages -- this variable should correspond to your id variable in your shape files   
+* an `id` variable which gives the level at which you want the data to be aggregated for averages -- this variable should correspond to your id variable in your shape files.   
 * a `date` variable whch is a string variable of the form `YYYY-MM-DD`
 
 ## `my_args`  dataframe
@@ -112,8 +114,12 @@ The dashboard is then produced by `dashdash::dashdash` like this:
 
 ```{r, message = FALSE, warning = FALSE, include = FALSE}
 
+setwd("~/Documents/GitHub/dashdash/docs")
+wd <- getwd()
+
+
 dashdash::dashdash(
-  output_file = paste(getwd(), "example.html"),
+  output_file = paste0(wd, "/example.html"),
   title = "A sample dashboard for my study",
   subtitle = "What's special about this study",
   my_data = my_data,
@@ -141,6 +147,49 @@ dashdash::dashdash(
 
 You can then view it: [example.html](example.html)
 
-# 4 Aggregating dashboards
+# 4. Extensions
+
+Given a lot of feedback we have received with teams engaging with our package we added new features. 
+
+## Daily data or moving average with argument `trend` 
+Say that you data is coming with a relative sparse frequency. If you pass `trend=list("moving_average")`you can get a three day moving average. Also you could pass`trend=list("daily"," moving_average")` to get both type of plots.
+
+## `my_blog` dataframe
+Now imagine that you have found some really interesting trend in your data, and you feel the urge to make explicit this preliminary analysis. You could do so by passing on a dataframe to the argument `my_blog`
+
+```{r, echo = FALSE}
+my_blog <- data.frame(
+   family = c("Markets", "Actions"),
+   entry_aggregates = c("We can see a very interesting trend in the variables under Markets tab", "In the Actions tab we can also see a very interesting across districts"),
+   entry_disaggregates = c("When looking at disaggregates plots in Markets we found more interesting things", "Now disaggregate plots are also interesting for Actions tab"), stringsAsFactors = FALSE
+ )
+
+datatable(my_blog, caption = "sample `my_blog` dataframe")
+
+```
+
+Try running our extended dashboard now!
+
+```{r, eval  = FALSE}
+
+setwd("~/Documents/GitHub/dashdash/docs")
+wd <- getwd()
+
+wd <- getwd()
+dashdash::dashdash(
+  output_file = paste0(wd, "/example.html"),
+  title = "A sample dashboard for my study",
+  subtitle = "What's special about this study",
+  my_data = my_data,
+  my_vars = my_vars,
+  my_args = my_args,
+  my_blog = my_blog,
+  trend = list("moving_average", "daily")
+)
+
+
+```
+
+# 5. Aggregating dashboards
 
 Coming next

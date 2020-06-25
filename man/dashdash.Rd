@@ -9,6 +9,7 @@ dashdash(
   my_vars,
   my_data,
   my_args,
+  my_blog = NULL,
   title = NULL,
   group = NULL,
   subtitle = NULL,
@@ -35,13 +36,15 @@ dashdash(
 
 \item{my_args}{dataframe with arguments to customize a dashboard.}
 
+\item{my_blog}{data frame with blog entries.}
+
 \item{title}{Dashboard title}
 
 \item{subtitle}{Dashboard subtitle}
 
 \item{author}{String, names of authors.}
 
-\item{trend}{List. "daily" for high-frequency daily plots or "moving_average" for 3 day movjng average.}
+\item{trend}{List. "daily" for high-frequency daily plots or "moving_average" for 3 day moving average.}
 
 \item{add_maps}{Option to add a map tab}
 
@@ -62,11 +65,7 @@ dashdash(
 \item{country_code}{three letter country code used for Financial Times plot}
 }
 \description{
-Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.
-}
-\details{
-Note I had a problem with `Error: isTRUE(gpclibPermitStatus()) is not TRUE` which was solved
-with `install.packages('rgeos', type='source')` and `install.packages('rgdal', type='source')`
+Make a .html dashboard. Key required inputs are datasets with 1. data 2. variable interpretations, labels and details 3. other text to be passed as arguments
 }
 \examples{
 library(dplyr)
