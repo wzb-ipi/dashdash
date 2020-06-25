@@ -90,8 +90,8 @@ kable(current_means, caption = paste("Mean responses in each ", group, " (most r
 if("min" %in% colnames(my_subset) & "max" %in% colnames(my_subset))
 {
   my_subset %>% mutate(range = paste(as.character(min), "-", as.character(max))) %>%
-    select(short_label, description, range, scale) %>% 
-   kable(caption = "Data definitions", col.names = c("Measure", "Definition", "Range", "Respone options"))
+    select(short_label, description, range) %>% 
+   kable(caption = "Data definitions", col.names = c("Measure", "Definition", "Range"))
 }else {
   my_subset %>% select(short_label, description) %>% 
   kable(caption = "Data definitions", col.names = c("Measure", "Definition"))

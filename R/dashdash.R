@@ -1,18 +1,17 @@
 #' dashdash
 #'
-#' Make a .html dashboard. Key required inputs are datasets with 1. outcomes 2. variable interpretations 3. other text 4. GIS information.
+#' Make a .html dashboard. Key required inputs are datasets with 1. data 2. variable interpretations, labels and details 3. other text to be passed as arguments
 #'
-#' Note I had a problem with `Error: isTRUE(gpclibPermitStatus()) is not TRUE` which was solved
-#' with `install.packages('rgeos', type='source')` and `install.packages('rgdal', type='source')`
 #'
 #' @param output_file Path to where ouutput should be written, e.g. "docs/index.html"
 #' @param my_vars dataframe with mapping from variable names to variable families and labels. One row per variable.
 #' @param my_data dataframe with data on variables listed in `my_vars`. Should contain a `id` variable that connects with units in map files and a `date` variable.
 #' @param my_args dataframe with arguments to customize a dashboard.
+#' @param my_blog data frame with blog entries.
 #' @param title Dashboard title
 #' @param subtitle Dashboard subtitle
 #' @param author String, names of authors.
-#' @param trend List. "daily" for high-frequency daily plots or "moving_average" for 3 day movjng average.
+#' @param trend List. "daily" for high-frequency daily plots or "moving_average" for 3 day moving average.
 #' @param add_maps Option to add a map tab
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
