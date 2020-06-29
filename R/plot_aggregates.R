@@ -35,8 +35,9 @@ plot_aggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switc
     geom_point(position=pd) +
     geom_errorbar(aes(ymin=ymin, ymax=ymax), width=.1, position=pd) +
     geom_line(position=pd) +
-    facet_wrap(~variable, scales = "free_y", labeller = labeller(variable = var_labs), strip.position = "top") +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    facet_wrap(~variable, scales = "free_y", labeller = labeller(variable = var_labs), strip.position = "top", ncol = 2) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+     scale_x_date(date_breaks = "3 days" , date_labels = "%d-%b")
 
    # If not all NAs, add floor and ceiling as ghost layer
    if(!(all(is.na(df2$max)))) g <- g + geom_blank(aes(x=df2$date, y=df2$max))
@@ -87,8 +88,10 @@ plot_mov_avg <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch =
     geom_point(position=pd) +
     geom_ribbon(aes(ymin=ymin, ymax=ymax), alpha = 0.4, position=pd) +
     geom_line(position=pd) +
-    facet_wrap(~variable, scales = "free_y", labeller = labeller(variable = var_labs), strip.position = "top") +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1))
+    facet_wrap(~variable, scales = "free_y", labeller = labeller(variable = var_labs), strip.position = "top", ncol = 2) +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    scale_x_date(date_breaks = "3 days" , date_labels = "%d-%b")+
+    scale_y_continuous(name="3 day moving average")
 
   # If not all NAs, add floor and ceiling as ghost layer
   if(!(all(is.na(df2$max)))) g <- g + geom_blank(aes(x=df2$date, y=df2$max))
