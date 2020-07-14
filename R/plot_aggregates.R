@@ -90,12 +90,13 @@ plot_mov_avg <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch =
     geom_line(position=pd) +
     facet_wrap(~variable, scales = "free_y", labeller = labeller(variable = var_labs), strip.position = "top", ncol = 2) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
-    scale_x_date(date_breaks = "3 days" , date_labels = "%d-%b")+
     scale_y_continuous(name="3 day moving average")
 
   # If not all NAs, add floor and ceiling as ghost layer
   if(!(all(is.na(df2$max)))) g <- g + geom_blank(aes(x=df2$date, y=df2$max))
   if(!(all(is.na(df2$min)))) g <- g + geom_blank(aes(x=df2$date, y=df2$min))
+
+  g + scale_x_date(pretty_breaks(5))
 
   g
 
