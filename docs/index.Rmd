@@ -112,7 +112,7 @@ my_args %>% kable(caption = "sample `my_args` dataframe")
 
 The dashboard is then produced by `dashdash::dashdash` like this:
 
-```{r, message = FALSE, warning = FALSE, include = FALSE}
+```{r, message = FALSE, warning = FALSE, include = FALSE, cache = FALSE}
 
 setwd("~/Documents/GitHub/dashdash/docs")
 wd <- getwd()
