@@ -28,6 +28,7 @@ Depends:
   data.table,
   checkmate,
   zoo,
-  scales
+  scales,
+  gridExtra
 Suggests: 
     testthat

@@ -33,9 +33,10 @@ if (!is.null(my_blog)){
 daily <- (isTRUE("daily" %in% trend) & !isTRUE("moving_average"%in% trend))
 mov_average <- (!isTRUE("daily" %in% trend) & isTRUE("moving_average"%in% trend))
 both <- (isTRUE("daily" %in% trend) & isTRUE("moving_average"%in% trend))
+aggregate <-  (isTRUE("aggregate" %in% trend))
 ```
 
-#### National aggregates
+#### Aggregates in Kampala
 
 ```{asis, echo = TRUE, eval= !is.null(blog_aggregate) && nrow(blog_aggregate)!=0, code=blog_aggregate$entry_aggregates}
 ```
@@ -46,6 +47,22 @@ plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
 
 ```{r, eval=(mov_average|both), echo = FALSE, fig.cap="3 day moving average with 95% confidence intervals", fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE}
 plot_mov_avg(my_data, my_subset, pd = pd, switch = switch)
+```
+
+```{r, eval=(aggregate) && nrow(my_subset)==2, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+all_bar_plot(my_data, my_subset, nrow=1)
+```
+
+```{r, eval=(aggregate) && nrow(my_subset)>=10, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+all_bar_plot(my_data, my_subset, nrow=10)
+```
+
+```{r, eval=(aggregate) && nrow(my_subset)<10 && nrow(my_subset)>4, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+all_bar_plot(my_data, my_subset, nrow=4)
+```
+
+```{r, eval=(aggregate) && nrow(my_subset)==4, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+all_bar_plot(my_data, my_subset, nrow=2)
 ```
 
 ### Current averages

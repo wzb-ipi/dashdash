@@ -11,7 +11,7 @@
 #' @param title Dashboard title
 #' @param subtitle Dashboard subtitle
 #' @param author String, names of authors.
-#' @param trend List. "daily" for high-frequency daily plots or "moving_average" for 3 day moving average.
+#' @param trend List. "daily" for high-frequency daily plots or "moving_average" for 3 day moving average. "aggregate" for aggregate averages.
 #' @param add_maps Option to add a map tab
 #' @param map_path String, path to map shapefiles.
 #' @param map_region String, map region.
