@@ -27,7 +27,11 @@ if (!is.null(my_blog)){
 
 ## `r gsub("_", " ", families[k])`  {.tabset  .tabset-pills}
 
-### Time trends
+
+***
+
+
+### Aggregates
 
 ```{r, echo = FALSE}
 daily <- (isTRUE("daily" %in% trend) & !isTRUE("moving_average"%in% trend))
@@ -49,28 +53,68 @@ plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
 plot_mov_avg(my_data, my_subset, pd = pd, switch = switch)
 ```
 
-```{r, eval=(aggregate) && nrow(my_subset)==2, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-all_bar_plot(my_data, my_subset, nrow=1)
+```{r, eval=(aggregate) && nrow(my_subset)==2 && my_subset$family[[1]]!="Actions when suspecting infection", echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::all_bar_plot(my_data, my_subset, nrow=1)
+```
+ 
+```{r, eval=(aggregate) && nrow(my_subset)>=10 && my_subset$family[[1]]!="Actions when suspecting infection", echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::all_bar_plot(my_data, my_subset, nrow=10)
 ```
 
-```{r, eval=(aggregate) && nrow(my_subset)>=10, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-all_bar_plot(my_data, my_subset, nrow=10)
+```{r, eval=(aggregate) && nrow(my_subset)<10 && nrow(my_subset)>4 && my_subset$family[[1]]!="Actions when suspecting infection", echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::all_bar_plot(my_data, my_subset, nrow=4)
 ```
 
-```{r, eval=(aggregate) && nrow(my_subset)<10 && nrow(my_subset)>4, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-all_bar_plot(my_data, my_subset, nrow=4)
+```{r, eval=(aggregate) && nrow(my_subset)==4 && my_subset$family[[1]]!="Actions when suspecting infection", echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::all_bar_plot(my_data, my_subset, nrow=2)
 ```
 
-```{r, eval=(aggregate) && nrow(my_subset)==4, echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-all_bar_plot(my_data, my_subset, nrow=2)
+```{r, eval=(aggregate) && my_subset$family[[1]]=="Actions when suspecting infection", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+suspects <- df %>% dplyr::select(starts_with("suspects_"))  %>% names  # get varnames of suspect questions
+suspects <- head(suspects,-1)  ## remove the last qs (Others)
+df_susp <- data.frame(
+  question = get_label(df[,suspects]),
+  foreach(i=suspects,.combine="rbind") %do%{
+    eachqs = df[,i]
+    obs = nrow(eachqs %>% drop_na())
+    yes = sum(eachqs==1)
+    no = sum(eachqs==0)
+    perc = round(yes/obs,3)*100
+    c("observations" = obs,"Yes-1" = yes,"No-0"=no,"Perc."=perc)
+  },
+  stringsAsFactors = FALSE)
+
+df_susp$question[df_susp$question == "Other Specify"] <-"Other (e.g. report to LC1/Police)" 
+
+rownames(df_susp) <- NULL
+
+df_susp$question=factor(df_susp$question, levels = df_susp$question[order(df_susp$Perc.)])
+
+p_susp = ggplot(data = df_susp,aes(x=factor(question),y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  geom_text(aes(label=Perc.),size=4, hjust = -0.2) +
+  ylab("% of Respondents") + xlab("") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black",size=11), axis.text.y = element_text(colour="black",size=11))
+p_susp 
+
+
 ```
+
+
 
 ### Current averages
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, message = FALSE}
 
 current_means <- get_current_means(my_data, my_subset, recent = 1)
-
 
 kable(current_means, caption = paste("Mean responses in each ", group, " (most recent date)"), 
         col.names = c(group, "Date", my_subset$short_label), 

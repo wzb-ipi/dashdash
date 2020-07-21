@@ -85,10 +85,6 @@ dashdash <- function(output_file,
                      country_code = NULL,
                      ...){
 
-  # Check integirty of inputs
-  check_my_vars(my_vars)
-  check_my_data(my_data)
-
   if(is.null(title)) title <- my_args$title
   if(is.null(title)) title <- "No title provided"
 
