@@ -31,8 +31,21 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
   # select all vars from my_vars
   df2 <- df %>% select(all_of(vars))
 
-  # set all vars as factor vars
-  df2[, vars] <- lapply(df[, vars], factor)
+  # check if vars with attributed labels
+  types_df2 <- sapply(1:length(df2), function(x){class(df2[[x]])})
+  if ("haven_labelled" %in% types_df2){
+    # convert all vars with attributed labels to factor
+    for(i in(1:length(df2))){
+      if(class(df2[[i]]) == "haven_labelled"){
+        df2[[i]] <- haven::as_factor(df2[[i]],levels = "labels")
+      }
+    }
+  }else{
+    # set all vars as factor vars
+    df2[, vars] <- lapply(df[, vars], factor)
+  }
+
+
 
   if(is.null(nrow)){nrow <- row_function(length_var)}
 
