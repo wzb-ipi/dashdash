@@ -25,10 +25,49 @@ categorical <- filter(my_subset, is.na(numeric))
 
 #### Aggregates and time trends
 
-```{r, eval=numeric$family[[1]]=="Schooling", echo = FALSE, fig.cap="3 day moving average with 95% confidence intervals", message = FALSE, warning = FALSE, fig.height = 3, fig.width = 6}
+```{r, eval=numeric$family[[1]]=="Schooling", echo = FALSE, fig.cap="3 day moving average with 95% confidence intervals", message = FALSE, warning = FALSE, fig.height = 3, fig.width = 4}
 plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
 ```
 
+```{r, eval=numeric$family[[1]]=="Social Distancing", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 3, fig.width = 6}
+plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
+```
+
+```{r, eval=numeric$family[[1]]=="Prevention measures", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 5, fig.width = 6}
+plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
+```
+
+```{r, eval=numeric$family[[1]]=="Health seeking behaviour", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 15, fig.width = 6}
+plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
+```
+
+```{r, eval=numeric$family[[1]]=="Covid Symptoms", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 3, fig.width = 6}
+plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
+```
+
+```{r, eval=numeric$family[[1]]=="Aid reception", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 3, fig.width = 6}
+plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
+```
+
+```{r, eval=numeric$family[[1]]=="Access to Water", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 3, fig.width = 6}
+plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
+```
+
+```{r, eval=my_subset$family[[1]]=="Access to information", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 3, fig.width = 6}
+plot_mov_avg(my_data, numeric, pd = pd, switch = switch)
+```
+
+```{r, eval=my_subset$family[[1]]=="Access to information", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 8, fig.width = 6}
+dashdash:::all_bar_plot(my_data, categorical, nrow=2)
+```
+
+```{r, eval=my_subset$family[[1]]=="Health seeking behaviour", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 8, fig.width = 6}
+dashdash:::all_bar_plot(my_data, categorical, nrow=2)
+```
+
+```{r, eval=my_subset$family[[1]]=="Access to Water", echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 8, fig.width = 6}
+dashdash:::all_bar_plot(my_data, categorical, nrow=2)
+```
 
 ### Current averages
 
