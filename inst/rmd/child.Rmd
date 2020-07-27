@@ -64,7 +64,7 @@ plot_d_mov_avg(my_data, my_subset, pd = pd, switch = switch)
 
 ### Current averages
 
-```{r, echo = FALSE}
+```{r, echo = FALSE, results = 'hide'}
 
 current_means <- get_current_means(my_data, my_subset, recent = 1)
 
