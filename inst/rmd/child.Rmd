@@ -22,6 +22,216 @@ my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 
 #### Aggregates and time trends
 
+```{r, eval=(my_subset$family[[1]]=="Employment"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+df_twork <- df %>% dplyr::group_by(as_character(spend_hrs)) %>% dplyr::summarise(counts = n())
+colnames(df_twork) <- c("Hours","counts")
+df_twork$obs <- nrow(df)
+df_twork$perc <- round(df_twork$counts/df_twork$obs,3)*100
+#df_twork$Hours[is.na(df_twork$Hours)]<-"Refused" # 0702 data: 1 .r
+df_twork$Hours=factor(df_twork$Hours,levels=c("Refused","No hours","Fewer","Same","More"))
+rownames(df_twork) <-NULL
+
+p_twork <- ggplot(df_twork, aes(x=Hours,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, hjust = -0.2) + coord_flip()+
+  ylab("% of Respondents") + xlab("How many hours compared to before") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold")) +
+  ggtitle("Over the past 7 days, how much time \n have you worked compared to a typical week before?")
+
+df_earnings <- df %>% dplyr::group_by(as_character(earnings)) %>% dplyr::summarise(counts = n())
+colnames(df_earnings) <- c("Earnings","counts")
+df_earnings$obs <- nrow(df)
+df_earnings$perc <- round(df_earnings$counts/df_earnings$obs,3)*100
+#df_earnings$Earnings[is.na(df_earnings$Earnings)]<-"NAs (don't know/refused)" # 0702 data: 1 .r
+df_earnings$Earnings=factor(df_earnings$Earnings,levels=df_earnings$Earnings[order(df_earnings$counts)])
+rownames(df_earnings) <-NULL
+
+p_earnings <- ggplot(df_earnings, aes(x=Earnings,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, hjust = -0.2) + coord_flip()+
+  ylab("% of Respondents") + xlab("How much earnings compared to before") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold")) +
+ggtitle("Over the past 7 days, how much are your \n earnings compared to a typical week before?")
+
+df_effwage <- df %>% dplyr::group_by(as_character(corona_eff)) %>% dplyr::summarise(counts = n())
+colnames(df_effwage) <- c("levels","counts")
+df_effwage$obs <- nrow(df)
+df_effwage$perc <- round(df_effwage$counts/df_effwage$obs,3)*100
+df_effwage$levels=factor(df_effwage$levels,levels=c("Don't know","Not at all concerned","Not very concerned","Somewhat concerned","Very concerned"))
+rownames(df_effwage) <-NULL
+p_effwage <- ggplot(df_effwage, aes(x=levels,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, hjust = -0.2) + coord_flip()+
+  ylab("% of Respondents") + xlab("Concerned about impact on income?") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold")) +
+ggtitle("How concerned are you about the possible \n effects of Coronavirus on your household income?")
+
+exp30 <- df %>% dplyr::select(starts_with("exp_30days_"))  %>% names  # get varnames of suspect questions
+df_exp30 <- data.frame(
+  question = get_label(df[,exp30]),
+  foreach(i=exp30,.combine="rbind") %do%{
+  eachqs = df[,i]
+  obs = nrow(eachqs %>% drop_na())
+  yes = sum(eachqs==1)
+  no = sum(eachqs==0)
+  perc = round(yes/obs,3)*100
+  c("observations" = obs,"Yes-1" = yes,"No-0"=no,"Perc."=perc)
+},
+  stringsAsFactors = FALSE)
+df_exp30$question[8] <- "Reduction in non-pecuniary benefits"  # shorten option entry
+
+rownames(df_exp30) <- NULL
+
+df_exp30$question=factor(df_exp30$question, levels = df_exp30$question[order(df_exp30$Perc.)])
+
+p_exp30 <- ggplot(data = df_exp30,aes(x=question,y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold")) +
+ggtitle("In the last 30 days, have you experienced...?")
+
+
+grid.arrange(p_twork, p_earnings, p_effwage, p_exp30, nrow=4)
+
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+#which(colnames(df)=='ask_help') #123
+#which(colnames(df)=='without_eat') #126
+svdays <- df[,c(which(colnames(df)=='ask_help'):which(colnames(df)=='without_eat'))]  %>% names 
+df_svdays <-  data.frame(
+  option = c("Asked help","Received help","Eaten fewer","Gone without food"),
+  foreach(i=svdays,.combine="rbind") %do%{
+  eachqs = df[,i]
+  obs = nrow(eachqs)
+  zero = round(sum(eachqs==0,na.rm = TRUE)/obs,3)*100
+  one = round(sum(eachqs==1,na.rm = TRUE)/obs,3)*100
+  two = round(sum(eachqs==2,na.rm = TRUE)/obs,3)*100
+  three =round(sum(eachqs==3,na.rm = TRUE)/obs,3)*100
+  four = round(sum(eachqs==4,na.rm = TRUE)/obs,3)*100
+  five = round(sum(eachqs==5,na.rm = TRUE)/obs,3)*100
+  six = round(sum(eachqs==6,na.rm = TRUE)/obs,3)*100
+  seven = round(sum(eachqs==7,na.rm = TRUE)/obs,3)*100
+  c("obs." = obs,"Zero"=zero,"One"=one,"Two"=two,"Three"=three,"Four"=four,"Five"=five,"Six"=six,"Seven"=seven)
+},
+stringsAsFactors = FALSE)
+rownames(df_svdays) <- NULL
+
+ask_help <- data.frame(t(df_svdays[1,3:10]))
+ask_help <- setNames(cbind(rownames(ask_help), ask_help, row.names = NULL), 
+         c("Level", "Perc."))
+ask_help$Level=factor(ask_help$Level,levels=c("Seven","Six","Five","Four","Three","Two","One","Zero"))
+p_ask_help <- ggplot(data=ask_help,aes(x=Level, y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() + ylim(0, 100) +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  labs(y="% of Respondents",x="Level",title='Asked for help') +
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+rec_help <- data.frame(t(df_svdays[2,3:10]))
+rec_help <- setNames(cbind(rownames(rec_help), rec_help, row.names = NULL), 
+         c("Level", "Perc."))
+rec_help$Level=factor(rec_help$Level,levels=c("Seven","Six","Five","Four","Three","Two","One","Zero"))
+p_rec_help <- ggplot(data=rec_help,aes(x=Level, y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() + ylim(0, 100) +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  labs(y="% of Respondents",x="Level",title='Received help') +
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+eat_few <- data.frame(t(df_svdays[3,3:10]))
+eat_few <- setNames(cbind(rownames(eat_few), eat_few, row.names = NULL), 
+         c("Level", "Perc."))
+eat_few$Level=factor(eat_few$Level,levels=c("Seven","Six","Five","Four","Three","Two","One","Zero"))
+p_eat_few <- ggplot(data=eat_few,aes(x=Level, y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() + ylim(0, 100) +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  labs(y="% of Respondents",x="Level",title='Eaten fewer') +
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+no_eat <- data.frame(t(df_svdays[4,3:10]))
+no_eat <- setNames(cbind(rownames(no_eat), no_eat, row.names = NULL), 
+         c("Level", "Perc."))
+no_eat$Level=factor(no_eat$Level,levels=c("Seven","Six","Five","Four","Three","Two","One","Zero"))
+p_no_eat <- ggplot(data=no_eat,aes(x=Level, y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() + ylim(0, 100) +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  labs(y="% of Respondents",x="Level",title='Gone without eating') +
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+df_mob <- df %>% dplyr::group_by(as_character(mob_restr)) %>% dplyr::summarise(counts = n())
+colnames(df_mob) <- c("Difficulty","counts")
+df_mob$obs <- nrow(df)-sum(is.na(df$mob_restr))
+df_mob$perc <- round(df_mob$counts/df_mob$obs,3)*100
+df_mob$Difficulty=factor(df_mob$Difficulty, levels = c("Refused","Yes","No"))
+rownames(df_mob) <-NULL
+
+p_mob <- ggplot(df_mob, aes(x=Difficulty,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, vjust = -0.2) +
+  ylab("% of Respondents") + xlab("Difficulty in buying food") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+mobdif <- df %>% dplyr::select(starts_with("reason_ntbuy_"))  %>% names  # get varnames of questions
+df_mobdif <- data.frame(
+  question = get_label(df[,mobdif]),
+  foreach(i=mobdif,.combine="rbind") %do%{
+  eachqs = df[,i]
+  obs = df_mob$counts[df_mob$Difficulty=="Yes"]
+  yes = sum(eachqs==1, na.rm = TRUE)
+  no = sum(eachqs==0, na.rm= TRUE)
+  perc = round(yes/obs,3)*100
+  c("observations" = obs,"Yes-1" = yes,"No-0"=no,"Perc."=perc)
+},
+  stringsAsFactors = FALSE)
+
+df_mobdif$question[df_mobdif$question=="Other Specify"] <- "other (e.g. unemployed, shops closed))"
+#df_mobdif <- rbind(df_mobdif,c("No difficultyy",nrow(df),df_mob$counts[df_mob$Difficulty=="No"],df_mob$counts[df_mob$Difficulty=="Yes"],round(df_mob$counts[df_mob$Difficulty=="No"]/nrow(df),3)*100))
+#df_mobdif$Perc. <- as.numeric(df_mobdif$Perc.)
+
+df_mobdif$question <- df_mobdif$question %>% str_replace_all(c( "Because of " = "", "Due to " = "","Because " = "","Specify"="Specifyy")) %>% substr(1,nchar(.)-1) %>% Hmisc::capitalize() # clean variable 
+
+rownames(df_mobdif) <- NULL
+
+df_mobdif$question=factor(df_mobdif$question, levels = df_mobdif$question[order(df_mobdif$Perc.)])
+p_mobdif <- ggplot(data = df_mobdif,aes(x=question,y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  geom_text(aes(label=Perc.),size=4, hjust = -0.2) +
+  ylab("% of Respondents") + xlab("") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black",size=11), axis.text.y = element_text(colour="black",size=11))
+
+grid.arrange(p_ask_help,p_rec_help,p_eat_few,p_no_eat,p_mob, p_mobdif, nrow=6)
+
+
+
+```
+
 ```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 10, fig.width=8, message = FALSE, warning = FALSE, results = 'hide'}
 
 library(sjlabelled)
