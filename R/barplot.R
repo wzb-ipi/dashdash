@@ -58,8 +58,6 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
       theme(axis.text.x = element_text(angle = 90, hjust = 1),
             axis.title=element_text(size=8,face="bold"),
             strip.text.y.left = element_text(angle = 0))})
-
-  g <- grid.arrange(subplots[[1]], nrow=1)
   # place all subplots in nrow
   g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
   g
