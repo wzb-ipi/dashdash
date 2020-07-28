@@ -22,6 +22,85 @@ my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 
 #### Aggregates and time trends
 
+```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 10, fig.width=8, message = FALSE, warning = FALSE, results = 'hide'}
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+df_ownbs <- df %>% dplyr::group_by(as_character(own_bus)) %>% dplyr::summarise(counts = n())
+colnames(df_ownbs) <- c("Own Business","counts")
+df_ownbs$obs <- nrow(df)
+df_ownbs$perc <- round(df_ownbs$counts/df_ownbs$obs,3)*100
+# df_ownbs$`Own Business`[is.na(df_ownbs$`Own Business`)]<-"Refused" # 0706 data: 1 .r
+rownames(df_ownbs) <-NULL
+df_ownbs$`Own Business`=factor(df_ownbs$`Own Business`,levels=c("Yes","No","Refused"))
+
+p_ownbsn <- ggplot(df_ownbs, aes(x=`Own Business`,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, vjust = -0.2) +
+  ylab("% of Respondents") + xlab("Own business before shut school?") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold"))+
+  ggtitle("Did you run your own business \n at the time government closed schools in March?")
+
+df_stillown <- df %>% dplyr::group_by(as_character(still_own_bus)) %>% dplyr::summarise(counts = n())
+colnames(df_stillown) <- c("Still Operational","counts")
+df_stillown$obs <- nrow(df)
+df_stillown$perc <- round(df_stillown$counts/df_stillown$obs,3)*100
+df_stillown$`Still Operational`[is.na(df_stillown$`Still Operational`)] <- "Didn't own business/NA" # rename those who skipped  
+rownames(df_stillown) <-NULL
+df_stillown$`Still Operational`=factor(df_stillown$`Still Operational`,levels=c("Yes","No","Didn't own business/NA"))
+
+p_stillown <- ggplot(df_stillown, aes(x=`Still Operational`,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, vjust = -0.2) +
+  ylab("% of Respondents") + xlab("Business still operaitonal?") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold"))+
+  ggtitle("Is the business currently operational?")
+
+df_stbs <- df %>% dplyr::group_by(as_character(bus_start_lckdwn)) %>% dplyr::summarise(counts = n())
+colnames(df_stbs) <- c("Start Business","counts")
+df_stbs$obs <- nrow(df)
+df_stbs$perc <- round(df_stbs$counts/df_stbs$obs,3)*100
+df_stbs$`Start Business`[is.na(df_stbs$`Start Business`)]<- "NA (already own bsns/refused/dk)"  #remove 778 NAs
+rownames(df_stbs) <-NULL
+df_stbs$`Start Business`=factor(df_stbs$`Start Business`,levels=c("Yes","No","NA (already own bsns/refused/dk)"))
+
+p_stbsn <- ggplot(df_stbs, aes(x=`Start Business`,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, vjust = -0.2) +
+  ylab("% of Respondents") + xlab("Start business after shut school?") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold"))+
+  ggtitle("Have you started a new business \n since the governemnt shut down since March?")
+
+
+bsnpol <- df %>% dplyr::group_by(as_character(bus_sup)) %>% dplyr::summarise(counts = n())
+colnames(bsnpol) <- c("Support_Policy","counts")
+bsnpol$obs <- nrow(df)
+bsnpol$perc <- round(bsnpol$counts/bsnpol$obs,3)*100
+bsnpol$Support_Policy[is.na(bsnpol$Support_Policy)] <- "NA (not own bsns/refused/dk)" # 0702 data: 
+rownames(bsnpol) <-NULL
+bsnpol$Support_Policy=factor(bsnpol$Support_Policy, levels = bsnpol$Support_Policy[order(bsnpol$perc)])
+
+p_bsnpol <- ggplot(bsnpol, aes(x=Support_Policy,y=perc)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label=perc),size=3, hjust = -0.2) + coord_flip()+
+  ylab("% of Respondents") + xlab("Best support policy for businessses") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"), 
+        plot.title = element_text(size = 10, face = "bold"))+
+  ggtitle("What would be the most needed policy \n to support your business over the COVID-19 crisis? ")
+
+grid.arrange(p_ownbsn, p_stillown, p_stbsn, p_bsnpol, nrow=4) 
+
+```
+
 ```{r, eval=(my_subset$family[[1]]=="Policy evaluation"), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
 dashdash:::all_bar_plot(my_data, my_subset, nrow=4)
 ```
