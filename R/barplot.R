@@ -51,13 +51,15 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
 
   # generate bar plot for each var, and store them into subplots list
   subplots <- lapply(1:length(vars), function(x){
-    ggplot(data = df2, aes(x=.data[[vars[x]]]))+
-      geom_bar(aes(y = (..count..)/sum(..count..))) +
+    ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
       xlab(var_labs[names(var_labs) == vars[x]]) +
       ylab("percent") +
       theme(axis.text.x = element_text(angle = 90, hjust = 1),
             axis.title=element_text(size=8,face="bold"),
             strip.text.y.left = element_text(angle = 0))})
+
+  g <- grid.arrange(subplots[[1]], nrow=1)
   # place all subplots in nrow
   g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
   g
