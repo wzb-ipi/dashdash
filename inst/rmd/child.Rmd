@@ -527,6 +527,128 @@ p_susp
 
 ```
 
+```{r, eval=(my_subset$family[[1]]=="Sources of information"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 10, fig.width = 6}
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+infosr <- df %>% dplyr::select(starts_with("infor_src_"))  %>% names  # get varnames of suspect questions
+df_infosr <- data.frame(
+  question = get_label(df[,infosr]),
+  foreach(i=infosr,.combine="rbind") %do%{
+    eachqs = df[,i]
+    obs = nrow(eachqs %>% drop_na())
+    yes = sum(eachqs==1)
+    no = sum(eachqs==0)
+    perc = round(yes/obs,3)*100
+    c("observations" = obs,"Yes-1" = yes,"No-0"=no,"Perc."=perc)
+  },
+  stringsAsFactors = FALSE)
+df_infosr$question[5] <- "Social Media"  # shorten option entry
+
+rownames(df_infosr) <- NULL
+
+df_infosr$question=factor(df_infosr$question, levels = df_infosr$question[order(df_infosr$Perc.)])
+
+p_infosr <- ggplot(data = df_infosr,aes(x=question,y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip()  +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"),
+        plot.title = element_text(size = 10, face = "bold")) +
+  ggtitle("How have you gotten your \n information on Coronavirus?")
+
+#inherit main source info value if respondent only answered one
+df$main_src_infor[which(nchar(df$infor_src)==1)] <- as.integer(df$infor_src[which(nchar(df$infor_src)==1)])
+
+df_maininfo <- df %>% dplyr::group_by(as_character(main_src_infor)) %>% dplyr::summarise(counts = n())
+colnames(df_maininfo) <- c("Main Source","counts")
+df_maininfo$obs <- nrow(df)
+df_maininfo$perc <- round(df_maininfo$counts/df_maininfo$obs,3)*100
+df_maininfo$`Main Source`[is.na(df_maininfo$`Main Source`)] <- "NA"  # name NA as "NA" - 0706: 1 .
+df_maininfo$`Main Source`[which(nchar(df_maininfo$`Main Source`)>40)] <- "Social Media"  
+df_maininfo$`Main Source` <- factor(df_maininfo$`Main Source`, levels = df_maininfo$`Main Source`[order(df_maininfo$counts)])
+rownames(df_maininfo) <-NULL
+
+p_mainsrc <- ggplot(df_maininfo, aes(x=`Main Source`,y=perc)) +
+  geom_bar(stat="identity") + coord_flip() +
+  geom_text(aes(label=perc),size=3, hjust = -0.2) +
+  ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"),
+        plot.title = element_text(size = 10, face = "bold")) +
+  ggtitle("Which would you say is your \n main source of information?")
+
+whomsr <- df %>% dplyr::select(starts_with("read_heard_"))  %>% names  # get varnames of questions
+df_whomsr <- data.frame(
+  question = get_label(df[,whomsr]),
+  foreach(i=whomsr,.combine="rbind") %do%{
+    eachqs = df[,i]
+    obs = nrow(eachqs %>% drop_na())
+    yes = sum(eachqs==1, na.rm = TRUE)
+    no = sum(eachqs==0, na.rm= TRUE)
+    perc = round(yes/obs,3)*100
+    c("observations" = obs,"Yes-1" = yes,"No-0"=no,"Perc."=perc)
+  },
+  stringsAsFactors = FALSE)
+rownames(df_whomsr) <- NULL
+
+df_whomsr$question=factor(df_whomsr$question, levels = df_whomsr$question[order(df_whomsr$Perc.)])
+p_whomsr <- ggplot(data = df_whomsr,aes(x=question,y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"),
+        plot.title = element_text(size = 10, face = "bold")) +
+  ggtitle("From whom have you heard \n about Coronavirus?")
+
+#inherit main source info value if respondent only answered one
+df$main_src_inf[which(nchar(df$read_heard)==1)] <- df$read_heard[which(nchar(df$read_heard)==1)]
+
+df_whommain <- df %>% dplyr::group_by(main_src_inf) %>% dplyr::summarise(counts = n())  
+
+# rename unlabelled data 
+df_whommain$main_src_inf[df_whommain$main_src_inf==''] <- "NA"  # name NA as "NA"
+df_whommain$main_src_inf[df_whommain$main_src_inf==1] <- "Friends/Acquaintances"
+df_whommain$main_src_inf[df_whommain$main_src_inf==2] <- "Family Members"
+df_whommain$main_src_inf[df_whommain$main_src_inf==3] <- "Local Health Personnel"
+df_whommain$main_src_inf[df_whommain$main_src_inf==4] <- "News Journalists/TV Hosts"
+df_whommain$main_src_inf[df_whommain$main_src_inf==5] <- "National Gov't Officials"
+df_whommain$main_src_inf[df_whommain$main_src_inf==6] <- "Local Gov't Officials"
+df_whommain$main_src_inf[df_whommain$main_src_inf==7] <- "Village Head"
+df_whommain$main_src_inf[df_whommain$main_src_inf==8] <- "Other Political Party"
+df_whommain$main_src_inf[df_whommain$main_src_inf==9] <- "NGOs"
+df_whommain$main_src_inf[df_whommain$main_src_inf==10] <- "Traditional Leaders"
+df_whommain$main_src_inf[df_whommain$main_src_inf==11] <- "Religious Leaders"
+df_whommain$main_src_inf[df_whommain$main_src_inf==12] <- "Community Watch Team"
+df_whommain$main_src_inf[df_whommain$main_src_inf==888] <- "Other"
+
+colnames(df_whommain) <- c("Main Source","counts")
+df_whommain$counts <- as.integer(df_whommain$counts)
+df_whommain$obs <- nrow(df)
+df_whommain$perc <- round(df_whommain$counts/df_whommain$obs,3)*100
+df_whommain$`Main Source` <- factor(df_whommain$`Main Source`, levels = df_whommain$`Main Source`[order(df_whommain$counts)])
+
+p_whommain <- ggplot(df_whommain, aes(x=`Main Source`,y=perc)) +
+  geom_bar(stat="identity") + coord_flip() +
+  geom_text(aes(label=perc),size=3, hjust = -0.2) +
+  ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), 
+        axis.text.y = element_text(colour="black"),
+        plot.title = element_text(size = 10, face = "bold")) +
+  ggtitle("Whom would you say is your \n main source of information?")
+
+grid.arrange(p_infosr, p_mainsrc, p_whomsr,p_whommain, nrow=4)
+
+
+```
+
 
 ### Current averages
 
