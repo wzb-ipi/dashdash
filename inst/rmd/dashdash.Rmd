@@ -16,10 +16,18 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-
+# {.tabset}
+***
+## Motivation
 `r my_args$intro_text`^[`r my_args$intro_note`]
 
----
+## More about the project
+content of sub-chapter #2
+
+## Team
+`r my_args$author`
+
+***
 
 ```{r, warning = FALSE, message = FALSE, echo = FALSE, include = FALSE}
 k  <- 1

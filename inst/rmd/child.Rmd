@@ -10,17 +10,12 @@ my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 ```
 
 
-## `r gsub("_", " ", families[k])`  {.tabset  .tabset-pills}
-
+## `r gsub("_", " ", families[k])`  {.tabset}
 
 ***
 
-
 ### Aggregates
 
-
-
-#### Aggregates and time trends
 
 ```{r, eval=(my_subset$family[[1]]=="Employment"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
 
@@ -266,41 +261,6 @@ p_sympt = ggplot(data = df_sympt,aes(x=option,y=Perc.)) +
 p_sympt
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Knowledge about cure"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 3, fig.width = 6}
-
-library(sjlabelled)
-library(foreach)
-
-df <- my_data
-
-#which(colnames(df)=='Lemon_water') #21
-#which(colnames(df)=='cure_777') #30
-cure <- df[,c(which(colnames(df)=='Alcohol'):which(colnames(df)=='Sun_heat'))]  %>% names  #exclude others
-df_cure <-  data.frame(
-  option = get_label(df[,cure]),
-  foreach(i=cure,.combine="rbind") %do%{
-  eachqs = df[,i]
-  obs = nrow(eachqs)
-  yes = sum(eachqs==1,na.rm = TRUE)
-  no = sum(eachqs==0,na.rm=TRUE)
-  perc = round(yes/obs, 3)*100
-  c("obs." = obs,"mentioned"=yes,"not mentioned"=no,"Perc." = perc)
-},
-stringsAsFactors = FALSE)
-rownames(df_cure) <- NULL
-
-df_cure$option=factor(df_cure$option, levels = df_cure$option[order(df_cure$Perc.)])
-
-p_cure = ggplot(data = df_cure,aes(x=option,y=Perc.)) + 
-  geom_bar(stat = 'identity') +
-  coord_flip() +
-  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
-  labs(y="% of Respondents",x="Option",title="Respondents' Mention of Cures") + ylim(0,100)+
-  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
-p_cure
-
-```
-
 
 ```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 10, fig.width=8, message = FALSE, warning = FALSE, results = 'hide'}
 
@@ -389,8 +349,92 @@ dashdash:::all_bar_plot(my_data, my_subset, nrow=4)
 dashdash:::all_bar_plot(my_data, my_subset, nrow=3)
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Knowledge about disease"), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::all_bar_plot(my_data, my_subset, nrow=2)
+```{r, eval=(my_subset$family[[1]]=="Knowledge about disease"), echo = FALSE, fig.height = 8, message = FALSE, warning = FALSE, results = 'hide'}
+
+df <- my_data
+my_subset <- my_vars %>% filter(variable=="infected" |
+                                  variable=="for_life" |
+                                  variable=="still_infect" |
+                                  variable=="corona_cure")
+
+# extract vars' info from my_var
+vars <- pull(my_subset, variable)
+var_labs <- my_subset  %>% pull(short_label)
+names(var_labs) <- vars
+
+# No. of vars
+length_var <- length(vars)
+
+# select all vars from my_vars
+df2 <- df %>% select(all_of(vars))
+
+# check if vars with attributed labels
+types_df2 <- sapply(1:length(df2), function(x){class(df2[[x]])})
+if ("haven_labelled" %in% types_df2){
+  # convert all vars with attributed labels to factor
+  for(i in(1:length(df2))){
+    if(class(df2[[i]]) == "haven_labelled"){
+      df2[[i]] <- haven::as_factor(df2[[i]],levels = "labels")
+    }
+  }
+}else{
+  # set all vars as factor vars
+  df2[, vars] <- lapply(df[, vars], factor)
+}
+
+if(is.null(nrow)){nrow <- row_function(length_var)}
+
+# generate bar plot for each var, and store them into subplots list
+subplots <- lapply(1:length(vars), function(x){
+  ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+    geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
+    xlab(var_labs[names(var_labs) == vars[x]]) +
+    ylab("percent") +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1),
+          axis.title=element_text(size=8,face="bold"),
+          strip.text.y.left = element_text(angle = 0))+
+    ylim(0, 1)})
+
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+#which(colnames(df)=='Lemon_water') #21
+#which(colnames(df)=='cure_777') #30
+cure <- df[,c(which(colnames(df)=='Alcohol'):which(colnames(df)=='Sun_heat'))]  %>% names  #exclude others
+df_cure <-  data.frame(
+  option = get_label(df[,cure]),
+  foreach(i=cure,.combine="rbind") %do%{
+    eachqs = df[,i]
+    obs = nrow(eachqs)
+    yes = sum(eachqs==1,na.rm = TRUE)
+    no = sum(eachqs==0,na.rm=TRUE)
+    perc = round(yes/obs, 3)*100
+    c("obs." = obs,"mentioned"=yes,"not mentioned"=no,"Perc." = perc)
+  },
+  stringsAsFactors = FALSE)
+rownames(df_cure) <- NULL
+
+df_cure$option=factor(df_cure$option, levels = df_cure$option[order(df_cure$Perc.)])
+
+p_cure = ggplot(data = df_cure,aes(x=option,y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  labs(y="% of Respondents",x="Option",title="Respondents' Mention of Cures") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+subplots[["p_cure"]] <- p_cure
+
+# place all subplots in nrow
+
+nrow <- 3
+
+g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
+g
+
 ```
 
 ```{r, eval=(my_subset$family[[1]]=="Risk perception"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 9, fig.width = 6}
@@ -527,6 +571,52 @@ p_susp
 
 
 ```
+
+```{r, eval=(my_subset$family[[1]]=="Preventive measures"),fig.height = 3, fig.width = 6, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+#which(colnames(df)=='wear_mask') #236
+#which(colnames(df)=='public_trans') #242  
+compl <- df[,c(which(colnames(df)=='wear_mask'):which(colnames(df)=='public_trans'))]  %>% names  #exclude others
+df_compl <-  data.frame(
+  option = get_label(df[,compl]),
+  foreach(i=compl,.combine="rbind") %do%{
+    eachqs = df[,i]
+    obs = nrow(eachqs %>% drop_na())
+    yes = sum(eachqs==1,na.rm = TRUE)
+    no = sum(eachqs==0,na.rm=TRUE)
+    perc = round(yes/obs, 3)*100
+    c("obs." = obs,"yes"=yes,"no"=no,"Perc." = perc)
+  },
+  stringsAsFactors = FALSE)
+df_compl$option[rownames(df_compl)=='wear_mask'] <- 'wear mask as much as possible'
+df_compl$option[rownames(df_compl)=='not_shakehand'] <- "don't shake hands anymore"
+df_compl$option[rownames(df_compl)=='social_dist_comp'] <- "try to keep 2m distance from others"
+df_compl$option[rownames(df_compl)=='mkt_visit'] <- "go to markets/stores seldom"
+df_compl$option[rownames(df_compl)=='meet_friends'] <- "no longer meet with friends"
+df_compl$option[rownames(df_compl)=='meet_relatives'] <-"no longer meet with relatives who don't live together"
+df_compl$option[rownames(df_compl)=='public_trans'] <- "use public transport seldom"
+rownames(df_compl) <- NULL
+
+
+df_compl$option=factor(df_compl$option, levels = df_compl$option[order(df_compl$Perc.)])
+
+p_compl = ggplot(data = df_compl,aes(x=option,y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  labs(y="% of Respondents",x="Option",title="Reported compliance with practices") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+p_compl
+
+```
+
 
 ```{r, eval=(my_subset$family[[1]]=="Sources of information"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 10, fig.width = 6}
 
