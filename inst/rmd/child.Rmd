@@ -265,6 +265,7 @@ p_sympt = ggplot(data = df_sympt,aes(x=option,y=Perc.)) +
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
 p_sympt
 ```
+
 ```{r, eval=(my_subset$family[[1]]=="Knowledge about cure"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide', fig.height = 3, fig.width = 6}
 
 library(sjlabelled)
@@ -274,7 +275,7 @@ df <- my_data
 
 #which(colnames(df)=='Lemon_water') #21
 #which(colnames(df)=='cure_777') #30
-cure <- df[,c(which(colnames(df)=='Lemon_water'):which(colnames(df)=='cure_777'))]  %>% names  #exclude others
+cure <- df[,c(which(colnames(df)=='Alcohol'):which(colnames(df)=='Sun_heat'))]  %>% names  #exclude others
 df_cure <-  data.frame(
   option = get_label(df[,cure]),
   foreach(i=cure,.combine="rbind") %do%{
