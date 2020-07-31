@@ -143,7 +143,7 @@ p_ask_help <- ggplot(data=ask_help,aes(x=Level, y=Perc.)) +
   geom_bar(stat = 'identity') +
   coord_flip() + ylim(0, 100) +
   geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
-  labs(y="% of Respondents",x="Level",title='Asked for help') +
+  labs(y="% of Respondents",x="Days",title='In the past week, how many days have you asked for help?') +
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
 
 rec_help <- data.frame(t(df_svdays[2,3:10]))
@@ -154,7 +154,7 @@ p_rec_help <- ggplot(data=rec_help,aes(x=Level, y=Perc.)) +
   geom_bar(stat = 'identity') +
   coord_flip() + ylim(0, 100) +
   geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
-  labs(y="% of Respondents",x="Level",title='Received help') +
+  labs(y="% of Respondents",x="Days",title='In the past week, how many days have you received help?') +
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
 
 eat_few <- data.frame(t(df_svdays[3,3:10]))
@@ -165,7 +165,7 @@ p_eat_few <- ggplot(data=eat_few,aes(x=Level, y=Perc.)) +
   geom_bar(stat = 'identity') +
   coord_flip() + ylim(0, 100) +
   geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
-  labs(y="% of Respondents",x="Level",title='Eaten fewer') +
+  labs(y="% of Respondents",x="Days",title='In the past week, how many days have you eaten fewer?') +
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
 
 no_eat <- data.frame(t(df_svdays[4,3:10]))
@@ -176,7 +176,7 @@ p_no_eat <- ggplot(data=no_eat,aes(x=Level, y=Perc.)) +
   geom_bar(stat = 'identity') +
   coord_flip() + ylim(0, 100) +
   geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
-  labs(y="% of Respondents",x="Level",title='Gone without eating') +
+  labs(y="% of Respondents",x="Days",title='In the past week, how many days have you gone without eating') +
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
 
 df_mob <- df %>% dplyr::group_by(as_character(mob_restr)) %>% dplyr::summarise(counts = n())

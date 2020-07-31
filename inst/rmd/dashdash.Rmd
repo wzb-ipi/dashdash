@@ -22,11 +22,16 @@ knitr::opts_chunk$set(echo = FALSE)
 `r my_args$intro_text`^[`r my_args$intro_note`]
 
 ## More about the project
-content of sub-chapter #2
+This work is part of Innovation for Poverty Action program Research for Effective COVID-19 Responses [(RECOVR)](https://www.poverty-action.org/recovr)
+
 
 ## Team
-`r my_args$author`
 
+```{r, results='asis'}
+
+my_args$author
+
+```
 ***
 
 ```{r, warning = FALSE, message = FALSE, echo = FALSE, include = FALSE}
