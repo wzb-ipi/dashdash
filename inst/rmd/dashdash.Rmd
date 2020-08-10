@@ -19,19 +19,52 @@ knitr::opts_chunk$set(echo = FALSE)
 # {.tabset}
 ***
 ## Motivation
-`r my_args$intro_text`^[`r my_args$intro_note`]
 
-## More about the project
-This work is part of Innovation for Poverty Action program Research for Effective COVID-19 Responses [(RECOVR)](https://www.poverty-action.org/recovr)
-
+COVID-19 has caused major social, economic, and political disruptions around the world. This project examines the impact of COVID-19 in Uganda’s capital city, Kampala. We conduct a set of surveys with a representative sample of around 2700 Kampala residents to study the social, health, and economic impact of COVID-19, and to assess levels of knowledge about COVID-19, compliance with public health policies, and citizens’ perceptions of government performance. The surveys will be conducted by phone between June 2020 and September 2020 and results will be regularly updated on this dashboard as they become available.
 
 ## Team
 
-```{r, results='asis'}
+We are a team including experts in the fields of economics, health, and political science. Our team has experience conducting research across sub-Saharan Africa, and over 15 years of research experience in Uganda specifically. The survey is implemented by Innovations for Poverty Action (IPA) Uganda. This survey on COVID-19 builds on an existing project in collaboration with the Kampala Capital City Authority (KCCA). Our team members are listed below:
 
-my_args$author
+PIs:
 
-```
+* Manuel Bosancianu, research fellow, WZB Berlin Social Science Center
+
+* Ana Garcia-Hernandez, research fellow, NOVA SBE and WZB Berlin Social Science Center
+
+* Macartan Humphreys, Professor of Political Science, Columbia University and WZB Berlin
+
+* Paul Kiwanuka-Mukiibi, PS Consulting, Uganda
+
+* Melina Platas, Assistant Professor of Political Science, NYU Abu Dhabi
+
+* Leah Rosenzweig, post-doctoral fellow, Institute for Advanced Study in Toulouse 
+
+* Lily Tsai, Ford Professor of Political Science, Massachusetts Institute of Technology
+
+Research staff:
+
+* Anthony Kamwesigye, Innovations for Poverty Action
+
+* Elly Atuhumuza, Innovations for Poverty Action
+
+* Diana Zhu, PhD Student, Massachusetts Institute of Technology
+
+* Julio Solís, WZB Berlin Social Science Center
+
+* Julian Cantor, WZB Berlin Social Science Center
+
+* Rodrigo Cordova Ponce, Massachusetts Institute of Technology
+
+
+## How To
+
+This dashboard presents results from the most recent surveys available. Click on each section to see results. The “Aggregates” tab presents results graphically, the “Current averages” tab shows the average value for each indicator, and the “Definitions of measures” tab shows the exact question wording and answer categories.
+
+To download data or search for an indicator, select the “All data” tab. Data can be downloaded as a csv or Excel file.
+
+For comments or questions on the dashboard, please email Julio Solís at  julio.solis@wzb.eu.
+
 ***
 
 ```{r, warning = FALSE, message = FALSE, echo = FALSE, include = FALSE}
