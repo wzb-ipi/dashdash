@@ -53,10 +53,11 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
   subplots <- lapply(1:length(vars), function(x){
     ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
       geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
-      xlab(var_labs[names(var_labs) == vars[x]]) +
+      labs(title = var_labs[names(var_labs) == vars[x]], x= NULL) +
       ylab("percent") +
       theme(axis.text.x = element_text(angle = 90, hjust = 1),
             axis.title=element_text(size=8,face="bold"),
+            plot.title = element_text(hjust = 0.5),
             strip.text.y.left = element_text(angle = 0))+
       ylim(0, 1)})
 
@@ -65,3 +66,4 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
   g
 
 }
+
