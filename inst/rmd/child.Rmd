@@ -756,10 +756,21 @@ kable(current_means, caption = paste("Mean responses in each ", group, " (most r
 
 <!-- Optionally add maps -->
 
-```{r, child = add_mapsRmd, echo = FALSE, eval = add_maps}
+```{r, eval=(my_subset$family[[1]]=="Food security"), child = add_mapsRmd, echo = FALSE}
 
 ```
 
+```{r, eval=(my_subset$family[[1]]=="Policy evaluation"), child = add_mapsRmd, echo = FALSE}
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Risk perception"), child = add_mapsRmd, echo = FALSE}
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Preventive measures"), child = add_mapsRmd, echo = FALSE}
+
+```
 
 ### Definitions of measures
 
