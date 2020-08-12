@@ -38,7 +38,7 @@ PIs:
 
 * Melina Platas, Assistant Professor of Political Science, NYU Abu Dhabi
 
-* Leah Rosenzweig, post-doctoral fellow, Institute for Advanced Study in Toulouse 
+* Leah Rosenzweig, Postdoctoral Fellow, Stanford University 
 
 * Lily Tsai, Ford Professor of Political Science, Massachusetts Institute of Technology
 
@@ -50,11 +50,13 @@ Research staff:
 
 * Diana Zhu, PhD Student, Massachusetts Institute of Technology
 
-* Julio Solís, WZB Berlin Social Science Center
-
 * Julian Cantor, WZB Berlin Social Science Center
 
+* Julio Solís, WZB Berlin Social Science Center
+
 * Rodrigo Cordova Ponce, Massachusetts Institute of Technology
+
+* Sisi Huang, WZB Berlin Social Science Center
 
 
 ## How To
