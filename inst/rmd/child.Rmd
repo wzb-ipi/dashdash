@@ -21,8 +21,43 @@ my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 
 my_subset <- filter(my_subset, variable=="hlth4")
 
-dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
+# extract vars' info from my_var
+vars <- pull(my_subset, variable)
+var_labs <- my_subset  %>% pull(short_label)
+names(var_labs) <- vars
 
+# No. of vars
+length_var <- length(vars)
+
+# select all vars from my_vars
+df2 <- df %>% select(all_of(vars))
+
+# check if vars with attributed labels
+types_df2 <- sapply(1:length(df2), function(x){class(df2[[x]])})
+if ("haven_labelled" %in% types_df2){
+  # convert all vars with attributed labels to factor
+  for(i in(1:length(df2))){
+    if(class(df2[[i]]) == "haven_labelled"){
+      df2[[i]] <- haven::as_factor(df2[[i]],levels = "labels")
+    }
+  }
+}else{
+  # set all vars as factor vars
+  df2[, vars] <- lapply(df[, vars], factor)
+}
+
+if(is.null(nrow)){nrow <- row_function(length_var)}
+
+# generate bar plot for each var, and store them into subplots list
+subplots <- lapply(1:length(vars), function(x){
+  ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+    geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
+    xlab(var_labs[names(var_labs) == vars[x]]) +
+    ylab("percent") +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1),
+          axis.title=element_text(size=8,face="bold"),
+          strip.text.y.left = element_text(angle = 0))+
+    ylim(0, 1)})
 
 library(sjlabelled)
 library(foreach)
@@ -53,7 +88,13 @@ hlth = ggplot(data = df_hlth,aes(x=option,y=Perc.)) +
   labs(y="% of Respondents",x="Option",title="Reasons to miss a visit to the healthcare center") + ylim(0,100)+
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
         
-hlth     
+subplots[["hlth"]] <- hlth
+
+nrow <- 2
+
+g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
+g
+     
 
 ```
 
@@ -61,7 +102,43 @@ hlth
 
 my_subset <- filter(my_subset, variable=="cov7")
 
-dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
+# extract vars' info from my_var
+vars <- pull(my_subset, variable)
+var_labs <- my_subset  %>% pull(short_label)
+names(var_labs) <- vars
+
+# No. of vars
+length_var <- length(vars)
+
+# select all vars from my_vars
+df2 <- df %>% select(all_of(vars))
+
+# check if vars with attributed labels
+types_df2 <- sapply(1:length(df2), function(x){class(df2[[x]])})
+if ("haven_labelled" %in% types_df2){
+  # convert all vars with attributed labels to factor
+  for(i in(1:length(df2))){
+    if(class(df2[[i]]) == "haven_labelled"){
+      df2[[i]] <- haven::as_factor(df2[[i]],levels = "labels")
+    }
+  }
+}else{
+  # set all vars as factor vars
+  df2[, vars] <- lapply(df[, vars], factor)
+}
+
+if(is.null(nrow)){nrow <- row_function(length_var)}
+
+# generate bar plot for each var, and store them into subplots list
+subplots <- lapply(1:length(vars), function(x){
+  ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+    geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
+    xlab(var_labs[names(var_labs) == vars[x]]) +
+    ylab("percent") +
+    theme(axis.text.x = element_text(angle = 90, hjust = 1),
+          axis.title=element_text(size=8,face="bold"),
+          strip.text.y.left = element_text(angle = 0))+
+    ylim(0, 1)})
 
 library(sjlabelled)
 library(foreach)
@@ -92,8 +169,12 @@ hlth = ggplot(data = df_hlth,aes(x=option,y=Perc.)) +
   labs(y="% of Respondents",x="Option",title="Reasons to miss a visit to the healthcare center") + ylim(0,100)+
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
 
-hlth     
+subplots[["hlth"]] <- hlth
 
+nrow <- 2
+
+g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
+g
 ```
 
 ```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 8, fig.width = 6, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
@@ -102,7 +183,7 @@ dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 6, fig.width = 6, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 8, fig.width = 6, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
 
 dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
 
