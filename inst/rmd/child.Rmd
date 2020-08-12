@@ -17,7 +17,9 @@ my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 ### Aggregates
 
 
-```{r, eval=(my_subset$family[[1]]=="Health-seeking"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Health-seeking"), echo = FALSE, fig.height = 8, message = FALSE, warning = FALSE, results = 'hide'}
+
+df <- my_data
 
 my_subset <- filter(my_subset, variable=="hlth4")
 
@@ -29,7 +31,7 @@ names(var_labs) <- vars
 # No. of vars
 length_var <- length(vars)
 
-# select all vars from my_vars
+# select all vars from my_subset
 df2 <- df %>% select(all_of(vars))
 
 # check if vars with attributed labels
@@ -46,23 +48,24 @@ if ("haven_labelled" %in% types_df2){
   df2[, vars] <- lapply(df[, vars], factor)
 }
 
+
+
 if(is.null(nrow)){nrow <- row_function(length_var)}
 
 # generate bar plot for each var, and store them into subplots list
 subplots <- lapply(1:length(vars), function(x){
   ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
     geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
-    xlab(var_labs[names(var_labs) == vars[x]]) +
+    labs(title = var_labs[names(var_labs) == vars[x]], x= NULL) +
     ylab("percent") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1),
           axis.title=element_text(size=8,face="bold"),
+          plot.title = element_text(hjust = 0.5),
           strip.text.y.left = element_text(angle = 0))+
     ylim(0, 1)})
 
 library(sjlabelled)
 library(foreach)
-
-df <- my_data
 
 hlth <- df %>% dplyr::select(starts_with("hlth5_"))  %>% names  
 
@@ -98,7 +101,9 @@ g
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Beliefs about Covid"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Beliefs about Covid"), echo = FALSE, fig.height = 8, message = FALSE, warning = FALSE, results = 'hide'}
+
+df <- my_data
 
 my_subset <- filter(my_subset, variable=="cov7")
 
@@ -110,7 +115,7 @@ names(var_labs) <- vars
 # No. of vars
 length_var <- length(vars)
 
-# select all vars from my_vars
+# select all vars from my_subset
 df2 <- df %>% select(all_of(vars))
 
 # check if vars with attributed labels
@@ -127,23 +132,24 @@ if ("haven_labelled" %in% types_df2){
   df2[, vars] <- lapply(df[, vars], factor)
 }
 
+
+
 if(is.null(nrow)){nrow <- row_function(length_var)}
 
 # generate bar plot for each var, and store them into subplots list
 subplots <- lapply(1:length(vars), function(x){
   ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
     geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
-    xlab(var_labs[names(var_labs) == vars[x]]) +
+    labs(title = var_labs[names(var_labs) == vars[x]], x= NULL) +
     ylab("percent") +
     theme(axis.text.x = element_text(angle = 90, hjust = 1),
           axis.title=element_text(size=8,face="bold"),
+          plot.title = element_text(hjust = 0.5),
           strip.text.y.left = element_text(angle = 0))+
     ylim(0, 1)})
 
 library(sjlabelled)
 library(foreach)
-
-df <- my_data
 
 hlth <- df %>% dplyr::select(starts_with("cov8_"))  %>% names  
 
