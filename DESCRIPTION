@@ -27,6 +27,7 @@ Depends:
   tidyselect,
   data.table,
   checkmate,
-  zoo
+  zoo,
+  gridExtra
 Suggests: 
     testthat
