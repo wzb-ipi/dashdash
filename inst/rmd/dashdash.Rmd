@@ -95,34 +95,18 @@ k  <- 1
 
 ```{r datatable, echo = FALSE, message = FALSE, warning = FALSE}
 
-my_data %>%
- group_by(id, date) %>% mutate(obs = n()) %>% ungroup %>%
- group_by(id, date)  %>%
- summarise_all( function(x)  mean(x, na.rm = T)) %>% 
- mutate_if(is.numeric, ~round(., 3)) %>%
-  datatable(caption = paste('Data to date,', group, 'level'), 
-          rownames = TRUE, 
-          extensions = c('Buttons', 'Scroller', 'ColReorder', 'FixedColumns'), 
-          options = list(colreorder = TRUE, 
-                         dom = 'Bfrtip',
-                         buttons = c('copy', 'csv', 'excel'),
-                         deferRender = TRUE,
-                         scrollY = 200,
-                         scroller = TRUE,
-                         scrollX = TRUE
-#          fixedColumns = list(leftColumns = 1)
-  )) 
+  my_data %>%
+  datatable(rownames = TRUE, 
+            extensions = c('Buttons', 'Scroller', 'ColReorder', 'FixedColumns'), 
+            options = list(colreorder = TRUE, 
+                           dom = 'Bfrtip',
+                           buttons = c('copy', 'csv', 'excel'),
+                           deferRender = TRUE,
+                           scrollY = 200,
+                           scroller = TRUE,
+                           scrollX = TRUE
+                           #          fixedColumns = list(leftColumns = 1)
+            )) 
+
 ```
 
-### Data summaries  {.tabset}
-
-**Technical**: Summary measures on all data.
-
-
-```{r summaries, echo = FALSE, message = FALSE, warning = FALSE}
-summary_table(my_data, my_vars)
-```
-
----
-
-Notes

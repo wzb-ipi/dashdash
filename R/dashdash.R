@@ -138,11 +138,6 @@ dashdash <- function(output_file,
   if(is.null(switch)) switch <- "y"
   pd <- ggplot2::position_dodge(pd_width)
 
-
-  # Data checks
-  if(!all(c("date", "id") %in% names(my_data))) stop("my_data should include date and id variables")
-  my_data <- mutate(my_data, date = as.Date(date))
-
   # Get Rmd paths
   dashRmd     <- system.file("rmd", "dashdash.Rmd", package = "dashdash")
   childRmd    <- system.file("rmd", "child.Rmd", package = "dashdash")
