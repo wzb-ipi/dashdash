@@ -52,6 +52,52 @@ hlth
 
 ```
 
+```{r, eval=(my_subset$family[[1]]=="Beliefs about Covid"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+
+library(sjlabelled)
+library(foreach)
+
+df <- my_data
+
+hlth <- df %>% dplyr::select(starts_with("cov8_"))  %>% names  
+
+df_hlth <-  data.frame(
+  option = get_label(df[,hlth]),
+  foreach(i=hlth,.combine="rbind") %do%{
+    eachqs = df[,i]
+    obs = nrow(eachqs)
+    yes = sum(eachqs==1,na.rm = TRUE)
+    no = sum(eachqs==0,na.rm=TRUE)
+    perc = round(yes/obs, 3)*100
+    c("obs." = obs,"mentioned"=yes,"not mentioned"=no,"Perc." = perc)
+  },
+  stringsAsFactors = FALSE)
+rownames(df_hlth) <- NULL
+
+df_hlth$option=factor(df_hlth$option, levels = df_hlth$option[order(df_hlth$Perc.)])
+
+hlth = ggplot(data = df_hlth,aes(x=option,y=Perc.)) + 
+  geom_bar(stat = 'identity') +
+  coord_flip() +
+  geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+  labs(y="% of Respondents",x="Option",title="Reasons to miss a visit to the healthcare center") + ylim(0,100)+
+  theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
+
+hlth     
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+
+dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+
+dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
+
+```
 
 ### Definitions of measures
 
