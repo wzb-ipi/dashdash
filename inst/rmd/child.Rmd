@@ -17,7 +17,12 @@ my_subset <- filter(my_vars, family == families[k] & !is.na(variable))
 ### Aggregates
 
 
-```{r, eval=(my_subset$family[[1]]=="Health-seeking"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Health-seeking"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+
+my_subset <- filter(my_subset, variable=="hlth4")
+
+dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
+
 
 library(sjlabelled)
 library(foreach)
@@ -52,7 +57,11 @@ hlth
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Beliefs about Covid"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Beliefs about Covid"), echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
+
+my_subset <- filter(my_subset, variable=="cov7")
+
+dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
 
 library(sjlabelled)
 library(foreach)
@@ -87,13 +96,13 @@ hlth
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 8, fig.width = 6, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
 
 dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 6, fig.width = 6, echo = FALSE, message = FALSE, warning = FALSE, results = 'hide'}
 
 dashdash:::all_bar_plot(my_data, my_subset, nrow = 2)
 
