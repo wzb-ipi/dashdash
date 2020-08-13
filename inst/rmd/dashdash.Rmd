@@ -20,48 +20,24 @@ knitr::opts_chunk$set(echo = FALSE)
 ***
 ## Motivation
 
-COVID-19 has caused major social, economic, and political disruptions around the world. This project examines the impact of COVID-19 in Uganda’s capital city, Kampala. We conduct a set of surveys with a representative sample of around 2700 Kampala residents to study the social, health, and economic impact of COVID-19, and to assess levels of knowledge about COVID-19, compliance with public health policies, and citizens’ perceptions of government performance. The surveys will be conducted by phone between June 2020 and September 2020 and results will be regularly updated on this dashboard as they become available.
+Economic coping with COVID-19 shutdown measures directly influence households’ ability to comply with public health policies such as social distancing, which may be especially challenging in a refugee setting. Researchers will collect phone survey data from participants of a USAID-funded Graduation study with refugees and neighboring communities of the Kamwenge refugee settlement in Western Uganda. The on-going study tests how Graduation-style interventions can help participants in a post-conflict setting of a refugee settlement improve food and nutrition security and self-reliance. The additional data in the context of COVID-19 will allow us to document to what extent the interventions help participants cope with extreme economy-wide shocks. We will also partner with local organizations to include survey questions that will be used directly to inform their local policy response to the pandemic.
 
 ## Team
 
-We are a team including experts in the fields of economics, health, and political science. Our team has experience conducting research across sub-Saharan Africa, and over 15 years of research experience in Uganda specifically. The survey is implemented by Innovations for Poverty Action (IPA) Uganda. This survey on COVID-19 builds on an existing project in collaboration with the Kampala Capital City Authority (KCCA). Our team members are listed below:
+* Lasse Brune
 
-PIs:
+* Nathanael Goldberg 
 
-* Manuel Bosancianu, research fellow, WZB Berlin Social Science Center
+* Dean Karlan 
 
-* Ana Garcia-Hernandez, research fellow, NOVA SBE and WZB Berlin Social Science Center
+* Doug Parkerson
 
-* Macartan Humphreys, Professor of Political Science, Columbia University and WZB Berlin
-
-* Paul Kiwanuka-Mukiibi, PS Consulting, Uganda
-
-* Melina Platas, Assistant Professor of Political Science, NYU Abu Dhabi
-
-* Leah Rosenzweig, Postdoctoral Fellow, Stanford University 
-
-* Lily Tsai, Ford Professor of Political Science, Massachusetts Institute of Technology
-
-Research staff:
-
-* Anthony Kamwesigye, Innovations for Poverty Action
-
-* Elly Atuhumuza, Innovations for Poverty Action
-
-* Diana Zhu, PhD Student, Massachusetts Institute of Technology
-
-* Julian Cantor, WZB Berlin Social Science Center
-
-* Julio Solís, WZB Berlin Social Science Center
-
-* Rodrigo Cordova Ponce, Massachusetts Institute of Technology
-
-* Sisi Huang, WZB Berlin Social Science Center
+* Chris Udry
 
 
 ## How To
 
-This dashboard presents results from the most recent surveys available. Click on each section to see results. The “Aggregates” tab presents results graphically, the “Current averages” tab shows the average value for each indicator, and the “Definitions of measures” tab shows the exact question wording and answer categories.
+This dashboard presents results from the most recent surveys available. Click on each section to see results. The “Aggregates” tab presents results graphically the “Definitions of measures” tab shows the exact question wording and answer categories.
 
 To download data or search for an indicator, select the “All data” tab. Data can be downloaded as a csv or Excel file.
 
