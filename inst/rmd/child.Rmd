@@ -189,7 +189,8 @@ rownames(df_mob) <-NULL
 p_mob <- ggplot(df_mob, aes(x=Difficulty,y=perc)) +
   geom_bar(stat="identity") +
   geom_text(aes(label=perc),size=3, vjust = -0.2) +
-  ylab("% of Respondents") + xlab("Difficulty in buying food") + ylim(0,100)+
+  labs(title = "Have you experienced difficulties in buying food?", x= NULL, y= "percent") +
+  ylim(0,100)+
   theme(axis.text.x = element_text(colour="black"), axis.text.y = element_text(colour="black"))
 
 mobdif <- df %>% dplyr::select(starts_with("reason_ntbuy_"))  %>% names  # get varnames of questions
@@ -218,7 +219,8 @@ p_mobdif <- ggplot(data = df_mobdif,aes(x=question,y=Perc.)) +
   geom_bar(stat = 'identity') +
   coord_flip() +
   geom_text(aes(label=Perc.),size=4, hjust = -0.2) +
-  ylab("% of Respondents") + xlab("") + ylim(0,100)+
+  labs(title = "Reasons of difficulty in buying food", x= NULL, y= "percent") +
+  ylim(0,100)+
   theme(axis.text.x = element_text(colour="black",size=11), axis.text.y = element_text(colour="black",size=11))
 
 grid.arrange(p_ask_help,p_rec_help,p_eat_few,p_no_eat,p_mob, p_mobdif, nrow=6)
@@ -341,15 +343,108 @@ grid.arrange(p_ownbsn, p_stillown, p_stbsn, p_bsnpol, nrow=4)
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Policy evaluation"), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::all_bar_plot(my_data, my_subset, nrow=4)
+```{r, eval=(my_subset$family[[1]]=="Policy evaluation"), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+
+df <- my_data
+nrow <- 4
+
+  # extract vars' info from my_var
+  vars <- pull(my_subset, variable)
+  var_labs <- my_subset  %>% pull(short_label)
+  names(var_labs) <- vars
+
+  # No. of vars
+  length_var <- length(vars)
+
+  # select all vars from my_vars
+  df2 <- df %>% select(all_of(vars))
+
+  # check if vars with attributed labels
+  types_df2 <- sapply(1:length(df2), function(x){class(df2[[x]])})
+  if ("haven_labelled" %in% types_df2){
+    # convert all vars with attributed labels to factor
+    for(i in(1:length(df2))){
+      if(class(df2[[i]]) == "haven_labelled"){
+        df2[[i]] <- haven::as_factor(df2[[i]],levels = "labels")
+      }
+    }
+  }else{
+    # set all vars as factor vars
+    df2[, vars] <- lapply(df[, vars], factor)
+  }
+
+
+
+  if(is.null(nrow)){nrow <- row_function(length_var)}
+
+  # generate bar plot for each var, and store them into subplots list
+  subplots <- lapply(1:length(vars), function(x){
+    ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) + coord_flip() +
+      scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits=c(0,1))+
+      labs(title = var_labs[names(var_labs) == vars[x]], x= NULL, y= "percent") +
+      theme(axis.text.x = element_text(angle = 0, hjust = 1),
+            axis.title=element_text(size=8,face="bold"),
+            plot.title = element_text(hjust = 0.5),
+            strip.text.y.left = element_text(angle = 0))})
+
+  # place all subplots in nrow
+  g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
+  g
+
+
 ```
 
 ```{r, eval=(my_subset$family[[1]]=="Psychological well-being"), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::all_bar_plot(my_data, my_subset, nrow=3)
+df <- my_data
+nrow <- 4
+
+  # extract vars' info from my_var
+  vars <- pull(my_subset, variable)
+  var_labs <- my_subset  %>% pull(short_label)
+  names(var_labs) <- vars
+
+  # No. of vars
+  length_var <- length(vars)
+
+  # select all vars from my_vars
+  df2 <- df %>% select(all_of(vars))
+
+  # check if vars with attributed labels
+  types_df2 <- sapply(1:length(df2), function(x){class(df2[[x]])})
+  if ("haven_labelled" %in% types_df2){
+    # convert all vars with attributed labels to factor
+    for(i in(1:length(df2))){
+      if(class(df2[[i]]) == "haven_labelled"){
+        df2[[i]] <- haven::as_factor(df2[[i]],levels = "labels")
+      }
+    }
+  }else{
+    # set all vars as factor vars
+    df2[, vars] <- lapply(df[, vars], factor)
+  }
+
+
+
+  if(is.null(nrow)){nrow <- row_function(length_var)}
+
+  # generate bar plot for each var, and store them into subplots list
+  subplots <- lapply(1:length(vars), function(x){
+    ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) + coord_flip() +
+      scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits=c(0,1))+
+      labs(title = var_labs[names(var_labs) == vars[x]], x= NULL, y= "percent") +
+      theme(axis.text.x = element_text(angle = 0, hjust = 1),
+            axis.title=element_text(size=8,face="bold"),
+            plot.title = element_text(hjust = 0.5),
+            strip.text.y.left = element_text(angle = 0))})
+
+  # place all subplots in nrow
+  g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
+  g
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Knowledge about disease"), echo = FALSE, fig.height = 8, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Knowledge about disease"), echo = FALSE, fig.height = 8, fig.width=9.5, message = FALSE, warning = FALSE, results = 'hide'}
 
 df <- my_data
 my_subset <- my_vars %>% filter(variable=="infected" |
@@ -384,16 +479,16 @@ if ("haven_labelled" %in% types_df2){
 
 if(is.null(nrow)){nrow <- row_function(length_var)}
 
-# generate bar plot for each var, and store them into subplots list
-subplots <- lapply(1:length(vars), function(x){
-  ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
-    geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
-    xlab(var_labs[names(var_labs) == vars[x]]) +
-    ylab("percent") +
-    theme(axis.text.x = element_text(angle = 90, hjust = 1),
-          axis.title=element_text(size=8,face="bold"),
-          strip.text.y.left = element_text(angle = 0))+
-    ylim(0, 1)})
+  # generate bar plot for each var, and store them into subplots list
+  subplots <- lapply(1:length(vars), function(x){
+    ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
+      scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits=c(0,1))+
+      labs(title = var_labs[names(var_labs) == vars[x]], x= NULL, y= "percent") +
+      theme(axis.text.x = element_text(angle = 0, hjust = 1),
+            axis.title=element_text(size=8,face="bold"),
+            plot.title = element_text(hjust = 0.5),
+            strip.text.y.left = element_text(angle = 0))})
 
 
 library(sjlabelled)

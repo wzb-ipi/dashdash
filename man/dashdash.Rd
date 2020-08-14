@@ -44,7 +44,7 @@ dashdash(
 
 \item{author}{String, names of authors.}
 
-\item{trend}{List. "daily" for high-frequency daily plots or "moving_average" for 3 day moving average.}
+\item{trend}{List. "daily" for high-frequency daily plots or "moving_average" for 3 day moving average. "aggregate" for aggregate averages.}
 
 \item{add_maps}{Option to add a map tab}
 

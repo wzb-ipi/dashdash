@@ -96,11 +96,7 @@ k  <- 1
 ```{r datatable, echo = FALSE, message = FALSE, warning = FALSE}
 
 my_data %>%
- group_by(id, date) %>% mutate(obs = n()) %>% ungroup %>%
- group_by(id, date)  %>%
- summarise_all( function(x)  mean(x, na.rm = T)) %>% 
- mutate_if(is.numeric, ~round(., 3)) %>%
-  datatable(caption = paste('Data to date,', group, 'level'), 
+  datatable(caption = paste("Data to date 01/08/2020"), 
           rownames = TRUE, 
           extensions = c('Buttons', 'Scroller', 'ColReorder', 'FixedColumns'), 
           options = list(colreorder = TRUE, 
