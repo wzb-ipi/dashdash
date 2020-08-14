@@ -226,7 +226,7 @@ p_fol_gov <- ggplot(varsDF) +
   geom_sf(aes(fill = folgovAvg10)) +
   labs(x = "Longitude",
        y = "Latitude",
-       title = "How many out of 10 follow gov't policies?") +
+       title = "How many out of 10 do you think follow gov't policies?") +
   theme_clean() +  
   scale_fill_viridis_c(name = "avg # out of 10",option="B",
                        limits=c(0,10),
