@@ -28,6 +28,9 @@ Depends:
   data.table,
   checkmate,
   zoo,
-  gridExtra
+  gridExtra,
+  sjlabelled,
+  haven,
+  foreach
 Suggests: 
     testthat

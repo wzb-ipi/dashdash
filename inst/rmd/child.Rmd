@@ -53,7 +53,7 @@ plot_mov_avg(my_data, my_subset, pd = pd, switch = switch)
 
 if("together" %in% colnames(my_subset))
 {  
-  together_vars <- filter(my_vars, !is.na(together))
+  together_vars <- filter(my_subset, !is.na(together))
   t <- together_plot(my_data, together_vars)
   t
   
