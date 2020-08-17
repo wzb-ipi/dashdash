@@ -75,7 +75,7 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
 #'
 #'
 together_plot <- function(df, my_vars){
-  together_vars <- filter(my_vars, !is.na(together))
+  together_vars <- my_vars
   prefix <- together_vars$together[[1]]
   common_question <-  together_vars$title[[1]]
 

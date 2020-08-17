@@ -50,7 +50,23 @@ plot_mov_avg(my_data, my_subset, pd = pd, switch = switch)
 ```
 
 ```{r, eval=(bar), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::all_bar_plot(my_data, my_subset, nrow=4)
+
+if("together" %in% colnames(my_subset))
+{  
+  together_vars <- filter(my_vars, !is.na(together))
+  t <- together_plot(my_data, together_vars)
+  t
+  
+  all_bar_vars <- filter(my_vars, is.na(together))
+  all_bar_plot(my_data, all_bar_vars, nrow=4)
+}
+
+if(!isTRUE("together" %in% colnames(my_subset)))
+{  
+  all_bar_plot(my_data, my_subset, nrow=4)
+}
+
+
 ```
 
 #### Broken down by `r group`
