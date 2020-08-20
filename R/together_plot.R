@@ -17,6 +17,15 @@ together_plot <- function(df, my_vars){
     },
     stringsAsFactors = FALSE)
 
+  if(""%in%df_together$question){
+    df_together <- rownames_to_column(df_together, var = "rowname")
+
+    together_vars <- select(together_vars, rowname=variable, short_label)
+    df_together <- left_join(df_together, together_vars, by="rowname") %>%
+      select(-question) %>%
+      rename(question=short_label)
+  }
+
   rownames(df_together) <- NULL
 
   df_together$question=factor(df_together$question, levels = df_together$question[order(df_together$Perc.)])
