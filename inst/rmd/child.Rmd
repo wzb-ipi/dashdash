@@ -32,7 +32,38 @@ if (!is.null(my_blog)){
 #### National aggregates
 
 
-```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 8, fig.width=9.5, message = FALSE, warning = FALSE, results = 'hide'}
+
+vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
+df <- my_data %>% select(id, date, all_of(vars_used))
+to_hist <- select_if(df, is.numeric) %>% names()
+
+
+histograms <- list()
+for (var in to_hist) {
+  title <- filter(my_subset, variable==var) %>% select(short_label)
+  units <- filter(my_subset, variable==var) %>% select(unit)
+  hist <- ggplot(df, aes_string(x=var)) + geom_histogram() + coord_flip() +
+    labs(title=paste(title),x=paste(units), y = "Density") + scale_x_continuous(labels = comma) +
+    theme(
+      plot.title = element_text(hjust = 0.5)
+    )
+  histograms[[var]] <- hist
+}
+
+to_bar <- select_if(df, is.factor) %>% select(-id) %>% names()
+my_vars_bar <- filter(my_subset, variable==to_bar)
+c <- dashdash:::create_bars(my_data, my_vars_bar)
+
+histograms <- c(histograms, c)
+
+nrow <- 3
+g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
+
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Knowledge and assessment"), echo = FALSE, fig.height = 8, fig.width=9.5, message = FALSE, warning = FALSE, results = 'hide'}
 
 vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
 df <- my_data %>% select(id, date, all_of(vars_used))
@@ -61,6 +92,10 @@ nrow <- 2
 g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
 
 
+```
+
+```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 8, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::bars_together(my_data, my_subset)
 ```
 
 
