@@ -29,63 +29,40 @@ if (!is.null(my_blog)){
 
 ### Time trends
 
-```{r, echo = FALSE}
-daily <- (isTRUE("daily" %in% trend) & !isTRUE("moving_average"%in% trend))
-mov_average <- (!isTRUE("daily" %in% trend) & isTRUE("moving_average"%in% trend))
-both <- (isTRUE("daily" %in% trend) & isTRUE("moving_average"%in% trend))
-bar <- (isTRUE("bar" %in% trend))
-```
-
 #### National aggregates
 
-```{asis, echo = TRUE, eval= !is.null(blog_aggregate) && nrow(blog_aggregate)!=0, code=blog_aggregate$entry_aggregates}
-```
 
-```{r, eval=(daily|both), echo = FALSE, fig.cap="Average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
-plot_aggregates(my_data, my_subset, pd = pd, switch = switch)
-```
+```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 13, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
 
-```{r, eval=(mov_average|both), echo = FALSE, fig.cap="3 day moving average with 95% confidence intervals", fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE}
-plot_mov_avg(my_data, my_subset, pd = pd, switch = switch)
-```
+vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
+df <- my_data %>% select(id, date, all_of(vars_used))
+to_hist <- select_if(df, is.numeric) %>% names()
 
-```{r, eval=(bar), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
 
-if("together" %in% colnames(my_subset))
-{  
-  together_vars <- filter(my_subset, !is.na(together))
-  t <- together_plot(my_data, together_vars)
-  t
-  
-  all_bar_vars <- filter(my_vars, is.na(together))
-  all_bar_plot(my_data, all_bar_vars, nrow=4)
+histograms <- list()
+for (var in to_hist) {
+  title <- filter(my_subset, variable==var) %>% select(short_label)
+  units <- filter(my_subset, variable==var) %>% select(unit)
+  hist <- ggplot(df, aes_string(x=var)) + geom_histogram() + coord_flip() +
+    labs(title=paste(title),x=paste(units), y = "Density") + scale_x_continuous(labels = comma) +
+    theme(
+      plot.title = element_text(hjust = 0.5)
+    )
+  histograms[[var]] <- hist
 }
 
-if(!isTRUE("together" %in% colnames(my_subset)))
-{  
-  all_bar_plot(my_data, my_subset, nrow=4)
-}
+to_bar <- select_if(df, is.factor) %>% select(-id) %>% names()
+my_vars_bar <- filter(my_subset, variable==to_bar)
+c <- dashdash:::create_bars(my_data, my_vars_bar)
+
+histograms <- c(histograms, c)
+
+nrow <- 2
+g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
 
 
 ```
 
-#### Broken down by `r group`
-
-```{asis, echo = TRUE, eval= !is.null(blog_disaggregate) && nrow(blog_disaggregate)!=0, code=blog_disaggregate$entry_disaggregates}
-
-```
-
-```{r, eval=(daily|both), echo = FALSE, fig.cap="Disaggregated average responses for a given day (dot) with 95% confidence intervals (whiskers)", message = FALSE, warning = FALSE}
-plot_disaggregates(my_data, my_subset, pd = pd, switch = switch)
-```
-
-```{r, eval=(mov_average|both), echo = FALSE, fig.cap="Disaggregated 3 day moving average with 95% confidence intervals", fig.height = nrow(my_subset)*1.42 + 1, fig.width = (unique(my_data$id) %>% length)*1.1, message = FALSE, warning = FALSE}
-plot_d_mov_avg(my_data, my_subset, pd = pd, switch = switch)
-```
-
-```{r, eval=(bar), echo = FALSE, fig.height = nrow(my_subset)*1.42 + 1, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::all_bar_plot(my_data, my_subset, nrow=4)
-```
 
 
 ### Current averages
