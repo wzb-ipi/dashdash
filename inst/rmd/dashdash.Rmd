@@ -26,7 +26,7 @@ COVID-19 has caused major social, economic, and political disruptions around the
 
 We are a team including experts in the fields of economics, health, and political science. Our team has experience conducting research across sub-Saharan Africa, and over 15 years of research experience in Uganda specifically. The survey is implemented by Innovations for Poverty Action (IPA) Uganda. This survey on COVID-19 builds on an existing project in collaboration with the Kampala Capital City Authority (KCCA). Our team members are listed below:
 
-PIs:
+**PIs:**
 
 * Manuel Bosancianu, research fellow, WZB Berlin Social Science Center
 
@@ -42,7 +42,7 @@ PIs:
 
 * Lily Tsai, Ford Professor of Political Science, Massachusetts Institute of Technology
 
-Research staff:
+**Research staff:**
 
 * Anthony Kamwesigye, Innovations for Poverty Action
 
@@ -57,6 +57,48 @@ Research staff:
 * Rodrigo Cordova Ponce, Massachusetts Institute of Technology
 
 * Sisi Huang, WZB Berlin Social Science Center
+
+**Survey team:**
+
+* Adede Deborah
+
+* Amanya Joshua
+
+* Amara Andrew
+
+* Atukwatse Naome
+
+* Atyera Martin
+
+* Bakashaba Kenneth
+
+* Esther K
+
+* Grace Nabitaka
+
+* Kabarungi Sophie
+
+* Kembabazi Allen
+
+* Louis Joseph
+
+* Mayanja Patrick
+
+* Mukunzi Ivan
+
+* Musa Muzei
+
+* Naigaga Sophia
+
+* Naluwooza Flavia Byaruhanga
+
+* Namagembe Angella
+
+* Namboowa Betty
+
+* Namuganga Sylvia
+
+* Ssenyonjo Julius
 
 
 ## How To
