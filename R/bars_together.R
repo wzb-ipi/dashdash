@@ -36,7 +36,9 @@ bars_together <- function(df, my_vars){
       # generate bar plot for each var, and store them into subplots list
       subplots <- lapply(1:length(vars), function(x){
         ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
-          geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) + coord_flip() +
+          geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
+          geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2) +
+          coord_flip() +
           scale_y_continuous(labels = scales::percent_format(accuracy = 1), limits=c(0,1))+
           labs(title = var_labs[names(var_labs) == vars[x]], x= NULL, y= "percent") +
           theme(axis.text.x = element_text(angle = 0, hjust = 1),

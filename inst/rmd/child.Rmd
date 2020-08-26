@@ -63,7 +63,7 @@ g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Knowledge and assessment"), echo = FALSE, fig.height = 8, fig.width=9.5, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Knowledge and assessment"), echo = FALSE, fig.height = 5, fig.width=7, message = FALSE, warning = FALSE, results = 'hide'}
 
 vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
 df <- my_data %>% select(id, date, all_of(vars_used))
@@ -94,11 +94,25 @@ g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 8, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 4, fig.width=6, message = FALSE, warning = FALSE, results = 'hide'}
 dashdash:::bars_together(my_data, my_subset)
 ```
 
+```{r, eval=(my_subset$family[[1]]=="Prevention measures"), echo = FALSE, fig.height = 9, fig.width=13, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::bars_together(my_data, my_subset)
+```
 
+```{r, eval=(my_subset$family[[1]]=="Response evaluation"),  echo = FALSE, fig.height = 4, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::bars_together(my_data, my_subset)
+```
+
+```{r, eval=(my_subset$family[[1]]=="Risk perception"), echo = FALSE, fig.height = 8, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::bars_together(my_data, my_subset)
+```
+
+```{r, eval=(my_subset$family[[1]]=="Symptoms"), echo = FALSE, fig.height = 5, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
+dashdash:::bars_together(my_data, my_subset)
+```
 
 ### Current averages
 
