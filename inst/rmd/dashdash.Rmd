@@ -46,13 +46,15 @@ We are a team including experts in the fields of economics, health, and politica
 
 * Anthony Kamwesigye, Innovations for Poverty Action
 
-* Elly Atuhumuza, Innovations for Poverty Action
-
 * Diana Zhu, PhD Student, Massachusetts Institute of Technology
+
+* Elly Atuhumuza, Innovations for Poverty Action
 
 * Julian Cantor, WZB Berlin Social Science Center
 
 * Julio Solís, WZB Berlin Social Science Center
+
+* Martin Atyera, Innovations for Poverty Action
 
 * Rodrigo Cordova Ponce, Massachusetts Institute of Technology
 
@@ -67,8 +69,6 @@ We are a team including experts in the fields of economics, health, and politica
 * Amara Andrew
 
 * Atukwatse Naome
-
-* Atyera Martin
 
 * Bakashaba Kenneth
 

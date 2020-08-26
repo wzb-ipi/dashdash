@@ -19,9 +19,7 @@ library(tidyverse)
 
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
-
-setwd("C:/Users/solis/Dropbox/KCCA_C19_dashboard")
-df<- read_dta("data/baseline_r1r2_0801.dta")
+df<- read_dta("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/data/baseline_r1r2_0801.dta")
 
 # take village ids from respondent id
 df$IDvill <- as.numeric(str_sub(df$resp_id,
@@ -54,7 +52,7 @@ df <- df %>%
 
 ##### read village shapefiles and create village ids -- to link with parish level data
 
-villageSHP <- read_sf("maps/Villages-20190522/KC-villages-20190522.shp")
+villageSHP <- read_sf("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/maps/Villages-20190522/KC-villages-20190522.shp")
 
 villageSHP$village[is.na(villageSHP$village)] <- "KAGATE"
 villageSHP <- villageSHP %>%
@@ -106,11 +104,11 @@ village2SHP <- st_transform(village2SHP,
 villageDF <- as.data.frame(village2SHP) %>% dplyr::select(-geometry)
 
 ## read parish level data & merge with village ID 
-parish <- read_sf("maps/Parishes/Parishes.shp") %>% dplyr::rename(parish = UBOS_PN_13) %>% 
+parish <- read_sf("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/maps/Parishes/Parishes.shp") %>% dplyr::rename(parish = UBOS_PN_13) %>% 
   dplyr::rename(district = UBOS_SN_06) %>% st_transform(crs = "+proj=longlat +datum=WGS84 +init=epsg:4326 +no_defs")
 parish$parish <- toupper(parish$parish)
 
-districtSHP <- read_sf("maps/uga_admbnd_2020_shp/uga_admbnda_adm4_2020.shp")%>% st_transform(crs = "+proj=longlat +datum=WGS84 +init=epsg:4326 +no_defs")
+districtSHP <- read_sf("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/maps/uga_admbnd_2020_shp/uga_admbnda_adm4_2020.shp")%>% st_transform(crs = "+proj=longlat +datum=WGS84 +init=epsg:4326 +no_defs")
 districtSHP <- districtSHP[which(districtSHP$ADM2_EN=="KAMPALA"),]
 districtSHP$ADM4_EN <- gsub(" Division","",districtSHP$ADM4_EN)
 
