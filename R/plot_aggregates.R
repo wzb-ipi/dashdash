@@ -75,8 +75,8 @@ plot_mov_avg <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch =
     summarise_all(list(~mean(., na.rm = TRUE))) %>%
     ungroup() %>%
     group_by(variable) %>%
-    mutate(mov_avg=rollapply(value, 3, mean, na.rm=TRUE, fill=NA, align='right'),
-           mov_sd=rollapply(value, 3, sd, na.rm=TRUE, fill=NA, align='right'),
+    mutate(mov_avg=rollapply(value, 5, mean, na.rm=TRUE, fill=NA, align='right'),
+           mov_sd=rollapply(value, 5, sd, na.rm=TRUE, fill=NA, align='right'),
            ymin=mov_avg-2*mov_sd,
            ymax=mov_avg+2*mov_sd) %>%
     left_join(ranges) %>%
@@ -91,7 +91,7 @@ plot_mov_avg <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch =
     facet_wrap(~variable, scales = "free_y", labeller = labeller(variable = var_labs), strip.position = "top", ncol = 2) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     scale_x_date(date_breaks = "10 days" , date_labels = "%d-%b")+
-    scale_y_continuous(name="3 day moving average")
+    scale_y_continuous(name="5 day moving average")
 
   # If not all NAs, add floor and ceiling as ghost layer
   if(!(all(is.na(df2$max)))) g <- g + geom_blank(aes(x=df2$date, y=df2$max))

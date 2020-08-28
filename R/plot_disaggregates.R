@@ -36,7 +36,7 @@ plot_disaggregates <- function(df, my_vars, pd = ggplot2::position_dodge(.1), sw
                  labeller = labeller(variable = var_labs),
                  switch = switch) +
       theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-    scale_x_date(date_breaks = "10 days" , date_labels = "%d-%b")
+    scale_x_date(date_breaks = "20 days" , date_labels = "%d-%b")
 
 
   # Add floor and ceiling as ghost layer
@@ -74,8 +74,8 @@ plot_d_mov_avg <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch
     summarise_all(list(~mean(., na.rm = TRUE))) %>%
     ungroup() %>%
     group_by(variable) %>%
-    mutate(mov_avg=rollapply(value, 3, mean, na.rm=TRUE, fill=NA, align='right'),
-           mov_sd=rollapply(value, 3, sd, na.rm=TRUE, fill=NA, align='right'),
+    mutate(mov_avg=rollapply(value, 5, mean, na.rm=TRUE, fill=NA, align='right'),
+           mov_sd=rollapply(value, 5, sd, na.rm=TRUE, fill=NA, align='right'),
            ymin=mov_avg-2*mov_sd,
            ymax=mov_avg+2*mov_sd) %>%
     left_join(ranges) %>%
@@ -93,8 +93,8 @@ plot_d_mov_avg <- function(df, my_vars, pd = ggplot2::position_dodge(.1), switch
                switch = switch) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1),
           strip.text.y = element_text(size = 6)) +
-    scale_x_date(date_breaks = "10 days" , date_labels = "%d-%b")+
-    scale_y_continuous(name="3 day moving average")
+    scale_x_date(date_breaks = "20 days" , date_labels = "%d-%b")+
+    scale_y_continuous(name="5 day moving average")
 
 
   # Add floor and ceiling as ghost layer
