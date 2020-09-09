@@ -33,11 +33,13 @@ together_plot <- function(df, my_vars){
   p_together <- ggplot(data = df_together,aes(x=question,y=Perc.)) +
     geom_bar(stat = 'identity') +
     coord_flip() +
-    geom_text(aes(label=Perc.),size=3, hjust = -0.2) +
+    geom_text(aes(label=Perc.), hjust = -0.2) +
     ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
     theme(axis.text.x = element_text(colour="black"),
           axis.text.y = element_text(colour="black"),
-          plot.title = element_text(size = 10, face = "bold")) +
-    ggtitle(paste0(common_question))
+          plot.title = element_text(hjust = 0.5, face = "bold"),
+          text = element_text(size=20)) +
+    ggtitle(paste0(common_question))+
+    theme_minimal()
 
 }
