@@ -29,175 +29,52 @@ if (!is.null(my_blog)){
 
 ### Aggregates
 
+```{r, eval=(my_subset$family[[1]]=="Aid"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
-```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
-
-vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
-df <- my_data %>% select(id, date, all_of(vars_used))
-to_hist <- select_if(df, is.numeric) %>% names()
-
-
-histograms <- list()
-for (var in to_hist) {
-  title <- filter(my_subset, variable==var) %>% select(short_label)
-  units <- filter(my_subset, variable==var) %>% select(unit)
-  hist <- ggplot(df, aes_string(x=var)) + geom_histogram() + coord_flip() +
-    labs(title=paste(title),x=paste(units), y = "Density") + 
-    scale_x_continuous(labels = comma, n.breaks = 7) +
-    theme(plot.title = element_text(hjust = 0.5))+ 
-    theme_minimal() 
-  histograms[[var]] <- hist
-}
-
-to_bar <- select_if(df, is.factor) %>% select(-id) %>% names()
-my_vars_bar <- filter(my_subset, variable==to_bar)
-c <- dashdash:::create_bars(my_data, my_vars_bar)
-
-histograms <- c(histograms, c)
-
-nrow <- 3
-g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
-
+all_bar_plot(my_data, my_subset, nrow=5)
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Knowledge and assessment"), echo = FALSE, fig.height = 5, fig.width=7, message = FALSE, warning = FALSE, results = 'hide'}
 
-vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
-df <- my_data %>% select(id, date, all_of(vars_used))
-to_hist <- select_if(df, is.numeric) %>% names()
+```{r, eval=(my_subset$family[[1]]=="Daily behavior"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
-
-histograms <- list()
-for (var in to_hist) {
-  title <- filter(my_subset, variable==var) %>% select(short_label)
-  units <- filter(my_subset, variable==var) %>% select(unit)
-  hist <- ggplot(df, aes_string(x=var)) + geom_histogram() + coord_flip() +
-    labs(title=paste(title),x=paste(units), y = "Density") + 
-    scale_x_continuous(labels = comma, n.breaks = 7) +
-    theme(plot.title = element_text(hjust = 0.5)) + theme_minimal()
-  histograms[[var]] <- hist
-}
-
-to_bar <- select_if(df, is.factor) %>% select(-id) %>% names()
-my_vars_bar <- filter(my_subset, variable==to_bar)
-c <- dashdash:::create_bars(my_data, my_vars_bar)
-
-histograms <- c(histograms, c)
-
-nrow <- 2
-g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
-
-
-```
-
-```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 4, fig.width=9, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::bars_together(my_data, my_subset)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Prevention measures"), echo = FALSE, fig.height = 15, fig.width=16, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::bars_together(my_data, my_subset, nrow=5)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Response evaluation"),  echo = FALSE, fig.height = 15, fig.width=16, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::bars_together(my_data, my_subset, nrow=3)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Risk perception"), echo = FALSE, fig.height = 8, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::bars_together(my_data, my_subset, nrow=5)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Symptoms"), echo = FALSE, fig.height = 5, fig.width=7, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::bars_together(my_data, my_subset, nrow=2)
-```
-
-### By state
-
-```{r, eval=(my_subset$family[[1]]=="Food security"), echo = FALSE, fig.height = 4, fig.width=9, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::het_bar_all(my_data, my_subset)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Prevention measures"), echo = FALSE, fig.height = 15, fig.width=16, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::het_bar_all(my_data, my_subset, nrow=5)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Response evaluation"),  echo = FALSE, fig.height = 15, fig.width=16, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::het_bar_all(my_data, my_subset, nrow=3)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Risk perception"), echo = FALSE, fig.height = 10, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::het_bar_all(my_data, my_subset, nrow=5)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Symptoms"), echo = FALSE, fig.height = 5, fig.width=7, message = FALSE, warning = FALSE, results = 'hide'}
-dashdash:::het_bar_all(my_data, my_subset, nrow=3)
-```
-
-```{r, eval=(my_subset$family[[1]]=="Economic situation"), echo = FALSE, fig.height = 7, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
-vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
-df <- my_data %>% select(id, date, all_of(vars_used))
-to_hist <- select_if(df, is.numeric) %>% names()
-
-histograms <- list()
-
-for (var in to_hist) {
-  title <- filter(my_subset, variable==var) %>% select(short_label)
-  units <- filter(my_subset, variable==var) %>% select(unit)
-  hist <- ggplot(df, aes_string(x=var, color="id", fill="id")) +
-    geom_histogram(position="dodge")+ 
-    coord_flip() +
-    labs(title=paste(title),x=paste(units), y = "Density", fill = "State", color="") + 
-    scale_x_continuous(labels = comma, n.breaks = 7) +
-    theme(plot.title = element_text(hjust = 0.5))+ 
-    theme_minimal() +
-    scale_color_grey()+
-    scale_fill_grey(labels = c("Delta", "Edo")) + guides(color = FALSE)
-  histograms[[var]] <- hist
-}
-
-to_bar <- select_if(df, is.factor) %>% select(-id) %>% names()
-my_vars_bar <- filter(my_subset, variable==to_bar)
-c <- dashdash:::het_bar_plot(my_data, my_vars_bar)
-
-histograms <- c(histograms, c)
-
-nrow <- 3
-g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
+all_bar_plot(my_data, my_subset, nrow=6)
 
 
 ```
 
 
-```{r, eval=(my_subset$family[[1]]=="Knowledge and assessment"), echo = FALSE, fig.height = 7, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
-vars_used  <- my_subset %>% filter(!is.na(variable)) %>% pull(variable)
-df <- my_data %>% select(id, date, all_of(vars_used))
-to_hist <- select_if(df, is.numeric) %>% names()
+```{r, eval=(my_subset$family[[1]]=="Economic impact"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
-histograms <- list()
+all_bar_plot(my_data, my_subset, nrow=2)
 
-for (var in to_hist) {
-  title <- filter(my_subset, variable==var) %>% select(short_label)
-  units <- filter(my_subset, variable==var) %>% select(unit)
-  hist <- ggplot(df, aes_string(x=var, color="id", fill="id")) +
-    geom_histogram(position="dodge")+ 
-    coord_flip() +
-    labs(title=paste(title),x=paste(units), y = "Density", fill = "State", color="") + 
-    scale_x_continuous(labels = comma, n.breaks = 7) +
-    theme(plot.title = element_text(hjust = 0.5))+ 
-    theme_minimal() +
-    scale_color_grey()+
-    scale_fill_grey(labels = c("Delta", "Edo")) + guides(color = FALSE)
-  histograms[[var]] <- hist
-}
+```
 
-to_bar <- select_if(df, is.factor) %>% select(-id) %>% names()
-my_vars_bar <- filter(my_subset, variable==to_bar)
-c <- dashdash:::het_bar_plot(my_data, my_vars_bar)
 
-histograms <- c(histograms, c)
+```{r, eval=(my_subset$family[[1]]=="Government performance"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
-nrow <- 2
-g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
+all_bar_plot(my_data, my_subset, nrow=2)
+
+```
+
+
+```{r, eval=(my_subset$family[[1]]=="Health"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+
+all_bar_plot(my_data, my_subset, nrow=3)
+
+```
+
+
+```{r, eval=(my_subset$family[[1]]=="Mask behavior and perception"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+
+all_bar_plot(my_data, my_subset, nrow=4)
+
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Trust"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+
+all_bar_plot(my_data, my_subset, nrow=2)
 
 
 ```

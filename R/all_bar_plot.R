@@ -57,7 +57,7 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
       labs(title = var_labs[names(var_labs) == vars[x]], x= NULL, y= "percent") +
       theme(axis.text.x = element_text(angle = 0, hjust = 1),
             axis.title=element_text(face="bold"),
-            plot.title = element_text(hjust = 0.5),
+            plot.title = element_text(hjust = 0.5, size=2),
             strip.text.y.left = element_text(angle = 0))+
       theme_minimal()})
 
