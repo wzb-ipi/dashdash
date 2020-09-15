@@ -4,7 +4,7 @@ together_plot <- function(df, my_vars){
   common_question <- split_every(together_vars$title[[1]], 6, pattern = " ")
   common_question <- paste(common_question,collapse="\n")
 
-  together <- df %>% dplyr::select(starts_with(paste0(prefix)))  %>% names
+  together <- df %>% dplyr::select(together_vars$variable) %>% names
 
   df_together <- data.frame(
     question = get_label(df[,together]),
@@ -36,6 +36,7 @@ together_plot <- function(df, my_vars){
     coord_flip() +
     geom_text(aes(label=paste0(Perc.,"%")), hjust = -0.2, size=3) +
     ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
+    scale_y_continuous(labels = function(x) paste0(x, "%"), limits=c(0,100))+
     theme(axis.text.x = element_text(colour="black"),
           axis.text.y = element_text(colour="black"),
           plot.title = element_text(hjust = 0.5, face = "bold", size = .4),
