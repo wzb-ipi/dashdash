@@ -43,3 +43,18 @@ together_plot <- function(df, my_vars){
     theme_minimal()
 
 }
+
+#' @param x Vector
+#' @param n Number of elements in each vector
+#' @param pattern Pattern to split on
+#' @param ... Passed to strsplit
+#' @param collapse String to collapse the result into
+split_every <- function(x, n, pattern, collapse = pattern, ...) {
+  x_split <- strsplit(x, pattern, perl = TRUE, ...)[[1]]
+  out <- character(ceiling(length(x_split) / n))
+  for (i in seq_along(out)) {
+    entry <- x_split[seq((i - 1) * n + 1, i * n, by = 1)]
+    out[i] <- paste0(entry[!is.na(entry)], collapse = collapse)
+  }
+  out
+}
