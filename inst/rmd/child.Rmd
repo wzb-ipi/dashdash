@@ -29,14 +29,14 @@ if (!is.null(my_blog)){
 
 ### Aggregates
 
-```{r, eval=(my_subset$family[[1]]=="Aid"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Aid"), echo = FALSE, fig.height = 10, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
-all_bar_plot(my_data, my_subset, nrow=5)
+bars_together(my_data, my_subset, nrow=5)
 
 ```
 
 
-```{r, eval=(my_subset$family[[1]]=="Daily behavior"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Daily behavior"), echo = FALSE, fig.height = 18, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
 all_bar_plot(my_data, my_subset, nrow=6)
 
@@ -44,14 +44,14 @@ all_bar_plot(my_data, my_subset, nrow=6)
 ```
 
 
-```{r, eval=(my_subset$family[[1]]=="Economic impact"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Economic impact"), echo = FALSE, fig.height = 5, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
 all_bar_plot(my_data, my_subset, nrow=2)
 
 ```
 
 
-```{r, eval=(my_subset$family[[1]]=="Government performance"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Government performance"), echo = FALSE, fig.height = 5, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
 all_bar_plot(my_data, my_subset, nrow=2)
 
@@ -67,37 +67,18 @@ all_bar_plot(my_data, my_subset, nrow=3)
 
 ```{r, eval=(my_subset$family[[1]]=="Mask behavior and perception"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
-all_bar_plot(my_data, my_subset, nrow=4)
+bars_together(my_data, my_subset, nrow=4)
 
 
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Trust"), echo = FALSE, fig.height = 8, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Trust"), echo = FALSE, fig.height = 5, fig.width=11, message = FALSE, warning = FALSE, results = 'hide'}
 
 all_bar_plot(my_data, my_subset, nrow=2)
 
 
 ```
 
-### Current averages
-
-```{r, echo = FALSE, message = FALSE}
-
-current_means <- get_current_means(my_data, my_subset, recent = 1)
-
-
-kable(current_means, caption = paste("Mean responses in each ", group, " (most recent date)"), 
-        col.names = c(group, "Date", my_subset$short_label), 
-        digits = 2)
-
-```
-
-
-<!-- Optionally add maps -->
-
-```{r, child = add_mapsRmd, echo = FALSE, eval = add_maps}
-
-```
 
 
 ### Definitions of measures
