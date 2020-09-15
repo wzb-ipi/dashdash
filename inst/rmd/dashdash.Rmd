@@ -111,7 +111,7 @@ To download data or search for an indicator, select the “All data” tab. Data
 For comments or questions on the dashboard, please email Julio Solís at  julio.solis@wzb.eu.
 
 ***
----
+
 
 ```{r, warning = FALSE, message = FALSE, echo = FALSE, include = FALSE}
 k  <- 1
