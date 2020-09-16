@@ -162,17 +162,18 @@ het_together <- function(df, my_vars){
 
   df_together = do.call(rbind, by_id_df)
 
-  p_together <- ggplot(data = df_together,aes(x=question,y=Perc.)) +
-    geom_bar(stat = 'identity') +
+  p_together <- ggplot(data = df_together,aes(x=question,y=Perc., fill=id)) +
+    geom_bar(stat = 'identity', position = position_dodge()) +
     coord_flip() +
-    geom_text(aes(label=paste0(Perc.,"%")), hjust = -0.2, size=3) +
-    ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
-    scale_y_continuous(labels = function(x) paste0(x, "%"), limits=c(0,100))+
+    geom_text(aes(label=paste0(Perc., "%")), hjust = -0.2, position = position_dodge(.9), size=3) +
+    ylab("% of Respondents") + xlab("Option") +
+    scale_y_continuous(labels = function(y) paste0(y, "%"), limits=c(0,100))+
     theme(axis.text.x = element_text(colour="black"),
           axis.text.y = element_text(colour="black"),
           plot.title = element_text(hjust = 0.5, face = "bold", size = .4),
           text = element_text(size=20)) +
-    ggtitle(paste0(common_question))+
+    ggtitle(paste0(common_question)) +
+    scale_fill_manual(name = "State", labels = c("Delta", "Edo"), values=c("#999999", "black"))+
     theme_minimal()
 
 
