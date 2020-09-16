@@ -39,13 +39,17 @@ to_hist <- select_if(df, is.numeric) %>% names()
 
 histograms <- list()
 for (var in to_hist) {
+  
   title <- filter(my_subset, variable==var) %>% select(short_label)
   units <- filter(my_subset, variable==var) %>% select(unit)
+  
+  question_label <- split_every(title$short_label, 6, pattern = " ")
+  question_label <- paste(question_label,collapse="\n")
+  
   hist <- ggplot(df, aes_string(x=var)) + geom_histogram() + coord_flip() +
-    labs(title=paste(title),x=paste(units), y = "Density") + 
+    labs(title=paste(question_label),x=paste(units), y = "Density") + 
     scale_x_continuous(labels = comma, n.breaks = 7) +
-    theme(plot.title = element_text(hjust = 0.5))+ 
-    theme_minimal() 
+    theme(plot.title = element_text(hjust = 0.5)) + theme_minimal()
   histograms[[var]] <- hist
 }
 
@@ -70,10 +74,15 @@ to_hist <- select_if(df, is.numeric) %>% names()
 
 histograms <- list()
 for (var in to_hist) {
+
   title <- filter(my_subset, variable==var) %>% select(short_label)
   units <- filter(my_subset, variable==var) %>% select(unit)
+  
+  question_label <- split_every(title$short_label, 6, pattern = " ")
+  question_label <- paste(question_label,collapse="\n")
+  
   hist <- ggplot(df, aes_string(x=var)) + geom_histogram() + coord_flip() +
-    labs(title=paste(title),x=paste(units), y = "Density") + 
+    labs(title=paste(question_label),x=paste(units), y = "Density") + 
     scale_x_continuous(labels = comma, n.breaks = 7) +
     theme(plot.title = element_text(hjust = 0.5)) + theme_minimal()
   histograms[[var]] <- hist
@@ -103,7 +112,7 @@ dashdash:::bars_together(my_data, my_subset, nrow=5)
 dashdash:::bars_together(my_data, my_subset, nrow=3)
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Risk perception"), echo = FALSE, fig.height = 8, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Risk perception"), echo = FALSE, fig.height = 11, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
 dashdash:::bars_together(my_data, my_subset, nrow=5)
 ```
 
