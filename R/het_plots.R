@@ -90,11 +90,13 @@ het_bar_plot <- function(df, my_vars){
     question_label <- split_every(var_labs[names(var_labs) == vars[x]], 6, pattern = " ")
     question_label <- paste(question_label,collapse="\n")
 
-    ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
-      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
-      geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2) +
+    ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]], fill=id))+
+      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE, position = position_dodge()) +
+      geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2,
+                position = position_dodge(.9)) +
       coord_flip() +
       scale_y_continuous(labels = scales::percent_format(accuracy = .01), limits=c(0,1))+
+      scale_fill_manual(name = "State", labels = c("Delta", "Edo"), values=c("#999999", "black")) +
       labs(title = question_label, x= NULL, y= "percent") +
       theme(axis.text.x = element_text(angle = 0, hjust = 1),
             axis.title=element_text(face="bold"),
