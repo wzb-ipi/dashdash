@@ -104,7 +104,7 @@ g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
 dashdash:::bars_together(my_data, my_subset)
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Prevention measures"), echo = FALSE, fig.height = 50, fig.width=18, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Prevention measures"), echo = FALSE, fig.height = 50, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
 dashdash:::bars_together(my_data, my_subset, nrow=9)
 ```
 
@@ -126,7 +126,7 @@ dashdash:::bars_together(my_data, my_subset, nrow=2)
 dashdash:::het_bar_all(my_data, my_subset)
 ```
 
-```{r, eval=(my_subset$family[[1]]=="Prevention measures"), echo = FALSE, fig.height = 50, fig.width=18, message = FALSE, warning = FALSE, results = 'hide'}
+```{r, eval=(my_subset$family[[1]]=="Prevention measures"), echo = FALSE, fig.height = 50, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
 dashdash:::het_bar_all(my_data, my_subset, nrow=9)
 ```
 

@@ -92,10 +92,10 @@ het_bar_plot <- function(df, my_vars){
 
     ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]], fill=id))+
       geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE, position = position_dodge()) +
-      geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2,
+      geom_text(aes(label = scales::percent(signif((..count..)/sum(..count..), 2)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2,
                 position = position_dodge(.9)) +
       coord_flip() +
-      scale_y_continuous(labels = scales::percent_format(accuracy = .01), limits=c(0,1))+
+      scale_y_continuous(labels = scales::percent_format(), limits=c(0,1))+
       scale_fill_manual(name = "State", labels = c("Delta", "Edo"), values=c("#999999", "black")) +
       labs(title = question_label, x= NULL, y= "percent") +
       theme(axis.text.x = element_text(angle = 0, hjust = 1),
@@ -165,22 +165,7 @@ het_together <- function(df, my_vars){
   p_together <- ggplot(data = df_together,aes(x=question,y=Perc., fill=id)) +
     geom_bar(stat = 'identity', position = position_dodge()) +
     coord_flip() +
-    geom_text(aes(label=paste0(Perc., "%")), hjust = -0.2, position = position_dodge(.9), size=3) +
-    ylab("% of Respondents") + xlab("Option") +
-    scale_y_continuous(labels = function(y) paste0(y, "%"), limits=c(0,100))+
-    theme(axis.text.x = element_text(colour="black"),
-          axis.text.y = element_text(colour="black"),
-          plot.title = element_text(hjust = 0.5, face = "bold", size = .4),
-          text = element_text(size=20)) +
-    ggtitle(paste0(common_question)) +
-    scale_fill_manual(name = "State", labels = c("Delta", "Edo"), values=c("#999999", "black"))+
-    theme_minimal()
-
-
-  p_together <- ggplot(data = df_together,aes(x=question,y=Perc., fill=id)) +
-    geom_bar(stat = 'identity', position = position_dodge()) +
-    coord_flip() +
-    geom_text(aes(label=Perc.), hjust = -0.2, position = position_dodge(.9), size=3) +
+    geom_text(aes(label=paste0(round(Perc.,2),"%")), hjust = -0.2, position = position_dodge(.9), size=3) +
     ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
     scale_y_continuous(labels = function(x) paste0(x, "%"), limits=c(0,100))+
     theme(axis.text.x = element_text(colour="black"),

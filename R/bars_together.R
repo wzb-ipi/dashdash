@@ -41,9 +41,9 @@ bars_together <- function(df, my_vars, nrow=NULL){
 
         ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
           geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
-          geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2) +
+          geom_text(aes(label = scales::percent(signif((..count..)/sum(..count..), 3)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2) +
           coord_flip() +
-          scale_y_continuous(labels = scales::percent_format(accuracy = .01), limits=c(0,1))+
+          scale_y_continuous(labels = scales::percent_format(accuracy = .1), limits=c(0,1))+
           labs(title = question_label, x= NULL, y= "percent") +
           theme(axis.text.x = element_text(angle = 0, hjust = 1),
                 axis.title=element_text(face="bold"),
