@@ -7,41 +7,268 @@ output: html_document
 
 ```{r, echo = FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-
+library(haven)
+library(sf)
+library(ggthemes)
+library(stringr)
+library(dplyr)
+library(tidyverse)
 ```
 
 ### Maps
 
-Showing most recent data available for each `r group`.
 
-`r if(scale_vars) paste("Each map shows the *relative position* of each", group, "--- a score of 0 means average, and a score of 2 or -2 means far above or below average.")`
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+df<- read_dta("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/data/baseline_r1r2_0801.dta")
+
+# take village ids from respondent id
+df$IDvill <- as.numeric(str_sub(df$resp_id,
+                                start = 1,
+                                end  = 3))
+
+## create villag-level aggregate stats for relevant measures
+df$fol_gov_guide[which(df$fol_gov_guide==999|df$fol_gov_guide==777|df$fol_gov_guide==-999)] <- NA
+df$gov_dist_aid[which(df$gov_dist_aid==777|df$gov_dist_aid==999)]<-NA
+df$social_dist[which(df$social_dist==999)] <- NA
+df$compl_nsh_wm_sd <- 0
+df$compl_nsh_wm_sd[is.na(df$social_dist_comp)] <- NA
+df$compl_nsh_wm_sd[which(df$social_dist_comp==1 & df$not_shakehand==1 & df$wear_mask==1)] <- 1
+df$food_aid <- 0
+df$food_aid[which(df$pro_what =="")] <- NA
+df$food_aid[which(df$pro_what == "Extend Food Aid")] <- 1
 
 
-```{r, message = FALSE, warning = FALSE, echo = FALSE, fig.cap = paste("Distribution of", ifelse(scale_vars, "standardized", "untransformed"), "variables")}
+df <- df %>% 
+  mutate(sat_kcca = case_when(sat_kcca %in% c("1","2") ~ 1,
+                              sat_kcca %in% c("3","4","") ~ 0),
+         mob_restr = case_when(mob_restr==1 ~ 1,
+                               mob_restr %in% c(2,777) ~ 0),
+         unable_visit = case_when(unable_visit ==1 ~ 1,
+                                  unable_visit ==2 ~ 0)) %>% 
+  dplyr::select(c(resp_id, caseid,today,today2,IDvill,sat_kcca,mob_restr,fol_gov_guide,gov_dist_aid,social_dist,
+           social_dist_comp,compl_nsh_wm_sd,food_aid,unable_visit,wear_mask))
 
-  vars <- pull(my_subset, variable)
-  var_labs <- my_subset  %>% pull(short_label)
-  names(var_labs) <- vars
 
-  
-scale2 <- function(x, na.rm = FALSE) {
-  x <- as.numeric(x)
- (x - mean(x, na.rm = na.rm)) / sd(x, na.rm)}
 
-par(mar=c(0,0,0,0))
+##### read village shapefiles and create village ids -- to link with parish level data
 
-current_means_map <- current_means %>% data.frame()
-if(scale_vars)
-    current_means_map <- current_means_map %>% 
-      mutate_at(my_subset$variable, scale2)
+villageSHP <- read_sf("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/maps/Villages-20190522/KC-villages-20190522.shp")
 
-df_map <- left_join(shp_df, current_means_map)  %>% select(-date) %>%
-  reshape2::melt(id.vars= c("id", "long", "lat", "order", "hole", "piece", "group"))
+villageSHP$village[is.na(villageSHP$village)] <- "KAGATE"
+villageSHP <- villageSHP %>%
+  dplyr::select(-c(House_Numb, gnamedescr, shape_leng, 
+                   Parent_gid, Characteri, table_name, created_by, 
+                   created_da, Last_updat, Last_upd_1, Shape_Le_1, 
+                   cxp_v, cyp_v)) %>%
+  dplyr::rename(long_v = cx_v,
+         lat_v = cy_v)
 
-ggplot() +
-  geom_polygon(data = df_map, 
-               aes( x = long, y = lat,  group = group, fill=value), color="white") +
-  theme_void() + coord_map() + facet_wrap(~variable, labeller = labeller(variable = var_labs))
+# Re-create IDs
+# Creating IDs for division
+divisionVEC <- unique(villageSHP$division)
+villageSHP$ID1 <- NA
+for (i in 1:length(divisionVEC)) {
+  villageSHP$ID1[villageSHP$division==divisionVEC[i]] <- as.numeric(sprintf("%0*d", 1, i))
+}
+rm(divisionVEC)
 
+#Creating IDs for parish
+parishVEC <- unique(villageSHP$parish)
+villageSHP$ID2 <- NA
+for (i in 1:length(parishVEC)) {
+  villageSHP$ID2[villageSHP$parish==parishVEC[i]] <- 10 + as.numeric(sprintf("%0*d", 2, i))
+}
+rm(parishVEC)
+
+#Creating IDs for village, using 'gid' because some village names are the same
+villageVEC <- 1:dim(villageSHP)[1]
+villageSHP$IDvill_short <- 100 + as.numeric(sprintf("%0*d", 3, villageVEC))
+rm(villageVEC, i)
+
+villageSHP <- villageSHP %>%
+  mutate(IDvill_complete = paste0(ID1, paste0(ID2, IDvill_short))) %>%
+  dplyr::select(-c(ID1, ID2, Type, geom))
+
+
+#### MERGE DATA ####
+# Rename shapefile key variable
+villageSHP <- villageSHP %>% 
+  dplyr::rename(IDvill = IDvill_short)
+
+village2SHP <- left_join(villageSHP, df,
+                         by = "IDvill")
+
+# Convert projection
+village2SHP <- st_transform(village2SHP, 
+                            crs = "+proj=longlat +datum=WGS84 +init=epsg:4326 +no_defs")
+villageDF <- as.data.frame(village2SHP) %>% dplyr::select(-geometry)
+
+## read parish level data & merge with village ID 
+parish <- read_sf("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/maps/Parishes/Parishes.shp") %>% dplyr::rename(parish = UBOS_PN_13) %>% 
+  dplyr::rename(district = UBOS_SN_06) %>% st_transform(crs = "+proj=longlat +datum=WGS84 +init=epsg:4326 +no_defs")
+parish$parish <- toupper(parish$parish)
+
+districtSHP <- read_sf("C:/Users/solis/Dropbox/WZB/KCCA_C19_dashboard/maps/uga_admbnd_2020_shp/uga_admbnda_adm4_2020.shp")%>% st_transform(crs = "+proj=longlat +datum=WGS84 +init=epsg:4326 +no_defs")
+districtSHP <- districtSHP[which(districtSHP$ADM2_EN=="KAMPALA"),]
+districtSHP$ADM4_EN <- gsub(" Division","",districtSHP$ADM4_EN)
+
+## then create parish-level aggregate
+
+parishDF <- left_join(parish, villageDF, by="parish")
+varsDF <- parishDF %>% group_by(parish) %>% 
+  dplyr::summarise(satShare = mean(sat_kcca, na.rm = TRUE),
+            folgovAvg10 = mean(fol_gov_guide, na.rm = TRUE),
+            mobrestrShare = mean(mob_restr, na.rm = TRUE),
+            gov_dist_aidAvg5 = mean(gov_dist_aid,na.rm=TRUE),
+            effmaskAvg5 = mean(social_dist,na.rm=TRUE),
+            socdistShare = mean(social_dist_comp,na.rm=TRUE),
+            comply3Share = mean(compl_nsh_wm_sd,na.rm=TRUE),
+            foodaidShare = mean(food_aid,na.rm=TRUE),
+            delayvistShare = mean(unable_visit,na.rm=TRUE),
+            complmaskShare = mean(wear_mask,na.rm=TRUE)) 
+
+p_district <- geom_sf(data=districtSHP,fill="transparent",color = "blue", size = 1) +geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Food security"), message = FALSE, warning = FALSE, echo = FALSE}
+
+
+#### PLOT ####
+
+## last 7 days % encountered difficulty in buying food
+p_mobrest <- ggplot(varsDF) +
+  geom_sf(aes(fill = mobrestrShare)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "% had difficulty buying food") +
+  theme_clean() +
+  scale_fill_viridis_c(name = "%",labels=scales::percent_format(),
+                       na.value = "light grey",option="B",trans="reverse") +
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 12))
+
+p_mobrest + geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +
+  geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+## %who request food aid
+
+p_foodaid <- ggplot(varsDF) +
+  geom_sf(aes(fill = foodaidShare)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "% requested food aid") +
+  theme_clean() +
+  scale_fill_viridis_c(name = "%",labels=scales::percent_format(),
+                       na.value = "light grey",option="B",limits=c(0,1)) +
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 12))
+p_foodaid+ geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +
+  geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Preventive measures"), message = FALSE, warning = FALSE, echo = FALSE}
+
+
+## % who say they try to keep a distance of 2 meters from others
+p_socdistcompl <- ggplot(varsDF) +
+  geom_sf(aes(fill = socdistShare)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "% compliance with social distancing") +
+  theme_clean() +
+  scale_fill_viridis_c(name = "%",labels=scales::percent_format(),
+                       na.value = "light grey",option="B") +
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 12))
+p_socdistcompl+ geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+##  % who say they do all three of these: dont shake hands, mask wearing, try to keep distance of 2 meters
+p_comply3 <- ggplot(varsDF) +
+  geom_sf(aes(fill = comply3Share)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "% no shakehand/wear mask/social distance") +
+  theme_clean() +
+  scale_fill_viridis_c(name = "% Compliance",labels=scales::percent_format(),
+                       na.value = "light grey",option="B",limits=c(0,1)) +
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 10))
+p_comply3+ geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +
+  geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+## % wear mask as much as possible
+p_complmask <- ggplot(varsDF) +
+  geom_sf(aes(fill = complmaskShare)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "% wear mask as much as possible") +
+  theme_clean() +
+  scale_fill_viridis_c(name = "%",labels=scales::percent_format(),
+                       na.value = "light grey",option="B",limit=c(0,1)) +
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 12))
+
+p_complmask + geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +
+  geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Risk perception"), message = FALSE, warning = FALSE, echo = FALSE}
+
+## how many out of 10 in your village do you think comply with gov't measures?
+
+p_fol_gov <- ggplot(varsDF) +
+  geom_sf(aes(fill = folgovAvg10)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "How many out of 10 do you think follow gov't policies?") +
+  theme_clean() +  
+  scale_fill_viridis_c(name = "avg # out of 10",option="B",
+                       limits=c(0,10),
+                       labels=scales::number_format(),
+                       na.value = "light grey")+ 
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 12))
+
+p_fol_gov+ geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +
+  geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+```
+
+```{r, eval=(my_subset$family[[1]]=="Policy evaluation"), message = FALSE, warning = FALSE, echo = FALSE}
+
+## How well has gov't done in distributing aid?
+p_govdisaid <- ggplot(varsDF) + geom_sf(aes(fill = gov_dist_aidAvg5)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "How well has gov't done in distributing aid?") + theme_clean() +
+  scale_fill_viridis_c(name = "score out of 5",option="B",limits=c(1,5),
+                       labels=c("1-Very well","2","3","4","5-Very poorly"),
+                       na.value = "light grey") +
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 12))
+
+p_govdisaid+ geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +
+  geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
+
+## how effective is mask wearing?
+p_effmask <- ggplot(varsDF) +
+  geom_sf(aes(fill = effmaskAvg5)) +
+  labs(x = "Longitude",
+       y = "Latitude",
+       title = "How effective is maskwearing in slowing COVID-19?") +
+  theme_clean() +
+  scale_fill_viridis_c(name = "score out of 5",option="B",
+                       limits=c(1,5),
+                       labels=c("1-Very ineffective","2","3","4","5-Very effective"),
+                       na.value = "light grey") +
+  theme(axis.text = element_text(size = 11),
+        axis.title = element_text(size = 12))
+
+p_effmask+ geom_sf(data=districtSHP,fill="transparent",color = "green", size = 0.8) +
+  geom_sf_label(data=districtSHP,aes(label = ADM4_EN))
 
 ```
