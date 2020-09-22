@@ -52,6 +52,8 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
   # generate bar plot for each var, and store them into subplots list
   subplots <- lapply(1:length(vars), function(x){
 
+    n <- nrow(filter(df2 %>% filter(!is.na(!!sym(vars[x])))))
+
     question_label <- split_every(var_labs[names(var_labs) == vars[x]], 6, pattern = " ")
     question_label <- paste(question_label,collapse="\n")
 
@@ -59,7 +61,7 @@ all_bar_plot <- function(df, my_vars, nrow = NULL){
       geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
       geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2) +
       scale_y_continuous(labels = scales::percent_format(accuracy = .01), limits=c(0,1))+
-      labs(title = question_label, x= NULL, y= "percent") +
+      labs(title = paste0(question_label, " ", "(n=", n, ")"), x= NULL, y= "percent") +
       coord_flip()+
       theme(axis.text.x = element_text(angle = 0, hjust = 1),
             axis.title=element_text(face="bold"),
@@ -106,18 +108,21 @@ create_bars <- function(df, my_vars, nrow = NULL){
   # generate bar plot for each var, and store them into subplots list
   subplots <- lapply(1:length(vars), function(x){
 
+    n <- nrow(filter(df2 %>% filter(!is.na(!!sym(vars[x])))))
+
     question_label <- split_every(var_labs[names(var_labs) == vars[x]], 6, pattern = " ")
     question_label <- paste(question_label,collapse="\n")
 
     ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
-      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE)  +
+      geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
       geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2) +
-      coord_flip() +
       scale_y_continuous(labels = scales::percent_format(accuracy = .01), limits=c(0,1))+
-      labs(title = question_label, x= NULL, y= "percent") +
+      labs(title = paste0(question_label, " ", "(n=", n, ")"), x= NULL, y= "percent") +
+      coord_flip()+
       theme(axis.text.x = element_text(angle = 0, hjust = 1),
             axis.title=element_text(face="bold"),
-            plot.title = element_text(hjust = 0.5),
+            plot.title = element_text(hjust = 0.5, size=.7),
             strip.text.y.left = element_text(angle = 0))+
-      theme_minimal() })
+      theme_minimal()})
+
 }

@@ -10,7 +10,7 @@ together_plot <- function(df, my_vars){
     question = get_label(df[,together]),
     foreach(i=together,.combine="rbind") %do%{
       eachqs = df[,i]
-      obs = length(eachqs)
+      obs = nrow(select(df, i) %>% drop_na())
       yes = sum(eachqs=="yes"|eachqs==1, na.rm = TRUE)
       no = sum(eachqs=="no"|eachqs==0, na.rm = TRUE)
       perc = round(yes/obs,3)*100
@@ -31,6 +31,8 @@ together_plot <- function(df, my_vars){
 
   df_together$question=factor(df_together$question, levels = df_together$question[order(df_together$Perc.)])
 
+  n <- nrow(df)
+
   p_together <- ggplot(data = df_together,aes(x=question,y=Perc.)) +
     geom_bar(stat = 'identity') +
     coord_flip() +
@@ -41,9 +43,8 @@ together_plot <- function(df, my_vars){
           axis.text.y = element_text(colour="black"),
           plot.title = element_text(hjust = 0.5, face = "bold", size = .4),
           text = element_text(size=20)) +
-    ggtitle(paste0(common_question))+
+    ggtitle(paste0(common_question, " ", "(n=", n, ")"))+
     theme_minimal()
-
 }
 
 #' @param x Vector
