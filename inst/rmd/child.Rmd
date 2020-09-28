@@ -62,6 +62,7 @@ histograms <- c(histograms, c)
 nrow <- 3
 g <-  do.call(grid.arrange, c(histograms, list(nrow=nrow)))
 
+g
 
 ```
 
