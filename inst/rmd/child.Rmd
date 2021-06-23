@@ -96,7 +96,146 @@ nrow <- 2
 
 ```{r, eval=(my_subset$family[[1]]=="Vaccine acceptability_"), echo = FALSE, fig.height = 8, fig.width=12, message = FALSE, warning = FALSE, results = 'hide'}
 
-dashdash:::bars_together(my_data, my_subset, nrow=2)
+together_plot_m <- function(df, my_vars){
+  together_vars <- my_vars
+  prefix <- together_vars$together[[1]]
+  common_question <- dashdash:::split_every(together_vars$title[[1]], 6, pattern = " ")
+  common_question <- paste(common_question,collapse="\n")
+  
+  together <- df %>% dplyr::select(together_vars$variable) %>% names
+  
+  df_together <- data.frame(
+    question = get_label(df[,together]),
+    foreach(i=together,.combine="rbind") %do%{
+      eachqs = df[,i]
+      obs = nrow(select(df, i) %>% drop_na())
+      yes = sum(eachqs=="yes"|eachqs==1, na.rm = TRUE)
+      no = sum(eachqs=="no"|eachqs==0, na.rm = TRUE)
+      perc = round(yes/obs,3)*100
+      c("observations" = obs,"Yes-1" = yes,"No-0"=no,"Perc."=perc)
+    },
+    stringsAsFactors = FALSE)
+  
+  if(""%in%df_together$question){
+    df_together <- rownames_to_column(df_together, var = "rowname")
+    
+    together_vars <- select(together_vars, rowname=variable, short_label)
+    df_together <- left_join(df_together, together_vars, by="rowname") %>%
+      select(-question) %>%
+      rename(question=short_label)
+  }
+  
+  rownames(df_together) <- NULL
+  
+  df_together$question=factor(df_together$question, levels = df_together$question[order(df_together$Perc.)])
+  
+  n <- df_together$observations[[1]]
+  
+  p_together <- ggplot(data = df_together,aes(x=question,y=Perc.)) +
+    geom_bar(stat = 'identity') +
+    coord_flip() +
+    geom_text(aes(label=paste0(Perc.,"%")), hjust = -0.2, size=3) +
+    ylab("% of Respondents") + xlab("Option") + ylim(0,100)+
+    scale_y_continuous(labels = function(x) paste0(x, "%"), limits=c(0,100))+
+    theme(axis.text.x = element_text(colour="black"),
+          axis.text.y = element_text(colour="black"),
+          plot.title = element_text(hjust = 0.5, face = "bold", size = .4),
+          text = element_text(size=20)) +
+    ggtitle(paste0(common_question, " ", "(n=", n, ")"))+
+    theme_minimal()
+}
+
+bars_together_ <- function(df, my_vars, nrow=NULL){
+  
+  if("together" %in% colnames(my_vars))
+  {
+    #choose that don't go together
+    separate_vars <- filter(my_vars, is.na(together))
+    
+    if(nrow(separate_vars)!=0){
+      # extract vars' info from my_var
+      vars <- pull(separate_vars, variable)
+      var_labs <- separate_vars  %>% pull(short_label)
+      names(var_labs) <- vars
+      
+      # No. of vars
+      length_var <- length(vars)
+      
+      # select all vars from separate_vars
+      df2 <- df %>% select(all_of(vars))
+      
+      # check if vars with attributed labels
+      types_df2 <- sapply(1:length(df2), function(x){class(df2[[x]])})
+      if ("haven_labelled" %in% types_df2){
+        # convert all vars with attributed labels to factor
+        for(i in(1:length(df2))){
+          if(class(df2[[i]]) == "haven_labelled"){
+            df2[[i]] <- haven::as_factor(df2[[i]],levels = "labels")
+          }
+        }
+      }else{
+        # set all vars as factor vars
+        df2[, vars] <- lapply(df[, vars], factor)
+      }
+      
+      if(is.null(nrow)){nrow <- row_function(length_var)}
+      
+      # generate bar plot for each var, and store them into subplots list
+      subplots <- lapply(1:length(vars), function(x){
+        
+        n <- nrow(filter(df2 %>% filter(!is.na(!!sym(vars[x])))))
+        
+        question_label <- dashdash:::split_every(var_labs[names(var_labs) == vars[x]], 6, pattern = " ")
+        question_label <- paste(question_label,collapse="\n")
+        
+        ggplot(data = df2 %>% filter(!is.na(!!sym(vars[x]))), aes(x=.data[[vars[x]]]))+
+          geom_bar(aes(y = (..count..)/sum(..count..)), na.rm = TRUE) +
+          geom_text(aes(label = scales::percent((..count..)/sum(..count..)), y= (..count..)/sum(..count..)), stat= "count",size=3, hjust = -0.2) +
+          scale_y_continuous(labels = scales::percent_format(accuracy = .01), limits=c(0,1))+
+          labs(title = paste0(question_label, " ", "(n=", n, ")"), x= NULL, y= "percent") +
+          coord_flip()+
+          theme(axis.text.x = element_text(angle = 0, hjust = 1),
+                axis.title=element_text(face="bold"),
+                plot.title = element_text(hjust = 0.5, size=.7),
+                strip.text.y.left = element_text(angle = 0))+
+          theme_minimal()})
+      
+    }
+    
+    
+    #do together plot
+    together_vars <- filter(my_vars, !is.na(together))
+    together_list <- list()
+    for (common in unique(together_vars$together)) {
+      n_common <- filter(together_vars, together==common)
+      t <- together_plot_m(my_data, n_common)
+      together_list[[common]] <- t
+    }
+    
+    if(exists("subplots")){
+      subplots <- c(together_list, subplots)
+      # place all subplots in nrow
+      nrow <- nrow
+      if(is.null(nrow)) nrow <- round(length(subplots)/2)
+      g <-  do.call(grid.arrange, c(subplots, list(nrow=nrow)))
+      return(g)
+    }
+    
+    if(!exists("subplots")){
+      nrow <- nrow
+      if(is.null(nrow)) nrow <- round(length(subplots)/2)
+      g <-  do.call(grid.arrange, c(together_list, list(nrow=nrow)))
+      return(g)
+    }
+  }
+  
+  if(!isTRUE("together" %in% colnames(my_vars)))
+  {
+    all_bar_plot(my_data, my_vars, nrow=4)
+  }
+}
+
+bars_together_(my_data, my_subset, nrow=2)
 
 ```
 
